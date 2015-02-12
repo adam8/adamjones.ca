@@ -30,7 +30,7 @@ a:hover {
   color: rgb(255, 149, 62);
 }
 
-#content-1, #content-2 {
+#content-1, #content-2, #content-1a {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -46,10 +46,30 @@ a:hover {
   min-height: 70vh;
   flex-direction: column;
 }
+#content-1a {
+  background: #fff;
+  color: #513019;
+  min-height: 40vh;
+  font-family: "Lato", sans-serif;
+  font-size: 22px;
+  line-height: 1.75em;
+  box-shadow: 0 0 35px rgba(0,0,0,.2);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#content-1a .inner {
+  max-width: 800px; 
+  padding: 30px 20px;
+}
 
 #bg {
   display: none;
-  opacity: 0;
+  opacity: .1;
   position: fixed; left: 0; top: 0;
   min-width: 100%; min-height: 100%;
   width: auto; height: auto; z-index: -100;
@@ -148,7 +168,7 @@ a:hover {
     transition: opacity 3s ease;
   }
   #content-2 {
-    min-height: 100vh;
+    min-height: 60vh;
     flex-direction: row;
   }
   

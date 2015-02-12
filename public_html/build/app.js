@@ -14,10 +14,8 @@ var ScrollListener = React.createClass({displayName: "ScrollListener",
     
     if (bgPos > 50) {
       $('#scroll').addClass('scrolled');
-    } else {
-      $('#scroll').removeClass('scrolled');
     }
-    bg.style.opacity = (bgPos/height * 2) + 0;
+    bg.style.opacity = (bgPos/height * 2) + .1;
   },
 
   render: function() {
@@ -52,4 +50,6 @@ $(function() {
   function delayScrollHint() { $('#scroll').addClass('scroll-show') }
   
   setTimeout(delayScrollHint, 1500);
+  
+  $('.balance-text').balanceText();
 });
