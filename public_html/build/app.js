@@ -40,7 +40,12 @@ React.render(
 $(function() {
   
   $('#container-outer').css('opacity','1');
-   
-  function delayScrollHint() { $('#scroll').css('opacity','1'); }
-  setTimeout(delayScrollHint, 2000);
+  $('#scroll').click(function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('#container-outer').height()
+    })
+  });
+  function delayScrollHint() { $('#scroll').css('opacity','1') }
+  setTimeout(delayScrollHint, 3000);
 });
