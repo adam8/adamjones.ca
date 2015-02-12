@@ -2,47 +2,8 @@
   <head>
     <meta name="viewport" content="width=device-width, minimal-ui" />
     <title>Adam Jones, Generic yet unique guy from BC, Canada</title>
+    <link href='/css/styles.css' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-      body {
-        font-family: 'Amatic SC', sans-serif;
-        /* background: #3b7ec5; 
-        background: -moz-linear-gradient(top, #3b7ec5 0%, #60acea 100%); 
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3b7ec5), color-stop(100%,#60acea));
-        background: -webkit-linear-gradient(top, #3b7ec5 0%,#60acea 100%); 
-        background: -o-linear-gradient(top, #3b7ec5 0%,#60acea 100%); 
-        background: -ms-linear-gradient(top, #3b7ec5 0%,#60acea 100%); 
-        background: linear-gradient(to bottom, #3b7ec5 0%,#60acea 100%); */
-        /*background: #686160 url(twins.jpg) no-repeat center 30%;*/
-        background-size: cover;
-      }
-      h1, p { 
-        font-size: 50px;
-        color: #000;
-      }
-      a:link, a:visited {
-        color: #000;
-      }
-      a:hover {  
-        color: #000;
-      }
-      .hullo {
-        /*border: 4px double #fff;*/
-        /*margin-top: 25%;*/
-        background: rgba(0, 0, 0, 0.1);
-        display: inline-block;
-        padding: 14px 50px;
-      }
-      .blurb {
-        font-size: 16px;
-      }
-      #container-outer {
-        display:table;width: 100%;height: 100%;
-      }
-      #container-inner {
-        display: table-cell; text-align: center; vertical-align: middle;
-      }
-    </style> 
   </head>
   <body>
     <div id="container-outer">
@@ -54,7 +15,15 @@
       </div>
     </div>
     
+    <div id="content"></div>
     
+     
+    <div id="bg"><img src="http://lvl.adam8.com/wp-content/uploads/2015/01/IMG_1976-1024x768.jpg"></div>
+    
+    <script src="build/react.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- No need for JSXTransformer! -->
+    <script src="build/app.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
