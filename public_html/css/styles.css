@@ -1,44 +1,50 @@
 *, *:before, *:after {
   box-sizing: border-box;
+  margin:0;padding:0;
 }
 a, a:focus, :focus {
    outline: 0;
 } 
-
 body {
   font-family: 'Amatic SC', sans-serif;
   background-size: cover;
   background: #2A190B;
+  text-align: center;
 }
-h1, p { 
-  font-size: 6vmin;
-  color: #000;
-}
+
 a:link, a:visited {
-  color: #000;
+  color: #fff;
 }
 a:hover {  
-  color: #000;
+  color: #fff;
 }
-.hullo {
-  /*border: 4px double #fff;*/
-  /*margin-top: 25%;*/
-  background: rgba(0, 0, 0, 1);
-  display: inline-block;
-  padding: 14px 50px;
+#hullo {
   color: #fff;
   font-size: 8vmin;
   margin: 0 auto;
-  min-width: 95%;
+  background: rgba(0, 0, 0, 1);
+  display: inline-block;
+  padding: 14px 50px;
 }
-.blurb {
-  font-size: 16px;
+#job-description {
+  color: rgb(255, 149, 62);
 }
-#container-outer {
-  display:table;width: 100%;min-height: 30vh;
+
+#content-1, #content-2 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#container-inner {
-  display: table-cell; text-align: center; vertical-align: middle;
+#content-1 {
+  min-height: 30vh;
+}
+#content-2 {
+  min-height: 70vh;
+  flex-direction: row;
 }
 
 #bg {
@@ -49,39 +55,26 @@ a:hover {
   width: auto; height: auto; z-index: -100;
 }
 
-#content {
-  min-height: 70vh;
-  display: table;
-  margin: 0 auto;
-}
-.content-box {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  padding: 25px;
-  margin: 0 auto 0px auto;
-  display: table-cell; text-align: center; vertical-align: middle;
-  overflow: auto;
-  font-size: 100px;
-  font-size: 8vmin;
-  color: #fff;
-  line-height: 1.5em;
-}
-.social a {
+.social {
   transition: all .1s ease;
   display: block;
   padding: 20px 30px 10px 30px;
-  margin: 0 20px 50px 20px;
+  margin: 25px 20px;
   background: rgba(0, 0, 0, 1);
   text-decoration: none;
+  font-size: 100px;
+  font-size: 8vmin;
 }
-.social a:hover {
-  -ms-transform: scale(1.04,1.04); /* IE 9 */
-  -webkit-transform: scale(1.04,1.04); /* Chrome, Safari, Opera */
+.social:hover {
+  -ms-transform: scale(1.04,1.04);
+  -webkit-transform: scale(1.04,1.04);
   transform: scale(1.04,1.04);
 }
-.content-box a:link,
-.content-box a:visited {
+.social a {
+  text-decoration: none;
+}
+.social a:link,
+.social a:visited {
   color: #fff;
 }
 
@@ -89,11 +82,11 @@ a:hover {
   display: none;
   z-index: 11;
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1s ease;
   width: 100px;
   height: 100px;
   position: fixed;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   margin-left: -50px;
 }
@@ -103,6 +96,14 @@ a:hover {
 #scroll.scrolled {
   transition: all .3s ease;
   opacity: 0!important;
+}
+#scroll.scroll-show {
+  opacity: 1;
+  -webkit-transform: translate(0, 10px);
+     -moz-transform: translate(0, 10px);
+      -ms-transform: translate(0, 10px);
+       -o-transform: translate(0, 10px);
+          transform: translate(0, 10px);
 }
 #scroll svg {
   width: 100%;
@@ -133,23 +134,20 @@ a:hover {
   #scroll {
     display: block;
   }
-  .hullo, .content-box {
+  #hullo, .content-box {
     font-size: 7vmin;
     min-width: inherit;
-  }
-  .content-box {
-    margin: 0 auto 200px auto;
-  }
-  #content {
-    min-height: 100vh;
   }
   .social a {
     display: inline-block;
   }
-  #container-outer {
+  #content-1 {
     min-height: 100vh;
     opacity: 0;
     transition: opacity 3s ease;
+  }
+  #content-2 {
+    min-height: 100vh;
   }
   
 }
