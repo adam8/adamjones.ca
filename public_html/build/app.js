@@ -13,7 +13,7 @@ var CommentBox = React.createClass({displayName: "CommentBox",
     var height = $(document).height();
     
     console.log(bgPos);
-    bg.style.opacity = (bgPos/height * 2) + .15;
+    bg.style.opacity = (bgPos/height * 2) + 0;
     //bg.style["-webkit-transform"] = "translate3d(0," + bgPos + "px, 0)";
     //bg.style["transform"] = "translate3d(0px, " + bgPos + "px, 0)";
   },
