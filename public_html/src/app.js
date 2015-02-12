@@ -12,7 +12,10 @@ var CommentBox = React.createClass({
     var bgPos = (document.body.scrollTop);
     var height = $(document).height();
     
-    console.log(bgPos);
+    //console.log(bgPos);
+    if (bgPos > 50) {
+      $('#scroll').addClass('scrolled');
+    }
     bg.style.opacity = (bgPos/height * 2) + 0;
     //bg.style["-webkit-transform"] = "translate3d(0," + bgPos + "px, 0)";
     //bg.style["transform"] = "translate3d(0px, " + bgPos + "px, 0)";
@@ -33,3 +36,11 @@ React.render(
   <CommentBox />,
   document.getElementById('content')
 );
+
+$(function() {
+  
+  $('#container-outer').css('opacity','1');
+   
+  function delayScrollHint() { $('#scroll').css('opacity','1'); }
+  setTimeout(delayScrollHint, 2000);
+});

@@ -10,7 +10,7 @@ body {
   /*background: #686160 url(twins.jpg) no-repeat center 30%;*/
   background-size: cover;
   min-height: 200vh;
-  background: #1A0F06;
+  background: #2A190B;
 }
 h1, p { 
   font-size: 50px;
@@ -35,6 +35,8 @@ a:hover {
   font-size: 16px;
 }
 #container-outer {
+  opacity: 0;
+  transition: opacity 3s ease;
   display:table;width: 100%;height: 100vh;
 }
 #container-inner {
@@ -76,4 +78,22 @@ a:hover {
   color: #fff;
 }
 
+#scroll {
+  opacity: 0;
+  transition: all 2s ease;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -50px;
+}
+#scroll.scrolled {
+  transition: all .4s ease;
+  opacity: 0!important;
+}
+#scroll svg {
+  width: 100%;
+  height: 100%;
+}
 
