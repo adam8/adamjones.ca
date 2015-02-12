@@ -1,4 +1,4 @@
-var CommentBox = React.createClass({displayName: "CommentBox",
+var ScrollListener = React.createClass({displayName: "ScrollListener",
   componentDidMount: function () {
     window.addEventListener('scroll', this.onPageScroll);
   },
@@ -26,9 +26,13 @@ var CommentBox = React.createClass({displayName: "CommentBox",
   
 });
 React.render(
-  React.createElement(CommentBox, null),
+  React.createElement(ScrollListener, null),
   document.getElementById('reactjs')
 );
+
+
+
+
 
 $(function() {
   

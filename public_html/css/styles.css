@@ -21,7 +21,7 @@ a:hover {
 #hullo {
   color: #fff;
   font-size: 8vmin;
-  margin: 0 auto;
+  margin: 15px auto;
   background: rgba(0, 0, 0, 1);
   display: inline-block;
   padding: 14px 50px;
@@ -44,7 +44,7 @@ a:hover {
 }
 #content-2 {
   min-height: 70vh;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #bg {
@@ -59,7 +59,7 @@ a:hover {
   transition: all .1s ease;
   display: block;
   padding: 20px 30px 10px 30px;
-  margin: 25px 20px;
+  margin: 15px 20px;
   background: rgba(0, 0, 0, 1);
   text-decoration: none;
   font-size: 100px;
@@ -134,8 +134,9 @@ a:hover {
   #scroll {
     display: block;
   }
-  #hullo, .content-box {
-    font-size: 7vmin;
+  #hullo {
+    /*font-size: 7vmin;*/
+    font-size: 45px;
     min-width: inherit;
   }
   .social a {
@@ -148,6 +149,7 @@ a:hover {
   }
   #content-2 {
     min-height: 100vh;
+    flex-direction: row;
   }
   
 }
