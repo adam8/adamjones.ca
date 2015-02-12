@@ -9,9 +9,13 @@ var CommentBox = React.createClass({
   
   onPageScroll: function () {
     var bg = document.getElementById("bg");
-    var bgPos = (document.body.scrollTop / 10) * -1;
-    bg.style["-webkit-transform"] = "translate3d(0," + bgPos + "px, 0)";
-    bg.style["transform"] = "translate3d(0px, " + bgPos + "px, 0)";
+    var bgPos = (document.body.scrollTop);
+    var height = $(document).height();
+    
+    console.log(bgPos);
+    bg.style.opacity = (bgPos/height * 2) + .15;
+    //bg.style["-webkit-transform"] = "translate3d(0," + bgPos + "px, 0)";
+    //bg.style["transform"] = "translate3d(0px, " + bgPos + "px, 0)";
   },
   
   render: function() {
