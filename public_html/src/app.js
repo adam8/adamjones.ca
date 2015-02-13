@@ -40,7 +40,7 @@ $(function() {
     $('#scroll').removeClass('scrolled').css('opacity','1');
   });
   
-  $('#scroll').click(function(e) {
+  $('#scroll, #hullo').click(function(e) {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $('#content-1').height()
