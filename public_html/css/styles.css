@@ -78,6 +78,25 @@ a:hover {
   padding: 30px 20px;
 }
 
+#divider {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  height: 20px;
+}
+/*#divider-inner-1,
+#divider-inner-3 {
+  background: #fff;
+  flex: 10 100 auto;
+}
+#divider-inner-2 {
+  background: transparent url(/img/bg-divider-arrow.png) repeat-x center center;
+  min-width: 50px;
+  flex: 1 1;
+}*/
+
 #bg {
   display: none;
   opacity: .55;
@@ -175,6 +194,7 @@ a:hover {
   }
   #content-1 {
     min-height: 100vh;
+    /*margin-bottom: -40px;*/
     opacity: 0;
     transition: opacity 3s ease;
   }
