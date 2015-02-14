@@ -48,7 +48,8 @@ a:hover {
   min-height: 30vh;
 }
 #content-2 {
-  min-height: 70vh;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 #content-1a {
@@ -64,7 +65,12 @@ a:hover {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
   align-items: center;
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 #content-1a .inner {
