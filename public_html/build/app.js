@@ -15,8 +15,8 @@ var ScrollListener = React.createClass({displayName: "ScrollListener",
     if (bgPos > 50) {
       $('#scroll').addClass('scrolled');
     }
-    var opacity = ( ((bgPos/height)) * -1 ) + .55;
-    //console.log(opacity);
+    var opacity = ( ((bgPos/height * 2) ) * -1 ) + 1;
+    console.log(opacity);
     bg.style.opacity = opacity;
   },
 

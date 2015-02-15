@@ -99,7 +99,7 @@ a:hover {
 
 #bg {
   display: none;
-  opacity: .55;
+  opacity: 1;
   position: fixed; left: 0; top: 0;
   min-width: 100%; min-height: 100%;
   width: auto; height: auto; z-index: -100;
