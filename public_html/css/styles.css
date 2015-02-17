@@ -140,8 +140,8 @@ a:hover {
   flex-direction: column;
 }
 #content-1a {
-  background: #fff;
-  color: #513019;
+  background: #000;
+  color: #FFA33E;
   min-height: 30vh;
   font-family: "Lato", sans-serif;
   font-size: 22px;
@@ -175,7 +175,7 @@ a:hover {
 }
 #divider-inner-1,
 #divider-inner-3 {
-  background: #fff;
+  background: #000;
   -ms-flex: 10 100 auto;
   -webkit-flex: 10 100 auto;
   flex: 10 100 auto;
