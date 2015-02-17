@@ -225,9 +225,9 @@ a:hover {
 #social-title-github { color: #FFFFFF; /*color: #946CE5;*/ }
 #social-title-linkedin { color: #FFFFFF; /*color: #27AFF4;*/ }
 
-#logo-dribbble path { fill: #F4C227; /*fill: #93EA61;*/ }
-#logo-github path { fill: #F4C227; /*fill: #F4C227;*/ }
-#logo-linkedin path { fill: #F4C227; /*fill: #27AFF4;*/ }
+#logo-dribbble path { fill: #A36B36; /*fill: #93EA61;*/ }
+#logo-github path { fill: #A36B36; /*fill: #F4C227;*/ }
+#logo-linkedin path { fill: #A36B36; /*fill: #27AFF4;*/ }
 
 
 #scroll {
