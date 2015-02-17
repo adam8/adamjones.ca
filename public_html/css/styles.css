@@ -214,6 +214,12 @@ a:hover {
   -webkit-transform: scale(1.1,1.1);
   transform: scale(1.1,1.1);
 }
+.social:hover path {
+  transition: all .12s ease-in;
+}
+.social:hover path {
+  fill: #FFFFFF!important;
+}
 .social:hover .social-title {
   -webkit-transition-delay: .03s; 
   transition-delay: .03s;
