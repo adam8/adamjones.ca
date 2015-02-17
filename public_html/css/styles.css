@@ -76,8 +76,8 @@ a:hover {
   transition-delay: .06s;
 }
 
-#developer #job-title-developer,
-#developer #job-title-designer { transition: all .3s ease-in; }
+#job-title-developer,
+#job-title-designer { transition: color .3s ease-in; }
 
 #developer:hover #job-title-developer,
 #designer:hover #job-title-designer {
