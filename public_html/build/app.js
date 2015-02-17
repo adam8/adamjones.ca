@@ -10,6 +10,7 @@ var ScrollListener = React.createClass({displayName: "ScrollListener",
   onPageScroll: function () {
     var bg = document.getElementById("bg");
     var bgPos = document.body.scrollTop;
+    var screenHeight = window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight||0;;
     var height = $(document).height();
     
     if (bgPos > (height/2) - 100) {
@@ -19,7 +20,6 @@ var ScrollListener = React.createClass({displayName: "ScrollListener",
       bg.play();
       console.log('start');
     }
-    
     var opacity = ( ((bgPos/height * 2) ) * -1 ) + 1;
     bg.style.opacity = opacity;
   },
