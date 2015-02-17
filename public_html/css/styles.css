@@ -134,6 +134,7 @@ a:hover {
 }
 #content-2 {
   z-index: 12;
+  min-height: 70px;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
@@ -141,7 +142,7 @@ a:hover {
 #content-1a {
   background: #fff;
   color: #513019;
-  min-height: 35vh;
+  min-height: 30vh;
   font-family: "Lato", sans-serif;
   font-size: 22px;
   line-height: 1.75em;
@@ -161,7 +162,7 @@ a:hover {
 }
 #content-1a .inner {
   max-width: 900px; 
-  padding: 30px 20px;
+  padding: 30px 20px 50px 20px;
 }
 
 #divider {
@@ -346,7 +347,7 @@ a:hover {
 @media screen and (min-width: 700px) {
   
   body {
-    min-height: 190vh;
+    min-height: 169vh;
   }
   #bg {
     display: block;
@@ -363,13 +364,17 @@ a:hover {
     display: inline-block;
   }
   #content-1 {
-    min-height: 100vh;
-    margin-bottom: -40px;
+    min-height: 70vh;
+    /*margin-bottom: -40px;*/
     opacity: 0;
     transition: opacity 3s ease;
   }
+  #content-1a {
+    min-height: 30vh;
+    margin-bottom: -40px;
+  }
   #content-2 {
-    min-height: 55vh;
+    min-height: 70vh;
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
