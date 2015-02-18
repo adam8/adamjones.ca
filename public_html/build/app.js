@@ -100,7 +100,7 @@ $(function() {
       path.style.transitionDelay = path.style.WebkitTransitionDelay = (i/4 + .2) + 's';
     }  else {
       path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset .5s ease-in-out';
-      //path.style.transitionDelay = path.style.WebkitTransitionDelay = (i/4 + .5) + 's';
+      path.style.transitionDelay = path.style.WebkitTransitionDelay = (i/4 + .5) + 's';
     }
     // Go!
     path.style.strokeDashoffset = '0';
