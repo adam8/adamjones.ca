@@ -8,7 +8,8 @@ a, a:focus, :focus {
 body {
   font-family: 'Amatic SC', sans-serif;
   background-size: cover;
-  background: #2A190B;
+  /* background: #2A190B; */
+  background: #000;
   text-align: center;
 }
 
