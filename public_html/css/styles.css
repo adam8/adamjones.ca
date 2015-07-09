@@ -365,14 +365,13 @@ a:hover {
     display: inline-block;
   }
   #content-1 {
-    min-height: 70vh;
+    min-height: 80vh;
     /*margin-bottom: -40px;*/
     opacity: 0;
     transition: opacity 3s ease;
   }
   #content-1a {
-    min-height: 30vh;
-    margin-bottom: -40px;
+    min-height: calc(20vh - 20px);
   }
   #content-2 {
     min-height: 70vh;
