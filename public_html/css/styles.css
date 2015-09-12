@@ -22,7 +22,7 @@ a:hover {
 #hullo {
   color: #fff;
   font-size: 8vmin;
-  margin: 15px auto;
+  margin: 15px auto 0 auto;
   /*background: rgba(0, 0, 0, 1);*/
   display: inline-block;
   padding: 14px 50px;
@@ -37,7 +37,7 @@ a:hover {
   transition: all .25s cubic-bezier(0.135, 0.540, 0.370, 1.650);
 }
 #hullo h1 {
-  font-size: 80px;
+  font-size: 45px;
   margin-bottom: 50px;
 }
 #hullo h1:hover {
@@ -54,7 +54,7 @@ a:hover {
   transition: scale .2s cubic-bezier(0.135, 0.540, 0.370, 1.650), opacity 2s ease-in-out; 
 }
 #job-title-developer {
-  color: #F4C227;
+  color: #55E9FB;
   opacity: 0;
 }
 #job-title-designer {
@@ -106,7 +106,6 @@ a:hover {
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  margin-bottom: 80px;
 }
 #developer, #designer {
   -ms-flex-direction: column;
@@ -131,23 +130,24 @@ a:hover {
   justify-content: center;
 }
 #content-1 {
-  min-height: 30vh;
+  min-height: 80vh;
 }
 #content-2 {
   background: rgba(0,0,0,.8);
+  padding-bottom: 0; 
   z-index: 12;
-  min-height: 70px;
+  min-height: calc(80vh);
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
 #content-1a {
   background: rgba(0,0,0,.8);
-  color: #FFA33E;
-  min-height: 30vh;
+  color: #55E9FB;
+  min-height: calc(20vh - 20px);
   font-family: "Lato", sans-serif;
-  font-size: 22px;
-  line-height: 1.75em;
+  font-size: 18px;
+  line-height: 1.25em;
   /*box-shadow: 0 0 35px rgba(0,0,0,.2);*/
   display: -webkit-box;
   display: -moz-box;
@@ -164,7 +164,7 @@ a:hover {
 }
 #content-1a .inner {
   max-width: 900px; 
-  padding: 30px 20px 50px 20px;
+  padding: 0px 40px;
 }
 
 #divider {
@@ -177,7 +177,7 @@ a:hover {
 }
 #divider-inner-1,
 #divider-inner-3 {
-  background: #000;
+  background-color: rgba(0,0,0,.8);
   -ms-flex: 10 100 auto;
   -webkit-flex: 10 100 auto;
   flex: 10 100 auto;
@@ -238,13 +238,13 @@ a:hover {
   color: #fff;
 }
 
-#social-title-dribbble { color: #FFFFFF; /*color: #E94C89;*/ }
-#social-title-github { color: #FFFFFF; /*color: #946CE5;*/ }
-#social-title-linkedin { color: #FFFFFF; /*color: #27AFF4;*/ }
+#social-title-dribbble { color: #93EA61; /*color: #E94C89;*/ }
+#social-title-github { color: #93EA61; /*color: #946CE5;*/ }
+#social-title-linkedin { color: #93EA61; /*color: #27AFF4;*/ }
 
-#logo-dribbble path { fill: #A36B36; /*fill: #93EA61;*/ }
-#logo-github path { fill: #A36B36; /*fill: #F4C227;*/ }
-#logo-linkedin path { fill: #A36B36; /*fill: #27AFF4;*/ }
+#logo-dribbble path { fill: #55E9FB; /*fill: #93EA61;*/ }
+#logo-github path { fill: #55E9FB; /*fill: #55E9FB;*/ }
+#logo-linkedin path { fill: #55E9FB; /*fill: #27AFF4;*/ }
 
 
 #scroll {
@@ -343,6 +343,10 @@ a:hover {
   display: block;
 }
 
+#cloud {
+  color: #93EA61;
+}
+
 
 
 
@@ -362,29 +366,32 @@ a:hover {
     font-size: 45px;
     min-width: inherit;
   }
+  #hullo h1 {
+    font-size: 80px;
+  }
   .social a {
     display: inline-block;
   }
   #content-1 {
-    min-height: 80vh;
     /*margin-bottom: -40px;*/
     opacity: 0;
     transition: opacity 3s ease;
   }
   #content-1a {
-    min-height: calc(20vh - 20px);
+    font-size: 22px;
   }
   #content-2 {
-    min-height: calc(80vh - 20px)
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
+    padding-bottom: 20vh;
   }
   #job-description {
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
     height: 100px;
+    margin-bottom: 60px;
   }
   .slash {
     height: 160%;
