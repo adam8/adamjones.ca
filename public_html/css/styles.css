@@ -22,11 +22,28 @@ a:hover {
 #hullo {
   color: #fff;
   font-size: 8vmin;
-  margin: 15px auto 0 auto;
+  margin: 0 auto 0 auto;
   /*background: rgba(0, 0, 0, 1);*/
   display: inline-block;
-  padding: 14px 50px;
+  padding: 10px 20px 2px 20px;
   transition: all .15s ease-in-out;
+  flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
 }
 #hullo:hover {
   cursor: pointer;
@@ -38,11 +55,31 @@ a:hover {
 }
 #hullo h1 {
   font-size: 45px;
+  flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 #hullo h1:hover {
   -ms-transform: scale(1.05,1.05);
   -webkit-transform: scale(1.05,1.05);
   transform: scale(1.05,1.05);
+}
+
+#job-description {
+  flex: 3;
 }
 
 #icon-developer, #icon-designer {
@@ -120,6 +157,8 @@ a:hover {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+}
+#content-2, #content-1a {
   -webkit-flex-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -131,9 +170,12 @@ a:hover {
 #content-1 {
   min-height: 80vh;
 }
+#divider {
+  display: none;
+}
 #content-1.iOS {
   /* subtract top/bottom bars... class added with browser sniffer in JS. (Bad!)  */
-  min-height: calc(80vh - 100px);
+  min-height: calc(80vh - 50px);
 }
 #content-2 {
   background: rgba(0,0,0,.8);
@@ -170,28 +212,7 @@ a:hover {
   padding: 0px 40px;
 }
 
-#divider {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  height: 20px;
-}
-#divider-inner-1,
-#divider-inner-3 {
-  background-color: rgba(0,0,0,.8);
-  -ms-flex: 10 100 auto;
-  -webkit-flex: 10 100 auto;
-  flex: 10 100 auto;
-}
-#divider-inner-2 {
-  background: transparent url(/img/bg-divider-arrow.png) repeat-x center center;
-  min-width: 50px;
-  -ms-flex: 1 1;
-  -webkit-flex: 1 1;
-  flex: 1 1;
-}
+
 
 #bg {
   display: none;
@@ -368,6 +389,8 @@ a:hover {
     /*font-size: 7vmin;*/
     font-size: 45px;
     min-width: inherit;
+    margin-top 15px;
+    padding: 14px 50px 0px 50px;
   }
   #hullo h1 {
     font-size: 80px;
@@ -381,9 +404,39 @@ a:hover {
     opacity: 0;
     transition: opacity 3s ease;
   }
+  
+  
+  #divider {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    height: 20px;
+  }
+  #divider-inner-1,
+  #divider-inner-3 {
+    background-color: rgba(0,0,0,.8);
+    -ms-flex: 10 100 auto;
+    -webkit-flex: 10 100 auto;
+    flex: 10 100 auto;
+  }
+  #divider-inner-2 {
+    background: transparent url(/img/bg-divider-arrow.png) repeat-x center center;
+    min-width: 50px;
+    -ms-flex: 1 1;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+  }
+  
+  
+  
   #content-1a {
     font-size: 30px;
   }
+  
+  
+  
   #content-2 {
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
