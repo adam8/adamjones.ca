@@ -134,6 +134,7 @@ a:hover {
   min-height: 30vh;
 }
 #content-2 {
+  background: rgba(0,0,0,.97);
   z-index: 12;
   min-height: 70px;
   -webkit-flex-direction: column;
