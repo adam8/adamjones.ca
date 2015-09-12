@@ -90,7 +90,7 @@ $(function() {
     path.getBoundingClientRect();
     // Define our transition
     if (i == '0') {
-      // first line takes longer
+      // first line takes a tad longer
       path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 1s ease-in-out';
     } else if (i == 1) {
       path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset .5s ease-in-out';
@@ -120,7 +120,7 @@ $(function() {
     // Define our transition
     var initDelay = 2;
     if (i == '0') {
-      // first line takes longer
+      // first line takes a wee bit longer
       path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset .5s ease-in-out';
       path.style.transitionDelay = path.style.WebkitTransitionDelay = initDelay + 's';
     } else if (i == 1) {
@@ -132,6 +132,28 @@ $(function() {
     }
     // Go!
     path.style.strokeDashoffset = '0';
+  }
+  
+  
+  
+  //iOS full screen hack... because of bottom bar.
+  function iOS() {
+    var iDevices = [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod' 
+    ];
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+    return false;
+  }
+  //console.log('iOS?:', iOS());
+  if (iOS() == true) {
+    $('#content-1').addClass('iOS');
   }
   
   

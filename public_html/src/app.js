@@ -135,4 +135,26 @@ $(function() {
   }
   
   
+  
+  //iOS full screen hack... because of bottom bar.
+  function iOS() {
+    var iDevices = [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod' 
+    ];
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+    return false;
+  }
+  //console.log('iOS?:', iOS());
+  if (iOS() == true) {
+    $('#content-1').addClass('iOS');
+  }
+  
+  
 });
