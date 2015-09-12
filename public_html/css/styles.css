@@ -134,7 +134,7 @@ a:hover {
   min-height: 30vh;
 }
 #content-2 {
-  background: rgba(0,0,0,.97);
+  background: rgba(0,0,0,.9);
   z-index: 12;
   min-height: 70px;
   -webkit-flex-direction: column;
@@ -142,7 +142,7 @@ a:hover {
   flex-direction: column;
 }
 #content-1a {
-  background: #000;
+  background: rgba(0,0,0,.9);
   color: #FFA33E;
   min-height: 30vh;
   font-family: "Lato", sans-serif;
