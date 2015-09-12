@@ -55,6 +55,8 @@ a:hover {
 }
 #hullo h1 {
   font-size: 45px;
+  -ms-flex: 1;
+  -webkit-flex: 1;
   flex: 1;
   display: -webkit-box;
   display: -moz-box;
@@ -77,8 +79,13 @@ a:hover {
   -webkit-transform: scale(1.05,1.05);
   transform: scale(1.05,1.05);
 }
+/*#hullo h1 > div {
+  background: green;
+}*/
 
 #job-description {
+  -ms-flex: 3;
+  -webkit-flex: 3;
   flex: 3;
 }
 
