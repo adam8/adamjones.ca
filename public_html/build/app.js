@@ -104,8 +104,8 @@ var ScrollListener = React.createClass({
       $('#feet').addClass('active');
       console.log('start');
     }
-    var opacity = bgPos / docHeight * 2 * -1 + 1;
-    bg.style.opacity = opacity;
+    // var opacity = ( ((bgPos/docHeight * 2) ) * -1 ) + 1;
+    //bg.style.opacity = opacity;
   },
 
   render: function render() {
