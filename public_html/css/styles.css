@@ -98,7 +98,7 @@ a:hover {
 #icon-developer, #icon-designer,
 #job-title-developer, #job-title-designer,
 #slash1 {
-  transition: all .25s cubic-bezier(0.135, 0.540, 0.370, 1.650);
+  /*transition: all .25s cubic-bezier(0.135, 0.540, 0.370, 1.650);*/
 }
 
 

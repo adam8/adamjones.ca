@@ -68,35 +68,35 @@ var ScrollListener = React.createClass({
     
     
 
-      console.log('ctaProgress',1-ctaProgress);
-      var ctaProgressReverse = 1 - ctaProgress;
-      $('#logo-dribbble').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * -220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
-      $('#logo-dribbble').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * -220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
-      $('#logo-dribbble').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * -220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
+    console.log('ctaProgress',1-ctaProgress);
+    var ctaProgressReverse = 1 - ctaProgress;
+    $('#logo-dribbble').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * -220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
+    $('#logo-dribbble').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * -220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
+    $('#logo-dribbble').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * -220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
 
-      $('#social-title-dribbble').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * -230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
-      $('#social-title-dribbble').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * -230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
-      $('#social-title-dribbble').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * -230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
+    $('#social-title-dribbble').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * -230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
+    $('#social-title-dribbble').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * -230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
+    $('#social-title-dribbble').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * -230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
 
-      $('#logo-linkedin').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * 220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
-      $('#logo-linkedin').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * 220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
-      $('#logo-linkedin').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * 220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
+    $('#logo-linkedin').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * 220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
+    $('#logo-linkedin').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * 220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
+    $('#logo-linkedin').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * 220 + 'px, ' + ctaProgressReverse * 130 + 'px, 0)'});
 
-      $('#social-title-linkedin').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * 230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
-      $('#social-title-linkedin').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * 230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
-      $('#social-title-linkedin').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * 230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
+    $('#social-title-linkedin').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(' + ctaProgressReverse * 230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
+    $('#social-title-linkedin').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(' + ctaProgressReverse * 230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
+    $('#social-title-linkedin').css({'opacity': ctaProgress + '','transform': 'translate3d(' + ctaProgressReverse * 230 + 'px, ' + ctaProgressReverse * 190 + 'px, 0)'});
 
-      $('#logo-github').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(0px, ' + ctaProgressReverse * 180 + 'px, 0)'});
-      $('#logo-github').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(0px, ' + ctaProgressReverse * 180 + 'px, 0)'});
-      $('#logo-github').css({'opacity': ctaProgress + '','transform': 'translate3d(0px, ' + ctaProgressReverse * 180 + 'px, 0)'});
+    $('#logo-github').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(0px, ' + ctaProgressReverse * 180 + 'px, 0)'});
+    $('#logo-github').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(0px, ' + ctaProgressReverse * 180 + 'px, 0)'});
+    $('#logo-github').css({'opacity': ctaProgress + '','transform': 'translate3d(0px, ' + ctaProgressReverse * 180 + 'px, 0)'});
 
-      $('#social-title-github').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(0px, ' + ctaProgressReverse * 260 + 'px, 0)'});
-      $('#social-title-github').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(0px, ' + ctaProgressReverse * 260 + 'px, 0)'});
-      $('#social-title-github').css({'opacity': ctaProgress + '','transform': 'translate3d(0px, ' + ctaProgressReverse * 260 + 'px, 0)'});
+    $('#social-title-github').css({'opacity': ctaProgress + '','-ms-transform': 'translate3d(0px, ' + ctaProgressReverse * 260 + 'px, 0)'});
+    $('#social-title-github').css({'opacity': ctaProgress + '','-webkit-transform': 'translate3d(0px, ' + ctaProgressReverse * 260 + 'px, 0)'});
+    $('#social-title-github').css({'opacity': ctaProgress + '','transform': 'translate3d(0px, ' + ctaProgressReverse * 260 + 'px, 0)'});
 
-    
-    
-    
+  
+  
+  
     
 
 
