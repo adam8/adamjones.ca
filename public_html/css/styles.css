@@ -176,6 +176,7 @@ a:hover {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  overflow: hidden;
 }
 #content-2, #content-1a {
   -webkit-flex-align: center;
