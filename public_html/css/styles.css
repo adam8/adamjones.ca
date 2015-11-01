@@ -155,7 +155,6 @@ a:hover {
   -ms-justify-content: center;
   -webkit-justify-content: center;
   justify-content: center;
-  overflow: hidden;
 }
 #job-description {
   /*-ms-flex-direction: column;
