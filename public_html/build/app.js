@@ -1,3 +1,5 @@
+// babel --presets react src --watch --out-dir build
+
 'use strict';
 
 var ScrollListener = React.createClass({

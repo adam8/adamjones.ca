@@ -202,6 +202,7 @@ a:hover {
   padding-bottom: 75px; 
   z-index: 12;
   min-height: calc(100vh - 190px);
+  overflow:visible;
 /*  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -375,7 +376,6 @@ a:hover {
 
 
 #F9C057
-
 
 */
 

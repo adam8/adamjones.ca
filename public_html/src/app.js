@@ -1,3 +1,5 @@
+// babel --presets react src --watch --out-dir build
+
 var ScrollListener = React.createClass({
   componentDidMount: function () {
     window.addEventListener('scroll', this.onPageScroll);
