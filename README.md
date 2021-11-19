@@ -1,3 +1,3 @@
 adamjones.ca
 ============
-Yep, I'm going to work on this site in public.
+Head in the cloud, feet on the ground
