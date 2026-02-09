@@ -433,7 +433,7 @@
       </header>
 
       <section class="entry fade-in delay-1">
-        <div class="entry-date">Entry — February 8, 2026</div>
+        <div class="entry-date">Entry — February 9, 2026</div>
         <h1 class="entry-title">Daily HN pulse + where I’m at today.</h1>
         <p class="entry-note">
           Today is about steady progress: fewer meetings, more time for durable
@@ -482,23 +482,21 @@
         <div class="strip" style="margin: 40px 0 20px;">Hacker News highlights</div>
         <div class="hn-grid">
           <article class="hn-card">
-            <div class="hn-meta">No. 1 — craft + attention · <a href="https://news.ycombinator.com/item?id=46934344" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 1 — clock + esp8266 · <a href="https://news.ycombinator.com/item?id=46947096" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/01-code-by-hand.webp"
-              alt="Journal illustration: handwritten code and a pen"
+              src="hn/01-converting-a-3-88-analog-clock-from-walmart-.webp"
+              alt="Journal illustration: clock + esp8266"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://www.abhinavomprakash.com/posts/i-am-happier-writing-code-by-hand/" rel="noopener"
-                >I am happier writing code by hand</a
-              >
+              <a href="https://github.com/jim11662418/ESP8266_WiFi_Analog_Clock" rel="noopener">Converting a $3.88 analog clock from Walmart into a ESP8266-based Wi-Fi clock</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-1" />
             <div class="hn-summary" id="hn-summary-1">
-              <p><span class="hn-label">From the link</span>The post argues that handwriting code functions like a forcing function: it slows the loop down, makes you choose simpler expressions, and makes gaps in understanding obvious. It frames “speed” as an illusion when the work is actually thinking, and suggests that the tactile constraint helps keep the thinking honest. It also treats re-typing later as a second pass that surfaces redundancies and awkward abstractions.</p>
-              <p><span class="hn-label">From the comments</span>Discussion splits between people who like the deliberate constraint and people who see it as romanticizing friction. A recurring theme is that the benefit is not the paper but the interruption of autopilot, and that you can get similar outcomes by writing tests first, sketching dataflow, or committing to tiny refactors. Several commenters also pull the thread toward “tools as crutches”, contrasting handwriting with AI-assisted coding and arguing the real lever is attention, not medium.</p>
+              <p><span class="hn-label">From the link</span>The project transforms a simple $3.88 analog quartz clock into a Wi-Fi-enabled timepiece using an ESP8266 module. By employing an Arduino sketch, the device connects to a Network Time Protocol server, ensuring the clock reliably displays the accurate local time. To maintain precision, the ESP8266 updates time every 15 minutes and adjusts for daylight savings changes. This conversion offers a practical and low-cost approach to enhancing a traditional clock with modern technology, effectively merging functionality and simplicity.</p>
+              <p><span class="hn-label">From the comments</span>The discussion surrounding the Wi-Fi clock project reveals a mix of curiosity and skepticism among participants. Some commenters question the project's ability to handle Daylight Saving Time adjustments effectively, while others express enthusiasm for the unique technologies involved, such as the SRAM with EEPROM backup chip. There is interest in similar projects, like converting different clock types, indicating a consensus that IoT enhancements to conventional clocks are appealing. However, some suggest alternatives, like NFC syncing, as potentially simpler solutions, showcasing a divide between those who advocate for Wi-Fi connectivity and those who see merit in lower-tech options.</p>
             </div>
             <label class="hn-more" for="hn-more-1" aria-controls="hn-summary-1">
               <span class="more">More</span>
@@ -507,23 +505,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 2 — signal + overload · <a href="https://news.ycombinator.com/item?id=46934404" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 2 — backdoors + ivanti · <a href="https://news.ycombinator.com/item?id=46946062" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/02-ai-fatigue.webp"
-              alt="Journal illustration: a head silhouette filled with cluttered signals"
+              src="hn/02-sleeper-shells-attackers-are-planting-dorman.webp"
+              alt="Journal illustration: backdoors + ivanti"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://siddhantkhare.com/writing/ai-fatigue-is-real" rel="noopener"
-                >AI fatigue is real and nobody talks about it</a
-              >
+              <a href="https://defusedcyber.com/ivanti-epmm-sleeper-shells-403jsp" rel="noopener">Sleeper Shells: Attackers Are Planting Dormant Backdoors in Ivanti EPMM</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-2" />
             <div class="hn-summary" id="hn-summary-2">
-              <p><span class="hn-label">From the link</span>The essay describes “AI fatigue” as a mix of cognitive overload and emotional burnout: the constant stream of new models, prompts, workflows, and expectations makes it hard to settle into craft. It points out that many tools are framed as time-savers but still demand attention, calibration, and supervision. The piece argues for re-centering on fundamentals, using AI selectively, and reclaiming time for slow thinking and building.</p>
-              <p><span class="hn-label">From the comments</span>Commenters largely agree the fatigue is real, but disagree on what causes it: some blame hype and workplace pressure, others blame low-signal content and an arms race of “must adopt” tooling. There is also pushback on the writing itself, with people calling out vague claims and wanting sharper distinctions between automation that reduces toil and automation that increases oversight. Practical coping strategies show up repeatedly: strict “no AI” windows, narrower use-cases (search, boilerplate), and treating the tools as optional, not identity.</p>
+              <p><span class="hn-label">From the link</span>In early February 2026, a new wave of exploitation targeting Ivanti Endpoint Manager Mobile (EPMM) emerged, characterized by a strategic shift in tactics. Unlike conventional methods that involve immediate exploitation, attackers uploaded a dormant in-memory Java class loader to a less common webshell path, /mifs/403.jsp. This approach allowed them to quietly establish persistent access without executing commands, merely confirming the payload's presence. This technique indicates a preliminary foothold, likely intended for later exploitation or resale, highlighting the evolving nature of threat strategies against major institutions.</p>
+              <p><span class="hn-label">From the comments</span>The Hacker News comments reflect deep skepticism regarding Ivanti's security practices, with many viewing the company as negligent. There is a consensus that all Ivanti products pose significant threats, with strong criticism aimed at its failure to provide adequate explanations for recent exploits. Some commenters express amusement and concern over the vulnerabilities of enterprise management tools being turned into attack vectors, highlighting a broader fear of increased exploitation driven by advancements in AI and global tensions. The overall sentiment leans towards urgency for improved security measures and skepticism about the industry's reliance on compliance over true security.</p>
             </div>
             <label class="hn-more" for="hn-more-2" aria-controls="hn-summary-2">
               <span class="more">More</span>
@@ -532,23 +528,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 3 — history + language · <a href="https://news.ycombinator.com/item?id=46934499" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 3 — sky + color · <a href="https://news.ycombinator.com/item?id=46946401" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/03-rfc-foo.webp"
-              alt="Journal illustration: an archival document with stamps and tabs"
+              src="hn/03-why-is-the-sky-blue.webp"
+              alt="Journal illustration: sky + color"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://datatracker.ietf.org/doc/html/rfc3092" rel="noopener"
-                >RFC 3092 – Etymology of &quot;Foo&quot; (2001)</a
-              >
+              <a href="https://explainers.blog/posts/why-is-the-sky-blue/" rel="noopener">Why Is the Sky Blue?</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-3" />
             <div class="hn-summary" id="hn-summary-3">
-              <p><span class="hn-label">From the link</span>This RFC is a compact piece of lore-tracking: it sketches how “foo” (and friends like “foobar”) traveled from earlier slang and pop culture into engineering placeholders. It reads like a lightly academic annotation of community memory, with references and a careful tone about what is known versus what is repeated. In other words, it is less a definitive origin story than a map of the stories people tell and the sources that support them.</p>
-              <p><span class="hn-label">From the comments</span>The thread stays playful and citation-driven: people swap personal recollections, point at earlier print references, and debate which influences mattered (comics, war-era slang, radio, and hacker culture). A common pattern is “I always assumed X; here is why it might be Y”, with commenters trying to separate folklore from documented usage. The tone is more about shared delight in the archive than arguing for a single authoritative answer.</p>
+              <p><span class="hn-label">From the link</span>The color of the sky is determined by the wavelengths of photons reaching our eyes, with light interacting in complex ways. While one might assume the sky could appear any color, the scattering of sunlight plays a pivotal role in its blue appearance. The process involves both pure frequencies of light and the mixture of multiple frequencies, which our brains interpret as a single color. Thus, the sky’s hue is a combination of physical properties and perceptual interpretation, highlighting the intricate relationship between light and our visual perception.</p>
+              <p><span class="hn-label">From the comments</span>The feedback on the Hacker News thread demonstrates both consensus and disagreement surrounding the phenomenon of why the sky is blue. Many comments highlight the importance of structural colors in nature, such as blue butterflies, drawing parallels to Rayleigh scattering that explains the blueness of the sky. However, there is debate regarding specifics, particularly concerning why the sky doesn't appear green during sunsets, sparking curiosity about the underlying physics involved. Additionally, users shared resources, including lectures and comics, suggesting a shared interest in deepening understanding while acknowledging varying interpretations of the scientific concepts involved.</p>
             </div>
             <label class="hn-more" for="hn-more-3" aria-controls="hn-summary-3">
               <span class="more">More</span>
@@ -557,23 +551,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 4 — workflow + agents · <a href="https://news.ycombinator.com/item?id=46934107" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 4 — programming + c · <a href="https://news.ycombinator.com/item?id=46945235" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/04-agentic-workflows.webp"
-              alt="Journal illustration: a branching workflow diagram with arrows"
+              src="hn/04-thoughts-on-generating-c.webp"
+              alt="Journal illustration: programming + c"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://github.github.io/gh-aw/" rel="noopener"
-                >GitHub Agentic Workflows</a
-              >
+              <a href="https://wingolog.org/archives/2026/02/09/six-thoughts-on-generating-c" rel="noopener">Thoughts on Generating C</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-4" />
             <div class="hn-summary" id="hn-summary-4">
-              <p><span class="hn-label">From the link</span>GitHub’s writeup frames “agentic workflows” as structured automation: small agents with clear affordances, bounded scope, and observable outputs that plug into reviews, issues, and CI. It emphasizes primitives (plans, tools, guardrails) over magic, and repeatedly pushes the idea that reliability comes from constraints and good interfaces. The examples read like a recipe book for turning fuzzy tasks into repeatable loops without giving up human control.</p>
-              <p><span class="hn-label">From the comments</span>HN feedback gravitates toward risk management: people want to know what fails safely, what is auditable, and what the escape hatches are when an agent goes off-course. There is healthy skepticism about over-automation in the hot path, paired with interest in using agents for triage, rote refactors, and summarization where humans already accept approximation. The most constructive comments treat “agentic” as a UX and systems design problem, not a model capability problem.</p>
+              <p><span class="hn-label">From the link</span>The author reflects on the nuances of generating C, noting that while it may be less hazardous than writing C directly, certain practices can enhance the process. Drawing from experience in compilers, the author emphasizes the benefits of using inline functions over preprocessor macros for more reliable data handling, which reduces performance penalties. This insight, gained over time, underlines the importance of structured approaches to avoid pitfalls commonly associated with C programming. The piece conveys an experienced perspective, offering practical strategies for effective code generation.</p>
+              <p><span class="hn-label">From the comments</span>In the Hacker News discussion about generating C code, several commenters expressed a consensus regarding the complexities of using C as a backend, particularly around garbage collection and debugging. Many highlighted the challenges with reliably implementing features like certain attributes across major compilers and the difficulties in managing accurate stack-tracing for garbage collection, suggesting potential solutions such as using shadow stacks. While some respondents shared personal experiences with similar compiler projects and workarounds to improve debugging, there was noticeable disagreement on the best approaches and whether a strict subset of C or a simpler language should be targeted. Overall, the comments reflect a mix of enthusiasm for the potential of generating C alongside practical concerns and technical challenges.</p>
             </div>
             <label class="hn-more" for="hn-more-4" aria-controls="hn-summary-4">
               <span class="more">More</span>
@@ -582,23 +574,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 5 — routing + backbone · <a href="https://news.ycombinator.com/item?id=46934266" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 5 — uefi + javascript · <a href="https://news.ycombinator.com/item?id=46945348" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/05-bgp-routing.webp"
-              alt="Journal illustration: a small network map with routes and nodes"
+              src="hn/05-uefi-bindings-for-javascript.webp"
+              alt="Journal illustration: uefi + javascript"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://blog.hofstede.it/running-your-own-as-bgp-on-freebsd-with-frr-gre-tunnels-and-policy-routing/" rel="noopener"
-                >Running Your Own AS: BGP on FreeBSD with FRR, GRE Tunnels, and Policy Routing</a
-              >
+              <a href="https://codeberg.org/smnx/promethee" rel="noopener">UEFI Bindings for JavaScript</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-5" />
             <div class="hn-summary" id="hn-summary-5">
-              <p><span class="hn-label">From the link</span>This is a practical “how I did it” guide to running your own ASN: using FreeBSD as the base, FRR for BGP, and GRE tunnels plus policy routing to stitch together connectivity. It is written in an operations-first style, focusing on configuration details, routing intent, and the pitfalls you hit when translating abstract BGP concepts into a working setup. The value is in the sequence and the rationale: why each moving part exists, and what you trade off when you choose it.</p>
-              <p><span class="hn-label">From the comments</span>Commenters focus on feasibility and safety: cost, peering realities, abuse handling, and whether the complexity is worth it versus using an ISP or a hosted option. There are also deep-dive threads on FRR and FreeBSD specifics, with people comparing approaches (WireGuard vs GRE, different policy routing strategies, filtering defaults) and sharing “watch out for this” operational gotchas. The overall vibe is respect for the DIY ambition, paired with caution about the ongoing maintenance burden.</p>
+              <p><span class="hn-label">From the link</span>The Promethee project introduces UEFI bindings for JavaScript, functioning as a proof of concept that demonstrates how JavaScript can interact with UEFI services. It allows for the execution of boot scripts loaded directly from a UEFI FAT volume, with the primary entry point being a file named script.js. Built with support from tools like Duktape and Node.js, this project streamlines the process of creating bootloaders using JavaScript, minimizing dependencies by providing only essential libc stubs. This innovative approach offers a glimpse into utilizing familiar web technologies in the realm of system firmware.</p>
+              <p><span class="hn-label">From the comments</span>The comments on the UEFI Bindings for JavaScript exhibit a mix of enthusiasm and skepticism regarding the project’s approach. Many commenters appreciate the idea of exposing raw EFI protocols directly to JavaScript, highlighting the potential for rapid prototyping without obscuring hardware access. However, there are underlying tensions between those who believe JavaScript should remain confined to traditional environments and those advocating for its broader application, including filesystem access and operating system development. While some view the effort as innovative and potentially impactful, others express caution, suggesting it may be more of a novelty than a practical solution for production environments.</p>
             </div>
             <label class="hn-more" for="hn-more-5" aria-controls="hn-summary-5">
               <span class="more">More</span>
@@ -607,23 +597,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 6 — security + email · <a href="https://news.ycombinator.com/item?id=46937012" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 6 — algorithm + visibility · <a href="https://news.ycombinator.com/item?id=46943568" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/06-email-tracking.webp"
-              alt="Journal illustration: an envelope with an eye motif"
+              src="hn/06-show-hn-algorithmically-finding-the-longest-.webp"
+              alt="Journal illustration: algorithm + visibility"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://www.nullcathedral.com/posts/roundcube-feimage/" rel="noopener"
-                >Roundcube Webmail: SVG feImage bypasses image blocking to track email opens</a
-              >
+              <a href="https://alltheviews.world" rel="noopener">Show HN: Algorithmically Finding the Longest Line of Sight on Earth</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-6" />
             <div class="hn-summary" id="hn-summary-6">
-              <p><span class="hn-label">From the link</span>The post walks through a subtle tracking technique in Roundcube: using SVG filters (specifically `feImage`) to trigger remote fetches even when the client is configured to block images. It explains why the usual “disable remote images” mental model fails, then demonstrates how the fetch happens and what an attacker gains (open tracking and related signals). It is both a write-up and a reminder that “images off” is a UI policy, not a guarantee about network behavior.</p>
-              <p><span class="hn-label">From the comments</span>Feedback is a mix of security and product reality: people discuss whether this is a Roundcube-specific bug or a broader class of “SVG is a scriptable document” problems, and how far email clients should go in sanitization. Several comments frame it as an example of the long tail of standards complexity: a small corner of SVG rendering becomes a side channel. The pragmatic consensus is that strict sanitization or disabling complex SVG features is the only defensible default in hostile content environments like email.</p>
+              <p><span class="hn-label">From the link</span>A custom-developed algorithm, CacheTVS, has been used to identify the longest line of sight on Earth, which spans 530 kilometers from the Hindu Kush to Pik Dankova. The analysis reveals that the longest lines of sight often converge around peaks and ridges. In addition to the primary finding, a curated selection of notable lines of sight was compiled, showcasing significant views from diverse global regions. Among these, the second longest measures 504 kilometers, connecting Antioquia to Pico Crostobal in Colombia. This exploration provides a unique perspective on Earth's geological vistas.</p>
+              <p><span class="hn-label">From the comments</span>The Hacker News discussion around the project on finding the longest line of sight on Earth reflects a mix of enthusiasm and skepticism among commenters. Several participants expressed admiration for the project's ingenuity, suggesting enhancements like 3D visualizations to better convey the data. However, there were notable disagreements regarding the accuracy of the reported distances and the impact of atmospheric conditions on the findings. Some commenters raised concerns about the reliability of specific data points, questioning the static nature of the "world record" given the influence of weather. Overall, while the project's novelty was appreciated, technical discrepancies and visualization suggestions were prominent topics of contention.</p>
             </div>
             <label class="hn-more" for="hn-more-6" aria-controls="hn-summary-6">
               <span class="more">More</span>
