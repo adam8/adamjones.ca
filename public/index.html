@@ -216,15 +216,18 @@
         display: grid;
         gap: 18px;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        align-items: start;
       }
 
       .hn-card {
+        --card-paper: rgba(243, 239, 230, 0.95);
         border: 1px solid rgba(27, 27, 27, 0.35);
         border-radius: 14px;
         padding: 16px;
-        background: rgba(243, 239, 230, 0.95);
+        background: var(--card-paper);
         display: grid;
         gap: 10px;
+        align-content: start;
       }
 
       .hn-meta {
@@ -233,6 +236,90 @@
         text-transform: uppercase;
         letter-spacing: 1.8px;
         color: var(--rust);
+      }
+
+      .hn-summary {
+        display: grid;
+        gap: 10px;
+        position: relative;
+        max-height: 5.8em;
+        overflow: hidden;
+      }
+
+      .hn-summary::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2.4em;
+        background: linear-gradient(to bottom, rgba(243, 239, 230, 0), var(--card-paper));
+        pointer-events: none;
+      }
+
+      .hn-label {
+        display: inline-block;
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+        color: rgba(27, 27, 27, 0.7);
+        margin-right: 8px;
+      }
+
+      .hn-toggle {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .hn-toggle:checked ~ .hn-summary {
+        max-height: none;
+      }
+
+      .hn-toggle:checked ~ .hn-summary::after {
+        display: none;
+      }
+
+      .hn-more {
+        justify-self: start;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border: 1px solid rgba(27, 27, 27, 0.45);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.25);
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .hn-more:hover,
+      .hn-more:focus-visible {
+        border-color: var(--clay);
+        color: var(--clay);
+      }
+
+      .hn-more .less {
+        display: none;
+      }
+
+      .hn-toggle:checked ~ .hn-more .more {
+        display: none;
+      }
+
+      .hn-toggle:checked ~ .hn-more .less {
+        display: inline;
       }
 
       .hn-image {
@@ -387,103 +474,153 @@
         <div class="strip" style="margin: 40px 0 20px;">Hacker News highlights</div>
         <div class="hn-grid">
           <article class="hn-card">
-            <div class="hn-meta">No. 1 — craft + attention</div>
-            <svg class="hn-sketch" viewBox="0 0 320 140" role="img" aria-label="Sketch of a notebook with a pen resting across the page">
-              <rect x="10" y="10" width="300" height="120" rx="16" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-dasharray="6 6" />
-              <rect x="44" y="28" width="150" height="84" rx="10" fill="none" stroke="#39523a" stroke-width="2" />
-              <path d="M62 48h114M62 68h90M62 88h70" stroke="#39523a" stroke-width="2" />
-              <path d="M210 36l64 64" stroke="#7a2f1c" stroke-width="3" />
-              <path d="M222 30l18 18" stroke="#7a2f1c" stroke-width="3" />
-            </svg>
+            <div class="hn-meta">No. 1 — craft + attention · <a href="https://news.ycombinator.com/item?id=46934344" rel="noopener">HN</a></div>
+            <img
+              class="hn-image"
+              src="hn/01-code-by-hand.webp"
+              alt="Journal illustration: handwritten code and a pen"
+              loading="lazy"
+              decoding="async"
+            />
             <h3>
               <a href="https://www.abhinavomprakash.com/posts/i-am-happier-writing-code-by-hand/" rel="noopener"
                 >I am happier writing code by hand</a
               >
             </h3>
-            <p>A personal reflection on slowing down and keeping the thinking process grounded in deliberate code.</p>
+            <input class="hn-toggle" type="checkbox" id="hn-more-1" />
+            <div class="hn-summary" id="hn-summary-1">
+              <p><span class="hn-label">From the link</span>The post argues that handwriting code functions like a forcing function: it slows the loop down, makes you choose simpler expressions, and makes gaps in understanding obvious. It frames “speed” as an illusion when the work is actually thinking, and suggests that the tactile constraint helps keep the thinking honest. It also treats re-typing later as a second pass that surfaces redundancies and awkward abstractions.</p>
+              <p><span class="hn-label">From the comments</span>Discussion splits between people who like the deliberate constraint and people who see it as romanticizing friction. A recurring theme is that the benefit is not the paper but the interruption of autopilot, and that you can get similar outcomes by writing tests first, sketching dataflow, or committing to tiny refactors. Several commenters also pull the thread toward “tools as crutches”, contrasting handwriting with AI-assisted coding and arguing the real lever is attention, not medium.</p>
+            </div>
+            <label class="hn-more" for="hn-more-1" aria-controls="hn-summary-1">
+              <span class="more">More</span>
+              <span class="less">Less</span>
+            </label>
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 2 — signal + overload</div>
-            <svg class="hn-sketch" viewBox="0 0 320 140" role="img" aria-label="Sketch of a head silhouette with rising signal lines">
-              <rect x="10" y="10" width="300" height="120" rx="16" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-dasharray="6 6" />
-              <path d="M92 96c0-26 18-44 40-44 18 0 34 12 38 30 16 6 26 22 26 38H92z" fill="none" stroke="#39523a" stroke-width="2" />
-              <path d="M184 40h48M184 58h60M184 76h72" stroke="#7a2f1c" stroke-width="2" />
-            </svg>
+            <div class="hn-meta">No. 2 — signal + overload · <a href="https://news.ycombinator.com/item?id=46934404" rel="noopener">HN</a></div>
+            <img
+              class="hn-image"
+              src="hn/02-ai-fatigue.webp"
+              alt="Journal illustration: a head silhouette filled with cluttered signals"
+              loading="lazy"
+              decoding="async"
+            />
             <h3>
               <a href="https://siddhantkhare.com/writing/ai-fatigue-is-real" rel="noopener"
                 >AI fatigue is real and nobody talks about it</a
               >
             </h3>
-            <p>A grounded look at the exhaustion that can follow constant AI tooling and hype cycles.</p>
+            <input class="hn-toggle" type="checkbox" id="hn-more-2" />
+            <div class="hn-summary" id="hn-summary-2">
+              <p><span class="hn-label">From the link</span>The essay describes “AI fatigue” as a mix of cognitive overload and emotional burnout: the constant stream of new models, prompts, workflows, and expectations makes it hard to settle into craft. It points out that many tools are framed as time-savers but still demand attention, calibration, and supervision. The piece argues for re-centering on fundamentals, using AI selectively, and reclaiming time for slow thinking and building.</p>
+              <p><span class="hn-label">From the comments</span>Commenters largely agree the fatigue is real, but disagree on what causes it: some blame hype and workplace pressure, others blame low-signal content and an arms race of “must adopt” tooling. There is also pushback on the writing itself, with people calling out vague claims and wanting sharper distinctions between automation that reduces toil and automation that increases oversight. Practical coping strategies show up repeatedly: strict “no AI” windows, narrower use-cases (search, boilerplate), and treating the tools as optional, not identity.</p>
+            </div>
+            <label class="hn-more" for="hn-more-2" aria-controls="hn-summary-2">
+              <span class="more">More</span>
+              <span class="less">Less</span>
+            </label>
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 3 — history + language</div>
-            <svg class="hn-sketch" viewBox="0 0 320 140" role="img" aria-label="Sketch of a stamped document with quotation marks">
-              <rect x="10" y="10" width="300" height="120" rx="16" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-dasharray="6 6" />
-              <rect x="46" y="28" width="228" height="84" rx="10" fill="none" stroke="#39523a" stroke-width="2" />
-              <path d="M74 50h152M74 70h120M74 90h84" stroke="#39523a" stroke-width="2" />
-              <path d="M216 40h22v18h-22zM246 40h22v18h-22z" fill="none" stroke="#7a2f1c" stroke-width="2" />
-            </svg>
+            <div class="hn-meta">No. 3 — history + language · <a href="https://news.ycombinator.com/item?id=46934499" rel="noopener">HN</a></div>
+            <img
+              class="hn-image"
+              src="hn/03-rfc-foo.webp"
+              alt="Journal illustration: an archival document with stamps and tabs"
+              loading="lazy"
+              decoding="async"
+            />
             <h3>
               <a href="https://datatracker.ietf.org/doc/html/rfc3092" rel="noopener"
                 >RFC 3092 – Etymology of &quot;Foo&quot; (2001)</a
               >
             </h3>
-            <p>A quick, delightful dive into how &quot;foo&quot; entered technical culture and the RFC archive.</p>
+            <input class="hn-toggle" type="checkbox" id="hn-more-3" />
+            <div class="hn-summary" id="hn-summary-3">
+              <p><span class="hn-label">From the link</span>This RFC is a compact piece of lore-tracking: it sketches how “foo” (and friends like “foobar”) traveled from earlier slang and pop culture into engineering placeholders. It reads like a lightly academic annotation of community memory, with references and a careful tone about what is known versus what is repeated. In other words, it is less a definitive origin story than a map of the stories people tell and the sources that support them.</p>
+              <p><span class="hn-label">From the comments</span>The thread stays playful and citation-driven: people swap personal recollections, point at earlier print references, and debate which influences mattered (comics, war-era slang, radio, and hacker culture). A common pattern is “I always assumed X; here is why it might be Y”, with commenters trying to separate folklore from documented usage. The tone is more about shared delight in the archive than arguing for a single authoritative answer.</p>
+            </div>
+            <label class="hn-more" for="hn-more-3" aria-controls="hn-summary-3">
+              <span class="more">More</span>
+              <span class="less">Less</span>
+            </label>
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 4 — workflow + agents</div>
-            <svg class="hn-sketch" viewBox="0 0 320 140" role="img" aria-label="Sketch of a branching workflow diagram">
-              <rect x="10" y="10" width="300" height="120" rx="16" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-dasharray="6 6" />
-              <rect x="48" y="32" width="76" height="28" rx="8" fill="none" stroke="#39523a" stroke-width="2" />
-              <rect x="196" y="32" width="76" height="28" rx="8" fill="none" stroke="#39523a" stroke-width="2" />
-              <rect x="122" y="78" width="76" height="28" rx="8" fill="none" stroke="#39523a" stroke-width="2" />
-              <path d="M124 46h72M160 60v18" stroke="#7a2f1c" stroke-width="2" />
-            </svg>
+            <div class="hn-meta">No. 4 — workflow + agents · <a href="https://news.ycombinator.com/item?id=46934107" rel="noopener">HN</a></div>
+            <img
+              class="hn-image"
+              src="hn/04-agentic-workflows.webp"
+              alt="Journal illustration: a branching workflow diagram with arrows"
+              loading="lazy"
+              decoding="async"
+            />
             <h3>
               <a href="https://github.github.io/gh-aw/" rel="noopener"
                 >GitHub Agentic Workflows</a
               >
             </h3>
-            <p>A look at patterns, primitives, and guidance for agent-driven GitHub automation.</p>
+            <input class="hn-toggle" type="checkbox" id="hn-more-4" />
+            <div class="hn-summary" id="hn-summary-4">
+              <p><span class="hn-label">From the link</span>GitHub’s writeup frames “agentic workflows” as structured automation: small agents with clear affordances, bounded scope, and observable outputs that plug into reviews, issues, and CI. It emphasizes primitives (plans, tools, guardrails) over magic, and repeatedly pushes the idea that reliability comes from constraints and good interfaces. The examples read like a recipe book for turning fuzzy tasks into repeatable loops without giving up human control.</p>
+              <p><span class="hn-label">From the comments</span>HN feedback gravitates toward risk management: people want to know what fails safely, what is auditable, and what the escape hatches are when an agent goes off-course. There is healthy skepticism about over-automation in the hot path, paired with interest in using agents for triage, rote refactors, and summarization where humans already accept approximation. The most constructive comments treat “agentic” as a UX and systems design problem, not a model capability problem.</p>
+            </div>
+            <label class="hn-more" for="hn-more-4" aria-controls="hn-summary-4">
+              <span class="more">More</span>
+              <span class="less">Less</span>
+            </label>
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 5 — routing + backbone</div>
-            <svg class="hn-sketch" viewBox="0 0 320 140" role="img" aria-label="Sketch of network nodes connected by routes">
-              <rect x="10" y="10" width="300" height="120" rx="16" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-dasharray="6 6" />
-              <circle cx="84" cy="46" r="12" fill="none" stroke="#39523a" stroke-width="2" />
-              <circle cx="200" cy="36" r="12" fill="none" stroke="#39523a" stroke-width="2" />
-              <circle cx="234" cy="92" r="12" fill="none" stroke="#39523a" stroke-width="2" />
-              <circle cx="110" cy="94" r="12" fill="none" stroke="#39523a" stroke-width="2" />
-              <path d="M96 52l88-10M208 46l20 32M214 96l-92-6M110 82l-18-26" stroke="#7a2f1c" stroke-width="2" />
-            </svg>
+            <div class="hn-meta">No. 5 — routing + backbone · <a href="https://news.ycombinator.com/item?id=46934266" rel="noopener">HN</a></div>
+            <img
+              class="hn-image"
+              src="hn/05-bgp-routing.webp"
+              alt="Journal illustration: a small network map with routes and nodes"
+              loading="lazy"
+              decoding="async"
+            />
             <h3>
               <a href="https://blog.hofstede.it/running-your-own-as-bgp-on-freebsd-with-frr-gre-tunnels-and-policy-routing/" rel="noopener"
                 >Running Your Own AS: BGP on FreeBSD with FRR, GRE Tunnels, and Policy Routing</a
               >
             </h3>
-            <p>A practical guide to standing up a personal ASN with routing policy and tunnels.</p>
+            <input class="hn-toggle" type="checkbox" id="hn-more-5" />
+            <div class="hn-summary" id="hn-summary-5">
+              <p><span class="hn-label">From the link</span>This is a practical “how I did it” guide to running your own ASN: using FreeBSD as the base, FRR for BGP, and GRE tunnels plus policy routing to stitch together connectivity. It is written in an operations-first style, focusing on configuration details, routing intent, and the pitfalls you hit when translating abstract BGP concepts into a working setup. The value is in the sequence and the rationale: why each moving part exists, and what you trade off when you choose it.</p>
+              <p><span class="hn-label">From the comments</span>Commenters focus on feasibility and safety: cost, peering realities, abuse handling, and whether the complexity is worth it versus using an ISP or a hosted option. There are also deep-dive threads on FRR and FreeBSD specifics, with people comparing approaches (WireGuard vs GRE, different policy routing strategies, filtering defaults) and sharing “watch out for this” operational gotchas. The overall vibe is respect for the DIY ambition, paired with caution about the ongoing maintenance burden.</p>
+            </div>
+            <label class="hn-more" for="hn-more-5" aria-controls="hn-summary-5">
+              <span class="more">More</span>
+              <span class="less">Less</span>
+            </label>
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 6 — history + medicine</div>
-            <svg class="hn-sketch" viewBox="0 0 320 140" role="img" aria-label="Sketch of a vintage medical journal page">
-              <rect x="10" y="10" width="300" height="120" rx="16" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-dasharray="6 6" />
-              <rect x="54" y="24" width="212" height="92" rx="10" fill="none" stroke="#39523a" stroke-width="2" />
-              <path d="M82 44h156M82 62h132M82 80h110M82 98h88" stroke="#39523a" stroke-width="2" />
-              <circle cx="230" cy="50" r="12" fill="none" stroke="#7a2f1c" stroke-width="2" />
-              <path d="M224 50h12M230 44v12" stroke="#7a2f1c" stroke-width="2" />
-            </svg>
+            <div class="hn-meta">No. 6 — security + email · <a href="https://news.ycombinator.com/item?id=46937012" rel="noopener">HN</a></div>
+            <img
+              class="hn-image"
+              src="hn/06-email-tracking.webp"
+              alt="Journal illustration: an envelope with an eye motif"
+              loading="lazy"
+              decoding="async"
+            />
             <h3>
-              <a href="https://www.historytoday.com/archive/history-matters/contagious-taste-cancer" rel="noopener"
-                >The Contagious Taste of Cancer</a
+              <a href="https://www.nullcathedral.com/posts/roundcube-feimage/" rel="noopener"
+                >Roundcube Webmail: SVG feImage bypasses image blocking to track email opens</a
               >
             </h3>
-            <p>A historical essay on a forgotten medical misconception and its human consequences.</p>
+            <input class="hn-toggle" type="checkbox" id="hn-more-6" />
+            <div class="hn-summary" id="hn-summary-6">
+              <p><span class="hn-label">From the link</span>The post walks through a subtle tracking technique in Roundcube: using SVG filters (specifically `feImage`) to trigger remote fetches even when the client is configured to block images. It explains why the usual “disable remote images” mental model fails, then demonstrates how the fetch happens and what an attacker gains (open tracking and related signals). It is both a write-up and a reminder that “images off” is a UI policy, not a guarantee about network behavior.</p>
+              <p><span class="hn-label">From the comments</span>Feedback is a mix of security and product reality: people discuss whether this is a Roundcube-specific bug or a broader class of “SVG is a scriptable document” problems, and how far email clients should go in sanitization. Several comments frame it as an example of the long tail of standards complexity: a small corner of SVG rendering becomes a side channel. The pragmatic consensus is that strict sanitization or disabling complex SVG features is the only defensible default in hostile content environments like email.</p>
+            </div>
+            <label class="hn-more" for="hn-more-6" aria-controls="hn-summary-6">
+              <span class="more">More</span>
+              <span class="less">Less</span>
+            </label>
           </article>
         </div>
       </section>
