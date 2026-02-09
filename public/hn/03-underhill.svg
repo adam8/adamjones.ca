@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-label="Mars colony domes">
+  <rect width="1200" height="650" fill="#f4ece0"/>
+  <circle cx="860" cy="240" r="150" fill="#c4503f" stroke="#2a241f" stroke-width="4"/>
+  <circle cx="820" cy="210" r="30" fill="#e58c6c"/>
+  <rect x="120" y="360" width="280" height="170" rx="80" fill="#d9c7ac" stroke="#2a241f" stroke-width="4"/>
+  <rect x="430" y="400" width="220" height="130" rx="60" fill="#dbcbb2" stroke="#2a241f" stroke-width="4"/>
+  <rect x="650" y="430" width="180" height="100" rx="50" fill="#d4c0a1" stroke="#2a241f" stroke-width="4"/>
+  <path d="M200 360 L300 300 L360 360" fill="none" stroke="#2a241f" stroke-width="4"/>
+  <path d="M500 400 L580 340 L640 400" fill="none" stroke="#2a241f" stroke-width="4"/>
+  <path d="M120 560 L950 560" stroke="#7a5b44" stroke-width="6" stroke-linecap="round"/>
+</svg>

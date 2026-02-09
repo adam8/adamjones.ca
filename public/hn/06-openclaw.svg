@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-label="Mechanical claw sketch">
+  <rect width="1200" height="650" fill="#f2ede1"/>
+  <rect x="180" y="120" width="840" height="420" rx="40" fill="#e4d3bb" stroke="#2a241f" stroke-width="4"/>
+  <path d="M600 180 L600 430" stroke="#2a241f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M600 260 L520 360" stroke="#2a241f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M600 260 L680 360" stroke="#2a241f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M520 360 L460 420" stroke="#2a241f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M680 360 L740 420" stroke="#2a241f" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="600" cy="220" r="40" fill="#c48a5a" stroke="#2a241f" stroke-width="4"/>
+  <path d="M260 470 L460 470" stroke="#6b5140" stroke-width="5"/>
+  <path d="M740 470 L940 470" stroke="#6b5140" stroke-width="5"/>
+</svg>

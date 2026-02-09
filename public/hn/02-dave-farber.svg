@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-label="Candle and network nodes">
+  <rect width="1200" height="650" fill="#f3eee2"/>
+  <circle cx="920" cy="160" r="70" fill="#d8c6ad" stroke="#2a241f" stroke-width="4"/>
+  <circle cx="1020" cy="300" r="50" fill="#d8c6ad" stroke="#2a241f" stroke-width="4"/>
+  <circle cx="830" cy="330" r="40" fill="#d8c6ad" stroke="#2a241f" stroke-width="4"/>
+  <path d="M920 160 L1020 300" stroke="#6a5341" stroke-width="4"/>
+  <path d="M920 160 L830 330" stroke="#6a5341" stroke-width="4"/>
+  <rect x="220" y="190" width="260" height="330" rx="40" fill="#e0c7a4" stroke="#2a241f" stroke-width="4"/>
+  <rect x="250" y="420" width="200" height="80" rx="25" fill="#c58a5b" stroke="#2a241f" stroke-width="4"/>
+  <path d="M350 140 C330 170 330 190 350 215 C370 190 370 170 350 140" fill="#d95f3e" stroke="#2a241f" stroke-width="3"/>
+  <path d="M140 520 L520 520" stroke="#2a241f" stroke-width="6" stroke-linecap="round"/>
+</svg>

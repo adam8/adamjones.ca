@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-label="Binary bits in fractured stone">
+  <rect width="1200" height="650" fill="#f4eee3"/>
+  <rect x="120" y="110" width="960" height="430" rx="30" fill="#d8c2a7" stroke="#2a241f" stroke-width="4"/>
+  <path d="M200 200 L1000 200" stroke="#2a241f" stroke-width="5" opacity="0.5"/>
+  <path d="M260 310 L940 310" stroke="#2a241f" stroke-width="5" opacity="0.5"/>
+  <path d="M220 420 L980 420" stroke="#2a241f" stroke-width="5" opacity="0.5"/>
+  <path d="M520 140 L680 520" stroke="#2a241f" stroke-width="6" opacity="0.6"/>
+  <text x="260" y="260" font-family="IBM Plex Mono, Courier New, monospace" font-size="90" fill="#5e4a3a">0 1 0</text>
+  <text x="260" y="380" font-family="IBM Plex Mono, Courier New, monospace" font-size="90" fill="#5e4a3a">1 0 1</text>
+</svg>
