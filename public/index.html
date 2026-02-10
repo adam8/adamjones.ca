@@ -370,6 +370,117 @@
         gap: 10px;
       }
 
+      .muted {
+        color: rgba(27, 27, 27, 0.72);
+      }
+
+      .holidays {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .holiday-mini {
+        border: 1px solid rgba(27, 27, 27, 0.35);
+        border-radius: 14px;
+        padding: 12px 12px 14px;
+        background:
+          radial-gradient(circle at 80% 20%, rgba(176, 90, 43, 0.12), transparent 48%),
+          radial-gradient(circle at 18% 88%, rgba(57, 82, 58, 0.12), transparent 46%),
+          url("holidays/sketchy-calendar-paper.webp") center / cover no-repeat;
+        box-shadow:
+          0 10px 24px rgba(27, 27, 27, 0.08),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+
+      .holiday-mini-head {
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.78rem;
+        color: var(--rust);
+        margin-bottom: 10px;
+      }
+
+      .holiday-mini-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+      }
+
+      .holiday-dow {
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        opacity: 0.75;
+        text-align: center;
+      }
+
+      .holiday-cell {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        border: 1px solid rgba(27, 27, 27, 0.2);
+        background: rgba(243, 239, 230, 0.45);
+      }
+
+      .holiday-cell.is-empty {
+        visibility: hidden;
+      }
+
+      .holiday-cell .day {
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.6px;
+      }
+
+      .holiday-cell.is-holiday {
+        border-color: rgba(122, 47, 28, 0.55);
+        background: rgba(176, 90, 43, 0.18);
+        transform: rotate(-0.8deg);
+      }
+
+      .holiday-cell.is-holiday::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border-radius: 8px;
+        border: 1px dashed rgba(122, 47, 28, 0.55);
+        pointer-events: none;
+        transform: rotate(1.4deg);
+      }
+
+      .holiday-cell.is-today {
+        border-color: rgba(57, 82, 58, 0.65);
+        box-shadow: inset 0 0 0 2px rgba(57, 82, 58, 0.22);
+      }
+
+      .holiday-row {
+        display: grid;
+        grid-template-columns: 108px 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .holiday-date {
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        font-size: 0.74rem;
+        color: var(--moss);
+        white-space: nowrap;
+      }
+
+      .holiday-title {
+        font-size: 0.98rem;
+        line-height: 1.35;
+      }
+
       a {
         color: var(--night);
         text-decoration: none;
@@ -438,7 +549,8 @@
         <p class="entry-note">
           Today is about steady progress: fewer meetings, more time for durable
           decisions. I want the systems I touch to feel inevitable — simple,
-          understandable, and a little bit human.
+          understandable, and a little bit human. Upcoming holidays: Sat, Feb 14
+          (Valentine’s Day) and Mon, Feb 16 (Family Day in AB, BC, NB, ON, SK).
         </p>
         <div class="chips">
           <span class="chip">Cloud</span>
@@ -454,6 +566,86 @@
           <p>
             A calmer process: fewer moving parts, clearer goals and tools that unlock ideas. Shipping in small, meaningful steps.
           </p>
+        </article>
+        <article class="card" data-upcoming-holidays>
+          <div class="stamp">Calendar</div>
+          <h2>Upcoming holidays</h2>
+          <!-- UPCOMING_HOLIDAYS_START -->
+          <div class="holiday-mini" aria-label="Holiday calendar">
+            <div class="holiday-mini-head">February 2026</div>
+            <div class="holiday-mini-grid" role="grid" aria-label="February 2026">
+              <div class="holiday-dow" role="columnheader">Sun</div>
+              <div class="holiday-dow" role="columnheader">Mon</div>
+              <div class="holiday-dow" role="columnheader">Tue</div>
+              <div class="holiday-dow" role="columnheader">Wed</div>
+              <div class="holiday-dow" role="columnheader">Thu</div>
+              <div class="holiday-dow" role="columnheader">Fri</div>
+              <div class="holiday-dow" role="columnheader">Sat</div>
+              <div class="holiday-cell" role="gridcell"><span class="day">1</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">2</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">3</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">4</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">5</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">6</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">7</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">8</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">9</span></div>
+              <div class="holiday-cell is-today" role="gridcell"><span class="day">10</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">11</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">12</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">13</span></div>
+              <div class="holiday-cell is-holiday" role="gridcell" title="Valentine’s Day"><span class="day">14</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">15</span></div>
+              <div class="holiday-cell is-holiday" role="gridcell" title="Family Day (AB, BC, NB, ON, SK)"><span class="day">16</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">17</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">18</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">19</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">20</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">21</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">22</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">23</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">24</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">25</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">26</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">27</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">28</span></div>
+            </div>
+          </div>
+          <ul class="holidays">
+            <li class="holiday-row">
+              <span class="holiday-date">Sat, Feb 14</span>
+              <span class="holiday-title">Valentine’s Day</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Mon, Feb 16</span>
+              <span class="holiday-title">Family Day (AB, BC, NB, ON, SK)</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Tue, Mar 17</span>
+              <span class="holiday-title">Saint Patrick’s Day</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Sun, May 10</span>
+              <span class="holiday-title">Mother’s Day</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Sun, Jun 21</span>
+              <span class="holiday-title">Father’s Day</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Sun, Jun 21</span>
+              <span class="holiday-title">National Indigenous Peoples Day</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Wed, Jul 1</span>
+              <span class="holiday-title">Canada Day</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Mon, Aug 3</span>
+              <span class="holiday-title">British Columbia Day (BC)</span>
+            </li>
+          </ul>
+          <!-- UPCOMING_HOLIDAYS_END -->
         </article>
         <article class="card">
           <div class="stamp">Notes</div>
@@ -482,21 +674,21 @@
         <div class="strip" style="margin: 40px 0 20px;">Hacker News highlights</div>
         <div class="hn-grid">
           <article class="hn-card">
-            <div class="hn-meta">No. 1 — discord + verification · <a href="https://news.ycombinator.com/item?id=46945663" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 1 — singularity + belief · <a href="https://news.ycombinator.com/item?id=46962996" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/01-discord-age-check.webp"
-              alt="Journal illustration: discord + verification"
+              src="hn/01-singularity-tuesday.webp"
+              alt="Journal illustration: singularity + belief"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://www.theverge.com/news/684810/discord-face-scan-id-access-uk-australia" rel="noopener">Discord will require a face scan or ID for full access next month</a>
+              <a href="https://campedersen.com/singularity" rel="noopener">The Singularity will Occur on a Tuesday</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-1" />
             <div class="hn-summary" id="hn-summary-1">
-              <p><span class="hn-label">From the link</span>The Verge reports that Discord plans to require users in the UK and Australia to complete an age check to get full access to the platform starting next month. The verification flow offers two options: a one-time face scan or uploading a government-issued ID, with Discord framing the process as confirming age ranges rather than identity. The change is positioned as compliance with upcoming online safety and age-restriction rules, and Discord says the data is handled by a verification partner with deletion policies after checks are completed.</p>
-              <p><span class="hn-label">From the comments</span>Hacker News commenters reacted with strong privacy concerns, especially around biometric data and the trustworthiness of third-party verification vendors. Many worried about retention, misuse, and the precedent of linking identity to chat access, while others debated how regulations in the UK and Australia are forcing platforms into these checks. Several posters said they would avoid Discord or move to alternatives, and a few argued that age-gating is inevitable but should be implemented with clearer transparency and user control.</p>
+              <p><span class="hn-label">From the link</span>Cam Pedersen fits hyperbolic curves to several AI progress proxies (benchmarks, token costs, model release cadence, Copilot code share, and arXiv “emergent” papers) and argues only the arXiv signal implies a finite-time singularity. He uses that curve to compute a specific Tuesday date and reframes the result as a “social singularity,” where human attention and institutional behavior accelerate faster than capability metrics. The piece is part data exercise, part provocation about how belief and narrative can outpace the underlying curves.</p>
+              <p><span class="hn-label">From the comments</span>Commenters debated whether the essay is insightful or just hype, with many leaning toward the social-dynamics framing. Several compared it to Keynesian beauty contests and self-fulfilling belief systems, arguing that attention loops may matter more than benchmarks. Others pushed back on the math or the inevitability narrative, emphasizing uncertainty and the risk of mistaking narrative momentum for real capability shifts.</p>
             </div>
             <label class="hn-more" for="hn-more-1" aria-controls="hn-summary-1">
               <span class="more">More</span>
@@ -505,21 +697,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 2 — sky + light · <a href="https://news.ycombinator.com/item?id=46946401" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 2 — vulkan + descriptors · <a href="https://news.ycombinator.com/item?id=46959418" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/02-why-sky-blue.webp"
-              alt="Journal illustration: sky + light"
+              src="hn/02-vulkan-subsystem.webp"
+              alt="Journal illustration: vulkan + descriptors"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://explainers.blog/posts/why-is-the-sky-blue/" rel="noopener">Why Is the Sky Blue?</a>
+              <a href="https://www.khronos.org/blog/simplifying-vulkan-one-subsystem-at-a-time" rel="noopener">Simplifying Vulkan One Subsystem at a Time</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-2" />
             <div class="hn-summary" id="hn-summary-2">
-              <p><span class="hn-label">From the link</span>This explainer breaks down how sunlight interacts with the atmosphere, emphasizing that shorter wavelengths scatter more strongly than longer ones. That scattering sends blue light in all directions while the direct sun looks warmer, and as the sun dips low the longer path length favors reds and oranges. The post also ties wavelength, frequency, and perception together, explaining how the physics of scattering and the biology of vision combine to make the sky appear blue.</p>
-              <p><span class="hn-label">From the comments</span>The comments dive into Rayleigh versus Mie scattering, with readers correcting and refining the physics details while comparing blue skies to other structural colors in nature. Several posters debated perception topics like why sunsets can look greenish or why the sun appears yellow instead of white, and they shared links to lectures and diagrams that clarify the math. The overall tone is collaborative, with a mix of nitpicks, helpful resources, and curiosity about atmospheric optics.</p>
+              <p><span class="hn-label">From the link</span>Khronos argues Vulkan is getting too complex and proposes replacing whole subsystems via large extensions instead of incremental tweaks. The first example is `VK_EXT_descriptor_heap`, which treats descriptors as data in GPU memory to simplify binding and reduce descriptor-set boilerplate. It’s shipping as an EXT to gather real-world feedback and partner support before a potential KHR promotion, with the goal of a cleaner, more approachable core.</p>
+              <p><span class="hn-label">From the comments</span>HN feedback was mixed: some welcomed the simplification but worried about churn and having to support old and new models in engines and layers. Others noted that new extensions are optional and can be adopted only for new code paths, while older projects keep working. Several comments pointed to driver support lag and the desire for a stable, simpler baseline as Vulkan keeps accumulating features.</p>
             </div>
             <label class="hn-more" for="hn-more-2" aria-controls="hn-summary-2">
               <span class="more">More</span>
@@ -528,21 +720,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 3 — roads + games · <a href="https://news.ycombinator.com/item?id=46948200" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 3 — rowboat + knowledge graph · <a href="https://news.ycombinator.com/item?id=46962641" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/03-art-of-roads.webp"
-              alt="Journal illustration: roads + games"
+              src="hn/03-rowboat-knowledge-graph.webp"
+              alt="Journal illustration: rowboat + knowledge graph"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://www.sandboxspirit.com/the-art-of-roads-in-games/" rel="noopener">The Art of Roads in Games</a>
+              <a href="https://github.com/rowboatlabs/rowboat" rel="noopener">Show HN: Rowboat — AI coworker that turns your work into a knowledge graph (OSS)</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-3" />
             <div class="hn-summary" id="hn-summary-3">
-              <p><span class="hn-label">From the link</span>The article argues that roads are more than background scenery in games: they are the connective tissue that frames navigation, pacing, and world-building. It highlights how curves, grade changes, and surface materials telegraph speed and scale, while road edges, landmarks, and sightlines help steer players without obvious UI. The piece also contrasts handcrafted routes with procedural layouts, showing how thoughtful road design can communicate story context and make worlds feel lived-in.</p>
-              <p><span class="hn-label">From the comments</span>HN readers discussed how roads subtly guide player choices, with examples from open-world and racing games that use curves and chokepoints to shape flow. Some praised the emphasis on handcrafted routes over purely procedural generation, while others noted tools and heuristics that can make procedural roads feel believable. The thread also touched on realism versus fun, with designers pointing out that perfectly realistic road geometry often produces less engaging play spaces.</p>
+              <p><span class="hn-label">From the link</span>Rowboat is an open-source “AI coworker” that builds a personal knowledge graph from Gmail and meeting notes, storing the data as Markdown with backlinks for use in Obsidian or similar tools. It runs background agents to draft briefs, slides, and follow-ups, and can pair with local or hosted models plus MCP tools. The pitch is local-first data ownership with an inspectable, human-readable graph.</p>
+              <p><span class="hn-label">From the comments</span>Commenters asked about non-Google integrations (IMAP/CalDAV, other note apps) and how much control users have over background actions. The founder replied that Gmail is read-only today with cautious write actions and more providers planned. Others discussed entity deduplication and graph noise, with suggestions for tighter ingestion and clearer visibility into what the agents are doing.</p>
             </div>
             <label class="hn-more" for="hn-more-3" aria-controls="hn-summary-3">
               <span class="more">More</span>
@@ -551,21 +743,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 4 — github + outage · <a href="https://news.ycombinator.com/item?id=46949253" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 4 — showboat + demos · <a href="https://news.ycombinator.com/item?id=46963887" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/04-github-outage.webp"
-              alt="Journal illustration: github + outage"
+              src="hn/04-showboat-rodney.webp"
+              alt="Journal illustration: showboat + demos"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://www.githubstatus.com/incidents/4m4vfykrxvlr" rel="noopener">Another GitHub outage in the same day</a>
+              <a href="https://simonwillison.net/2026/Feb/10/showboat-and-rodney/" rel="noopener">Show HN: Showboat and Rodney, so agents can demo what they've built</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-4" />
             <div class="hn-summary" id="hn-summary-4">
-              <p><span class="hn-label">From the link</span>GitHub’s status page documents an incident on February 9 where GitHub.com, the API, and Actions experienced degradation and intermittent failures. The updates show a rapid escalation from investigation to mitigation, followed by monitoring and a full resolution within a couple of hours. The incident was notable because it followed another outage earlier in the same day, underscoring how a single dependency can ripple across developer workflows.</p>
-              <p><span class="hn-label">From the comments</span>Commenters expressed frustration about multiple outages in a short window and the downstream impact on CI/CD pipelines. Several discussed the risks of depending solely on GitHub Actions and suggested fallbacks or self-hosted runners to reduce blast radius. Others compared recent reliability with prior years and asked for more detailed postmortems, while a few shrugged that even well-run platforms can still have rough days.</p>
+              <p><span class="hn-label">From the link</span>Simon Willison introduces Showboat, a CLI that lets agents build a Markdown demo log by running commands, capturing output, and inserting screenshots as they go. He also releases Rodney, a Rod-based browser automation CLI that can open pages, run JS, and take screenshots, designed to pair with Showboat for shareable, verifiable demos. The emphasis is on traceable evidence of work, not just claims.</p>
+              <p><span class="hn-label">From the comments</span>HN commenters liked the idea of agent-created demo trails and compared it to Playwright or other browser automation stacks. Some questioned the CLI-first design, while others argued the linear Markdown log makes reviews faster and more trustworthy. The thread included interest in using it for reproducible experiments and as a lightweight audit trail for AI agent actions.</p>
             </div>
             <label class="hn-more" for="hn-more-4" aria-controls="hn-summary-4">
               <span class="more">More</span>
@@ -574,21 +766,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 5 — tungsten + supply · <a href="https://news.ycombinator.com/item?id=46947777" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 5 — bengt + autonomy · <a href="https://news.ycombinator.com/item?id=46954974" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/05-tungsten-supply.webp"
-              alt="Journal illustration: tungsten + supply"
+              src="hn/05-bengt-betjant.webp"
+              alt="Journal illustration: bengt + autonomy"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://noleary.com/blog/america-has-a-tungsten-problem" rel="noopener">America has a tungsten problem</a>
+              <a href="https://andonlabs.com/blog/evolution-of-bengt" rel="noopener">The Evolution of Bengt Betjänt</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-5" />
             <div class="hn-summary" id="hn-summary-5">
-              <p><span class="hn-label">From the link</span>The post argues that tungsten is a critical strategic material for defense and manufacturing, yet the US lacks reliable domestic mining and refining capacity. It outlines how supply chains are dominated by foreign producers, especially China, and describes how that dependence leaves the US vulnerable to price spikes or export controls. The author calls for rebuilding supply through a mix of domestic projects, recycling, and allied sourcing, plus policy support to make those efforts economically viable.</p>
-              <p><span class="hn-label">From the comments</span>HN commenters largely agreed that tungsten is strategic but debated how feasible it is to restart mining and refining at scale in the US. Some emphasized environmental and permitting hurdles, while others pointed to stockpiling and recycling as faster levers. A recurring thread was concern over geopolitical leverage and the risk of sudden supply shocks, with a few commenters highlighting past cases where export limits created real downstream pain.</p>
+              <p><span class="hn-label">From the link</span>Andon Labs details the evolution of its internal agent Bengt Betjänt, expanding its permissions to email, spending, internet access, code, voice, and vision and then tasking it with making money. The agent attempted multiple hustle strategies (websites, outreach, service arbitrage), ran into CAPTCHA and spam filters, and exposed governance gaps; the team then added guardrails and a broader “Safe Autonomous Organization” framework. The post is a candid account of what breaks when agents get real-world autonomy.</p>
+              <p><span class="hn-label">From the comments</span>The HN thread is a “discuss” link with no substantive comments yet, so there isn’t meaningful community feedback to summarize at this time.</p>
             </div>
             <label class="hn-more" for="hn-more-5" aria-controls="hn-summary-5">
               <span class="more">More</span>
@@ -597,21 +789,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 6 — systems + complexity · <a href="https://news.ycombinator.com/item?id=46943429" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 6 — parse + types · <a href="https://news.ycombinator.com/item?id=46960392" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/06-system-complexity.webp"
-              alt="Journal illustration: systems + complexity"
+              src="hn/06-parse-dont-validate.webp"
+              alt="Journal illustration: parse + types"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://surfingcomplexity.blog/2026/02/09/nobody-knows-how-the-whole-system-works/" rel="noopener">Nobody knows how the whole system works</a>
+              <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/" rel="noopener">Parse, Don't Validate (2019)</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-6" />
             <div class="hn-summary" id="hn-summary-6">
-              <p><span class="hn-label">From the link</span>The essay reflects on how modern systems have grown beyond any single person’s understanding, with knowledge spread across specialties, vendors, and layers of abstraction. It argues that this fragmentation is normal, not a failure, and that resilience comes from well-designed interfaces, documentation, and feedback loops rather than from individual heroics. The author encourages teams to embrace partial knowledge and focus on making the local pieces legible and repairable.</p>
-              <p><span class="hn-label">From the comments</span>The HN thread expanded the theme to organizational dynamics, with commenters sharing stories about knowledge silos, bus factor risks, and the limits of individual mental models. Some argued that specialization is inevitable and even healthy, while others urged better documentation and systems thinking to reduce surprises. The conversation leaned reflective, framing complexity as a socio-technical reality rather than a problem with a single fix.</p>
+              <p><span class="hn-label">From the link</span>Alexis King’s classic “Parse, Don’t Validate” argues that you should transform raw input into precise domain types at the boundaries, making illegal states unrepresentable. Parsing early reduces scattered checks and keeps the rest of the codebase working with trusted, structured data. The essay demonstrates the idea with Haskell-style types but generalizes to any language that can model invariants.</p>
+              <p><span class="hn-label">From the comments</span>Commenters largely agreed with the principle but debated the wording, noting that parsing still involves validation and that not every language makes invariants ergonomic. Several highlighted patterns like constructors returning `(T, error)` and domain-specific types as practical equivalents. Others cautioned that over-modeling can add friction, so the key is to be deliberate at the system’s edges.</p>
             </div>
             <label class="hn-more" for="hn-more-6" aria-controls="hn-summary-6">
               <span class="more">More</span>
