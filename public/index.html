@@ -4,279 +4,235 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Adam Skye Jones</title>
-    <meta name="description" content="Adam Skye Jones — Head in the cloud, feet on the ground." />
+    <meta name="description" content="Adam Skye Jones dashboard." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,800&family=Space+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
         color-scheme: light;
-        --paper: #f3efe6;
-        --ink: #1b1b1b;
-        --dust: #c7b9a4;
-        --clay: #b05a2b;
-        --moss: #39523a;
-        --rust: #7a2f1c;
-        --night: #131313;
-        --pad: clamp(20px, 3.2vw, 36px);
-      }
-
-      html {
-        font-size: 97%;
+        --paper: #f7f3ea;
+        --ink: #141414;
+        --forest: #2f4b3f;
+        --clay: #ab5d2f;
+        --sun: #e2ad53;
+        --line: rgba(20, 20, 20, 0.28);
+        --panel: rgba(247, 243, 234, 0.9);
+        --pad: clamp(10px, 1.3vw, 18px);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html,
+      body {
+        height: 100%;
+      }
+
+      html {
+        font-size: clamp(14px, 0.18vw + 13.2px, 16px);
+      }
+
       body {
         margin: 0;
         font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
         color: var(--ink);
-        background: var(--paper);
-        min-height: 100vh;
-        line-height: 1.6;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
         background:
-          radial-gradient(circle at 12% 8%, rgba(176, 90, 43, 0.1), transparent 40%),
-          radial-gradient(circle at 86% 20%, rgba(57, 82, 58, 0.12), transparent 45%),
-          radial-gradient(circle at 18% 90%, rgba(122, 47, 28, 0.1), transparent 45%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent 35%),
-          repeating-linear-gradient(
-            125deg,
-            rgba(0, 0, 0, 0.04) 0,
-            rgba(0, 0, 0, 0.04) 1px,
-            transparent 1px,
-            transparent 5px
-          );
-        mix-blend-mode: multiply;
-        opacity: 0.6;
-        z-index: 0;
+          radial-gradient(circle at 10% 0%, rgba(226, 173, 83, 0.2), transparent 35%),
+          radial-gradient(circle at 85% 16%, rgba(47, 75, 63, 0.16), transparent 38%),
+          linear-gradient(140deg, #f9f6ef 0%, #f3ecdf 100%);
+        line-height: 1.45;
       }
 
-      main {
-        position: relative;
-        z-index: 1;
-        max-width: 1020px;
+      .dashboard {
+        width: min(1480px, 100%);
+        height: 100dvh;
         margin: 0 auto;
-        padding: calc(var(--pad) * 1.4) var(--pad) calc(var(--pad) * 2.6);
+        padding: var(--pad);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: clamp(8px, 1vw, 14px);
       }
 
-      header {
+      .topbar {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+        box-shadow:
+          0 14px 34px rgba(20, 20, 20, 0.08),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.44);
+        padding: clamp(10px, 1.4vw, 16px);
         display: grid;
-        gap: 12px;
-        margin-bottom: 36px;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "name meta"
+          "tag meta";
+        gap: 4px 12px;
+        align-items: end;
+      }
+
+      .topbar-meta {
+        grid-area: meta;
+        display: flex;
+        align-items: center;
+        justify-self: end;
+        align-self: start;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        border: 1px solid rgba(20, 20, 20, 0.44);
+        border-radius: 999px;
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        padding: 3px 8px;
+      }
+
+      .badge.live {
+        border-color: rgba(47, 75, 63, 0.65);
+        color: var(--forest);
       }
 
       .name {
+        grid-area: name;
+        margin: 0;
         font-family: "Fraunces", "Times New Roman", serif;
-        font-size: clamp(2.5rem, 5vw, 4.4rem);
-        font-weight: 800;
-        letter-spacing: 0.5px;
+        font-weight: 900;
+        letter-spacing: 0.4px;
+        font-size: clamp(1.6rem, 3vw, 2.45rem);
         line-height: 1.05;
-        text-transform: uppercase;
       }
 
       .tagline {
+        grid-area: tag;
+        margin: 0;
         font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: clamp(0.95rem, 1.7vw, 1.2rem);
-        color: var(--moss);
         text-transform: uppercase;
-        letter-spacing: 1.6px;
+        letter-spacing: 1.1px;
+        color: var(--forest);
+        font-size: clamp(0.68rem, 0.9vw, 0.82rem);
       }
 
-      .strip {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-
-      .strip::before,
-      .strip::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--ink);
-        opacity: 0.4;
-      }
-
-      .journal {
+      .grid {
+        min-height: 0;
         display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: 1fr 1.58fr 1.1fr;
+        gap: clamp(8px, 0.9vw, 12px);
       }
 
-      .card {
-        background: rgba(243, 239, 230, 0.92);
-        border: 1px solid rgba(27, 27, 27, 0.35);
-        border-radius: 12px;
-        padding: 18px 18px 20px;
+      .panel {
+        min-height: 0;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
         box-shadow:
-          0 6px 20px rgba(27, 27, 27, 0.08),
+          0 10px 28px rgba(20, 20, 20, 0.07),
           inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-        position: relative;
-        transform: rotate(-0.4deg);
+        display: grid;
+        grid-template-rows: auto 1fr;
       }
 
-      .card:nth-child(even) {
-        transform: rotate(0.6deg);
-      }
-
-      .card::before {
-        content: "";
-        position: absolute;
-        inset: 8px;
-        border: 1px dashed rgba(27, 27, 27, 0.2);
-        border-radius: 9px;
-        pointer-events: none;
-      }
-
-      .stamp {
-        display: inline-block;
-        padding: 6px 12px;
-        border: 2px solid var(--rust);
-        color: var(--rust);
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.75rem;
-        transform: rotate(-4deg);
-        margin-bottom: 14px;
-      }
-
-      h2 {
-        font-family: "Fraunces", "Times New Roman", serif;
-        margin: 0 0 10px;
-        font-weight: 600;
-        font-size: 1.4rem;
-      }
-
-      h3 {
-        font-family: "Fraunces", "Times New Roman", serif;
-        margin: 0 0 8px;
-        font-weight: 600;
-        font-size: 1.15rem;
-      }
-
-      p {
-        margin: 0 0 14px;
-      }
-
-      .chips {
+      .panel-head {
+        border-bottom: 1px solid rgba(20, 20, 20, 0.14);
+        padding: 9px 11px;
         display: flex;
-        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
         gap: 8px;
       }
 
-      .chip {
-        border: 1px solid rgba(27, 27, 27, 0.5);
-        border-radius: 999px;
-        padding: 4px 10px;
-        font-size: 0.78rem;
-        letter-spacing: 0.6px;
-        text-transform: uppercase;
+      .panel-title {
+        margin: 0;
+        font-family: "Fraunces", "Times New Roman", serif;
+        font-size: 1rem;
       }
 
-      .entry {
-        display: grid;
-        gap: 12px;
-        padding: 18px;
-        border: 2px solid rgba(27, 27, 27, 0.35);
-        border-radius: 16px;
-        background: linear-gradient(120deg, rgba(255, 255, 255, 0.35), transparent 65%);
-      }
-
-      .entry-date {
+      .panel-meta {
         font-family: "IBM Plex Mono", "Courier New", monospace;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        color: var(--moss);
-        font-size: 0.78rem;
+        letter-spacing: 1.1px;
+        font-size: 0.62rem;
+        color: rgba(20, 20, 20, 0.72);
       }
 
-      .entry-title {
-        font-family: "Fraunces", "Times New Roman", serif;
-        font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      .panel-body {
+        min-height: 0;
+        overflow: auto;
+        padding: 10px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .panel-body::-webkit-scrollbar {
+        width: 9px;
+      }
+
+      .panel-body::-webkit-scrollbar-thumb {
+        background: rgba(20, 20, 20, 0.2);
+        border-radius: 999px;
+      }
+
+      .focus-card {
+        border: 1px solid rgba(20, 20, 20, 0.2);
+        border-radius: 11px;
+        padding: 9px;
+        background: rgba(255, 255, 255, 0.38);
+        display: grid;
+        gap: 6px;
+        text-wrap: balance;
+        text-align: center;
+      }
+
+      .focus-label {
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        font-size: 0.62rem;
+        color: var(--clay);
+        text-align: left;
+      }
+
+      .focus-card p {
         margin: 0;
-      }
-
-      .entry-note {
-        font-size: 1.02rem;
       }
 
       .hn-grid {
         display: grid;
-        gap: 18px;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        align-items: start;
-      }
-
-      .hn-card {
-        --card-paper: rgba(243, 239, 230, 0.95);
-        border: 1px solid rgba(27, 27, 27, 0.35);
-        border-radius: 14px;
-        padding: 16px;
-        background: var(--card-paper);
-        display: grid;
-        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
         align-content: start;
       }
 
-      .hn-card h3 {
-        font-size: 1.08rem;
-      }
-
-      .hn-card p {
-        font-size: 0.95rem;
-      }
-
-      .hn-meta {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 1.8px;
-        color: var(--rust);
-      }
-
-      .hn-summary {
+      .hn-card {
+        border: 1px solid rgba(20, 20, 20, 0.18);
+        border-radius: 11px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.34);
         display: grid;
-        gap: 10px;
-        position: relative;
-        max-height: 5.8em;
-        overflow: hidden;
+        align-content: start;
+        gap: 5px;
       }
 
-      .hn-summary::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2.4em;
-        background: linear-gradient(to bottom, rgba(243, 239, 230, 0), var(--card-paper));
-        pointer-events: none;
-      }
-
-      .hn-label {
-        display: inline-block;
+      .hn-kicker {
+        margin: 0;
         font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.68rem;
         text-transform: uppercase;
-        letter-spacing: 1.8px;
-        color: rgba(27, 27, 27, 0.7);
-        margin-right: 8px;
+        letter-spacing: 1.2px;
+        font-size: 0.58rem;
+        color: var(--clay);
+      }
+
+      .hn-title {
+        margin: 0;
+        font-size: 0.84rem;
+        line-height: 1.2;
       }
 
       .hn-toggle {
@@ -291,27 +247,78 @@
         border: 0;
       }
 
-      .hn-toggle:checked ~ .hn-summary {
+      .hn-story {
+        margin: 0;
+        font-size: 0.76rem;
+        line-height: 1.3;
+        color: rgba(20, 20, 20, 0.82);
+        position: relative;
+        max-height: 8.4em;
+        overflow: hidden;
+      }
+
+      .hn-story::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2.3em;
+        background: linear-gradient(to bottom, rgba(247, 243, 234, 0), rgba(247, 243, 234, 0.98));
+        pointer-events: none;
+      }
+
+      .hn-toggle:checked ~ .hn-story {
         max-height: none;
       }
 
-      .hn-toggle:checked ~ .hn-summary::after {
+      .hn-toggle:checked ~ .hn-story::after {
         display: none;
+      }
+
+      .hn-story p {
+        margin: 0 0 6px;
+      }
+
+      .hn-story p:last-child {
+        margin-bottom: 0;
+      }
+
+      .hn-label {
+        display: inline-block;
+        margin-right: 6px;
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.56rem;
+        color: rgba(20, 20, 20, 0.72);
+      }
+
+      .hn-thumb {
+        width: 88px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid rgba(20, 20, 20, 0.24);
+        filter: saturate(0.9);
+        float: left;
+        margin: 2px 8px 4px 0;
       }
 
       .hn-more {
         justify-self: start;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 6px 12px;
-        border: 1px solid rgba(27, 27, 27, 0.45);
+        gap: 6px;
+        padding: 4px 8px;
+        border: 1px solid rgba(20, 20, 20, 0.42);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.2);
         font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.72rem;
         text-transform: uppercase;
-        letter-spacing: 1.6px;
+        letter-spacing: 1px;
+        font-size: 0.58rem;
+        color: rgba(20, 20, 20, 0.82);
         cursor: pointer;
         user-select: none;
       }
@@ -334,103 +341,72 @@
         display: inline;
       }
 
-      .hn-image {
-        width: 100%;
-        height: 130px;
-        object-fit: cover;
-        border: 1px solid rgba(27, 27, 27, 0.35);
-        border-radius: 12px;
-        filter: saturate(0.8) contrast(0.95);
+      a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(20, 20, 20, 0.35);
       }
 
-      .hn-sketch {
-        width: 100%;
-        height: 130px;
-        border: 1px solid rgba(27, 27, 27, 0.35);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.35);
-      }
-
-      .hn-video {
-        width: 100%;
-        height: 130px;
-        border: 1px solid rgba(27, 27, 27, 0.35);
-        border-radius: 12px;
-        overflow: hidden;
-        background: rgba(0, 0, 0, 0.06);
-      }
-
-      .hn-video iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
+      a:hover,
+      a:focus-visible {
+        border-bottom-color: var(--clay);
+        color: var(--clay);
       }
 
       .links {
-        list-style: none;
-        padding: 0;
         margin: 0;
+        padding-left: 16px;
         display: grid;
-        gap: 10px;
+        gap: 4px;
       }
 
       .muted {
-        color: rgba(27, 27, 27, 0.72);
-      }
-
-      .holidays {
-        list-style: none;
-        padding: 0;
-        margin: 12px 0 0;
-        display: grid;
-        gap: 10px;
+        color: rgba(20, 20, 20, 0.74);
       }
 
       .holiday-mini {
-        border: 1px solid rgba(27, 27, 27, 0.35);
-        border-radius: 14px;
-        padding: 12px 12px 14px;
+        border: 1px solid rgba(20, 20, 20, 0.22);
+        border-radius: 11px;
+        margin-bottom: 15px;
+        padding: 8px;
         background:
-          radial-gradient(circle at 80% 20%, rgba(176, 90, 43, 0.12), transparent 48%),
-          radial-gradient(circle at 18% 88%, rgba(57, 82, 58, 0.12), transparent 46%),
+          radial-gradient(circle at 80% 20%, rgba(171, 93, 47, 0.14), transparent 48%),
+          radial-gradient(circle at 18% 88%, rgba(47, 75, 63, 0.13), transparent 46%),
           url("holidays/sketchy-calendar-paper.webp") center / cover no-repeat;
-        box-shadow:
-          0 10px 24px rgba(27, 27, 27, 0.08),
-          inset 0 0 0 1px rgba(255, 255, 255, 0.35);
       }
 
       .holiday-mini-head {
         font-family: "IBM Plex Mono", "Courier New", monospace;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.78rem;
-        color: var(--rust);
-        margin-bottom: 10px;
+        letter-spacing: 1.2px;
+        font-size: 0.62rem;
+        color: var(--clay);
+        margin-bottom: 7px;
       }
 
       .holiday-mini-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        gap: 6px;
+        gap: 3px;
       }
 
       .holiday-dow {
         font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.68rem;
-        letter-spacing: 1.2px;
+        font-size: 0.58rem;
+        letter-spacing: 0.8px;
         text-transform: uppercase;
-        opacity: 0.75;
         text-align: center;
+        opacity: 0.76;
       }
 
       .holiday-cell {
-        position: relative;
         aspect-ratio: 1 / 1;
         display: grid;
         place-items: center;
-        border-radius: 10px;
-        border: 1px solid rgba(27, 27, 27, 0.2);
-        background: rgba(243, 239, 230, 0.45);
+        border-radius: 6px;
+        border: 1px solid rgba(20, 20, 20, 0.2);
+        background: rgba(247, 243, 234, 0.46);
+        position: relative;
       }
 
       .holiday-cell.is-empty {
@@ -439,99 +415,202 @@
 
       .holiday-cell .day {
         font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.78rem;
-        letter-spacing: 0.6px;
+        font-size: 0.63rem;
       }
 
       .holiday-cell.is-holiday {
-        border-color: rgba(122, 47, 28, 0.55);
-        background: rgba(176, 90, 43, 0.18);
-        transform: rotate(-0.8deg);
-      }
-
-      .holiday-cell.is-holiday::after {
-        content: "";
-        position: absolute;
-        inset: 4px;
-        border-radius: 8px;
-        border: 1px dashed rgba(122, 47, 28, 0.55);
-        pointer-events: none;
-        transform: rotate(1.4deg);
+        border-color: rgba(171, 93, 47, 0.65);
+        background: rgba(171, 93, 47, 0.14);
       }
 
       .holiday-cell.is-today {
-        border-color: rgba(57, 82, 58, 0.65);
-        box-shadow: inset 0 0 0 2px rgba(57, 82, 58, 0.22);
+        border-color: rgba(47, 75, 63, 0.7);
+        box-shadow: inset 0 0 0 2px rgba(47, 75, 63, 0.22);
+      }
+
+      .holidays {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 6px;
       }
 
       .holiday-row {
         display: grid;
-        grid-template-columns: 108px 1fr;
-        gap: 12px;
-        align-items: start;
+        grid-template-columns: 94px 1fr;
+        gap: 8px;
+        border-bottom: 1px dashed rgba(20, 20, 20, 0.22);
+        padding-bottom: 4px;
       }
 
       .holiday-date {
         font-family: "IBM Plex Mono", "Courier New", monospace;
         text-transform: uppercase;
-        letter-spacing: 1.6px;
-        font-size: 0.74rem;
-        color: var(--moss);
+        letter-spacing: 1px;
+        font-size: 0.58rem;
+        color: var(--forest);
         white-space: nowrap;
       }
 
       .holiday-title {
-        font-size: 0.98rem;
-        line-height: 1.35;
-      }
-
-      a {
-        color: var(--night);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(27, 27, 27, 0.35);
-      }
-
-      a:hover,
-      a:focus-visible {
-        color: var(--clay);
-        border-bottom-color: var(--clay);
+        font-size: 0.74rem;
       }
 
       footer {
-        margin-top: 46px;
-        font-size: 0.85rem;
-        color: rgba(27, 27, 27, 0.7);
-        display: grid;
-        gap: 10px;
+        font-size: 0.68rem;
+        color: rgba(20, 20, 20, 0.65);
+        text-align: right;
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        letter-spacing: 1px;
       }
 
-      .fade-in {
+      .fade-up {
         opacity: 0;
-        transform: translateY(16px);
-        animation: fade 800ms ease forwards;
+        transform: translateY(8px);
+        animation: rise 520ms ease forwards;
       }
 
-      .fade-in.delay-1 {
-        animation-delay: 120ms;
+      .fade-up.delay-1 {
+        animation-delay: 90ms;
       }
 
-      .fade-in.delay-2 {
-        animation-delay: 240ms;
+      .fade-up.delay-2 {
+        animation-delay: 170ms;
       }
 
-      .fade-in.delay-3 {
-        animation-delay: 360ms;
-      }
-
-      @keyframes fade {
+      @keyframes rise {
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
 
+      @media (max-width: 1180px) {
+        .grid {
+          grid-template-columns: 1fr 1.35fr 1fr;
+        }
+
+        .hn-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hn-story {
+          max-height: 7.9em;
+        }
+      }
+
+      @media (max-width: 900px) {
+        html {
+          font-size: 16px;
+        }
+
+        body {
+          overflow-y: auto;
+        }
+
+        .dashboard {
+          height: auto;
+          min-height: 100dvh;
+          grid-template-rows: auto;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "meta"
+            "name"
+            "tag";
+          gap: 8px;
+        }
+
+        .topbar-meta {
+          justify-self: start;
+          gap: 8px;
+        }
+
+        .badge {
+          font-size: 0.68rem;
+        }
+
+        .panel {
+          min-height: auto;
+        }
+
+        .panel-body {
+          overflow: visible;
+        }
+
+        .hn-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hn-thumb {
+          width: 108px;
+          height: 78px;
+        }
+
+        .hn-title {
+          font-size: 0.95rem;
+        }
+
+        .hn-story {
+          font-size: 0.86rem;
+          max-height: 10.4em;
+        }
+
+        footer {
+          text-align: left;
+        }
+      }
+
+      @media (min-width: 901px) {
+        body {
+          overflow: hidden;
+        }
+      }
+
+      @media (min-width: 901px) and (max-height: 880px) {
+        html {
+          font-size: 14px;
+        }
+
+        .dashboard {
+          padding: 10px;
+          gap: 8px;
+        }
+
+        .topbar {
+          padding: 8px 12px;
+        }
+
+        .panel-body {
+          padding: 8px;
+          gap: 7px;
+        }
+
+        .hn-thumb {
+          width: 76px;
+          height: 54px;
+        }
+
+        .hn-story {
+          max-height: 7em;
+        }
+      }
+
+      @media (min-width: 901px) and (max-height: 760px) {
+        .tagline {
+          display: none;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
-        .fade-in {
+        .fade-up {
           animation: none;
           opacity: 1;
           transform: none;
@@ -540,272 +619,268 @@
     </style>
   </head>
   <body>
-    <main>
-      <header class="fade-in">
-        <div class="strip">Field Journal</div>
-        <div class="name">Adam Skye Jones</div>
-        <div class="tagline">Head in the cloud, feet on the ground</div>
+    <main class="dashboard">
+      <header class="topbar fade-up">
+        <div class="topbar-meta">
+          <span class="badge live">Live Desk</span>
+          <span class="badge">Fri, Feb 13, 2026</span>
+          <span class="badge">Pacific Time</span>
+        </div>
+        <h1 class="name">Adam Skye Jones</h1>
+        <p class="tagline">Head in the cloud, feet on the ground</p>
       </header>
 
-      <section class="entry fade-in delay-1">
-        <div class="entry-date">Entry — February 13, 2026</div>
-        <h1 class="entry-title">Daily HN pulse + where I’m at today.</h1>
-        <p class="entry-note">
-          Today is about careful momentum: finishing the small things that keep big systems calm. I want the work to feel obvious in hindsight — quiet, reliable, and a little bit human. Upcoming holidays: Sat, Feb 14 (Valentine’s Day) and Mon, Feb 16 (Family Day).
-        </p>
-        <div class="chips">
-          <span class="chip">Cloud</span>
-          <span class="chip">Architecture</span>
-          <span class="chip">Momentum</span>
-        </div>
-      </section>
-
-      <section class="journal fade-in delay-2">
-        <article class="card">
-          <div class="stamp">Now</div>
-          <h2>Working on</h2>
-          <p>
-            A calmer process: fewer moving parts, clearer goals and tools that unlock ideas. Shipping in small, meaningful steps.
-          </p>
-        </article>
-        <article class="card" data-upcoming-holidays>
-          <div class="stamp">Calendar</div>
-          <h2>Upcoming holidays</h2>
-          <!-- UPCOMING_HOLIDAYS_START -->
-          <div class="holiday-mini" aria-label="Holiday calendar">
-            <div class="holiday-mini-head">February 2026</div>
-            <div class="holiday-mini-grid" role="grid" aria-label="February 2026">
-              <div class="holiday-dow" role="columnheader">Sun</div>
-              <div class="holiday-dow" role="columnheader">Mon</div>
-              <div class="holiday-dow" role="columnheader">Tue</div>
-              <div class="holiday-dow" role="columnheader">Wed</div>
-              <div class="holiday-dow" role="columnheader">Thu</div>
-              <div class="holiday-dow" role="columnheader">Fri</div>
-              <div class="holiday-dow" role="columnheader">Sat</div>
-              <div class="holiday-cell" role="gridcell"><span class="day">1</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">2</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">3</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">4</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">5</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">6</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">7</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">8</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">9</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">10</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">11</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">12</span></div>
-              <div class="holiday-cell is-today" role="gridcell"><span class="day">13</span></div>
-              <div class="holiday-cell is-holiday" role="gridcell" title="Valentine’s Day"><span class="day">14</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">15</span></div>
-              <div class="holiday-cell is-holiday" role="gridcell" title="Family Day (AB, BC, NB, ON, SK)"><span class="day">16</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">17</span></div>
-              <div class="holiday-cell is-holiday" role="gridcell" title="Lent begins"><span class="day">18</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">19</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">20</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">21</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">22</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">23</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">24</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">25</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">26</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">27</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">28</span></div>
+      <section class="grid">
+        <article class="panel fade-up delay-1" aria-label="Current focus">
+          <div class="panel-head">
+            <h2 class="panel-title">Workbench</h2>
+            <span class="panel-meta">Today</span>
+          </div>
+          <div class="panel-body">
+            <div class="focus-card">
+              <div class="focus-label">Primary focus</div>
+              <p>Calm execution. Finish the small things that keep bigger systems predictable.</p>
+            </div>
+            <div class="focus-card">
+              <div class="focus-label">Current mode</div>
+              <p>Shipping in compact steps with enough context to make each one stick.</p>
+            </div>
+            <div class="focus-card">
+              <div class="focus-label">Energy</div>
+              <p>Quiet momentum, practical choices, and fewer moving parts.</p>
             </div>
           </div>
-          <ul class="holidays">
-            <li class="holiday-row">
-              <span class="holiday-date">Sat, Feb 14</span>
-              <span class="holiday-title">Valentine’s Day</span>
-            </li>
-            <li class="holiday-row">
-              <span class="holiday-date">Mon, Feb 16</span>
-              <span class="holiday-title">Family Day</span>
-            </li>
-            <li class="holiday-row">
-              <span class="holiday-date">Wed, Feb 18</span>
-              <span class="holiday-title">Lent begins</span>
-            </li>
-            <li class="holiday-row">
-              <span class="holiday-date">Tue, Mar 17</span>
-              <span class="holiday-title">Saint Patrick’s Day</span>
-            </li>
-            <li class="holiday-row">
-              <span class="holiday-date">Fri, Apr 3</span>
-              <span class="holiday-title">Good Friday</span>
-            </li>
-            <li class="holiday-row">
-              <span class="holiday-date">Sun, Apr 5</span>
-              <span class="holiday-title">Easter</span>
-            </li>
-            <li class="holiday-row">
-              <span class="holiday-date">Mon, Apr 6</span>
-              <span class="holiday-title">Easter Monday</span>
-            </li>
-          </ul>
-          <!-- UPCOMING_HOLIDAYS_END -->
         </article>
-        <article class="card">
-          <div class="stamp">Links</div>
-          <h2>Find me</h2>
-          <ul class="links">
-            <li>
-              <a href="https://github.com/adam8" rel="noopener">GitHub</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/adamskyejones/" rel="noopener"
-                >LinkedIn</a
-              >
-            </li>
-          </ul>
+
+        <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
+          <div class="panel-head">
+            <h2 class="panel-title">Hacker News Pulse</h2>
+            <span class="panel-meta">Top 6 watch items</span>
+          </div>
+          <div class="panel-body">
+            <div class="hn-grid">
+              <article class="hn-card">
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47002825" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://github.com/zed-industries/zed/pull/46758" rel="noopener">Zed switches Linux rendering from Blade to wgpu</a></h3>
+                <input class="hn-toggle" type="checkbox" id="hn-more-1" />
+                <div class="hn-story" id="hn-story-1">
+                  <img
+                    class="hn-thumb"
+                    src="hn/01-zed-wgpu.webp"
+                    alt="Journal illustration: wgpu switch"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p><span class="hn-label">From link</span>The pull request removes Blade and replaces Linux rendering with a wgpu path. The motivation is pragmatic: Blade was cited as a repeat source of rendering bugs, and wgpu aligns better with the wider Rust graphics ecosystem.</p>
+                  <p><span class="hn-label">From comments</span>Discussion split between relief and caution. Some saw this as overdue operational cleanup, while others questioned how much long-term complexity GPUI can absorb if platform-specific rendering differences keep growing.</p>
+                </div>
+                <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
+                  <span class="more">More</span>
+                  <span class="less">Less</span>
+                </label>
+              </article>
+
+              <article class="hn-card">
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=46997008" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://noheger.at/blog/2026/02/12/resizing-windows-on-macos-tahoe-the-saga-continues/" rel="noopener">macOS Tahoe resize hitbox regression review</a></h3>
+                <input class="hn-toggle" type="checkbox" id="hn-more-2" />
+                <div class="hn-story" id="hn-story-2">
+                  <img
+                    class="hn-thumb"
+                    src="hn/02-resize-hitbox.webp"
+                    alt="Journal illustration: resize hitbox"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p><span class="hn-label">From link</span>The author mapped pixel-level resize hit areas and found RC behavior briefly improved before final release reverted. Even where fixes appeared, edge hit zones remained tighter than prior expectations and frustrating in real use.</p>
+                  <p><span class="hn-label">From comments</span>Users shared recurring complaints about missed resize cursors, especially on background windows. The broader thread was less about one bug and more about steady erosion of target size in core desktop interactions.</p>
+                </div>
+                <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
+                  <span class="more">More</span>
+                  <span class="less">Less</span>
+                </label>
+              </article>
+
+              <article class="hn-card">
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47003064" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://ios-countdown.win/" rel="noopener">Countdown page pushes Apple to fix iOS keyboard issues</a></h3>
+                <input class="hn-toggle" type="checkbox" id="hn-more-3" />
+                <div class="hn-story" id="hn-story-3">
+                  <img
+                    class="hn-thumb"
+                    src="hn/03-keyboard-countdown.webp"
+                    alt="Journal illustration: keyboard countdown"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p><span class="hn-label">From link</span>The page sets a public deadline for keyboard quality fixes, framing WWDC 2026 as a last checkpoint. It turns a long-tail usability complaint into a single visible artifact with a clear timeline.</p>
+                  <p><span class="hn-label">From comments</span>Replies filled with autocorrect and touch-accuracy anecdotes, plus workaround swaps. Several people debated whether this is fixable through tuning alone or if deeper input model decisions are the root issue.</p>
+                </div>
+                <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
+                  <span class="more">More</span>
+                  <span class="less">Less</span>
+                </label>
+              </article>
+
+              <article class="hn-card">
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47000041" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://github.com/minio/minio/commit/7aac2a29360aa11fb7c8b523c6beedd51a1787f7" rel="noopener">MinIO repo marked no longer maintained</a></h3>
+                <input class="hn-toggle" type="checkbox" id="hn-more-4" />
+                <div class="hn-story" id="hn-story-4">
+                  <img
+                    class="hn-thumb"
+                    src="hn/04-minio-maintenance.webp"
+                    alt="Journal illustration: minio unmaintained"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p><span class="hn-label">From link</span>README updates direct users away from this repository and toward AIStor offerings, with language implying legacy releases are also out of maintenance. Operationally, this signals immediate re-evaluation for teams depending on upstream fixes.</p>
+                  <p><span class="hn-label">From comments</span>Most responses focused on risk posture: freeze, fork, or migrate. The second theme was trust around licensing and communication, especially where production storage choices were made under different assumptions.</p>
+                </div>
+                <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
+                  <span class="more">More</span>
+                  <span class="less">Less</span>
+                </label>
+              </article>
+
+              <article class="hn-card">
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=46992553" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://openai.com/index/introducing-gpt-5-3-codex-spark/" rel="noopener">GPT-5.3-Codex-Spark announced</a></h3>
+                <input class="hn-toggle" type="checkbox" id="hn-more-5" />
+                <div class="hn-story" id="hn-story-5">
+                  <img
+                    class="hn-thumb"
+                    src="hn/05-codex-spark.webp"
+                    alt="Journal illustration: codex spark"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p><span class="hn-label">From link</span>The launch positions Codex-Spark as a low-latency coding companion tuned for rapid edit cycles. Emphasis is on speed of interaction and iteration tempo rather than replacing deeper, slower reasoning models.</p>
+                  <p><span class="hn-label">From comments</span>HN interest centered on where responsiveness changes workflow quality in practice. Skeptics asked about context limits and reasoning depth, while supporters argued latency itself is a first-order product feature.</p>
+                </div>
+                <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
+                  <span class="more">More</span>
+                  <span class="less">Less</span>
+                </label>
+              </article>
+
+              <article class="hn-card">
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=46991240" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/" rel="noopener">Gemini 3 Deep Think benchmark claims</a></h3>
+                <input class="hn-toggle" type="checkbox" id="hn-more-6" />
+                <div class="hn-story" id="hn-story-6">
+                  <img
+                    class="hn-thumb"
+                    src="hn/06-gemini-deep-think.webp"
+                    alt="Journal illustration: deep think"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p><span class="hn-label">From link</span>The announcement highlights strong Olympiad-style and scientific benchmark outcomes, presenting Deep Think as a major reasoning step. Availability details and access tiers were also a key part of the release framing.</p>
+                  <p><span class="hn-label">From comments</span>Most replies revisited benchmark skepticism and transferability to everyday engineering work. The practical thread was about access costs, reproducibility, and what evidence would change confidence beyond scorecards.</p>
+                </div>
+                <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
+                  <span class="more">More</span>
+                  <span class="less">Less</span>
+                </label>
+              </article>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel fade-up delay-2" aria-label="Calendar and links">
+          <div class="panel-head">
+            <h2 class="panel-title">Calendar + Links</h2>
+            <span class="panel-meta">Upcoming</span>
+          </div>
+          <div class="panel-body">
+            <section data-upcoming-holidays>
+              <!-- UPCOMING_HOLIDAYS_START -->
+              <div class="holiday-mini" aria-label="Holiday calendar">
+                <div class="holiday-mini-head">February 2026</div>
+                <div class="holiday-mini-grid" role="grid" aria-label="February 2026">
+                  <div class="holiday-dow" role="columnheader">Sun</div>
+                  <div class="holiday-dow" role="columnheader">Mon</div>
+                  <div class="holiday-dow" role="columnheader">Tue</div>
+                  <div class="holiday-dow" role="columnheader">Wed</div>
+                  <div class="holiday-dow" role="columnheader">Thu</div>
+                  <div class="holiday-dow" role="columnheader">Fri</div>
+                  <div class="holiday-dow" role="columnheader">Sat</div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">1</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">2</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">3</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">4</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">5</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">6</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">7</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">8</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">9</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">10</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">11</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">12</span></div>
+                  <div class="holiday-cell is-today" role="gridcell"><span class="day">13</span></div>
+                  <div class="holiday-cell is-holiday" role="gridcell" title="Valentine’s Day"><span class="day">14</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">15</span></div>
+                  <div class="holiday-cell is-holiday" role="gridcell" title="Family Day (AB, BC, NB, ON, SK)"><span class="day">16</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">17</span></div>
+                  <div class="holiday-cell is-holiday" role="gridcell" title="Lent begins"><span class="day">18</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">19</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">20</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">21</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">22</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">23</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">24</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">25</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">26</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">27</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">28</span></div>
+                </div>
+              </div>
+              <ul class="holidays">
+                <li class="holiday-row">
+                  <span class="holiday-date">Sat, Feb 14</span>
+                  <span class="holiday-title">Valentine’s Day</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Mon, Feb 16</span>
+                  <span class="holiday-title">Family Day</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Wed, Feb 18</span>
+                  <span class="holiday-title">Lent begins</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Tue, Mar 17</span>
+                  <span class="holiday-title">Saint Patrick’s Day</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Fri, Apr 3</span>
+                  <span class="holiday-title">Good Friday</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Sun, Apr 5</span>
+                  <span class="holiday-title">Easter</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Mon, Apr 6</span>
+                  <span class="holiday-title">Easter Monday</span>
+                </li>
+              </ul>
+              <!-- UPCOMING_HOLIDAYS_END -->
+            </section>
+
+            <section>
+              <p class="focus-label">Find me</p>
+              <ul class="links">
+                <li><a href="https://github.com/adam8" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/adamskyejones/" rel="noopener">LinkedIn</a></li>
+              </ul>
+            </section>
+          </div>
         </article>
       </section>
 
-      <section class="fade-in delay-3" aria-label="Hacker News highlights">
-        <div class="strip" style="margin: 40px 0 20px;">Hacker News highlights</div>
-        <div class="hn-grid">
-          <article class="hn-card">
-            <div class="hn-meta">No. 1 — wgpu switch · <a href="https://news.ycombinator.com/item?id=47002825" rel="noopener">HN</a></div>
-            <img
-              class="hn-image"
-              src="hn/01-zed-wgpu.webp"
-              alt="Journal illustration: wgpu switch"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>
-              <a href="https://github.com/zed-industries/zed/pull/46758" rel="noopener">Zed editor switch graphics library from blade to wgpu</a>
-            </h3>
-            <input class="hn-toggle" type="checkbox" id="hn-more-1" />
-            <div class="hn-summary" id="hn-summary-1">
-              <p><span class="hn-label">From the link</span>The PR removes the Blade renderer and replaces Zed’s Linux rendering path with a wgpu-backed implementation. The author frames Blade as the root cause of multiple issues and wants to align with the de facto Rust graphics stack, while noting the new path can also benefit from improvements landing in other wgpu-using projects.</p>
-              <p><span class="hn-label">From the comments</span>HN readers focused on the trade‑offs of tying Zed’s UI stack to wgpu, with questions about GPUI’s long‑term maintenance and how much Linux‑only rendering divergence is acceptable. Some saw the swap as a practical fix for chronic bugs, while others worried about one more moving part in an already complex UI pipeline.</p>
-            </div>
-            <label class="hn-more" for="hn-more-1" aria-controls="hn-summary-1">
-              <span class="more">More</span>
-              <span class="less">Less</span>
-            </label>
-          </article>
-
-          <article class="hn-card">
-            <div class="hn-meta">No. 2 — resize hitbox · <a href="https://news.ycombinator.com/item?id=46997008" rel="noopener">HN</a></div>
-            <img
-              class="hn-image"
-              src="hn/02-resize-hitbox.webp"
-              alt="Journal illustration: resize hitbox"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>
-              <a href="https://noheger.at/blog/2026/02/12/resizing-windows-on-macos-tahoe-the-saga-continues/" rel="noopener">Resizing windows on macOS Tahoe – the saga continues</a>
-            </h3>
-            <input class="hn-toggle" type="checkbox" id="hn-more-2" />
-            <div class="hn-summary" id="hn-summary-2">
-              <p><span class="hn-label">From the link</span>Norbert Heger tested Apple’s claim that macOS 26.3 fixed window resize hit areas by writing a brute‑force click map. He found the RC briefly aligned hit regions with rounded corners but also shrank the resize band from 7 to 6 pixels, and the final release reverted to the old square hit regions and re‑labeled the problem a “Known Issue.”</p>
-              <p><span class="hn-label">From the comments</span>HN commenters traded war stories about resize cursors failing to appear—especially on background windows—and complained that hit areas keep shrinking even as displays grow. Others mentioned using third‑party tools or window managers to resize more reliably and questioned why Apple keeps back‑pedaling on such a basic interaction.</p>
-            </div>
-            <label class="hn-more" for="hn-more-2" aria-controls="hn-summary-2">
-              <span class="more">More</span>
-              <span class="less">Less</span>
-            </label>
-          </article>
-
-          <article class="hn-card">
-            <div class="hn-meta">No. 3 — keyboard countdown · <a href="https://news.ycombinator.com/item?id=47003064" rel="noopener">HN</a></div>
-            <img
-              class="hn-image"
-              src="hn/03-keyboard-countdown.webp"
-              alt="Journal illustration: keyboard countdown"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>
-              <a href="https://ios-countdown.win/" rel="noopener">Apple, fix my keyboard before the timer ends. Or I’m leaving.</a>
-            </h3>
-            <input class="hn-toggle" type="checkbox" id="hn-more-3" />
-            <div class="hn-summary" id="hn-summary-3">
-              <p><span class="hn-label">From the link</span>The page is a public countdown urging Apple to fix the iOS keyboard by the end of WWDC 2026. It claims Apple has acknowledged the issues and committed to fixing them, but frames the deadline as a last chance before the author gives up on the iPhone altogether.</p>
-              <p><span class="hn-label">From the comments</span>HN readers piled on with typing‑pain anecdotes about autocorrect and missed taps, with some saying they jumped to Android for relief. Others traded practical workarounds like turning off predictive features, switching keyboards, or using hardware options to cope with the current state.</p>
-            </div>
-            <label class="hn-more" for="hn-more-3" aria-controls="hn-summary-3">
-              <span class="more">More</span>
-              <span class="less">Less</span>
-            </label>
-          </article>
-
-          <article class="hn-card">
-            <div class="hn-meta">No. 4 — minio unmaintained · <a href="https://news.ycombinator.com/item?id=47000041" rel="noopener">HN</a></div>
-            <img
-              class="hn-image"
-              src="hn/04-minio-maintenance.webp"
-              alt="Journal illustration: minio unmaintained"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>
-              <a href="https://github.com/minio/minio/commit/7aac2a29360aa11fb7c8b523c6beedd51a1787f7" rel="noopener">MinIO repository is no longer maintained</a>
-            </h3>
-            <input class="hn-toggle" type="checkbox" id="hn-more-4" />
-            <div class="hn-summary" id="hn-summary-4">
-              <p><span class="hn-label">From the link</span>MinIO updated its README to say this repository is no longer maintained and directs users toward AIStor Free or Enterprise as alternatives. The note adds that legacy MinIO releases are also no longer maintained, signaling a hard cutoff for the open repository line.</p>
-              <p><span class="hn-label">From the comments</span>HN readers debated what “no longer maintained” implies for security posture and whether users should freeze, fork, or migrate. Others zeroed in on licensing and business‑model shifts, weighing if the move amounts to a bait‑and‑switch or a predictable commercial pivot.</p>
-            </div>
-            <label class="hn-more" for="hn-more-4" aria-controls="hn-summary-4">
-              <span class="more">More</span>
-              <span class="less">Less</span>
-            </label>
-          </article>
-
-          <article class="hn-card">
-            <div class="hn-meta">No. 5 — codex spark · <a href="https://news.ycombinator.com/item?id=46992553" rel="noopener">HN</a></div>
-            <img
-              class="hn-image"
-              src="hn/05-codex-spark.webp"
-              alt="Journal illustration: codex spark"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>
-              <a href="https://openai.com/index/introducing-gpt-5-3-codex-spark/" rel="noopener">GPT-5.3-Codex-Spark</a>
-            </h3>
-            <input class="hn-toggle" type="checkbox" id="hn-more-5" />
-            <div class="hn-summary" id="hn-summary-5">
-              <p><span class="hn-label">From the link</span>OpenAI introduced GPT‑5.3‑Codex‑Spark as a research‑preview, smaller sibling of GPT‑5.3‑Codex tuned for real‑time coding assistance. It highlights ultra‑low latency (over 1,000 tokens per second) in partnership with Cerebras and positions the model for rapid iteration with developers.</p>
-              <p><span class="hn-label">From the comments</span>HN readers were impressed by the speed but unsure about trade‑offs, with several noting weaker context handling or smaller effective windows compared with larger models. The discussion oscillated between excitement about real‑time coding and questions about cost, deployment hardware, and whether speed matters more than reasoning depth.</p>
-            </div>
-            <label class="hn-more" for="hn-more-5" aria-controls="hn-summary-5">
-              <span class="more">More</span>
-              <span class="less">Less</span>
-            </label>
-          </article>
-
-          <article class="hn-card">
-            <div class="hn-meta">No. 6 — deep think · <a href="https://news.ycombinator.com/item?id=46991240" rel="noopener">HN</a></div>
-            <img
-              class="hn-image"
-              src="hn/06-gemini-deep-think.webp"
-              alt="Journal illustration: deep think"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>
-              <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/" rel="noopener">Gemini 3 Deep Think</a>
-            </h3>
-            <input class="hn-toggle" type="checkbox" id="hn-more-6" />
-            <div class="hn-summary" id="hn-summary-6">
-              <p><span class="hn-label">From the link</span>Google’s Gemini 3 Deep Think update spotlights strong scientific reasoning, claiming gold‑medal‑level results on physics and chemistry Olympiad benchmarks and a 50.5% score on the CMT Benchmark. The post frames the model as a leap forward for deep reasoning and notes availability through Google AI Ultra and limited API early access.</p>
-              <p><span class="hn-label">From the comments</span>HN discussion centered on benchmark fatigue and skepticism about how well Olympiad‑style scores map to real‑world reasoning. Others focused on access tiers and whether the Ultra plan makes the model meaningfully usable, balancing excitement about progress with questions about evaluation rigor.</p>
-            </div>
-            <label class="hn-more" for="hn-more-6" aria-controls="hn-summary-6">
-              <span class="more">More</span>
-              <span class="less">Less</span>
-            </label>
-          </article>
-        </div>
-      </section>
-
-      <footer class="fade-in delay-3">
-        Built to not last.
-      </footer>
+      <footer class="fade-up delay-2">Built to not last.</footer>
     </main>
   </body>
 </html>
