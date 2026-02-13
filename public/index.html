@@ -551,7 +551,7 @@
         <div class="entry-date">Entry — February 13, 2026</div>
         <h1 class="entry-title">Daily HN pulse + where I’m at today.</h1>
         <p class="entry-note">
-          Today is about careful momentum: finishing the small things that keep big systems calm. I want the work to feel obvious in hindsight — quiet, reliable, and a little bit human. Upcoming holidays: Mon, Feb 16 (Family Day) and Wed, Feb 18 (Lent begins).
+          Today is about careful momentum: finishing the small things that keep big systems calm. I want the work to feel obvious in hindsight — quiet, reliable, and a little bit human. Upcoming holidays: Sat, Feb 14 (Valentine’s Day) and Mon, Feb 16 (Family Day).
         </p>
         <div class="chips">
           <span class="chip">Cloud</span>
@@ -593,8 +593,8 @@
               <div class="holiday-cell" role="gridcell"><span class="day">9</span></div>
               <div class="holiday-cell" role="gridcell"><span class="day">10</span></div>
               <div class="holiday-cell" role="gridcell"><span class="day">11</span></div>
-              <div class="holiday-cell is-today" role="gridcell"><span class="day">12</span></div>
-              <div class="holiday-cell" role="gridcell"><span class="day">13</span></div>
+              <div class="holiday-cell" role="gridcell"><span class="day">12</span></div>
+              <div class="holiday-cell is-today" role="gridcell"><span class="day">13</span></div>
               <div class="holiday-cell is-holiday" role="gridcell" title="Valentine’s Day"><span class="day">14</span></div>
               <div class="holiday-cell" role="gridcell"><span class="day">15</span></div>
               <div class="holiday-cell is-holiday" role="gridcell" title="Family Day (AB, BC, NB, ON, SK)"><span class="day">16</span></div>
@@ -664,21 +664,21 @@
         <div class="strip" style="margin: 40px 0 20px;">Hacker News highlights</div>
         <div class="hn-grid">
           <article class="hn-card">
-            <div class="hn-meta">No. 1 — no-tip gauntlet · <a href="https://news.ycombinator.com/item?id=46997519" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 1 — wgpu switch · <a href="https://news.ycombinator.com/item?id=47002825" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/01-skip-the-tips.webp"
-              alt="Journal illustration: no-tip gauntlet"
+              src="hn/01-zed-wgpu.webp"
+              alt="Journal illustration: wgpu switch"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://skipthe.tips/" rel="noopener">Skip the Tips: A game to select "No Tip" but dark patterns try to stop you</a>
+              <a href="https://github.com/zed-industries/zed/pull/46758" rel="noopener">Zed editor switch graphics library from blade to wgpu</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-1" />
             <div class="hn-summary" id="hn-summary-1">
-              <p><span class="hn-label">From the link</span>Skip the Tips is a free browser game that turns tipping screens into a speedrun: you must hit “No Tip” while tiny buttons, guilt‑trip modals, fake loaders, and rigged sliders try to trick you. It frames itself as a satirical take on tipping culture, packs in 30+ dark patterns with progressive difficulty, and keeps the pressure up with a shrinking timer. Everything runs in-browser with no downloads or sign-ups.</p>
-              <p><span class="hn-label">From the comments</span>HN readers said the game nails the real engine of dark patterns: time pressure, social pressure, and cognitive load rather than just button placement. People compared their own tipping rules, called it a surprisingly solid reaction game, and shared rounds that felt extra devious or borderline unwinnable. The overall vibe was “this is awful in the best way.”</p>
+              <p><span class="hn-label">From the link</span>The PR removes the Blade renderer and replaces Zed’s Linux rendering path with a wgpu-backed implementation. The author frames Blade as the root cause of multiple issues and wants to align with the de facto Rust graphics stack, while noting the new path can also benefit from improvements landing in other wgpu-using projects.</p>
+              <p><span class="hn-label">From the comments</span>HN readers focused on the trade‑offs of tying Zed’s UI stack to wgpu, with questions about GPUI’s long‑term maintenance and how much Linux‑only rendering divergence is acceptable. Some saw the swap as a practical fix for chronic bugs, while others worried about one more moving part in an already complex UI pipeline.</p>
             </div>
             <label class="hn-more" for="hn-more-1" aria-controls="hn-summary-1">
               <span class="more">More</span>
@@ -687,11 +687,11 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 2 — resize saga · <a href="https://news.ycombinator.com/item?id=46997008" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 2 — resize hitbox · <a href="https://news.ycombinator.com/item?id=46997008" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/02-resize-saga.webp"
-              alt="Journal illustration: resize saga"
+              src="hn/02-resize-hitbox.webp"
+              alt="Journal illustration: resize hitbox"
               loading="lazy"
               decoding="async"
             />
@@ -700,8 +700,8 @@
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-2" />
             <div class="hn-summary" id="hn-summary-2">
-              <p><span class="hn-label">From the link</span>Norbert Heger followed up on Apple’s claim that macOS 26.3 fixed the window‑resize hit area. He wrote a test app that brute‑force clicks around the corner, showing the RC briefly aligned hit regions to the rounded corner but also thinned the resize band from 7 to 6 pixels. In the final release the fix vanished, returning to the old square regions and downgrading the issue to “Known Issue.”</p>
-              <p><span class="hn-label">From the comments</span>HN commenters argued that hit targets keep shrinking even as screens grow, and many want resize zones to be far larger along edges and corners. Others shared odd bugs like windows spanning two displays refusing to resize, or the resize cursor not appearing reliably. The thread mixes UI‑ergonomics frustration with a desire for more forgiving window controls.</p>
+              <p><span class="hn-label">From the link</span>Norbert Heger tested Apple’s claim that macOS 26.3 fixed window resize hit areas by writing a brute‑force click map. He found the RC briefly aligned hit regions with rounded corners but also shrank the resize band from 7 to 6 pixels, and the final release reverted to the old square hit regions and re‑labeled the problem a “Known Issue.”</p>
+              <p><span class="hn-label">From the comments</span>HN commenters traded war stories about resize cursors failing to appear—especially on background windows—and complained that hit areas keep shrinking even as displays grow. Others mentioned using third‑party tools or window managers to resize more reliably and questioned why Apple keeps back‑pedaling on such a basic interaction.</p>
             </div>
             <label class="hn-more" for="hn-more-2" aria-controls="hn-summary-2">
               <span class="more">More</span>
@@ -710,21 +710,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 3 — retail commons · <a href="https://news.ycombinator.com/item?id=46994869" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 3 — keyboard countdown · <a href="https://news.ycombinator.com/item?id=47003064" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/03-retail-commons.webp"
-              alt="Journal illustration: retail commons"
+              src="hn/03-keyboard-countdown.webp"
+              alt="Journal illustration: keyboard countdown"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://worksinprogress.co/issue/fixing-retail-with-land-value-capture/" rel="noopener">Fixing retail with land value capture</a>
+              <a href="https://ios-countdown.win/" rel="noopener">Apple, fix my keyboard before the timer ends. Or I’m leaving.</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-3" />
             <div class="hn-summary" id="hn-summary-3">
-              <p><span class="hn-label">From the link</span>The essay argues that beloved retail districts create value that mostly accrues to nearby landowners, leaving shops to struggle. It surveys ways to capture and recycle that value, from unified ownership models like malls or rail‑plus‑property to hyperlocal institutions that tax land value and fund the “commons” of shops, cafes, and third spaces. The goal is to keep lively streets by letting retail share in the value it generates.</p>
-              <p><span class="hn-label">From the comments</span>HN readers dove into land value tax mechanics, pointing out land’s inelastic supply and how taxing appreciation could fund public goods or business relief. Others questioned feasibility, governance, and whether such schemes help renters versus landlords. The discussion was a mix of Georgist enthusiasm and implementation skepticism.</p>
+              <p><span class="hn-label">From the link</span>The page is a public countdown urging Apple to fix the iOS keyboard by the end of WWDC 2026. It claims Apple has acknowledged the issues and committed to fixing them, but frames the deadline as a last chance before the author gives up on the iPhone altogether.</p>
+              <p><span class="hn-label">From the comments</span>HN readers piled on with typing‑pain anecdotes about autocorrect and missed taps, with some saying they jumped to Android for relief. Others traded practical workarounds like turning off predictive features, switching keyboards, or using hardware options to cope with the current state.</p>
             </div>
             <label class="hn-more" for="hn-more-3" aria-controls="hn-summary-3">
               <span class="more">More</span>
@@ -733,21 +733,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 4 — ai insult · <a href="https://news.ycombinator.com/item?id=46994633" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 4 — minio unmaintained · <a href="https://news.ycombinator.com/item?id=47000041" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/04-ai-insult.webp"
-              alt="Journal illustration: ai insult"
+              src="hn/04-minio-maintenance.webp"
+              alt="Journal illustration: minio unmaintained"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://forkingmad.blog/insulted-today-ai/" rel="noopener">I was insulted today - AI style</a>
+              <a href="https://github.com/minio/minio/commit/7aac2a29360aa11fb7c8b523c6beedd51a1787f7" rel="noopener">MinIO repository is no longer maintained</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-4" />
             <div class="hn-summary" id="hn-summary-4">
-              <p><span class="hn-label">From the link</span>The author recounts proofreading a colleague’s report and suggesting a simple opening summary. The colleague praised the paragraph, then asked whether it was written with AI, which the author experienced as a deep insult to his craft. The post ends with a firm, humorous rebuttal and a broader frustration about the assumption that good writing must be machine‑generated.</p>
-              <p><span class="hn-label">From the comments</span>Commenters split between empathy and eye‑rolling, noting how AI has become a cultural identity marker rather than a tool debate. Some joked that “did you use AI?” is the modern insult, while others argued the simplest response is just “no.” The thread reads like a micro‑study in AI fatigue and social signaling.</p>
+              <p><span class="hn-label">From the link</span>MinIO updated its README to say this repository is no longer maintained and directs users toward AIStor Free or Enterprise as alternatives. The note adds that legacy MinIO releases are also no longer maintained, signaling a hard cutoff for the open repository line.</p>
+              <p><span class="hn-label">From the comments</span>HN readers debated what “no longer maintained” implies for security posture and whether users should freeze, fork, or migrate. Others zeroed in on licensing and business‑model shifts, weighing if the move amounts to a bait‑and‑switch or a predictable commercial pivot.</p>
             </div>
             <label class="hn-more" for="hn-more-4" aria-controls="hn-summary-4">
               <span class="more">More</span>
@@ -756,21 +756,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 5 — $380b round · <a href="https://news.ycombinator.com/item?id=46993345" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 5 — codex spark · <a href="https://news.ycombinator.com/item?id=46992553" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/05-anthropic-series-g.webp"
-              alt="Journal illustration: $380b round"
+              src="hn/05-codex-spark.webp"
+              alt="Journal illustration: codex spark"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation" rel="noopener">Anthropic raises $30B in Series G funding at $380B post-money valuation</a>
+              <a href="https://openai.com/index/introducing-gpt-5-3-codex-spark/" rel="noopener">GPT-5.3-Codex-Spark</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-5" />
             <div class="hn-summary" id="hn-summary-5">
-              <p><span class="hn-label">From the link</span>Anthropic says it raised $30B in a Series G led by GIC and Coatue, valuing the company at $380B post‑money and co‑led by D.E. Shaw, Dragoneer, Founders Fund, ICONIQ, and MGX. The announcement frames the capital as fuel for frontier research, product development, and infrastructure expansion, and highlights rapid enterprise adoption. It also cites a $14B run‑rate revenue and more than 500 customers spending over $1M annually.</p>
-              <p><span class="hn-label">From the comments</span>HN readers debated whether private mega‑valuations should face public‑company‑style scrutiny and how sustainable the numbers are. Many focused on revenue versus earnings and whether AI revenue growth justifies the price tag. Others pointed to Claude Code’s reported growth as evidence of real traction, while skeptics compared the valuation to public market benchmarks.</p>
+              <p><span class="hn-label">From the link</span>OpenAI introduced GPT‑5.3‑Codex‑Spark as a research‑preview, smaller sibling of GPT‑5.3‑Codex tuned for real‑time coding assistance. It highlights ultra‑low latency (over 1,000 tokens per second) in partnership with Cerebras and positions the model for rapid iteration with developers.</p>
+              <p><span class="hn-label">From the comments</span>HN readers were impressed by the speed but unsure about trade‑offs, with several noting weaker context handling or smaller effective windows compared with larger models. The discussion oscillated between excitement about real‑time coding and questions about cost, deployment hardware, and whether speed matters more than reasoning depth.</p>
             </div>
             <label class="hn-more" for="hn-more-5" aria-controls="hn-summary-5">
               <span class="more">More</span>
@@ -779,21 +779,21 @@
           </article>
 
           <article class="hn-card">
-            <div class="hn-meta">No. 6 — mobile fortify · <a href="https://news.ycombinator.com/item?id=46995001" rel="noopener">HN</a></div>
+            <div class="hn-meta">No. 6 — deep think · <a href="https://news.ycombinator.com/item?id=46991240" rel="noopener">HN</a></div>
             <img
               class="hn-image"
-              src="hn/06-mobile-fortify.webp"
-              alt="Journal illustration: mobile fortify"
+              src="hn/06-gemini-deep-think.webp"
+              alt="Journal illustration: deep think"
               loading="lazy"
               decoding="async"
             />
             <h3>
-              <a href="https://www.techdirt.com/2026/02/12/ice-cbp-knew-facial-recognition-app-couldnt-do-what-dhs-says-it-could-deployed-it-anyway/" rel="noopener">ICE, CBP Knew Facial Recognition App Couldn’t Do What DHS Says It Could, Deployed It Anyway</a>
+              <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/" rel="noopener">Gemini 3 Deep Think</a>
             </h3>
             <input class="hn-toggle" type="checkbox" id="hn-more-6" />
             <div class="hn-summary" id="hn-summary-6">
-              <p><span class="hn-label">From the link</span>Techdirt reports that ICE and CBP have been using NEC’s “Mobile Fortify” app to identify people even though required privacy and AI impact assessments lagged behind deployment. The piece argues DHS overstates the app’s identity‑verification capabilities, noting it doesn’t actually verify identities and has been used on people beyond targeted suspects. It frames the rollout as “deploy first, paperwork later,” with civil‑liberties risks baked in.</p>
-              <p><span class="hn-label">From the comments</span>HN commenters questioned whether the app is being mischaracterized, arguing it’s more of a similarity search that leaves the final call to officers. Others pushed for real accuracy/false‑positive data and highlighted the privacy implications of using imperfect face matching at scale. The thread mixes technical nitpicks with concern over surveillance and due process.</p>
+              <p><span class="hn-label">From the link</span>Google’s Gemini 3 Deep Think update spotlights strong scientific reasoning, claiming gold‑medal‑level results on physics and chemistry Olympiad benchmarks and a 50.5% score on the CMT Benchmark. The post frames the model as a leap forward for deep reasoning and notes availability through Google AI Ultra and limited API early access.</p>
+              <p><span class="hn-label">From the comments</span>HN discussion centered on benchmark fatigue and skepticism about how well Olympiad‑style scores map to real‑world reasoning. Others focused on access tiers and whether the Ultra plan makes the model meaningfully usable, balancing excitement about progress with questions about evaluation rigor.</p>
             </div>
             <label class="hn-more" for="hn-more-6" aria-controls="hn-summary-6">
               <span class="more">More</span>
