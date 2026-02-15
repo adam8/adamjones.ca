@@ -681,13 +681,13 @@
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-archive-access.webp"
-                    alt="Journal illustration: archive stacks, web crawler, and a blocked access stamp"
+                    src="images/hacker-news/01-archive-blocks.webp"
+                    alt="Journal illustration: archival boxes, web crawler, and a blocked access stamp"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Nieman Lab reports that major publishers are tightening access to the Internet Archive because they fear AI companies are using the Wayback Machine and its APIs as a backdoor to scrape content. The article highlights The Guardian and The New York Times blocking archive.org bots in robots.txt and explains how a broader review of publishers’ robots files found 241 outlets explicitly disallowing at least one Internet Archive crawler, with many of those blocks coming from the USA Today/Gannett network.</p>
-                  <p><span class="hn-label">From comments</span>HN readers argued over the role of independent archives: some said accepting coverage means accepting third-party preservation, while others defended time-delayed archives or paywall-friendly controls so publishers can still fund reporting. A parallel thread pushed back on the idea of “trustworthy” sources as a single axis, noting bias is inevitable and readers must weigh context.</p>
+                  <p><span class="hn-label">From link</span>Nieman Lab reports that major publishers are tightening access to the Internet Archive after AI scraping fears, pointing to The Guardian and The New York Times blocking archive.org crawlers in robots.txt. A review of robots files found 241 news outlets disallowing at least one Internet Archive bot, with many blocks tied to the USA Today/Gannett network, signaling a broad pullback from third-party archiving.</p>
+                  <p><span class="hn-label">From comments</span>Commenters debated whether publishers can lock archives while still benefitting from the web’s memory: some argued independent archiving is essential for accountability, while others preferred time-delayed access or paywall-friendly controls so outlets can still fund reporting.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -696,21 +696,23 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47017727" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47015294" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://nicole.express/2026/not-my-casual-hobby.html" rel="noopener">You can’t trust the internet anymore</a>
+                  <a href="https://aimilios.bearblog.dev/reverse-engineering-sleep-mask/" rel="noopener"
+                    >Smart sleep mask exposes EEG data over an open MQTT broker</a
+                  >
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-internet-trust.webp"
-                    alt="Journal illustration: frayed cables, search results, and a cracked trust seal"
+                    src="images/hacker-news/02-sleep-mask-mqtt.webp"
+                    alt="Journal illustration: sleep mask, EEG waveform, and an open padlock"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Nicole’s short rant starts with a niche gaming discovery (a Genesis cartridge that is secretly a Master System game) and turns into a broader lament about search results and the web’s declining reliability. A mix of SEO sludge, misinformation, and low-effort sites keeps bubbling to the top, making it hard to trust what you find even when you’re researching obscure but legitimate topics.</p>
-                  <p><span class="hn-label">From comments</span>Commenters debated how to rebuild trust: one camp argued for local or private networks to avoid AI-driven scraping and content rot, while others said the problem is the content itself and can be solved with smaller trusted communities without rebuilding the network stack. Several replies cited AI agents and scraping traffic as a force multiplier for the decline.</p>
+                  <p><span class="hn-label">From link</span>The author reverse-engineers a Kickstarter smart sleep mask, sniffing BLE traffic, decompiling the Flutter app, and discovering hardcoded MQTT credentials pointing to a shared broker. They map the protocol and build a small web control panel to send commands and read live EEG data from any device on that broker.</p>
+                  <p><span class="hn-label">From comments</span>HN readers used it as a cautionary tale about hardware startups shipping brittle backends: several noted that LLM-assisted development can make teams underestimate security and ops work, while others focused on the privacy risk of shared broker credentials and the need for local-only modes.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -719,23 +721,23 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47017682" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47000535" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://simonwillison.net/2026/Feb/12/gemini-3-deep-think/" rel="noopener"
-                    >Gemini 3 Deep Think drew a convincing pelican-on-a-bicycle SVG</a
+                  <a href="https://github.com/alibaba/zvec" rel="noopener"
+                    >Zvec: A lightweight, fast, in-process vector database</a
                   >
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-gemini-pelican.webp"
-                    alt="Journal illustration: pelican on a bicycle drawn in ink and watercolor"
+                    src="images/hacker-news/03-zvec-vectors.webp"
+                    alt="Journal illustration: microchip with vector dots and connecting arrows"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Simon Willison shares a Gemini 3 Deep Think experiment where the model generates a detailed SVG of a pelican riding a bicycle and then tackles a tougher prompt describing a California brown pelican with specific anatomical features. The post contrasts these results with prior models and links to the generated SVGs as evidence of improved vector-graphics output.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion splits between people convinced the demo is legitimate progress and skeptics who think the best results are cherry-picked; several commenters report trying their own SVG prompts across models and seeing wide variance. Others note that comparing different assistants makes the pace of improvement feel uneven and hard to judge.</p>
+                  <p><span class="hn-label">From link</span>Zvec is a lightweight in-process vector database based on Proxima, aimed at single-process deployment with built-in vector storage, vector search, and hybrid scoring. The repository positions it as an embedded alternative for dense or sparse search workloads that can run inside an application without external services.</p>
+                  <p><span class="hn-label">From comments</span>Commenters asked for clearer benchmarking: some wanted end-to-end latency numbers and comparison methodology, while others questioned cache effects and dataset sizes behind the reported QPS, pushing for independent verification.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -767,23 +769,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47015294" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=46973299" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://aimilios.bearblog.dev/reverse-engineering-sleep-mask/" rel="noopener"
-                    >Smart sleep mask exposes EEG data over an open MQTT broker</a
-                  >
+                  <a href="https://www.robinsloan.com/notes/flood-fill/" rel="noopener">Flood Fill vs. The Magic Circle</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-sleep-mask-mqtt.webp"
-                    alt="Journal illustration: sleep mask, waveform, and open padlock"
+                    src="images/hacker-news/05-flood-fill.webp"
+                    alt="Journal illustration: paint bucket flood fill contained by a thin circle"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The author reverse-engineers a Kickstarter smart sleep mask and discovers a shared MQTT broker with hardcoded credentials inside the Flutter app binary. By inspecting BLE traffic, decompiling the APK, and extracting string tables, they reconstruct the protocol shape and build a simple web control panel to send commands and read streamed EEG data.</p>
-                  <p><span class="hn-label">From comments</span>Readers used the story as a cautionary tale about hardware startups taking shortcuts: LLMs can make teams believe firmware and software are “free,” but the hard parts still show up later. Others emphasized the privacy risk of shared broker credentials and the broader IoT habit of shipping without secure local-only modes.</p>
+                  <p><span class="hn-label">From link</span>Robin Sloan contrasts the computer-science flood-fill metaphor with the idea of the “magic circle” in games, arguing that automation can fill only the bounded, rule-driven spaces we define. The essay suggests real-world constraints and leaky boundaries make some domains resistant to full automation, even as the tools get better.</p>
+                  <p><span class="hn-label">From comments</span>Commenters argued over how porous the “magic circle” already is: some said physical tasks will fall once robotics catches up, while others noted that information systems already influence the physical world, making the boundary less protective than the metaphor implies.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -792,23 +792,23 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47014500" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47005856" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://github.com/datavorous/sameshi" rel="noopener"
-                    >Show HN: Sameshi, a ~1200 Elo chess engine in 2KB</a
+                  <a href="https://martinfowler.com/articles/fragments-of-the-week/2026/02/13.html" rel="noopener"
+                    >The consequences of task switching in supervisory programming</a
                   >
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-sameshi-chess.webp"
-                    alt="Journal illustration: tiny chessboard on a microchip"
+                    src="images/hacker-news/06-task-switch.webp"
+                    alt="Journal illustration: task cards, juggling hand, and small robot helpers"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Sameshi is a micro chess engine implemented in roughly 2KB, using a 120-cell mailbox board, negamax with alpha-beta pruning, material-only evaluation, and capture-first move ordering. It supports legal move validation for check, mate, and stalemate, reports an estimated ~1170 Elo from Stockfish tests, and explicitly omits castling, en passant, promotion, and repetition rules to stay tiny.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters praised the demoscene-style minimalism but questioned how much space the missing rules would cost, arguing that castling, en passant, and promotion are essential for “real” chess. Others compared it with older tiny engines and discussed tradeoffs between size, completeness, and playing strength.</p>
+                  <p><span class="hn-label">From link</span>In his weekly fragments, Martin Fowler reflects on “supervisory programming,” where senior engineers coordinate multiple LLM-driven agents, and the cognitive cost of fast context switching. He argues that while LLMs speed execution, the supervising developer still pays the attention tax and should reduce interruptions to keep quality high.</p>
+                  <p><span class="hn-label">From comments</span>HN responses were skeptical of the “instant convert” framing and debated whether supervision really scales; several commenters pushed back on the tone and argued that intellectual control and accountability remain human bottlenecks.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -907,7 +907,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sun, Feb 15, 2026 · 7:02 PM.</footer>
     </main>
     <script>
       (function () {
