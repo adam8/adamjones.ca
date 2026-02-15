@@ -907,7 +907,32 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2">Built to not last. Updated Sun, Feb 15, 2026 · 6:27 PM PST.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last.</footer>
     </main>
+    <script>
+      (function () {
+        const footer = document.getElementById("footer-updated-at");
+        if (!footer) return;
+
+        const now = new Date();
+        const timeZone = "America/Los_Angeles";
+        const datePart = new Intl.DateTimeFormat("en-US", {
+          timeZone,
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        }).format(now);
+        const timePart = new Intl.DateTimeFormat("en-US", {
+          timeZone,
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+          timeZoneName: "short",
+        }).format(now);
+
+        footer.textContent = `Built to not last. Updated ${datePart} · ${timePart}.`;
+      })();
+    </script>
   </body>
 </html>
