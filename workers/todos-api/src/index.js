@@ -1,4 +1,7 @@
-const ALLOWED_ORIGIN = "https://adamjones.ca";
+const ALLOWED_ORIGINS = new Set([
+  "https://adamjones.ca",
+  "https://www.adamjones.ca",
+]);
 const MAX_TODO_LENGTH = 280;
 
 export default {
@@ -226,7 +229,7 @@ function sanitizeText(value) {
 
 function corsPreflight(request) {
   const origin = request.headers.get("origin");
-  if (origin !== ALLOWED_ORIGIN) {
+  if (!origin || !ALLOWED_ORIGINS.has(origin)) {
     return new Response(null, { status: 403 });
   }
   return new Response(null, { status: 204, headers: corsHeaders(origin) });
@@ -237,7 +240,7 @@ function json(payload, status, request) {
     "content-type": "application/json; charset=utf-8",
   };
   const origin = request.headers.get("origin");
-  if (origin === ALLOWED_ORIGIN) {
+  if (origin && ALLOWED_ORIGINS.has(origin)) {
     Object.assign(headers, corsHeaders(origin));
   }
   return new Response(JSON.stringify(payload), { status, headers });
