@@ -10,6 +10,7 @@
   const input = card.querySelector("[data-todo-input]");
   const status = card.querySelector("[data-todo-status]");
 
+  setApiAuthState(false);
   hydrate();
 
   form?.addEventListener("submit", async (event) => {
@@ -82,10 +83,13 @@
   async function hydrate() {
     setStatus("Syncing...");
     try {
+      await requestJson("/health", { method: "GET" });
       const response = await requestJson("/todos", { method: "GET" });
+      setApiAuthState(true);
       renderFull(response.data || []);
       setStatus("Synced");
     } catch (error) {
+      setApiAuthState(false);
       setStatus("Live sync unavailable (showing fallback list).");
       console.error(error);
     }
@@ -152,6 +156,10 @@
 
   function setStatus(text) {
     if (status) status.textContent = text;
+  }
+
+  function setApiAuthState(isAuthenticated) {
+    card.classList.toggle("is-api-authenticated", Boolean(isAuthenticated));
   }
 
   async function requestJson(path, options) {
