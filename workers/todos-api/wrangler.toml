@@ -1,0 +1,8 @@
+name = "adamjones-todos-api"
+main = "src/index.js"
+compatibility_date = "2026-02-16"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "adamjones_todos"
+database_id = "42b88e72-a633-42bf-a311-cf6fdbac067e"

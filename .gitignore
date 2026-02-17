@@ -8,3 +8,21 @@ data/calendar/
 # Python
 __pycache__/
 *.py[cod]
+
+# Node / npm
+node_modules/
+npm-debug.log*
+
+# Wrangler / Miniflare local state
+.wrangler/
+workers/**/.wrangler/
+public/node_modules/
+
+# Local Codex and screenshot artifacts
+.codex-artifacts/
+.codex-art-*.png
+.codex-artcritique*.png
+artifacts/
+tmp-*.png
+desktop-full.png
+memory.md
