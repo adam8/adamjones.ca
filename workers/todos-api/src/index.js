@@ -1,7 +1,4 @@
-const ALLOWED_ORIGINS = new Set([
-  "https://adamjones.ca",
-  "https://www.adamjones.ca",
-]);
+const ALLOWED_ORIGINS = new Set(["https://adamjones.ca", "https://www.adamjones.ca"]);
 const MAX_TODO_LENGTH = 280;
 
 export default {
@@ -229,7 +226,7 @@ function sanitizeText(value) {
 
 function corsPreflight(request) {
   const origin = request.headers.get("origin");
-  if (!origin || !ALLOWED_ORIGINS.has(origin)) {
+  if (!isAllowedOrigin(origin)) {
     return new Response(null, { status: 403 });
   }
   return new Response(null, { status: 204, headers: corsHeaders(origin) });
@@ -240,7 +237,7 @@ function json(payload, status, request) {
     "content-type": "application/json; charset=utf-8",
   };
   const origin = request.headers.get("origin");
-  if (origin && ALLOWED_ORIGINS.has(origin)) {
+  if (isAllowedOrigin(origin)) {
     Object.assign(headers, corsHeaders(origin));
   }
   return new Response(JSON.stringify(payload), { status, headers });
@@ -249,9 +246,16 @@ function json(payload, status, request) {
 function corsHeaders(origin) {
   return {
     "access-control-allow-origin": origin,
+    "access-control-allow-credentials": "true",
     "access-control-allow-methods": "GET,POST,PATCH,DELETE,OPTIONS",
     "access-control-allow-headers": "content-type",
     "access-control-max-age": "86400",
     vary: "origin",
   };
+}
+
+function isAllowedOrigin(origin) {
+  if (!origin || typeof origin !== "string") return false;
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  return /^https:\/\/([a-z0-9-]+\.)?adamjones\.ca$/i.test(origin);
 }
