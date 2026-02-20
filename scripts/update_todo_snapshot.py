@@ -8,6 +8,7 @@ import html
 import json
 import os
 import re
+import ssl
 import sys
 import urllib.error
 import urllib.request
@@ -15,6 +16,7 @@ from pathlib import Path
 
 START_MARKER = "<!-- TODO_SNAPSHOT_START -->"
 END_MARKER = "<!-- TODO_SNAPSHOT_END -->"
+USER_AGENT = "adamjones.ca-daily-journal-refresh/1.0"
 
 
 def parse_args() -> argparse.Namespace:
@@ -42,11 +44,19 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Exit non-zero if API fetch or update fails.",
     )
+    parser.add_argument(
+        "--ca-bundle",
+        default=None,
+        help=(
+            "Path to CA bundle for TLS verification. "
+            "If omitted, uses SSL_CERT_FILE, then certifi, then system defaults."
+        ),
+    )
     return parser.parse_args()
 
 
 def build_headers() -> dict[str, str]:
-    headers = {"Accept": "application/json"}
+    headers = {"Accept": "application/json", "User-Agent": USER_AGENT}
     bearer = os.getenv("TODOS_API_BEARER_TOKEN")
     if bearer:
         headers["Authorization"] = f"Bearer {bearer}"
@@ -58,9 +68,32 @@ def build_headers() -> dict[str, str]:
     return headers
 
 
-def fetch_items(api_url: str, timeout: float) -> list[dict[str, object]]:
+def resolve_ca_bundle(explicit_ca_bundle: str | None) -> str | None:
+    if explicit_ca_bundle:
+        return explicit_ca_bundle
+    env_ca_bundle = os.getenv("SSL_CERT_FILE")
+    if env_ca_bundle:
+        return env_ca_bundle
+    try:
+        import certifi  # type: ignore
+
+        return certifi.where()
+    except Exception:
+        return None
+
+
+def create_ssl_context(explicit_ca_bundle: str | None) -> ssl.SSLContext:
+    ca_bundle = resolve_ca_bundle(explicit_ca_bundle)
+    if ca_bundle:
+        return ssl.create_default_context(cafile=ca_bundle)
+    return ssl.create_default_context()
+
+
+def fetch_items(
+    api_url: str, timeout: float, ssl_context: ssl.SSLContext
+) -> list[dict[str, object]]:
     request = urllib.request.Request(api_url, headers=build_headers(), method="GET")
-    with urllib.request.urlopen(request, timeout=timeout) as response:
+    with urllib.request.urlopen(request, timeout=timeout, context=ssl_context) as response:
         body = response.read().decode("utf-8")
         payload = json.loads(body)
     if isinstance(payload, dict):
@@ -121,11 +154,31 @@ def main() -> int:
     args = parse_args()
     index_path = Path(args.index_path)
     try:
-        items = fetch_items(args.api_url, args.timeout)
+        ssl_context = create_ssl_context(args.ca_bundle)
+        items = fetch_items(args.api_url, args.timeout, ssl_context)
         changed = update_html(index_path, items)
         print(f"Updated todo snapshot with {len(items)} item(s). changed={str(changed).lower()}")
         return 0
-    except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError, ValueError) as exc:
+    except urllib.error.HTTPError as exc:
+        cf_ray = exc.headers.get("cf-ray", "")
+        location = exc.headers.get("location", "")
+        server = exc.headers.get("server", "")
+        has_cf_id = bool(os.getenv("CF_ACCESS_CLIENT_ID"))
+        has_cf_secret = bool(os.getenv("CF_ACCESS_CLIENT_SECRET"))
+        has_bearer = bool(os.getenv("TODOS_API_BEARER_TOKEN"))
+        message = (
+            "Todo snapshot refresh skipped: "
+            f"HTTP {exc.code} "
+            f"(server={server or 'unknown'} cf_ray={cf_ray or 'n/a'} "
+            f"location={location or 'n/a'} has_cf_id={has_cf_id} "
+            f"has_cf_secret={has_cf_secret} has_bearer={has_bearer})"
+        )
+        if args.strict:
+            print(message, file=sys.stderr)
+            return 1
+        print(message)
+        return 0
+    except (urllib.error.URLError, json.JSONDecodeError, ValueError) as exc:
         message = f"Todo snapshot refresh skipped: {exc}"
         if args.strict:
             print(message, file=sys.stderr)
