@@ -539,6 +539,24 @@ async function uploadSketch(env, request) {
   const now = new Date().toISOString();
   const body = await file.arrayBuffer();
 
+  const existingByObjectKey = await env.DB.prepare(
+    "SELECT id FROM sketches WHERE object_key = ?"
+  )
+    .bind(objectKey)
+    .first();
+  if (existingByObjectKey) {
+    return json(
+      {
+        error: {
+          code: "CONFLICT",
+          message: "A sketch already exists with this object key.",
+        },
+      },
+      409,
+      request
+    );
+  }
+
   await env.SKETCHES_BUCKET.put(objectKey, body, {
     httpMetadata: { contentType: uploadContentType },
   });
@@ -560,10 +578,6 @@ async function uploadSketch(env, request) {
       )
       .run();
   } catch (error) {
-    await env.SKETCHES_BUCKET.delete(objectKey).catch((cleanupError) => {
-      console.error("Failed to delete orphaned sketch object", cleanupError);
-    });
-
     if (isUniqueConstraintError(error)) {
       return json(
         {
@@ -576,6 +590,11 @@ async function uploadSketch(env, request) {
         request
       );
     }
+
+    await env.SKETCHES_BUCKET.delete(objectKey).catch((cleanupError) => {
+      console.error("Failed to delete orphaned sketch object", cleanupError);
+    });
+
     throw error;
   }
 
