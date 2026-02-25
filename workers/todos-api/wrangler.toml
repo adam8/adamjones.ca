@@ -1,8 +1,16 @@
 name = "adamjones-todos-api"
 main = "src/index.js"
+account_id = "31797c1c7e8eda238a7ba97e9147ab32"
 compatibility_date = "2026-02-16"
+
+[vars]
+SKETCHES_PUBLIC_BASE_URL = "https://assets.adamjones.ca"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "adamjones_todos"
 database_id = "42b88e72-a633-42bf-a311-cf6fdbac067e"
+
+[[r2_buckets]]
+binding = "SKETCHES_BUCKET"
+bucket_name = "adamjones-sketches"

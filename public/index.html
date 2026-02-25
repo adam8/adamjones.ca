@@ -209,6 +209,58 @@
         margin: 0;
       }
 
+      .sketch-card {
+        border: 1px solid rgba(20, 20, 20, 0.2);
+        border-radius: 11px;
+        padding: 9px;
+        background: rgba(255, 255, 255, 0.38);
+        display: grid;
+        gap: 8px;
+      }
+
+      .sketch-meta {
+        margin: 0;
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: rgba(20, 20, 20, 0.72);
+      }
+
+      .sketch-figure {
+        margin: 0;
+        display: grid;
+        gap: 7px;
+      }
+
+      .sketch-image {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid rgba(20, 20, 20, 0.2);
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .sketch-caption {
+        display: grid;
+        gap: 3px;
+      }
+
+      .sketch-date {
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: rgba(20, 20, 20, 0.72);
+      }
+
+      .sketch-note {
+        margin: 0;
+        font-size: 0.78rem;
+        color: rgba(20, 20, 20, 0.88);
+      }
+
       .todo-card {
         border: 1px solid rgba(20, 20, 20, 0.2);
         border-radius: 11px;
@@ -751,10 +803,24 @@
               <div class="focus-label">Current mode</div>
               <p>Shipping in compact steps with enough context to make each one stick.</p>
             </div>
-            <div class="focus-card">
-              <div class="focus-label">Energy</div>
-              <p>Quiet momentum, practical choices, and fewer moving parts.</p>
-            </div>
+            <section class="sketch-card" data-daily-sketch-card aria-label="Daily sketch">
+              <div class="focus-label">Daily sketch</div>
+              <p class="sketch-meta" data-sketch-status>Fallback sketch loaded.</p>
+              <figure class="sketch-figure">
+                <img
+                  class="sketch-image"
+                  data-sketch-image
+                  src="holidays/sketchy-calendar-paper.webp"
+                  alt="Daily sketch fallback"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="sketch-caption">
+                  <span class="sketch-date" data-sketch-date>No sketches synced yet.</span>
+                  <p class="sketch-note" data-sketch-note hidden></p>
+                </figcaption>
+              </figure>
+            </section>
 
             <section class="todo-card" data-todo-card aria-label="To-do list">
               <div class="focus-label">To-do list</div>
@@ -1058,6 +1124,7 @@
 
       <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Tue, Feb 24, 2026 · 7:01 AM.</footer>
     </main>
+    <script src="js/daily-sketch-card.js" defer></script>
     <script src="js/todo-card.js" defer></script>
   </body>
 </html>
