@@ -227,10 +227,34 @@
         color: rgba(20, 20, 20, 0.72);
       }
 
+      .sketch-rail {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+        padding-bottom: 2px;
+      }
+
+      .sketch-rail::-webkit-scrollbar {
+        height: 7px;
+      }
+
+      .sketch-rail::-webkit-scrollbar-thumb {
+        background: rgba(20, 20, 20, 0.2);
+        border-radius: 999px;
+      }
+
       .sketch-figure {
         margin: 0;
         display: grid;
         gap: 7px;
+        min-width: 0;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
       }
 
       .sketch-image {
@@ -806,20 +830,21 @@
             <section class="sketch-card" data-daily-sketch-card aria-label="Daily sketch">
               <div class="focus-label">Daily sketch</div>
               <p class="sketch-meta" data-sketch-status>Fallback sketch loaded.</p>
-              <figure class="sketch-figure">
-                <img
-                  class="sketch-image"
-                  data-sketch-image
-                  src="holidays/sketchy-calendar-paper.webp"
-                  alt="Daily sketch fallback"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <figcaption class="sketch-caption">
-                  <span class="sketch-date" data-sketch-date>No sketches synced yet.</span>
-                  <p class="sketch-note" data-sketch-note hidden></p>
-                </figcaption>
-              </figure>
+              <div class="sketch-rail" data-sketch-rail aria-label="Sketch gallery">
+                <figure class="sketch-figure">
+                  <img
+                    class="sketch-image"
+                    src="holidays/sketchy-calendar-paper.webp"
+                    alt="Daily sketch fallback"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="sketch-caption">
+                    <span class="sketch-date">No sketches synced yet.</span>
+                    <p class="sketch-note" hidden></p>
+                  </figcaption>
+                </figure>
+              </div>
             </section>
 
             <section class="todo-card" data-todo-card aria-label="To-do list">
