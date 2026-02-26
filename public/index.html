@@ -227,6 +227,39 @@
         color: rgba(20, 20, 20, 0.72);
       }
 
+      .sketch-controls {
+        display: flex;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+
+      .sketch-nav {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        border: 1px solid rgba(20, 20, 20, 0.32);
+        background: rgba(255, 255, 255, 0.44);
+        color: rgba(20, 20, 20, 0.88);
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        font-size: 0.68rem;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .sketch-nav:hover,
+      .sketch-nav:focus-visible {
+        border-color: var(--clay);
+        color: var(--clay);
+      }
+
+      .sketch-nav:disabled {
+        opacity: 0.38;
+        cursor: default;
+      }
+
       .sketch-rail {
         display: grid;
         grid-auto-flow: column;
@@ -237,15 +270,12 @@
         scroll-snap-type: x mandatory;
         overscroll-behavior-x: contain;
         padding-bottom: 2px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
 
       .sketch-rail::-webkit-scrollbar {
-        height: 7px;
-      }
-
-      .sketch-rail::-webkit-scrollbar-thumb {
-        background: rgba(20, 20, 20, 0.2);
-        border-radius: 999px;
+        display: none;
       }
 
       .sketch-figure {
@@ -830,6 +860,10 @@
             <section class="sketch-card" data-daily-sketch-card aria-label="Daily sketch">
               <div class="focus-label">Daily sketch</div>
               <p class="sketch-meta" data-sketch-status>Fallback sketch loaded.</p>
+              <div class="sketch-controls" aria-label="Sketch navigation">
+                <button type="button" class="sketch-nav" data-sketch-prev aria-label="Previous sketch" disabled>&lsaquo;</button>
+                <button type="button" class="sketch-nav" data-sketch-next aria-label="Next sketch" disabled>&rsaquo;</button>
+              </div>
               <div class="sketch-rail" data-sketch-rail aria-label="Sketch gallery">
                 <figure class="sketch-figure">
                   <img

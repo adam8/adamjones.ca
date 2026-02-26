@@ -9,8 +9,11 @@
 
   const status = card.querySelector("[data-sketch-status]");
   const rail = card.querySelector("[data-sketch-rail]");
+  const prevButton = card.querySelector("[data-sketch-prev]");
+  const nextButton = card.querySelector("[data-sketch-next]");
   if (!rail) return;
 
+  setupNavigation();
   hydrate();
 
   async function hydrate() {
@@ -90,6 +93,7 @@
     rail.innerHTML = "";
     rail.appendChild(fragment);
     rail.scrollTo({ left: 0, behavior: "auto" });
+    updateNavState();
   }
 
   function buildSketchFigure(item, index) {
@@ -126,6 +130,47 @@
     if (typeof value !== "string" || !value.trim()) return Number.NaN;
     const parsed = Date.parse(value);
     return Number.isNaN(parsed) ? Number.NaN : parsed;
+  }
+
+  function setupNavigation() {
+    rail.addEventListener("scroll", updateNavState, { passive: true });
+    window.addEventListener("resize", updateNavState);
+    prevButton?.addEventListener("click", () => scrollByStep(-1));
+    nextButton?.addEventListener("click", () => scrollByStep(1));
+    updateNavState();
+  }
+
+  function scrollByStep(direction) {
+    const step = getScrollStep();
+    rail.scrollBy({
+      left: direction * step,
+      behavior: "smooth",
+    });
+  }
+
+  function getScrollStep() {
+    const figures = rail.querySelectorAll(".sketch-figure");
+    if (figures.length > 1) {
+      const first = figures[0];
+      const second = figures[1];
+      const delta = Math.abs(second.offsetLeft - first.offsetLeft);
+      if (delta > 0) {
+        return delta;
+      }
+    }
+    return Math.max(rail.clientWidth, 1);
+  }
+
+  function updateNavState() {
+    if (!prevButton || !nextButton) return;
+    const maxScroll = rail.scrollWidth - rail.clientWidth;
+    if (maxScroll <= 2) {
+      prevButton.disabled = true;
+      nextButton.disabled = true;
+      return;
+    }
+    prevButton.disabled = rail.scrollLeft <= 2;
+    nextButton.disabled = rail.scrollLeft >= maxScroll - 2;
   }
 
   async function requestManifest() {
