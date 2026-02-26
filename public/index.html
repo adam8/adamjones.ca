@@ -945,22 +945,23 @@
           </div>
           <div class="panel-body">
             <div class="hn-grid">
+
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47123834" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47125629" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://markw.dev/posts/here-comes-the-bus/" rel="noopener">The bus stops here</a>
+                  <a href="https://website.engineering/" rel="noopener">Website Engineering</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-bus-stops-here.webp"
-                    alt="Journal illustration: city bus routes and hand-drawn timetables on worn paper"
+                    src="images/hacker-news/01-website-engineering.webp"
+                    alt="Journal illustration: browser architecture sketches and deployment notes on worn paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>This post is a practical field report on building a bus-tracking app directly against GTFS and GTFS-RT feeds, centered on Dublin Bus route 11. It explains how static schedule data and live delay entities are merged, highlights operational quirks like sparse updates and asymmetric service patterns, and shows how the final UI emphasizes confidence around predicted arrivals rather than pretending the data is cleaner than it is.</p>
-                  <p><span class="hn-label">From comments</span>Commenters compared transit APIs across cities, debating where GTFS-RT is reliable enough for rider apps and where agency data quality still breaks user trust. The thread also discussed practical product choices like fallback heuristics, communicating uncertainty to riders, and the ongoing maintenance burden when operators silently change feeds or route semantics.</p>
+                  <p><span class="hn-label">From link</span>The Website Engineering project frames itself as a practical guide to designing and operating modern websites as complete systems rather than isolated pages. It maps the stack from rendering choices and performance budgets through networking, observability, and operational resilience, with an emphasis on engineering tradeoffs that hold up in production over time. The material reads like a durable field manual: choose simple defaults where possible, measure continuously, and treat reliability and speed as first-class product features.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters treated the post as a useful consolidation of web fundamentals and argued over where teams still overcomplicate architecture too early. Several threads contrasted static-first and edge-heavy approaches, discussed how performance goals should be enforced culturally, and compared tooling strategies for keeping regressions visible. The recurring sentiment was that disciplined basics beat trendy complexity when a site has to stay fast and maintainable under real traffic.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -969,21 +970,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47119675" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47124120" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.pprune.org/coding/697633-why-i-stopped-using-pkl.html" rel="noopener">Why I stopped using pkl</a>
+                  <a href="https://tech.nextroll.com/blog/dev/2026/02/23/model-context-protocol-discord-api.html" rel="noopener">An MCP server for the Discord API</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-stopped-using-pkl.webp"
-                    alt="Journal illustration: configuration files and crossed-out abstractions on worn paper"
+                    src="images/hacker-news/02-discord-mcp-server.webp"
+                    alt="Journal illustration: chat interface wired to API services with hand-drawn protocol arrows"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The author argues that pkl’s expressiveness became a liability over time, especially once configurations needed to stay readable across teams and survive handoffs. The write-up walks through pain points around indirection, tooling friction, and cognitive overhead, then makes the case for simpler, flatter configuration approaches that trade elegance for long-term operability.</p>
-                  <p><span class="hn-label">From comments</span>HN feedback split between people who see schema-rich config languages as essential and those who prefer boring formats with strong linting and generation layers. Many replies focused on where complexity should live, with recurring themes around debugging production incidents, onboarding new engineers, and avoiding “clever” config systems that age poorly under real operational pressure.</p>
+                  <p><span class="hn-label">From link</span>This write-up documents building an MCP server that exposes Discord capabilities as structured tools for AI assistants, then pairing it with a 4X game bot to test practical workflows. The post explains how models can summarize game state, recommend strategy, and execute controlled actions through Discord endpoints while preserving safety boundaries and role checks. It positions MCP as a glue layer that keeps tool use explicit and inspectable, making agentic chat behavior easier to reason about in production settings.</p>
+                  <p><span class="hn-label">From comments</span>Discussion on HN focused on trust boundaries and failure modes when LLM-driven systems gain access to live collaboration platforms. Commenters debated permission scoping, auditing, and rate-limit handling, and several people compared MCP with older plugin and function-calling patterns. The overall feedback was interested but cautious: the architecture is promising, but reliability and guardrails determine whether these integrations stay useful outside demos.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -992,23 +993,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47113638" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47123834" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://blog.nil.foundation/2026/02/24/the-bubblewrap-project-joins-ecosystems/" rel="noopener"
-                    >The Bubblewrap project joins ecosyste.ms</a
-                  >
+                  <a href="https://markw.dev/posts/here-comes-the-bus/" rel="noopener">Here comes the bus</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-bubblewrap-ecosystems.webp"
-                    alt="Journal illustration: package maps and ecosystem dependency threads on worn paper"
+                    src="images/hacker-news/03-bus-gtfs-realtime.webp"
+                    alt="Journal illustration: transit map lines and arrival estimates sketched on weathered paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The announcement describes Bubblewrap moving into the ecosyste.ms umbrella to strengthen package metadata infrastructure and cross-ecosystem transparency. It positions the migration as a way to better map software supply-chain relationships, improve discoverability, and make dependency intelligence available as a shared public utility instead of isolated tooling.</p>
-                  <p><span class="hn-label">From comments</span>Discussion in HN centered on governance and sustainability for open infrastructure projects that become critical but underfunded. Commenters also explored practical uses for richer dependency graphs in security and compliance workflows, while raising questions about data freshness, trust boundaries, and how much standardization is realistic across ecosystems with very different release cultures.</p>
+                  <p><span class="hn-label">From link</span>The post is a hands-on account of building a bus-arrival app from GTFS static schedules plus GTFS-Realtime delay feeds, using Dublin Bus route data as a concrete case study. It walks through parsing trip updates, reconciling scheduled versus observed arrivals, and presenting predictions in a UI that reflects uncertainty instead of pretending to exactness. The implementation details highlight the operational reality of public data feeds, where robustness and graceful fallbacks matter more than perfect theoretical models.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters compared transit data quality across regions and shared war stories about inconsistent feeds, missing entities, and sudden schema quirks from operators. The thread emphasized rider trust as a product concern, especially when apps must communicate confidence rather than fixed times. People also traded suggestions for pragmatic heuristics, caching, and monitoring approaches that keep commuter-facing tools useful when real-time data is noisy.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1017,21 +1016,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47112573" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47122462" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://github.com/davepl/NotepadNext" rel="noopener">The “new” Notepad.exe is older than “old” one</a>
+                  <a href="https://github.com/davepl/NotepadNext?tab=readme-ov-file#the-history-of-notepad" rel="noopener">The “new” Notepad.exe is older than “old” one</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-notepad-older-than-old.webp"
-                    alt="Journal illustration: a retro text editor window and timeline scribbles on worn paper"
+                    src="images/hacker-news/04-notepad-history.webp"
+                    alt="Journal illustration: text editor windows across a hand-drawn timeline"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Dave Plummer’s NotepadNext project revisits Windows editor history and argues that the modern Notepad lineage is more complex than the familiar old-versus-new narrative. The repository and accompanying discussion frame it as both a technical experiment and historical correction, with implementation notes around modern platform constraints and compatibility expectations.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters treated this as a nostalgia thread with surprisingly deep technical sidebars about encoding defaults, CRLF handling, startup performance, and what “lightweight” should mean today. People debated how much modernization a basic editor should absorb before it stops being Notepad, with many arguing that predictable behavior matters more than adding another wave of features.</p>
+                  <p><span class="hn-label">From link</span>The NotepadNext history note revisits Windows editor lineage and argues that the familiar old-versus-new narrative misses key transitions in the actual codebase timeline. It combines historical context with implementation notes from a modern recreation effort, showing how compatibility expectations, encoding behavior, and startup constraints shaped the product over decades. The piece works as both software archaeology and a reminder that even tiny utilities accumulate deep design debt and user expectations.</p>
+                  <p><span class="hn-label">From comments</span>HN replies blended nostalgia with technical discussion around defaults, file encodings, CRLF behavior, and what users really mean when they ask for a lightweight editor. Commenters disagreed on how much feature growth a baseline tool should absorb before it loses its identity, while many argued that predictable behavior is the highest-value property for ubiquitous utilities. The thread repeatedly circled back to product continuity as much as raw feature count.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1040,23 +1039,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47123361" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47121712" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.ycombinator.com/blog/introducing-omakase-ai/" rel="noopener"
-                    >Introducing Omakase.ai</a
-                  >
+                  <a href="https://react.dev/blog/2026/02/19/react-compiler-rc" rel="noopener">React Compiler RC</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-omakase-ui-python.webp"
-                    alt="Journal illustration: Python snippets becoming web UI panels on worn paper"
+                    src="images/hacker-news/05-react-compiler-rc.webp"
+                    alt="Journal illustration: React optimization flow and npm package notes on textured paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>YC’s Omakase.ai pitch focuses on generating and maintaining production web UI directly from Python-first workflows, aiming to shrink the loop between backend logic and frontend implementation. The announcement emphasizes speed and consistency, presenting the product as an AI-assisted bridge for teams that want full-stack output without hand-authoring every interface layer.</p>
-                  <p><span class="hn-label">From comments</span>HN responses were curious but skeptical about long-term maintainability, especially around generated code ownership and integration with existing design systems. Commenters repeatedly asked where human control remains strongest, how deterministic updates are, and whether teams can safely evolve generated UI over months without getting trapped in opaque regeneration cycles.</p>
+                  <p><span class="hn-label">From link</span>The React team announced the React Compiler release candidate as a standard npm package with improved setup and migration guidance, aiming to make compile-time memoization practical for broader production use. The post outlines what the compiler optimizes, where it still requires manual awareness, and how to adopt it incrementally in existing apps. It frames the RC as an operational milestone: moving from experimental curiosity to a tool teams can evaluate with clearer expectations and tooling support.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback focused on real-world adoption friction, especially debugging compiled output and understanding performance wins beyond benchmark demos. Commenters compared the approach with explicit memoization habits and debated how much hidden optimization is acceptable before maintainability suffers. The strongest threads emphasized ecosystem readiness, including linting, diagnostics, and education, as the deciding factors for whether compiler-driven patterns become mainstream.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1065,27 +1062,28 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47123288" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47121231" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://arxiv.org/abs/2502.02622" rel="noopener">Against Symmetry in DPO</a>
+                  <a href="https://om-language.org/" rel="noopener">The Om Programming Language</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-against-symmetry-dpo.webp"
-                    alt="Journal illustration: preference pairs and model weights sketched on worn paper"
+                    src="images/hacker-news/06-om-language.webp"
+                    alt="Journal illustration: stack language symbols and tiny instruction blocks in notebook style"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The paper studies Direct Preference Optimization and argues that common symmetric formulations can underuse available preference signal during alignment. It proposes asymmetric objective choices and reports stronger outcomes on benchmarks, framing the contribution as a mathematically grounded adjustment that improves training efficiency and behavior quality without requiring a full RLHF stack rewrite.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion focused on whether the gains are robust outside benchmark settings and how easily the method ports into real-world post-training pipelines. Commenters compared it with adjacent preference-optimization approaches, debated evaluation quality and reproducibility, and highlighted the recurring gap between elegant objective functions and the noisy constraints of production model training.</p>
+                  <p><span class="hn-label">From link</span>The Om language page introduces a small concatenative, stack-oriented language designed around simplicity, transparent semantics, and direct experimentation. It showcases a compact core, expressive composition through stack operations, and an intentionally minimal philosophy that favors learnability over broad framework surface area. The project reads as a language-design sandbox for people interested in how far small primitives can go when the execution model stays explicit.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters discussed where tiny language projects add value, with many seeing them as fertile ground for learning implementation tradeoffs even when ecosystem scale remains limited. The thread compared Om to other concatenative and stack-based systems, debated ergonomics versus purity, and raised practical concerns about tooling and onboarding. Interest was high among language enthusiasts, but most replies acknowledged that adoption depends on documentation and developer experience more than theoretical elegance.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
                   <span class="less">Less</span>
                 </label>
               </article>
+
             </div>
           </div>
         </article>
@@ -1181,7 +1179,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Wed, Feb 25, 2026 · 7:42 AM.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Wed, Feb 25, 2026 · 6:12 PM.</footer>
     </main>
     <script src="js/daily-sketch-card.js" defer></script>
     <script src="js/todo-card.js" defer></script>
