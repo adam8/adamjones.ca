@@ -17,6 +17,7 @@ DEFAULT_API_BASE = "https://api.adamjones.ca"
 DEFAULT_MANIFEST = ROOT / "public" / "data" / "sketch.json"
 DEFAULT_ALBUM_NAME = "Daily Sketch"
 DEFAULT_FETCH_LIMIT = 200
+DEFAULT_CONVERT_HEIC_TO_JPEG = True
 
 ALLOWED_MIME_TYPES = {
   "image/jpeg",
@@ -98,6 +99,25 @@ def detect_content_type(path: Path) -> str:
   if guessed:
     return guessed.lower()
   return ""
+
+
+def convert_heic_file_to_jpeg(source_file: Path, output_dir: Path) -> tuple[Path, str]:
+  base_name = sanitize_slug(source_file.stem)
+  output_file = output_dir / f"{base_name}-converted.jpg"
+  run_command(
+    [
+      "sips",
+      "-s",
+      "format",
+      "jpeg",
+      str(source_file),
+      "--out",
+      str(output_file),
+    ]
+  )
+  if not output_file.exists() or not output_file.is_file():
+    raise RuntimeError("HEIC conversion completed but JPEG output was not created.")
+  return output_file, "image/jpeg"
 
 
 def pick_exported_file(export_dir: Path, preferred_filename: str) -> Path:
@@ -258,6 +278,7 @@ def sync_daily_sketch(
   manifest_path: Path,
   limit: int,
   note: str,
+  convert_heic_to_jpeg: bool,
 ) -> int:
   client_id = os.getenv("CF_ACCESS_CLIENT_ID", "").strip()
   client_secret = os.getenv("CF_ACCESS_CLIENT_SECRET", "").strip()
@@ -303,6 +324,11 @@ def sync_daily_sketch(
       raise RuntimeError(
         f"Unsupported exported file type: {exported_file.name} ({content_type or 'unknown'})"
       )
+    if convert_heic_to_jpeg and content_type in {"image/heic", "image/heif"}:
+      converted_file, converted_type = convert_heic_file_to_jpeg(exported_file, export_dir)
+      print(f"Converted {exported_file.name} to {converted_file.name} for web compatibility.")
+      exported_file = converted_file
+      content_type = converted_type
 
     object_key = build_object_key(sketch_at, exported_file, content_type)
     status, payload = upload_sketch(
@@ -344,6 +370,11 @@ def main() -> int:
   parser.add_argument("--limit", type=int, default=DEFAULT_FETCH_LIMIT)
   parser.add_argument("--note", default="")
   parser.add_argument(
+    "--keep-heic",
+    action="store_true",
+    help="Do not auto-convert HEIC/HEIF to JPEG before upload.",
+  )
+  parser.add_argument(
     "--best-effort",
     action="store_true",
     help="On any failure, print warning and exit 0.",
@@ -360,6 +391,7 @@ def main() -> int:
       manifest_path=args.manifest_path,
       limit=args.limit,
       note=args.note,
+      convert_heic_to_jpeg=DEFAULT_CONVERT_HEIC_TO_JPEG and (not args.keep_heic),
     )
   except Exception as exc:
     if args.best_effort:
