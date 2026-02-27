@@ -3,6 +3,7 @@
   const MANIFEST_PATH = "/data/sketch.json";
   const TIMEOUT_MS = 4000;
   const API_LIST_LIMIT = 60;
+  const CF_IMAGE_OPTIONS = "width=960,height=720,fit=cover,quality=72,format=auto";
 
   const card = document.querySelector("[data-daily-sketch-card]");
   if (!card) return;
@@ -102,10 +103,16 @@
 
     const image = document.createElement("img");
     image.className = "sketch-image";
-    image.src = item.image_url;
+    image.dataset.originalSrc = item.image_url;
+    image.src = getSketchImageSrc(item.image_url);
     image.alt = `Daily sketch from ${formatSketchAltDate(new Date(item.timestamp))}`;
     image.loading = index === 0 ? "eager" : "lazy";
     image.decoding = "async";
+    image.addEventListener("error", () => {
+      if (image.dataset.originalSrc && image.src !== image.dataset.originalSrc) {
+        image.src = image.dataset.originalSrc;
+      }
+    });
 
     const caption = document.createElement("figcaption");
     caption.className = "sketch-caption";
@@ -234,6 +241,27 @@
   function sanitizeText(value) {
     if (typeof value !== "string") return "";
     return value.trim();
+  }
+
+  function getSketchImageSrc(originalUrl) {
+    const cleanUrl = sanitizeText(originalUrl);
+    if (!cleanUrl) return "";
+
+    if (!isAdamJonesDomain()) {
+      return cleanUrl;
+    }
+
+    try {
+      const absoluteUrl = new URL(cleanUrl, window.location.origin).toString();
+      return `/cdn-cgi/image/${CF_IMAGE_OPTIONS}/${absoluteUrl}`;
+    } catch (error) {
+      return cleanUrl;
+    }
+  }
+
+  function isAdamJonesDomain() {
+    const host = (window.location.hostname || "").toLowerCase();
+    return host === "adamjones.ca" || host.endsWith(".adamjones.ca");
   }
 
   function setStatus(text) {
