@@ -260,7 +260,7 @@
   }
 
   function isAdamJonesDomain() {
-    const host = (window.location.hostname || "").toLowerCase();
+    const host = (window.location.hostname || "").toLowerCase().replace(/\.$/, "");
     return host === "adamjones.ca" || host.endsWith(".adamjones.ca");
   }
 
