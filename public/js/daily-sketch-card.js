@@ -3,7 +3,7 @@
   const MANIFEST_PATH = "/data/sketch.json";
   const TIMEOUT_MS = 4000;
   const API_LIST_LIMIT = 60;
-  const CF_IMAGE_OPTIONS = "width=960,height=720,fit=cover,quality=72,format=auto";
+  const CF_IMAGE_OPTIONS = "width=960,height=720,fit=cover,quality=72,format=webp";
 
   const card = document.querySelector("[data-daily-sketch-card]");
   if (!card) return;
