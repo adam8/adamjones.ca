@@ -832,13 +832,13 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Fri, Feb 27, 2026</span>
+          <span class="badge">Sat, Feb 28, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
         <p class="tagline">
           Head in the cloud, feet on the ground
-          <span class="tagline-sub">Upcoming: Saint Patrick’s Day (Tue Mar 17) · Good Friday (Fri Apr 3)</span>
+          <span class="tagline-sub">Upcoming: run 10K (Sun Mar 1) · Saint Patrick’s Day (Tue Mar 17)</span>
         </p>
       </header>
 
@@ -886,6 +886,13 @@
               <p class="todo-meta" data-todo-status>Fallback list loaded.</p>
               <ul class="todo-list" data-todo-list>
                 <!-- TODO_SNAPSHOT_START -->
+                <li class="todo-item" data-id="99df2890-ff7d-418c-b95d-b1d167197496">
+                  <label class="todo-label">
+                    <input type="checkbox" />
+                    <span>Make columns resizable</span>
+                  </label>
+                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+                </li>
                 <li class="todo-item" data-id="0bb4ee9a-6464-42ed-87cf-745c6f680e8b">
                   <label class="todo-label">
                     <input type="checkbox" checked />
@@ -904,13 +911,6 @@
                   <label class="todo-label">
                     <input type="checkbox" />
                     <span>Make work bench panels flip problem/solution</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
-                <li class="todo-item" data-id="58c2629f-3f38-42fa-80f6-02d3ad4106ad">
-                  <label class="todo-label">
-                    <input type="checkbox" />
-                    <span>do tshirts</span>
                   </label>
                   <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
                 </li>
@@ -938,24 +938,22 @@
           </div>
           <div class="panel-body">
             <div class="hn-grid">
-
-
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47173121" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47177207" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.anthropic.com/news/anthropic-economic-index" rel="noopener">Anthropic Economic Index</a>
+                  <a href="https://decodingml.substack.com/p/dont-trust-ai-agents" rel="noopener">Don't Trust AI Agents</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-anthropic-economic-index.webp"
-                    alt="Journal illustration: AI usage index notes and trendline sketches on worn paper"
+                    src="images/hacker-news/01-dont-trust-ai-agents.webp"
+                    alt="Journal illustration: crossed-out AI agent workflow sketched in a worn engineering notebook"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Anthropic’s write-up frames the Economic Index as an attempt to measure where large language models are actually being used in day-to-day work by mapping anonymized interaction categories to occupations and task types. The post emphasizes that usage is not evenly distributed: software and writing-heavy workflows appear overrepresented, while many fields still show limited direct exposure. The practical takeaway is that adoption is currently granular rather than uniform, with AI acting as a task-level accelerant inside broader jobs instead of immediately replacing complete roles.</p>
-                  <p><span class="hn-label">From comments</span>HN feedback focused on methodology and interpretation. The strongest threads questioned sample bias, how representative chat logs can be across industries, and whether prompt categories are sturdy enough to support labor-market claims. Others argued the data is still useful as a directional signal because it captures real workflows at scale, as long as conclusions stay modest. Overall sentiment landed on cautious usefulness: people want the index to continue, but with clearer caveats around who is measured and how quickly those patterns can change.</p>
+                  <p><span class="hn-label">From link</span>The post argues that current AI agents still fail too opaquely and too often to deserve the trust implied by product demos. It frames the core problem as compound brittleness: once an agent has to plan across multiple steps, tools, and external systems, small mistakes become hard to detect and even harder to recover from. The practical recommendation is to keep automation narrow, instrumented, and easy to verify instead of pretending long-horizon autonomy is production-ready.</p>
+                  <p><span class="hn-label">From comments</span>Commenters largely agreed with the caution, especially people who have tried shipping agentic workflows in messy real environments. The thread kept returning to the gap between demo fluency and operational reliability, with several readers arguing that copilots and tightly scoped tools are useful while “full agents” remain mostly a marketing wrapper around brittle chains. The strongest disagreement was not about whether agents fail, but about how quickly evaluation, tool use, and UI constraints might make them trustworthy enough for narrower domains.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -964,21 +962,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47146487" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47177492" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://blog.janestreet.com/prototyping-at-jane-street/" rel="noopener">Prototyping at Jane Street</a>
+                  <a href="https://unsloth.ai/blog/dynamic2" rel="noopener">Unsloth Dynamic 2.0 GGUFs</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-janestreet-prototyping.webp"
-                    alt="Journal illustration: prototype notes, cards, and wireframe sketches in sepia style"
+                    src="images/hacker-news/02-unsloth-dynamic-ggufs.webp"
+                    alt="Journal illustration: local model quantization notes and GPU memory blocks on aged paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Jane Street describes prototyping as a disciplined way to de-risk technical and product ideas before committing to a full production path. The post highlights tight feedback loops, quick throwaway implementations, and explicit learning goals so teams can validate assumptions early without conflating prototype speed with production quality. The broader message is organizational: prototyping is treated as first-class engineering work when it reduces uncertainty and improves eventual build quality.</p>
-                  <p><span class="hn-label">From comments</span>Commenters reacted positively to the clarity around intent and scope, especially the distinction between exploratory code and hardened systems. Discussion repeatedly returned to culture: teams that prototype well seem to document decisions, preserve learnings, and avoid letting temporary scaffolding silently become permanent infrastructure. A recurring concern was transferability to smaller orgs, where staffing pressure can collapse discovery and delivery into one phase, but most replies still viewed the approach as broadly adaptable with careful boundaries.</p>
+                  <p><span class="hn-label">From link</span>Unsloth presents Dynamic 2.0 as a quantization approach that preserves higher precision only where a model appears especially sensitive, instead of shrinking every tensor uniformly. The payoff in the write-up is practical rather than theoretical: the team claims much smaller GGUF checkpoints can stay closer to full-precision behavior while fitting onto more modest local hardware. The post reads as a push toward better local inference economics, where memory savings matter only if quality holds up under real workloads.</p>
+                  <p><span class="hn-label">From comments</span>HN readers were interested because this lands directly in the “can I run this locally?” decision space, but the enthusiasm was paired with healthy skepticism about benchmarks and naming. Several commenters wanted clearer comparisons against existing quantization stacks, reproducible evals beyond cherry-picked tasks, and a better sense of how much the gains come from method versus model selection. Even so, the thread leaned positive because anything that moves local models toward lower VRAM without obvious quality collapse gets immediate attention from practitioners.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -987,21 +985,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47178863" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47174124" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://f-droid.org/2026/02/26/twif.html" rel="noopener">This Week in F-Droid</a>
+                  <a href="https://nothinghuman.substack.com/p/the-eternal-promise-why-computers" rel="noopener">The Eternal Promise</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-fdroid-app-release.webp"
-                    alt="Journal illustration: app release checklist and repository timeline sketched on textured paper"
+                    src="images/hacker-news/03-eternal-promise.webp"
+                    alt="Journal illustration: computing timeline and automation hype cycles sketched in a worn journal"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The F-Droid weekly update summarizes repository movement across newly published apps, updates, anti-feature metadata changes, and maintenance work needed to keep reproducible Android packages flowing through the pipeline. The post reads like operations telemetry for an ecosystem that values transparency and build provenance: small releases accumulate quickly, and curator effort remains central to reliability. It reinforces how much distribution trust depends on routine verification work rather than headline features.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion centered on open app distribution tradeoffs, especially between convenience, security posture, and long-term maintainer capacity. Commenters praised F-Droid’s independence and reproducibility goals, while also noting practical friction around update speed and package coverage versus mainstream stores. The thread’s common ground was that alternative distribution remains important infrastructure, but it requires steady contributor attention to stay healthy as Android platform and policy constraints evolve.</p>
+                  <p><span class="hn-label">From link</span>The essay traces a long history of computing tools that promised to remove the need for programmers, from punch-card abstractions through fourth-generation languages and no-code systems to today’s AI narratives. Its main point is that automation rarely erases software work; instead it changes the layer where complexity lives and often expands demand by making new classes of systems worth building. The piece treats the “end of programming” claim as a recurring story people tell whenever a tool raises the abstraction level, not as a pattern history has validated.</p>
+                  <p><span class="hn-label">From comments</span>Commenters used the thread to argue about whether AI is just the latest instance of that cycle or a genuinely different kind of abstraction jump. Many readers sided with the article’s historical frame, saying the hard part of programming is still requirements, decomposition, debugging, and systems thinking rather than syntax production. Others pushed back that AI may compress more of the junior and routine work than earlier tools did, but even that camp mostly framed the likely outcome as role change and leverage shift rather than total disappearance.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1010,21 +1008,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47139911" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47155139" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.sciencedirect.com/science/article/pii/S0277379125001221" rel="noopener">Could humanity survive a super-eruption?</a>
+                  <a href="https://www.lesswrong.com/posts/4yofTNLwaQqqQpC8z/the-smallest-transformer-that-can-add-two-10-digit-numbers" rel="noopener">The Smallest Transformer That Can Add Two 10-Digit Numbers</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-geological-survival.webp"
-                    alt="Journal illustration: hazard map and shelter planning notes in worn field notebook style"
+                    src="images/hacker-news/04-smallest-transformer-adder.webp"
+                    alt="Journal illustration: arithmetic columns, carry arrows, and tiny transformer blocks on textured paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The paper studies extreme volcanic scenarios and asks what conditions would determine whether civilization can absorb, adapt to, or fail under prolonged atmospheric and agricultural disruption. Its framing is less cinematic than systems-oriented: resilience depends on food substitution capacity, logistics continuity, and governance coordination under multi-year stress. The work argues that existential risk is not only about eruption magnitude, but about how quickly societies can shift production and distribution when baseline assumptions collapse.</p>
-                  <p><span class="hn-label">From comments</span>Commenters mixed scientific curiosity with practical skepticism, debating assumptions in worst-case modeling and where social breakdown versus technical adaptation becomes the dominant variable. Several threads compared volcanic winter planning with broader climate and supply-chain fragility, arguing that preparedness investments can be useful even outside rare catastrophe scenarios. The thread trend was pragmatic: exact probabilities are uncertain, but stress-testing food and infrastructure systems against low-frequency shocks is still rational policy work.</p>
+                  <p><span class="hn-label">From link</span>This post uses a very constrained arithmetic task to ask how small a transformer can be while still learning exact addition, then examines what the trained model seems to be doing internally. The value is not the utility of addition itself, but the way a toy problem can make mechanistic interpretability more concrete: carry behavior, positional structure, and generalization are easier to inspect when the task is precise. It is a reminder that small, legible experiments still matter when the field is otherwise dominated by giant opaque systems.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters enjoyed the post partly because it is a rare example of ML discourse that stays grounded in a tractable problem. The thread debated whether the result is genuinely surprising, how much of the success comes from architecture and tokenization choices, and whether classical automata intuitions already explain most of the behavior. Even where readers downplayed the novelty, they still seemed to value the exercise as a clearer way to reason about what transformers learn and how to inspect that learning.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1033,21 +1031,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47176257" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47149431" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.thedarkbreakfast.com/" rel="noopener">The Dark Breakfast</a>
+                  <a href="https://www.cyberdemon.org/2025/04/15/bootc-and-ostree.html" rel="noopener">Bootc and ostree</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-dark-breakfast.webp"
-                    alt="Journal illustration: moody breakfast table sketch with hand-drawn shading"
+                    src="images/hacker-news/05-bootc-and-ostree.webp"
+                    alt="Journal illustration: immutable operating system layers and bootable containers in a field notebook"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>This site presents a small, atmospheric web experience built around a stylized “dark breakfast” concept, leaning into visual mood and playful interaction over utility. The project’s appeal is largely aesthetic: restrained palette, deliberate pacing, and a handcrafted tone that feels closer to digital zine work than product UI. As a front-page link it stands out as an example of the web used for personality and mood instead of optimization, reminding readers that experimental microsites still have cultural pull.</p>
-                  <p><span class="hn-label">From comments</span>HN reactions split between appreciation for the creative direction and concern about accessibility or practical usability when style dominates. Many commenters enjoyed seeing a quirky, personal artifact on the front page, while others debated whether these experiences age well across devices and assistive contexts. The conversation stayed mostly positive, with repeated support for “small web” experimentation as a healthy counterweight to homogeneous app-like interfaces.</p>
+                  <p><span class="hn-label">From link</span>The post explains bootc as an attempt to make operating systems behave more like image-managed artifacts, with ostree and OCI containers providing the update and distribution substrate. Rather than treating hosts as individually hand-shaped snowflakes, it pushes toward transactional upgrades, reproducible fleet state, and a cleaner bridge between container build pipelines and base OS management. The piece is useful because it translates a jargon-heavy space into an operator’s question: what gets simpler when the host itself becomes an image you can reason about declaratively?</p>
+                  <p><span class="hn-label">From comments</span>Discussion in the HN thread centered less on whether the idea is interesting than on where it fits among the already crowded immutable-systems landscape. Readers compared bootc with NixOS, Talos, Fedora CoreOS, and other image-based approaches, with recurring questions about complexity, recovery ergonomics, and how much conceptual overhead operators should accept for transactional updates. The overall tone was curious but disciplined: people like the direction, but they want a sharper explanation of what problem this stack solves better than the adjacent alternatives.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1056,29 +1054,27 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47177186" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47161695" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://gwern.net/doc/www/echevarria.io/0f08d134ff66f6f1ebf3076c31c68f53bb31f3f5.pdf" rel="noopener">A broad model of PDF sensemaking</a>
+                  <a href="https://blog.cloudflare.com/a-better-streams-api-for-javascript/" rel="noopener">A Better Streams API Is Possible for JavaScript</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-pdf-sensemaking.webp"
-                    alt="Journal illustration: research notes and PDF annotation map on aged paper"
+                    src="images/hacker-news/06-better-streams-api.webp"
+                    alt="Journal illustration: pipe segments and stream arrows sketched in a worn JavaScript notebook"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The paper proposes a conceptual model for how people extract meaning from dense PDF documents, focusing on navigation behavior, annotation patterns, and the iterative loop between reading, external notes, and synthesis. Rather than treating reading as linear consumption, it characterizes sensemaking as a spatial and procedural process where users repeatedly reframe structure to answer evolving questions. The value is in articulating design implications for document tools that better support non-linear, evidence-building workflows.</p>
-                  <p><span class="hn-label">From comments</span>Commenters connected the model to their own workflows, including card systems, margin notes, and layered summarization techniques for technical papers. A recurring thread argued that good tools should preserve reader intent and context transitions, not just enable highlighting, because synthesis often happens outside the document itself. Overall reaction was constructive: people liked seeing formal language for habits they already practice, and used the thread to compare practical methods for avoiding “highlight-hoarding” without comprehension.</p>
+                  <p><span class="hn-label">From link</span>Cloudflare’s post argues that JavaScript streams remain harder to use than they need to be because the platform inherited overlapping abstractions, awkward adapters, and cancellation semantics that are too easy to get subtly wrong. The proposed alternative emphasizes smaller composable primitives, clearer flow control, and a more straightforward path between browser and server contexts. The piece is compelling because it is not just complaining about ergonomics; it is trying to define what a stream API should optimize for when real developers are debugging backpressure and composition rather than reading standards prose.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters treated this as a familiar pain point and filled the thread with examples of streams feeling overdesigned until you try to connect nontrivial producers and consumers. A lot of the feedback agreed with the critique around mismatch between environments, awkward transforms, and cancellation surprises, although some readers defended the current standards process as a compromise between many competing needs. The consensus was not that streams are useless, but that the platform still makes common dataflow work feel more ceremonious and fragile than it should.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
                   <span class="less">Less</span>
                 </label>
               </article>
-
-
             </div>
           </div>
         </article>
@@ -1178,7 +1174,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Fri, Feb 27, 2026 · 7:05 AM.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Feb 28, 2026 · 7:08 AM PST.</footer>
     </main>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
     <script src="js/todo-card.js" defer></script>
