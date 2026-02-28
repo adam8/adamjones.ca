@@ -939,21 +939,21 @@
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47177207" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47208964" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://decodingml.substack.com/p/dont-trust-ai-agents" rel="noopener">Don't Trust AI Agents</a>
+                  <a href="https://www.seangoedecke.com/cognitive-debt/" rel="noopener">Cognitive Debt</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-dont-trust-ai-agents.webp"
-                    alt="Journal illustration: crossed-out AI agent workflow sketched in a worn engineering notebook"
+                    src="images/hacker-news/01-cognitive-debt.webp"
+                    alt="Journal illustration: tangled call graph and highlighted code paths sketched on worn notebook paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The post argues that current AI agents still fail too opaquely and too often to deserve the trust implied by product demos. It frames the core problem as compound brittleness: once an agent has to plan across multiple steps, tools, and external systems, small mistakes become hard to detect and even harder to recover from. The practical recommendation is to keep automation narrow, instrumented, and easy to verify instead of pretending long-horizon autonomy is production-ready.</p>
-                  <p><span class="hn-label">From comments</span>Commenters largely agreed with the caution, especially people who have tried shipping agentic workflows in messy real environments. The thread kept returning to the gap between demo fluency and operational reliability, with several readers arguing that copilots and tightly scoped tools are useful while “full agents” remain mostly a marketing wrapper around brittle chains. The strongest disagreement was not about whether agents fail, but about how quickly evaluation, tool use, and UI constraints might make them trustworthy enough for narrower domains.</p>
+                  <p><span class="hn-label">From link</span>Sean Goedecke frames cognitive debt as the hidden cost of code that forces future maintainers to simulate too much state in their heads before they can make a safe change. The essay argues that this burden is different from ordinary technical debt because tests and runtime behavior can still look fine while the mental effort to reason about side effects, data flow, and edge cases keeps climbing. The practical message is that codebases age not only by becoming slower or buggier, but by becoming harder to confidently understand in the small.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters largely treated the concept as a useful name for a pain they already recognize in mature systems, especially where a change requires mentally replaying several hidden interactions before touching anything. The thread pulled in adjacent ideas like cognitive load, knowledge debt, and the role of tests, but the common theme was that documentation and coverage only help up to a point when the underlying design still demands too much human simulation. Several readers also argued that the most valuable senior engineers are often the ones who quietly reduce this invisible cost for everyone else.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -962,21 +962,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47177492" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47211127" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://unsloth.ai/blog/dynamic2" rel="noopener">Unsloth Dynamic 2.0 GGUFs</a>
+                  <a href="https://obsidian.md/blog/lims/" rel="noopener">The Local Interface for Model Systems</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-unsloth-dynamic-ggufs.webp"
-                    alt="Journal illustration: local model quantization notes and GPU memory blocks on aged paper"
+                    src="images/hacker-news/02-local-obsidian-lims.webp"
+                    alt="Journal illustration: local markdown notes, folders, and research cards linked across worn paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Unsloth presents Dynamic 2.0 as a quantization approach that preserves higher precision only where a model appears especially sensitive, instead of shrinking every tensor uniformly. The payoff in the write-up is practical rather than theoretical: the team claims much smaller GGUF checkpoints can stay closer to full-precision behavior while fitting onto more modest local hardware. The post reads as a push toward better local inference economics, where memory savings matter only if quality holds up under real workloads.</p>
-                  <p><span class="hn-label">From comments</span>HN readers were interested because this lands directly in the “can I run this locally?” decision space, but the enthusiasm was paired with healthy skepticism about benchmarks and naming. Several commenters wanted clearer comparisons against existing quantization stacks, reproducible evals beyond cherry-picked tasks, and a better sense of how much the gains come from method versus model selection. Even so, the thread leaned positive because anything that moves local models toward lower VRAM without obvious quality collapse gets immediate attention from practitioners.</p>
+                  <p><span class="hn-label">From link</span>Obsidian positions LIMS as a local-first interface for working with models, built on the idea that durable personal context should live in ordinary files instead of inside an app or opaque hosted workflow. The post connects that philosophy to AI by arguing that models become more useful when they can operate over a user-owned corpus of notes, references, and working documents that stay inspectable and portable. Rather than pitching a new AI shell, it reads as an attempt to make the file system and the notebook feel like the stable substrate underneath model-assisted work.</p>
+                  <p><span class="hn-label">From comments</span>Commenters responded well to the local-first framing because it speaks directly to anxieties about lock-in, disappearing products, and knowledge trapped in proprietary tools. At the same time, the discussion stayed pragmatic, with people asking how well the approach holds up on mobile, how synchronization and collaboration work at scale, and whether AI over a personal note corpus is actually better than ordinary search plus careful writing. The overall tone was interested rather than breathless: readers like the idea of models meeting them in plain files, but they still want proof that the workflow is smoother than the alternatives.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -985,21 +985,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47174124" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47211719" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://nothinghuman.substack.com/p/the-eternal-promise-why-computers" rel="noopener">The Eternal Promise</a>
+                  <a href="https://github.com/orgs/community/discussions/167746" rel="noopener">Addressing Antigravity Bans and Codespaces Prebuild Issues</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-eternal-promise.webp"
-                    alt="Journal illustration: computing timeline and automation hype cycles sketched in a worn journal"
+                    src="images/hacker-news/03-antigravity-bans.webp"
+                    alt="Journal illustration: developer workspace, warning stamps, and blocked rocket icon on distressed paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The essay traces a long history of computing tools that promised to remove the need for programmers, from punch-card abstractions through fourth-generation languages and no-code systems to today’s AI narratives. Its main point is that automation rarely erases software work; instead it changes the layer where complexity lives and often expands demand by making new classes of systems worth building. The piece treats the “end of programming” claim as a recurring story people tell whenever a tool raises the abstraction level, not as a pattern history has validated.</p>
-                  <p><span class="hn-label">From comments</span>Commenters used the thread to argue about whether AI is just the latest instance of that cycle or a genuinely different kind of abstraction jump. Many readers sided with the article’s historical frame, saying the hard part of programming is still requirements, decomposition, debugging, and systems thinking rather than syntax production. Others pushed back that AI may compress more of the junior and routine work than earlier tools did, but even that camp mostly framed the likely outcome as role change and leverage shift rather than total disappearance.</p>
+                  <p><span class="hn-label">From link</span>GitHub’s discussion post explains a wave of incorrect enforcement actions tied to Antigravity abuse systems, including account bans that broke access to Codespaces prebuilds and related developer workflows. The write-up is notable because it treats the failure as more than a support glitch: when identity, hosted compute, and repository access are tightly coupled, a mistaken trust signal can freeze real work across several surfaces at once. GitHub describes mitigations and investigation status, but the larger lesson is how much operational leverage modern developer platforms hold over people’s daily environments.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback focused on the fragility created when so much tooling lives behind one platform account and one set of opaque abuse heuristics. Readers sympathized with the immediate incident, but the thread quickly widened into a broader complaint about automated enforcement, limited recourse, and how hard it is to build resilient workflows when access to repos, CI, and hosted dev environments can disappear together. Even commenters who accept aggressive anti-abuse systems generally argued that developer platforms need much clearer recovery paths and communication when false positives land.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1008,21 +1008,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47155139" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47212307" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.lesswrong.com/posts/4yofTNLwaQqqQpC8z/the-smallest-transformer-that-can-add-two-10-digit-numbers" rel="noopener">The Smallest Transformer That Can Add Two 10-Digit Numbers</a>
+                  <a href="https://gist.github.com/sw-yx/7337bf8cf3c95f259114518853f8d975" rel="noopener">The VSDD Method</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-smallest-transformer-adder.webp"
-                    alt="Journal illustration: arithmetic columns, carry arrows, and tiny transformer blocks on textured paper"
+                    src="images/hacker-news/04-vsdd.webp"
+                    alt="Journal illustration: values, strategy, design, and delivery cards linked by arrows in a worn notebook"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>This post uses a very constrained arithmetic task to ask how small a transformer can be while still learning exact addition, then examines what the trained model seems to be doing internally. The value is not the utility of addition itself, but the way a toy problem can make mechanistic interpretability more concrete: carry behavior, positional structure, and generalization are easier to inspect when the task is precise. It is a reminder that small, legible experiments still matter when the field is otherwise dominated by giant opaque systems.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters enjoyed the post partly because it is a rare example of ML discourse that stays grounded in a tractable problem. The thread debated whether the result is genuinely surprising, how much of the success comes from architecture and tokenization choices, and whether classical automata intuitions already explain most of the behavior. Even where readers downplayed the novelty, they still seemed to value the exercise as a clearer way to reason about what transformers learn and how to inspect that learning.</p>
+                  <p><span class="hn-label">From link</span>The VSDD note argues that teams should move from values to strategy to design to delivery instead of jumping straight into feature execution and hoping alignment appears later. In practice it reads like a compact planning framework for translating abstract intent into concrete product choices without losing the thread between why something matters and how it gets built. The appeal is its insistence that churn often comes from missing connective tissue upstream, not from developers moving too slowly downstream.</p>
+                  <p><span class="hn-label">From comments</span>Commenters split between people who saw the framework as a clean way to articulate good product discipline and people who worried it turns discovery into a heavyweight ceremony. Supporters liked that it gives teams shared language for tracing decisions back to actual values, while skeptics argued that many useful products emerge from messy iteration and that formal methods can create false confidence if the underlying judgment is weak. The thread was less about the acronym itself than about an old tension: how much structure helps thinking, and how much starts to substitute for it.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1031,21 +1031,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47149431" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47209188" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.cyberdemon.org/2025/04/15/bootc-and-ostree.html" rel="noopener">Bootc and ostree</a>
+                  <a href="https://github.com/ninjaaron/obsidian-importer" rel="noopener">Obsidian Importer</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-bootc-and-ostree.webp"
-                    alt="Journal illustration: immutable operating system layers and bootable containers in a field notebook"
+                    src="images/hacker-news/05-obsidian-importer.webp"
+                    alt="Journal illustration: books, clipped highlights, and markdown notes flowing into a local vault on aged paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The post explains bootc as an attempt to make operating systems behave more like image-managed artifacts, with ostree and OCI containers providing the update and distribution substrate. Rather than treating hosts as individually hand-shaped snowflakes, it pushes toward transactional upgrades, reproducible fleet state, and a cleaner bridge between container build pipelines and base OS management. The piece is useful because it translates a jargon-heavy space into an operator’s question: what gets simpler when the host itself becomes an image you can reason about declaratively?</p>
-                  <p><span class="hn-label">From comments</span>Discussion in the HN thread centered less on whether the idea is interesting than on where it fits among the already crowded immutable-systems landscape. Readers compared bootc with NixOS, Talos, Fedora CoreOS, and other image-based approaches, with recurring questions about complexity, recovery ergonomics, and how much conceptual overhead operators should accept for transactional updates. The overall tone was curious but disciplined: people like the direction, but they want a sharper explanation of what problem this stack solves better than the adjacent alternatives.</p>
+                  <p><span class="hn-label">From link</span>This project is a command-line bridge for pulling highlights from Kindle clippings, Matter exports, and similar reading sources into markdown files that live inside an Obsidian vault. The README emphasizes user control over both data shape and destination, which makes the tool feel less like another read-it-later product and more like a plain-text escape hatch from fragmented annotation silos. Its value is in the boring but durable plumbing: turning scattered capture streams into files that fit an existing note workflow instead of demanding a new one.</p>
+                  <p><span class="hn-label">From comments</span>HN readers were interested because the tool sits at the intersection of two recurring desires: owning your notes and avoiding repetitive manual import chores. The conversation centered on source coverage, edge cases like PDFs or handwritten math, and whether similar importer stacks eventually become their own maintenance burden as upstream services change formats. Even with that caution, the thread leaned favorable because a small utility that keeps highlights in markdown fits the broader local-first mood running through several front-page stories today.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1054,21 +1054,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47161695" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47207288" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://blog.cloudflare.com/a-better-streams-api-for-javascript/" rel="noopener">A Better Streams API Is Possible for JavaScript</a>
+                  <a href="https://www.quantamagazine.org/mathematicians-find-long-sought-fractal-butterfly-discovered-by-benoit-mandelbrot-20260227/" rel="noopener">Long-Sought Fractal Butterfly</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-better-streams-api.webp"
-                    alt="Journal illustration: pipe segments and stream arrows sketched in a worn JavaScript notebook"
+                    src="images/hacker-news/06-hofstadter-butterfly.webp"
+                    alt="Journal illustration: spectral butterfly pattern and Cantor-set gaps penciled on worn field notebook paper"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Cloudflare’s post argues that JavaScript streams remain harder to use than they need to be because the platform inherited overlapping abstractions, awkward adapters, and cancellation semantics that are too easy to get subtly wrong. The proposed alternative emphasizes smaller composable primitives, clearer flow control, and a more straightforward path between browser and server contexts. The piece is compelling because it is not just complaining about ergonomics; it is trying to define what a stream API should optimize for when real developers are debugging backpressure and composition rather than reading standards prose.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters treated this as a familiar pain point and filled the thread with examples of streams feeling overdesigned until you try to connect nontrivial producers and consumers. A lot of the feedback agreed with the critique around mismatch between environments, awkward transforms, and cancellation surprises, although some readers defended the current standards process as a compromise between many competing needs. The consensus was not that streams are useless, but that the platform still makes common dataflow work feel more ceremonious and fragile than it should.</p>
+                  <p><span class="hn-label">From link</span>Quanta reports on a proof that the famous Hofstadter butterfly spectrum contains a long-sought Cantor-set-like fractal structure, resolving a problem that traces back to Benoit Mandelbrot’s interest in the shape. The story makes the result approachable by connecting dense mathematical work to the visual intuition of the butterfly itself: a striking pattern emerging from electrons in a magnetic field and then yielding new formal structure under scrutiny. It is one of those cases where a beautiful picture kept mathematicians interested long enough for the theory to catch up.</p>
+                  <p><span class="hn-label">From comments</span>Commenters were intrigued by the mathematics but also quick to police the framing, especially the title’s implication about who “discovered” what and how new the butterfly itself really is. Some readers focused on the physics history and credit assignment, while others appreciated the chance to talk through why Cantor sets, spectra, and fractals remain compelling even when the popular summary compresses a lot of nuance. The thread ended up balancing wonder with nitpicking in the usual HN way: excitement about the result paired with a strong urge to get the historical and technical details exactly right.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1174,7 +1174,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Feb 28, 2026 · 7:08 AM PST.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Feb 28, 2026 · 12:41 PM PST.</footer>
     </main>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
     <script src="js/todo-card.js" defer></script>
