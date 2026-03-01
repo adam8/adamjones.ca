@@ -186,14 +186,67 @@
       }
 
       .focus-card {
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: none;
+        font: inherit;
+        color: inherit;
+        text-align: left;
+        cursor: pointer;
+        perspective: 1200px;
+      }
+
+      .focus-card-inner {
+        display: grid;
+        min-height: 122px;
+        transform-style: preserve-3d;
+        transition: transform 520ms cubic-bezier(0.2, 0.78, 0.2, 1);
+      }
+
+      .focus-card.is-flipped .focus-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .focus-card-face {
+        grid-area: 1 / 1;
         border: 1px solid rgba(20, 20, 20, 0.2);
         border-radius: 11px;
         padding: 9px;
         background: rgba(255, 255, 255, 0.38);
         display: grid;
+        align-content: start;
         gap: 6px;
         text-wrap: balance;
         text-align: center;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+      }
+
+      .focus-card-front {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.3)),
+          rgba(255, 255, 255, 0.38);
+      }
+
+      .focus-card-back {
+        transform: rotateY(180deg);
+        background:
+          linear-gradient(180deg, rgba(184, 161, 136, 0.16), rgba(255, 255, 255, 0.32)),
+          rgba(255, 255, 255, 0.44);
+      }
+
+      .focus-card:hover .focus-card-face,
+      .focus-card:focus-visible .focus-card-face {
+        border-color: rgba(143, 117, 100, 0.42);
+        box-shadow:
+          0 10px 20px rgba(20, 20, 20, 0.08),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+      }
+
+      .focus-card:focus-visible {
+        outline: none;
       }
 
       .focus-label {
@@ -205,8 +258,18 @@
         text-align: left;
       }
 
-      .focus-card p {
-        margin: 0;
+      .focus-copy {
+        font-size: 0.82rem;
+        line-height: 1.34;
+      }
+
+      .focus-hint {
+        margin-top: auto;
+        font-family: "IBM Plex Mono", "Courier New", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.9px;
+        font-size: 0.52rem;
+        color: rgba(20, 20, 20, 0.58);
       }
 
       .sketch-card {
@@ -862,14 +925,34 @@
             <span class="panel-meta">Today</span>
           </div>
           <div class="panel-body">
-            <div class="focus-card">
-              <div class="focus-label">Primary focus</div>
-              <p>Calm execution. Finish the small things that keep bigger systems predictable.</p>
-            </div>
-            <div class="focus-card">
-              <div class="focus-label">Current mode</div>
-              <p>Shipping in compact steps with enough context to make each one stick.</p>
-            </div>
+            <button class="focus-card" type="button" data-focus-card aria-pressed="false">
+              <span class="focus-card-inner">
+                <span class="focus-card-face focus-card-front" data-focus-face="front">
+                  <span class="focus-label">Primary focus</span>
+                  <span class="focus-copy">What is worth doing carefully today so the rest of the system stays predictable?</span>
+                  <span class="focus-hint" aria-hidden="true">Tap to reveal answer</span>
+                </span>
+                <span class="focus-card-face focus-card-back" data-focus-face="back" aria-hidden="true">
+                  <span class="focus-label">Primary focus</span>
+                  <span class="focus-copy">Calm execution. Finish the small things that keep bigger systems predictable.</span>
+                  <span class="focus-hint" aria-hidden="true">Tap to flip back</span>
+                </span>
+              </span>
+            </button>
+            <button class="focus-card" type="button" data-focus-card aria-pressed="false">
+              <span class="focus-card-inner">
+                <span class="focus-card-face focus-card-front" data-focus-face="front">
+                  <span class="focus-label">Current mode</span>
+                  <span class="focus-copy">How am I shipping work right now without losing the thread between steps?</span>
+                  <span class="focus-hint" aria-hidden="true">Tap to reveal answer</span>
+                </span>
+                <span class="focus-card-face focus-card-back" data-focus-face="back" aria-hidden="true">
+                  <span class="focus-label">Current mode</span>
+                  <span class="focus-copy">Shipping in compact steps with enough context to make each one stick.</span>
+                  <span class="focus-hint" aria-hidden="true">Tap to flip back</span>
+                </span>
+              </span>
+            </button>
             <section class="sketch-card" data-daily-sketch-card aria-label="Daily sketch">
               <div class="focus-label">Daily sketch</div>
               <p class="sketch-meta" data-sketch-status>Fallback sketch loaded.</p>
@@ -1189,6 +1272,7 @@
 
       <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Feb 28, 2026 · 12:41 PM PST.</footer>
     </main>
+    <script src="js/focus-cards.js" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
     <script src="js/todo-card.js" defer></script>
   </body>
