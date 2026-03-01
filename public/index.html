@@ -425,6 +425,7 @@
 
       .hn-card {
         position: relative;
+        position: relative;
         border: 1px solid rgba(20, 20, 20, 0.18);
         border-radius: 11px;
         padding: 8px;
@@ -528,6 +529,7 @@
         border: 1px solid rgba(20, 20, 20, 0.42);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.6);
         font-family: "IBM Plex Mono", "Courier New", monospace;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -535,6 +537,9 @@
         color: rgba(20, 20, 20, 0.82);
         cursor: pointer;
         user-select: none;
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
         position: absolute;
         bottom: 4px;
         right: 4px;
@@ -883,6 +888,10 @@
                     <p class="sketch-note" hidden></p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="sketch-controls" aria-label="Sketch navigation">
+                <button type="button" class="sketch-nav" data-sketch-prev aria-label="Previous sketch" disabled>&lsaquo;</button>
+                <button type="button" class="sketch-nav" data-sketch-next aria-label="Next sketch" disabled>&rsaquo;</button>
               </div>
               <div class="sketch-controls" aria-label="Sketch navigation">
                 <button type="button" class="sketch-nav" data-sketch-prev aria-label="Previous sketch" disabled>&lsaquo;</button>
