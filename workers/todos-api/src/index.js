@@ -1,4 +1,7 @@
 const ALLOWED_ORIGINS = new Set(["https://adamjones.ca", "https://www.adamjones.ca"]);
+const FOCUS_CARD_SLOTS = new Set(["primary-focus", "current-mode"]);
+const MAX_FOCUS_CARD_LABEL_LENGTH = 80;
+const MAX_FOCUS_CARD_COPY_LENGTH = 280;
 const MAX_TODO_LENGTH = 280;
 const MAX_SKETCH_NOTE_LENGTH = 280;
 const DEFAULT_SKETCH_PAGE_SIZE = 30;
@@ -51,6 +54,10 @@ async function routeRequest(request, env) {
     return createTodo(env, request);
   }
 
+  if (url.pathname === "/focus-cards" && method === "GET") {
+    return listFocusCards(env, request);
+  }
+
   const todoIdMatch = url.pathname.match(/^\/todos\/([^/]+)$/);
   if (todoIdMatch && method === "PATCH") {
     return updateTodo(env, request, todoIdMatch[1]);
@@ -58,6 +65,11 @@ async function routeRequest(request, env) {
 
   if (todoIdMatch && method === "DELETE") {
     return deleteTodo(env, request, todoIdMatch[1]);
+  }
+
+  const focusCardSlotMatch = url.pathname.match(/^\/focus-cards\/([^/]+)$/);
+  if (focusCardSlotMatch && method === "PATCH") {
+    return updateFocusCard(env, request, focusCardSlotMatch[1]);
   }
 
   if (url.pathname === "/sketches" && method === "GET") {
@@ -209,6 +221,114 @@ async function deleteTodo(env, request, id) {
   }
 
   return json({ data: { id, deleted: true } }, 200, request);
+}
+
+async function listFocusCards(env, request) {
+  const result = await env.DB.prepare(
+    `SELECT slot, label, front_text, back_text, created_at, updated_at
+     FROM focus_cards
+     ORDER BY CASE slot
+       WHEN 'primary-focus' THEN 1
+       WHEN 'current-mode' THEN 2
+       ELSE 99
+     END`
+  ).all();
+
+  const cards = (result.results || []).map(normalizeFocusCardRow);
+  return json({ data: cards }, 200, request);
+}
+
+async function updateFocusCard(env, request, rawSlot) {
+  const slot = sanitizeText(rawSlot);
+  if (!FOCUS_CARD_SLOTS.has(slot)) {
+    return json(
+      { error: { code: "NOT_FOUND", message: "Focus card not found." } },
+      404,
+      request
+    );
+  }
+
+  const body = await parseJson(request);
+  if (!body.ok) {
+    return body.response;
+  }
+
+  const hasLabel = Object.prototype.hasOwnProperty.call(body.value || {}, "label");
+  const hasFront = Object.prototype.hasOwnProperty.call(body.value || {}, "front");
+  const hasBack = Object.prototype.hasOwnProperty.call(body.value || {}, "back");
+
+  if (!hasLabel && !hasFront && !hasBack) {
+    return json(
+      {
+        error: {
+          code: "VALIDATION_ERROR",
+          message: "PATCH /focus-cards/:slot requires at least one of label, front, or back.",
+        },
+      },
+      400,
+      request
+    );
+  }
+
+  const label = hasLabel ? normalizeFocusCardLabel(body.value.label) : { ok: true };
+  if (!label.ok) {
+    return json(
+      { error: { code: "VALIDATION_ERROR", message: label.message } },
+      400,
+      request
+    );
+  }
+
+  const front = hasFront ? normalizeFocusCardCopy(body.value.front, "front") : { ok: true };
+  if (!front.ok) {
+    return json(
+      { error: { code: "VALIDATION_ERROR", message: front.message } },
+      400,
+      request
+    );
+  }
+
+  const back = hasBack ? normalizeFocusCardCopy(body.value.back, "back") : { ok: true };
+  if (!back.ok) {
+    return json(
+      { error: { code: "VALIDATION_ERROR", message: back.message } },
+      400,
+      request
+    );
+  }
+
+  const existing = await env.DB.prepare(
+    "SELECT slot, label, front_text, back_text, created_at, updated_at FROM focus_cards WHERE slot = ?"
+  )
+    .bind(slot)
+    .first();
+
+  if (!existing) {
+    return json(
+      { error: { code: "NOT_FOUND", message: "Focus card not found." } },
+      404,
+      request
+    );
+  }
+
+  const nextLabel = hasLabel ? label.value : existing.label;
+  const nextFront = hasFront ? front.value : existing.front_text;
+  const nextBack = hasBack ? back.value : existing.back_text;
+  const now = new Date().toISOString();
+
+  await env.DB.prepare(
+    "UPDATE focus_cards SET label = ?, front_text = ?, back_text = ?, updated_at = ? WHERE slot = ?"
+  )
+    .bind(nextLabel, nextFront, nextBack, now, slot)
+    .run();
+
+  const updated = await env.DB.prepare(
+    "SELECT slot, label, front_text, back_text, created_at, updated_at FROM focus_cards WHERE slot = ?"
+  )
+    .bind(slot)
+    .first();
+
+  return json({ data: normalizeFocusCardRow(updated) }, 200, request);
 }
 
 async function listSketches(env, request, url) {
@@ -705,6 +825,18 @@ function normalizeTodoRow(row) {
   };
 }
 
+function normalizeFocusCardRow(row) {
+  if (!row) return null;
+  return {
+    slot: row.slot,
+    label: row.label,
+    front: row.front_text,
+    back: row.back_text,
+    created_at: row.created_at,
+    updated_at: row.updated_at,
+  };
+}
+
 function normalizeSketchRow(row) {
   if (!row) return null;
   return {
@@ -777,6 +909,40 @@ function parseSketchLimit(rawValue) {
     };
   }
   return { ok: true, value: parsed };
+}
+
+function normalizeFocusCardLabel(value) {
+  if (typeof value !== "string") {
+    return { ok: false, message: "label must be a string." };
+  }
+  const label = value.trim();
+  if (!label) {
+    return { ok: false, message: "label is required." };
+  }
+  if (label.length > MAX_FOCUS_CARD_LABEL_LENGTH) {
+    return {
+      ok: false,
+      message: `label must be ${MAX_FOCUS_CARD_LABEL_LENGTH} characters or less.`,
+    };
+  }
+  return { ok: true, value: label };
+}
+
+function normalizeFocusCardCopy(value, fieldName) {
+  if (typeof value !== "string") {
+    return { ok: false, message: `${fieldName} must be a string.` };
+  }
+  const copy = value.trim();
+  if (!copy) {
+    return { ok: false, message: `${fieldName} is required.` };
+  }
+  if (copy.length > MAX_FOCUS_CARD_COPY_LENGTH) {
+    return {
+      ok: false,
+      message: `${fieldName} must be ${MAX_FOCUS_CARD_COPY_LENGTH} characters or less.`,
+    };
+  }
+  return { ok: true, value: copy };
 }
 
 function normalizeSketchNote(value) {

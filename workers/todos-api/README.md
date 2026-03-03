@@ -4,6 +4,7 @@
 - `src/index.js`: Worker route handlers and validation stubs.
 - `migrations/0001_create_todos.sql`: To-do schema.
 - `migrations/0002_create_sketches.sql`: Daily sketch schema.
+- `migrations/0003_create_focus_cards.sql`: Focus-card schema.
 - `wrangler.toml`: Worker, D1, R2, and env var config.
 
 ## Before Deploy
@@ -32,6 +33,8 @@ npx wrangler deploy
 - `POST /todos` body: `{ "text": "..." }`
 - `PATCH /todos/:id` body: `{ "completed": true|false }`
 - `DELETE /todos/:id`
+- `GET /focus-cards`
+- `PATCH /focus-cards/:slot` body: `{ "label"?, "front"?, "back"? }`
 - `GET /sketches?limit=30&before=<ISO-8601>`
 - `GET /sketches/latest`
 - `POST /sketches` body: `{ "sketch_at", "object_key", "content_type", "size_bytes", "image_url"?, "note"? }`
