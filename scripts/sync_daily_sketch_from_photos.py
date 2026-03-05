@@ -2,6 +2,7 @@
 import argparse
 import datetime as dt
 import hashlib
+import html
 import json
 import mimetypes
 import os
@@ -9,15 +10,20 @@ import re
 import subprocess
 import sys
 import tempfile
+import textwrap
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_API_BASE = "https://api.adamjones.ca"
 DEFAULT_MANIFEST = ROOT / "public" / "data" / "sketch.json"
+DEFAULT_INDEX = ROOT / "public" / "index.html"
 DEFAULT_ALBUM_NAME = "Daily Sketch"
 DEFAULT_FETCH_LIMIT = 200
 DEFAULT_CONVERT_HEIC_TO_JPEG = True
+
+SKETCH_START_MARK = "<!-- SKETCH_SNAPSHOT_START -->"
+SKETCH_END_MARK = "<!-- SKETCH_SNAPSHOT_END -->"
 
 ALLOWED_MIME_TYPES = {
   "image/jpeg",
@@ -271,10 +277,76 @@ def refresh_manifest_from_snapshot(snapshot_file: Path, manifest_path: Path) -> 
   )
 
 
+def _format_snapshot_date(value: str) -> str:
+  parsed = parse_iso_utc(value).astimezone()
+  return parsed.strftime("%a, %b %d, %Y · %-I:%M %p")
+
+
+def _build_snapshot_html(manifest_path: Path, limit: int = 4) -> str:
+  payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+  items = payload.get("items", []) if isinstance(payload, dict) else []
+  if not isinstance(items, list):
+    items = []
+
+  if not items:
+    return """<figure class="sketch-figure">
+  <img
+    class="sketch-image"
+    src="holidays/sketchy-calendar-paper.webp"
+    alt="Daily sketch fallback"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption class="sketch-caption">
+    <span class="sketch-date">No sketches synced yet.</span>
+    <p class="sketch-note" hidden></p>
+  </figcaption>
+</figure>"""
+
+  parts: list[str] = []
+  for item in items[:limit]:
+    image_url = html.escape(str(item.get("image_url", "")).strip(), quote=True)
+    sketch_at = str(item.get("sketch_at", "")).strip()
+    note = str(item.get("note", "")).strip()
+    if not image_url or not sketch_at:
+      continue
+    parts.append(
+      f"""<figure class="sketch-figure">
+  <img
+    class="sketch-image"
+    src="{image_url}"
+    alt="Daily sketch from {html.escape(_format_snapshot_date(sketch_at), quote=True)}"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption class="sketch-caption">
+    <span class="sketch-date">{html.escape(_format_snapshot_date(sketch_at))}</span>
+    <p class="sketch-note"{' hidden' if not note else ''}>{html.escape(note)}</p>
+  </figcaption>
+</figure>"""
+    )
+
+  return "\n".join(parts)
+
+
+def refresh_index_snapshot(manifest_path: Path, index_path: Path) -> None:
+  content = index_path.read_text(encoding="utf-8")
+  pattern = re.compile(
+    rf"({re.escape(SKETCH_START_MARK)}\n)(.*?)(\n\s*{re.escape(SKETCH_END_MARK)})",
+    re.DOTALL,
+  )
+  snapshot_html = textwrap.indent(_build_snapshot_html(manifest_path), "                ")
+  updated, count = pattern.subn(rf"\1{snapshot_html}\3", content, count=1)
+  if count != 1:
+    raise RuntimeError("Could not find sketch snapshot markers in index.html.")
+  index_path.write_text(updated, encoding="utf-8")
+
+
 def sync_daily_sketch(
   *,
   album_name: str,
   api_base: str,
+  index_path: Path,
   manifest_path: Path,
   limit: int,
   note: str,
@@ -358,7 +430,9 @@ def sync_daily_sketch(
     snapshot_file = export_dir / "sketches-api.json"
     fetch_sketches_snapshot(api_base, client_id, client_secret, limit, snapshot_file)
     refresh_manifest_from_snapshot(snapshot_file, manifest_path)
+    refresh_index_snapshot(manifest_path, index_path)
     print(f"Updated sketch manifest: {manifest_path}")
+    print(f"Updated sketch snapshot in: {index_path}")
     return 0
 
 
@@ -366,6 +440,7 @@ def main() -> int:
   parser = argparse.ArgumentParser()
   parser.add_argument("--album-name", default=DEFAULT_ALBUM_NAME)
   parser.add_argument("--api-base", default=DEFAULT_API_BASE)
+  parser.add_argument("--index-path", type=Path, default=DEFAULT_INDEX)
   parser.add_argument("--manifest-path", type=Path, default=DEFAULT_MANIFEST)
   parser.add_argument("--limit", type=int, default=DEFAULT_FETCH_LIMIT)
   parser.add_argument("--note", default="")
@@ -388,6 +463,7 @@ def main() -> int:
     return sync_daily_sketch(
       album_name=args.album_name.strip(),
       api_base=args.api_base.strip(),
+      index_path=args.index_path,
       manifest_path=args.manifest_path,
       limit=args.limit,
       note=args.note,
