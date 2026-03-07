@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Thu, Mar 5, 2026</span>
+          <span class="badge">Sat, Mar 7, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1052,12 +1052,12 @@
                 <span class="focus-card-inner">
                   <span class="focus-card-face focus-card-front" data-focus-face="front">
                     <span class="focus-label" data-focus-label>Today&#x27;s focus</span>
-                    <span class="focus-copy" data-focus-copy>What is a concrete step I can accomplish today?</span>
+                    <span class="focus-copy" data-focus-copy>What is a concrete step I can accomplish this weekend?</span>
                     <span class="focus-hint" aria-hidden="true">Tap to reveal answer</span>
                   </span>
                   <span class="focus-card-face focus-card-back" data-focus-face="back" aria-hidden="true">
                     <span class="focus-label" data-focus-label>Today&#x27;s focus</span>
-                    <span class="focus-copy" data-focus-copy>Complete WebAdmin&#x27;s Navbar dropdown.</span>
+                    <span class="focus-copy" data-focus-copy>Redesign this website: remove columns and replace with a large hero element... in the center!</span>
                     <span class="focus-hint" aria-hidden="true">Tap to flip back</span>
                   </span>
                 </span>
@@ -1071,7 +1071,7 @@
                   </span>
                   <span class="focus-card-face focus-card-back" data-focus-face="back" aria-hidden="true">
                     <span class="focus-label" data-focus-label>Current mode</span>
-                    <span class="focus-copy" data-focus-copy>Push in small incremental steps. Take a look at the big picture with each commit.</span>
+                    <span class="focus-copy" data-focus-copy>Push in small incremental steps. After each commit, take a moment to look at the big picture.</span>
                     <span class="focus-hint" aria-hidden="true">Tap to flip back</span>
                   </span>
                 </span>
@@ -1195,20 +1195,6 @@
               <p class="todo-meta" data-todo-status>Fallback list loaded.</p>
               <ul class="todo-list" data-todo-list>
                 <!-- TODO_SNAPSHOT_START -->
-                <li class="todo-item" data-id="4be16a5d-6931-460e-898a-78dc98b7b9ac">
-                  <label class="todo-label">
-                    <input type="checkbox" checked />
-                    <span>Make work bench panels flip problem/solution</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
-                <li class="todo-item" data-id="99df2890-ff7d-418c-b95d-b1d167197496">
-                  <label class="todo-label">
-                    <input type="checkbox" />
-                    <span>Make columns resizable</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
                 <li class="todo-item" data-id="0bb4ee9a-6464-42ed-87cf-745c6f680e8b">
                   <label class="todo-label">
                     <input type="checkbox" checked />
@@ -1243,26 +1229,26 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Mar 5 front page</span>
+            <span class="panel-meta">Mar 7 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47258801" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47289311" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://jdt.dev/p/anubis" rel="noopener">The future of bot defense on the web</a>
+                  <a href="https://cacm.acm.org/research/a-decade-of-docker-containers/" rel="noopener">A Decade of Docker Containers</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-anubis-anti-bot-proxy.webp"
-                    alt="Worn journal collage of browser windows, shield icons, and anti-bot notes on paper"
+                    src="images/hacker-news/01-docker-decade-containers.webp"
+                    alt="Worn journal collage with container stacks, terminal panes, and deployment notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The post introduces Anubis, a reverse-proxy challenge layer designed to block large-scale scraping by forcing clients through modern browser-style checks before content is served. The author frames this as a practical response to current traffic patterns where conventional robots.txt norms are ignored, and explains the tradeoff directly: friction for non-browser clients is preferable to watching site reliability and hosting budgets get burned by automated crawlers. The piece is explicit that the goal is to preserve access for people while making extraction at scale expensive again.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters debated whether browser challenges are a necessary defense or a harmful regression that breaks open-web tooling, especially for text-mode, accessibility, and archival clients. Several people argued that this pattern is becoming unavoidable because operators are absorbing disproportionate bot costs, while others warned that escalating challenge systems can further centralize the web around heavyweight browser stacks. The thread converged on a grimly pragmatic view: no one loves these gates, but many maintainers now treat them as the least-bad option available.</p>
+                  <p><span class="hn-label">From link</span>The ACM retrospective walks through how Docker turned an awkward deployment reality into a repeatable packaging workflow by combining image builds, registry distribution, and process isolation into one developer-friendly loop. It traces important implementation details, including namespace isolation on Linux, desktop virtualization strategy on macOS/Windows, and old-but-clever networking techniques reused to survive enterprise constraints. The piece frames Docker as both a technical stack and a sociotechnical standard that made heterogeneous microservice delivery feel normal across teams.</p>
+                  <p><span class="hn-label">From comments</span>Commenters split between appreciation for Docker's practical impact and criticism that containers normalize a messy dependency ecosystem instead of fixing deeper software distribution problems. Multiple replies highlighted the historical hacks in the article as impressive engineering under pressure, while others argued newer tooling can preserve reproducibility with less runtime complexity. The discussion landed on a familiar tradeoff: Docker is often heavy, but it remains the lingua franca that keeps multi-language systems operable across organizations.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -1271,21 +1257,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47258780" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47288533" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://github.com/psanford/personaplex" rel="noopener">PersonaPlex: One command-line tool for your Drive, Photos, and Gmail</a>
+                  <a href="https://spectrum.ieee.org/flash-radiotherapy" rel="noopener">The Millisecond That Could Change Cancer Treatment</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-personaplex-drive-tool.webp"
-                    alt="Worn journal scene of terminal windows, cloud files, and workflow checklists"
+                    src="images/hacker-news/02-flash-radiotherapy-millisecond.webp"
+                    alt="Worn journal layout with accelerator schematics and medical treatment annotations"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The PersonaPlex README pitches a local-first CLI that connects multiple Google surfaces such as Drive, Photos, and Gmail through one command interface, with an emphasis on quick retrieval and composition workflows instead of app-by-app context switching. The project is presented as a practical personal productivity layer: command-driven access, reusable actions, and scripting-friendly behavior that makes common knowledge-work loops faster from a terminal. The design goal is to centralize fragmented information streams into one predictable operator surface.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread split between excitement about reducing browser tab overhead and caution about what abstractions hide, especially around rate limits, auth scopes, and data portability over time. Readers asked about reliability and operational ergonomics for day-to-day use, while others framed it as part of a bigger trend toward personal command centers that sit above SaaS interfaces. Feedback was generally constructive: people like the direction, but they want clear boundaries, robust failure modes, and transparent integration behavior.</p>
+                  <p><span class="hn-label">From link</span>The IEEE report explains FLASH radiotherapy as a high-dose, ultra-short radiation burst approach that may preserve healthy tissue while still damaging tumors effectively. It connects current clinical optimism to particle-accelerator hardware work, especially collaborations adapting high-energy physics infrastructure into medical treatment systems. The central claim is not a miracle cure but a potentially major protocol shift: fewer sessions, reduced side effects, and wider treatment capacity if the biological mechanism continues to hold up in trials.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback focused on two threads: cautious enthusiasm for the clinical direction and skepticism about branding, hype, and unresolved mechanism questions. Readers traded links to prior research and debated whether the benefit is mostly delivery geometry, tumor biology, oxygen chemistry, or some combination not yet fully modeled. Overall sentiment was technically interested but disciplined, with commenters wanting stronger long-term evidence before framing FLASH as a broad oncological breakthrough.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -1294,21 +1280,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47257837" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47286311" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://acko.net/blog/making-3d-engine-in-plain-javascript/" rel="noopener">Making a 3D engine in plain JavaScript</a>
+                  <a href="https://ki-editor.org/" rel="noopener">Ki Editor - an editor that operates on the AST</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-3d-engine-on-plain-javascript.webp"
-                    alt="Worn journal illustration of wireframe cubes, vector arrows, and JavaScript notes"
+                    src="images/hacker-news/03-ki-editor-ast-workflow.webp"
+                    alt="Worn journal spread with syntax trees, cursor paths, and editor workflow sketches"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The article walks through building a software-rendered 3D pipeline in plain JavaScript, from matrix math and transforms through clipping, rasterization, and scene assembly, with clear emphasis on understanding each stage instead of hiding behind framework magic. It treats the browser as a serious experimental graphics environment and shows how far careful algorithmic choices can go without external engines. The value is pedagogical and practical at once: you end up with a working renderer and a deeper grasp of why modern graphics stacks are structured the way they are.</p>
-                  <p><span class="hn-label">From comments</span>Commenters praised the write-up as a strong refresher on fundamentals and traded notes about where software rendering still teaches better intuition than jumping straight into GPU APIs. Multiple replies discussed historical lineage from demoscene-era techniques to current WebGL/WebGPU tooling, with recurring questions on performance ceilings and how to stage a path from educational renderer to production architecture. The thread stayed technical and appreciative, with most people reading it as a high-signal deep dive rather than nostalgia bait.</p>
+                  <p><span class="hn-label">From link</span>Ki Editor presents a structural editing model where syntax nodes are first-class interaction targets, aiming to reduce brittle text-level navigation during refactors and repeated transformations. The project emphasizes selection modes and multi-cursor behavior built around parsed structure, not only lexical ranges, so edits can stay aligned with code intent. The site positions this as a faster loop for high-leverage changes in larger codebases where mechanical text operations often cause incidental breakage.</p>
+                  <p><span class="hn-label">From comments</span>The comment thread compared Ki's approach with decades of structural editing ideas, from research prototypes to modern JetBrains and Tree-sitter-powered workflows in mainstream editors. People shared power-user shortcuts and discussed whether full tree-only editing is practical or whether hybrid text-plus-structure modes are the more usable compromise. Interest was strong, with most criticism centered on ergonomics, language coverage, and whether the interaction model scales from demos to all-day production coding.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1317,21 +1303,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 13 · <a href="https://news.ycombinator.com/item?id=47254937" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 7 · <a href="https://news.ycombinator.com/item?id=47288007" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://osmfoundation.org/wiki/Licence/LWG_Relicensing/Process_Review" rel="noopener">Process Review for OSM license change</a>
+                  <a href="https://github.com/lardissone/ansi-saver" rel="noopener">Show HN: ANSI-Saver - A macOS Screensaver</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-osm-relicensing-process-review.webp"
-                    alt="Worn journal map collage with legal notes, community ballots, and process diagrams"
+                    src="images/hacker-news/04-ansi-saver-macos.webp"
+                    alt="Worn journal collage of retro ANSI artwork, CRT glow, and macOS settings notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The OSM Foundation process review revisits how the OpenStreetMap relicensing transition was run, documenting community concerns around communication quality, legal framing, contributor consent flow, and the practical handling of disputed data during migration. Rather than a celebratory postmortem, it reads as governance self-audit: what decisions worked, where trust was strained, and which process choices should be improved before future policy changes. The document centers long-term project legitimacy over short-term procedural closure.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion treated the review as a useful case study in open-community governance, with commenters comparing OSM's approach to other open-data and open-source license transitions that created lasting social debt. Several replies focused on the tension between legal necessity and contributor trust, arguing that even technically valid transitions can damage participation if the process feels opaque or coercive. The comments were less about map data specifics and more about governance mechanics teams should copy or avoid.</p>
+                  <p><span class="hn-label">From link</span>The GitHub project packages a macOS screensaver that streams ANSI art packs from 16colo.rs and renders them with period-accurate aesthetics, effectively turning idle time into a live BBS-style art rotation. The README is practical about platform constraints, unsigned app security prompts, and build prerequisites for users who want to compile from source. Its value is equal parts nostalgia artifact and preservation surface for a long-running text-art culture that still has active archives and contributors.</p>
+                  <p><span class="hn-label">From comments</span>Commenters reacted warmly to the retro computing angle, with several sharing BBS memories and stories about lost archives, old hardware, and the social texture of early online communities. There was also practical discussion around compatibility limits, unsigned binaries, and extending support to Intel Macs or older macOS versions through community contributions. The general tone was affectionate and constructive, treating the project as both a working utility and a cultural restoration effort.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1340,21 +1326,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 17 · <a href="https://news.ycombinator.com/item?id=47254335" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 10 · <a href="https://news.ycombinator.com/item?id=47282736" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://sudomake.lt/projects/polaroid-thermal-camera/" rel="noopener">Polaroid thermal camera project</a>
+                  <a href="https://plasma-bigscreen.org/" rel="noopener">Plasma Bigscreen - 10-foot interface for KDE plasma</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-polaroid-thermal-camera.webp"
-                    alt="Worn journal collage of thermal sensor modules, instant camera body, and wiring sketches"
+                    src="images/hacker-news/05-plasma-bigscreen-kde.webp"
+                    alt="Worn journal dashboard with TV interface cards, remote controls, and KDE notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>This build log documents a DIY thermal camera assembled into a Polaroid-style form factor using Raspberry Pi hardware, a thermal module, custom mechanical packaging, and supporting firmware/software glue. The project emphasizes practical prototyping detail, from part choices and enclosure constraints to image pipeline behavior and output handling, which makes it useful beyond the final photos. It lands as a strong example of playful hardware design that still exposes the real engineering tradeoffs behind the look.</p>
-                  <p><span class="hn-label">From comments</span>HN feedback combined admiration for the industrial-design vibe with concrete questions about sensor resolution limits, calibration quality, latency, and cost relative to off-the-shelf thermal tools. Commenters shared adjacent projects and suggested follow-on upgrades such as better optics, battery refinements, and richer post-processing to improve usability in real diagnostics scenarios. The tone was enthusiastic and practical, with people treating it as a credible maker platform rather than just a one-off art piece.</p>
+                  <p><span class="hn-label">From link</span>Plasma Bigscreen describes an open-source couch-first shell on top of KDE technologies, designed for TVs and set-top environments while still retaining general Linux desktop flexibility. The project highlights remote-friendly navigation, settings management from a distance, and access to media, gaming, and standard desktop applications in one stack. Rather than a locked appliance interface, the pitch is that your TV setup can stay customizable, hackable, and integrated with normal Linux package ecosystems.</p>
+                  <p><span class="hn-label">From comments</span>The HN discussion balanced enthusiasm with reality checks from KDE contributors who noted the project is mature but still niche and not yet a drop-in Kodi replacement for most users. Reply threads debated whether that comparison is fair, since Bigscreen targets broader desktop-style capability while Kodi optimizes for media-center simplicity. Commenters also explored adjacent use cases, maintenance load, and contributor quality, with consensus that the concept is strong but polish and sustained stewardship remain the key constraints.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1363,21 +1349,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 11 · <a href="https://news.ycombinator.com/item?id=47256957" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 14 · <a href="https://news.ycombinator.com/item?id=47283665" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://thiscontext.com/2026/03/04/mirrors-reflective-smalltalk/" rel="noopener">Mirrors in Reflective Smalltalk</a>
+                  <a href="https://github.com/golang/go/issues/62026" rel="noopener">UUID package coming to Go standard library</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-mirrors-reflective-smalltalk.webp"
-                    alt="Worn journal notes on object mirrors, message dispatch, and Smalltalk class diagrams"
+                    src="images/hacker-news/06-go-uuid-standard-library.webp"
+                    alt="Worn journal page with UUID strings, Go package notes, and API design sketches"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The post explores mirror-based reflection in Smalltalk, showing how message interception and object-level meta-behavior can be structured so reflective power is explicit and composable instead of globally invasive. It walks through implementation ideas that isolate reflective operations behind controlled interfaces, which keeps ordinary program semantics cleaner while still enabling advanced instrumentation and language experimentation. The central argument is that mirror architectures can make powerful reflection safer to reason about.</p>
-                  <p><span class="hn-label">From comments</span>Commenters enjoyed the historical and language-design angle, comparing mirror systems with metaprogramming techniques in Lisp, Ruby, and modern VM ecosystems where reflection is either too blunt or too fragmented. The thread also debated practical costs, including mental overhead and runtime complexity, versus the benefit of explicit control over introspection boundaries. Overall reactions were positive and technical, with many readers framing mirrors as a design pattern worth revisiting in contemporary language tooling.</p>
+                  <p><span class="hn-label">From link</span>The Go proposal thread argues for a standard-library UUID package to cover parsing and generation paths that are already ubiquitous in backend code, reducing repeated third-party dependency decisions. Discussion in the issue itself weighs ecosystem convenience against Go's conservative stdlib growth philosophy and the cost of locking APIs into slower release cadence. The proposal context also tracks versioning concerns and interoperability expectations relative to existing RFC guidance and language precedent.</p>
+                  <p><span class="hn-label">From comments</span>Commenters dug into UUID version tradeoffs rather than just package placement, especially around v4 randomness, v7 time-ordering behavior, privacy leakage, and storage/indexing effects in distributed systems. Several replies argued standardization and cross-language tooling matter more than raw bit efficiency, while others pushed for simpler custom IDs where strict UUID semantics are unnecessary. The thread was highly technical and practical, centering on operational consequences of identifier format choices rather than bikeshedding naming alone.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1410,9 +1396,9 @@
                   <div class="holiday-cell" role="gridcell"><span class="day">2</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">3</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">4</span></div>
-                  <div class="holiday-cell is-today" role="gridcell"><span class="day">5</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">5</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">6</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">7</span></div>
+                  <div class="holiday-cell is-holiday is-today" role="gridcell" title="run 10K"><span class="day">7</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">8</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">9</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">10</span></div>
@@ -1422,7 +1408,7 @@
                   <div class="holiday-cell" role="gridcell"><span class="day">14</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">15</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">16</span></div>
-                  <div class="holiday-cell is-holiday" role="gridcell" title="Saint Patrick’s Day"><span class="day">17</span></div>
+                  <div class="holiday-cell is-holiday" role="gridcell" title="Dental appointment; Saint Patrick’s Day"><span class="day">17</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">18</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">19</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">20</span></div>
@@ -1444,6 +1430,14 @@
                 </div>
               </div>
               <ul class="holidays">
+                <li class="holiday-row">
+                  <span class="holiday-date">Sat, Mar 7</span>
+                  <span class="holiday-title">run 10K</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Tue, Mar 17</span>
+                  <span class="holiday-title">Dental appointment</span>
+                </li>
                 <li class="holiday-row">
                   <span class="holiday-date">Tue, Mar 17</span>
                   <span class="holiday-title">Saint Patrick’s Day</span>
@@ -1479,7 +1473,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Thu, Mar 5, 2026 · 7:03 AM PST.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Mar 7, 2026 · 9:40 AM PST.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
