@@ -215,33 +215,48 @@
                 aria-hidden="true"
               >
                 <h3>Hacker News Pulse</h3>
-                <!-- Replace with live top stories feed -->
-                <ol>
-                  <li>
-                    <article>
-                      <h4><a href="#hn-pulse">Story placeholder one</a></h4>
-                      <p>Source: example.com · 182 points · 54 comments</p>
-                    </article>
-                  </li>
-                  <li>
-                    <article>
-                      <h4><a href="#hn-pulse">Story placeholder two</a></h4>
-                      <p>Source: news.ycombinator.com · 146 points · 38 comments</p>
-                    </article>
-                  </li>
-                  <li>
-                    <article>
-                      <h4><a href="#hn-pulse">Story placeholder three</a></h4>
-                      <p>Source: blog.example.net · 121 points · 29 comments</p>
-                    </article>
-                  </li>
-                </ol>
-                <p>
-                  Categories:
-                  <a href="#hn-pulse">AI</a>,
-                  <a href="#hn-pulse">Programming</a>,
-                  <a href="#hn-pulse">Startups</a>
-                </p>
+                <!-- Replace with live HN feed values and URLs -->
+                <div class="hn-pulse-module">
+                  <div class="hn-frame-art">
+                    <div class="hn-radar-dish"></div>
+                    <div class="hn-signal-gauge">
+                      <span class="hn-signal-gauge-meter"></span>
+                    </div>
+                    <div class="hn-category-toggles">
+                      <button type="button" class="hn-category is-active" data-category="top">
+                        Top
+                      </button>
+                      <button type="button" class="hn-category" data-category="new">New</button>
+                      <button type="button" class="hn-category" data-category="ask">Ask</button>
+                    </div>
+                  </div>
+
+                  <div class="hn-ticker-window">
+                    <ul class="hn-ticker-list">
+                      <li>Story placeholder one: source · points · comments</li>
+                      <li>Story placeholder two: source · points · comments</li>
+                      <li>Story placeholder three: source · points · comments</li>
+                    </ul>
+                  </div>
+
+                  <aside class="hn-detail-panel">
+                    <h4>Top Signals</h4>
+                    <ol>
+                      <li>
+                        <a href="#hn-pulse">Story placeholder one</a>
+                        <p>Source: example.com · 182 points · 54 comments</p>
+                      </li>
+                      <li>
+                        <a href="#hn-pulse">Story placeholder two</a>
+                        <p>Source: news.ycombinator.com · 146 points · 38 comments</p>
+                      </li>
+                      <li>
+                        <a href="#hn-pulse">Story placeholder three</a>
+                        <p>Source: blog.example.net · 121 points · 29 comments</p>
+                      </li>
+                    </ol>
+                  </aside>
+                </div>
               </article>
               <article
                 id="panel-calendar"

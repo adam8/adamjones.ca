@@ -49,6 +49,30 @@
   filter: brightness(1.14);
 }
 
+.machine-scene.is-hovering-news .panel-news .hn-ticker-window,
+.machine-scene.is-open-news .panel-news .hn-ticker-window {
+  border-color: rgba(45, 45, 43, 0.54);
+  box-shadow:
+    inset 0 0 0 1px rgba(45, 45, 43, 0.12),
+    0 0 0.7rem rgba(255, 255, 255, 0.5);
+}
+
+.machine-scene.is-hovering-news .panel-news .hn-category.is-active,
+.machine-scene.is-open-news .panel-news .hn-category.is-active {
+  border-color: rgba(45, 45, 43, 0.7);
+  background: rgba(45, 45, 43, 0.14);
+  color: rgba(45, 45, 43, 0.96);
+}
+
+.machine-scene.is-hovering-news .panel-news .hn-radar-dish::after,
+.machine-scene.is-open-news .panel-news .hn-radar-dish::after {
+  animation-duration: 5.6s;
+}
+
+.machine-scene.is-open-news .panel-news .hn-ticker-list {
+  animation: hnTickerDrift 5.2s linear infinite;
+}
+
 .machine-scene.is-hovering-calendar .calendar-wheel,
 .machine-scene.is-open-calendar .calendar-wheel {
   filter: contrast(1.2);
@@ -176,6 +200,80 @@
   }
 }
 
+@keyframes hnDishSweep {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(-14deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(16deg);
+  }
+}
+
+@keyframes hnIndicatorFlicker {
+  0%,
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 0 rgba(45, 45, 43, 0);
+  }
+  14% {
+    opacity: 0.6;
+  }
+  15% {
+    opacity: 0.98;
+    box-shadow: 0 0 0.35rem 0.06rem rgba(255, 255, 255, 0.5);
+  }
+  16% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 0 rgba(45, 45, 43, 0);
+  }
+  66% {
+    opacity: 0.62;
+  }
+  67% {
+    opacity: 0.95;
+    box-shadow: 0 0 0.3rem 0.05rem rgba(255, 255, 255, 0.42);
+  }
+  68% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 0 rgba(45, 45, 43, 0);
+  }
+}
+
+@keyframes hnGaugeTwitch {
+  0%,
+  100% {
+    transform: scaleY(0.52);
+  }
+  44% {
+    transform: scaleY(0.52);
+  }
+  46% {
+    transform: scaleY(0.64);
+  }
+  49% {
+    transform: scaleY(0.52);
+  }
+  73% {
+    transform: scaleY(0.52);
+  }
+  75% {
+    transform: scaleY(0.6);
+  }
+  77% {
+    transform: scaleY(0.52);
+  }
+}
+
+@keyframes hnTickerDrift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-14%);
+  }
+}
+
 .machine-scene.is-animated .machine-stage {
   animation: breathe 8.4s var(--ease-mech) infinite;
 }
@@ -203,6 +301,18 @@
 
 .machine-scene.is-animated .hn-pulse-frame {
   animation: radarSweep 6.6s ease-in-out infinite;
+}
+
+.machine-scene.is-animated .panel-news .hn-radar-dish::after {
+  animation: hnDishSweep 8.4s ease-in-out infinite;
+}
+
+.machine-scene.is-animated .panel-news .hn-frame-art::after {
+  animation: hnIndicatorFlicker 8.8s linear infinite;
+}
+
+.machine-scene.is-animated .panel-news .hn-signal-gauge-meter {
+  animation: hnGaugeTwitch 12.2s linear infinite;
 }
 
 .machine-scene.is-animated .idea-orbit-signal {
@@ -242,9 +352,28 @@
   .machine-scene.is-animated .gear-top,
   .machine-scene.is-animated .steam,
   .machine-scene.is-animated .hn-pulse-frame,
+  .machine-scene.is-animated .panel-news .hn-radar-dish::after,
+  .machine-scene.is-animated .panel-news .hn-frame-art::after,
+  .machine-scene.is-animated .panel-news .hn-signal-gauge-meter,
+  .machine-scene.is-open-news .panel-news .hn-ticker-list,
   .machine-scene.is-animated .idea-orbit-signal,
   .machine-scene.is-animated .todo-belt {
     animation: none !important;
+  }
+
+  .hn-pulse-module,
+  .hn-detail-panel,
+  .hn-detail-panel li,
+  .hn-ticker-window,
+  .hn-category {
+    transition-duration: 120ms !important;
+    transition-timing-function: linear !important;
+  }
+
+  .panel-news.is-open .hn-detail-panel li:nth-child(1),
+  .panel-news.is-open .hn-detail-panel li:nth-child(2),
+  .panel-news.is-open .hn-detail-panel li:nth-child(3) {
+    transition-delay: 0ms !important;
   }
 
   .panel {
