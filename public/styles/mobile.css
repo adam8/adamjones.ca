@@ -9,7 +9,24 @@
     padding: 0.85rem;
   }
 
+  .site-header h1 {
+    font-size: clamp(1.35rem, 7vw, 1.8rem);
+  }
+
+  .site-header p {
+    font-size: 0.85rem;
+  }
+
   .hotspot-layer {
     grid-template-columns: 1fr;
+  }
+
+  .hotspot {
+    min-height: 2.9rem;
+    font-size: 0.78rem;
+  }
+
+  .panel {
+    padding: 0.7rem;
   }
 }

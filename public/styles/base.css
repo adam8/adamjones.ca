@@ -1,7 +1,17 @@
 :root {
   color-scheme: light;
   --paper: #f2f1ec;
+  --paper-grid: rgba(60, 60, 60, 0.08);
   --ink: #2d2d2b;
+  --ink-soft: rgba(45, 45, 43, 0.65);
+  --panel-bg: rgba(250, 248, 242, 0.92);
+  --shadow: rgba(0, 0, 0, 0.18);
+  --glow-soft: rgba(255, 255, 255, 0.45);
+  --motion-fast: 180ms;
+  --motion-med: 320ms;
+  --motion-slow: 900ms;
+  --ease-mech: cubic-bezier(0.2, 0.8, 0.2, 1);
+
   --line: rgba(45, 45, 43, 0.22);
   --surface: #f9f8f4;
   --focus: #222;
@@ -23,7 +33,14 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   color: var(--ink);
-  background: var(--paper);
+  background:
+    linear-gradient(var(--paper-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-grid) 1px, transparent 1px),
+    var(--paper);
+  background-size:
+    2.4rem 2.4rem,
+    2.4rem 2.4rem,
+    auto;
 }
 
 a {
@@ -45,4 +62,15 @@ button:focus-visible {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
