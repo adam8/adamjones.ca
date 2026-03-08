@@ -106,6 +106,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .layer-placeholder {
@@ -122,6 +123,45 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   background: rgba(249, 248, 244, 0.9);
+}
+
+.asset-shell[data-asset]:not(.layer) {
+  position: relative;
+}
+
+.asset-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--motion-fast) linear;
+}
+
+.layer[data-asset] {
+  background-color: rgba(249, 248, 244, 0.45);
+  outline: 1px dashed rgba(45, 45, 43, 0.18);
+  outline-offset: -1px;
+}
+
+.layer.asset-ready {
+  background-color: transparent;
+  outline-color: transparent;
+}
+
+.layer > .asset-image {
+  object-fit: contain;
+}
+
+.layer.asset-ready > .asset-image {
+  opacity: 1;
+}
+
+.layer.layer-placeholder.asset-ready .layer-label {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .bg-notebook-drift {
@@ -272,6 +312,45 @@
   --panel-max: var(--panel-sketch-max);
   --panel-shift-x: -12%;
   --panel-shift-y: 0;
+}
+
+.panel-sketch figure {
+  margin: 0 0 0.5rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.panel-sketch-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 64 / 42;
+  border: 1px dashed rgba(45, 45, 43, 0.26);
+  border-radius: 0.45rem;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.32), rgba(45, 45, 43, 0.08)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(45, 45, 43, 0.06) 0 1px,
+      transparent 1px 9px
+    );
+  object-fit: cover;
+}
+
+.panel-sketch-image.asset-ready {
+  border-style: solid;
+  border-color: rgba(45, 45, 43, 0.22);
+}
+
+.panel-sketch-image.asset-missing {
+  border-color: rgba(45, 45, 43, 0.38);
+  background:
+    linear-gradient(145deg, rgba(245, 242, 234, 0.95), rgba(226, 219, 202, 0.9)),
+    repeating-linear-gradient(
+      -24deg,
+      rgba(45, 45, 43, 0.08) 0 2px,
+      transparent 2px 8px
+    );
 }
 
 .panel-workbench {

@@ -75,6 +75,109 @@
     scene.classList.toggle("is-reduced-motion", isReduced);
   }
 
+  function getExistingDecorativeAsset(container) {
+    var children = container ? container.children : [];
+    var index;
+
+    for (index = 0; index < children.length; index += 1) {
+      if (children[index].classList.contains("asset-image")) {
+        return children[index];
+      }
+    }
+
+    return null;
+  }
+
+  function setAssetState(element, isReady) {
+    if (!element) {
+      return;
+    }
+
+    element.classList.toggle("asset-ready", isReady);
+    element.classList.toggle("asset-missing", !isReady);
+  }
+
+  function loadDecorativeAsset(container, source) {
+    var image = getExistingDecorativeAsset(container);
+
+    if (!container || !source) {
+      return;
+    }
+
+    if (image) {
+      return;
+    }
+
+    image = document.createElement("img");
+    image.className = "asset-image";
+    image.alt = "";
+    image.decoding = "async";
+    image.loading = container.classList.contains("layer") ? "eager" : "lazy";
+    image.width = container.classList.contains("layer") ? 1280 : 1600;
+    image.height = container.classList.contains("layer") ? 1600 : 900;
+    image.setAttribute("aria-hidden", "true");
+
+    image.addEventListener("load", function () {
+      setAssetState(container, true);
+    });
+
+    image.addEventListener("error", function () {
+      if (image.parentNode === container) {
+        container.removeChild(image);
+      }
+
+      setAssetState(container, false);
+    });
+
+    container.classList.add("asset-shell");
+    container.appendChild(image);
+    image.src = source;
+  }
+
+  function loadInlineAsset(image, source) {
+    var figure;
+
+    if (!image || !source || image.getAttribute("src")) {
+      return;
+    }
+
+    figure = image.closest("figure");
+
+    image.classList.add("asset-inline");
+
+    image.addEventListener("load", function () {
+      setAssetState(image, true);
+      setAssetState(figure, true);
+    });
+
+    image.addEventListener("error", function () {
+      image.removeAttribute("src");
+      setAssetState(image, false);
+      setAssetState(figure, false);
+    });
+
+    image.src = source;
+  }
+
+  function initializeAssets() {
+    var assets = document.querySelectorAll("[data-asset]");
+
+    assets.forEach(function (node) {
+      var source = node.getAttribute("data-asset");
+
+      if (!source) {
+        return;
+      }
+
+      if (node.tagName === "IMG") {
+        loadInlineAsset(node, source);
+        return;
+      }
+
+      loadDecorativeAsset(node, source);
+    });
+  }
+
   function bindHotspots() {
     var buttons = document.querySelectorAll(".hotspot");
 
@@ -235,6 +338,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.classList.add("js");
+    initializeAssets();
     updateMode();
     updateMotionMode();
 
