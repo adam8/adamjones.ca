@@ -17,7 +17,7 @@
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <h1>Adam Jones - Daily Computing Engine</h1>
+        <h1>Adam Jones' Daily Computing Engine</h1>
         <p>Campbell River Laboratory &middot; Model AJ-02</p>
       </header>
 
@@ -26,9 +26,90 @@
           <h2 class="visually-hidden">Machine Navigation</h2>
           <div class="machine-stage" role="group" aria-label="Machine controls and panel windows">
             <p class="machine-fallback">
-              Phase 1 fallback controls: use the hotspot buttons to jump directly to each module
-              section below.
+              Layered machine scene scaffold with placeholder art layers. Use the hotspot buttons
+              to jump directly to each module section below.
             </p>
+
+            <div class="layer bg-notebook-drift layer-placeholder" aria-hidden="true">
+              <span class="layer-label">1. notebook drift background</span>
+            </div>
+            <div
+              class="layer bg-grid layer-placeholder"
+              data-asset="assets/paper-grid-bg.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">2. grid paper</span>
+            </div>
+            <div
+              class="layer machine-shadow layer-placeholder"
+              data-asset="assets/machine-shadow.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">3. machine shadow</span>
+            </div>
+            <div
+              class="layer machine-base desktop-only layer-placeholder"
+              data-asset="assets/spiral-machine-base.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">4. spiral machine base</span>
+            </div>
+            <div
+              class="layer steam steam-top layer-placeholder"
+              data-asset="assets/steam-top.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">5a. steam top</span>
+            </div>
+            <div
+              class="layer steam steam-mid layer-placeholder"
+              data-asset="assets/steam-mid.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">5b. steam mid</span>
+            </div>
+            <div
+              class="layer steam steam-bottom layer-placeholder"
+              data-asset="assets/steam-bottom.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">5c. steam bottom</span>
+            </div>
+            <div
+              class="layer overlay gear-top layer-placeholder"
+              data-asset="assets/gear-cluster-top.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">6. gear overlays</span>
+            </div>
+            <div
+              class="layer overlay todo-belt layer-placeholder"
+              data-asset="assets/todo-belt-overlay.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">7a. to-dos module overlay</span>
+            </div>
+            <div
+              class="layer overlay calendar-wheel layer-placeholder"
+              data-asset="assets/calendar-wheel-overlay.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">7b. calendar module overlay</span>
+            </div>
+            <div
+              class="layer overlay findme-terminal layer-placeholder"
+              data-asset="assets/findme-terminal-overlay.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">7c. find me module overlay</span>
+            </div>
+            <div
+              class="layer overlay hn-pulse-frame layer-placeholder"
+              data-asset="assets/hn-pulse-frame.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">7d. news pulse module overlay</span>
+            </div>
 
             <div class="panel-layer" aria-live="polite">
               <article
