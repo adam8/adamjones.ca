@@ -1,5 +1,6 @@
 (function () {
   var MOBILE_MODE_QUERY = "(max-width: 62rem)";
+  var REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
   function detectMode() {
     if (window.machineStateApi && typeof window.machineStateApi.getModeFromViewport === "function") {
@@ -25,6 +26,28 @@
 
     experience.setAttribute("data-mode", nextMode);
     return nextMode;
+  }
+
+  function detectReducedMotion() {
+    return window.matchMedia(REDUCED_MOTION_QUERY).matches;
+  }
+
+  function updateMotionMode() {
+    var scene = document.querySelector(".machine-scene");
+    var isReduced = detectReducedMotion();
+
+    if (window.machineStateApi) {
+      window.machineStateApi.setReducedMotion(isReduced);
+    } else if (window.machineState) {
+      window.machineState.reducedMotion = isReduced;
+    }
+
+    if (!scene) {
+      return;
+    }
+
+    scene.classList.toggle("is-animated", !isReduced);
+    scene.classList.toggle("is-reduced-motion", isReduced);
   }
 
   function bindHotspots() {
@@ -85,9 +108,23 @@
     });
   }
 
+  function bindMotionPreference() {
+    var mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY);
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", updateMotionMode);
+      return;
+    }
+
+    if (typeof mediaQuery.addListener === "function") {
+      mediaQuery.addListener(updateMotionMode);
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.classList.add("js");
     updateMode();
+    updateMotionMode();
 
     if (window.panelController) {
       window.panelController.applyMode();
@@ -95,6 +132,7 @@
 
     bindHotspots();
     bindGlobalShortcuts();
+    bindMotionPreference();
 
     window.addEventListener("resize", function () {
       var beforeMode = window.machineState ? window.machineState.mode : null;

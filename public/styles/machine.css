@@ -270,7 +270,7 @@
   --panel-y: var(--sketch-panel-y);
   --panel-w: var(--panel-sketch-w);
   --panel-max: var(--panel-sketch-max);
-  --panel-shift-x: -100%;
+  --panel-shift-x: -12%;
   --panel-shift-y: 0;
 }
 
@@ -279,7 +279,7 @@
   --panel-y: var(--workbench-panel-y);
   --panel-w: var(--panel-workbench-w);
   --panel-max: var(--panel-workbench-max);
-  --panel-shift-x: -100%;
+  --panel-shift-x: -14%;
   --panel-shift-y: 0;
 }
 
@@ -401,15 +401,6 @@
   --hotspot-y: var(--findme-y);
   --hotspot-w: var(--hotspot-findme-w);
   --hotspot-h: var(--hotspot-findme-h);
-}
-
-@media (max-width: 75rem) {
-  .panel {
-    left: 50%;
-    top: 56%;
-    width: min(30rem, calc(100% - 1.5rem));
-    transform: translate(-50%, -50%);
-  }
 }
 
 @media (max-width: 62rem) {
