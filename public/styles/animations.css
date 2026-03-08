@@ -213,6 +213,29 @@
   animation: beltScroll 12s linear infinite;
 }
 
+@media (max-width: 62rem) and (prefers-reduced-motion: no-preference) {
+  .mobile-module-art::before {
+    animation: steamDrift 14s ease-in-out infinite alternate;
+    opacity: 0.45;
+  }
+
+  .mobile-module-art::after {
+    animation: shadowPulse 12s ease-in-out infinite;
+  }
+
+  .module-idea .mobile-module-art {
+    animation: breathe 10.5s var(--ease-mech) infinite;
+  }
+
+  .module-news .mobile-module-art::before {
+    animation: radarSweep 7.4s ease-in-out infinite;
+  }
+
+  .module-todos .mobile-module-art::after {
+    animation: beltScroll 16s linear infinite;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .machine-scene.is-animated .machine-stage,
   .machine-scene.is-animated .machine-shadow,

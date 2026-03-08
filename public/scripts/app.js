@@ -10,15 +10,41 @@
     return window.matchMedia(MOBILE_MODE_QUERY).matches ? "mobile" : "desktop";
   }
 
+  function setMode(mode) {
+    if (window.machineStateApi) {
+      window.machineStateApi.setMode(mode);
+      return;
+    }
+
+    if (window.machineState) {
+      window.machineState.mode = mode;
+    }
+  }
+
+  function setActivePanel(panelId) {
+    if (window.machineStateApi) {
+      window.machineStateApi.setActivePanel(panelId);
+      return;
+    }
+
+    if (window.machineState) {
+      window.machineState.activePanel = panelId;
+    }
+  }
+
+  function getActivePanel() {
+    if (window.machineState) {
+      return window.machineState.activePanel;
+    }
+
+    return null;
+  }
+
   function updateMode() {
     var experience = document.querySelector(".machine-experience");
     var nextMode = detectMode();
 
-    if (window.machineStateApi) {
-      window.machineStateApi.setMode(nextMode);
-    } else if (window.machineState) {
-      window.machineState.mode = nextMode;
-    }
+    setMode(nextMode);
 
     if (experience) {
       experience.setAttribute("data-mode", nextMode);
@@ -99,6 +125,75 @@
     });
   }
 
+  function getMobileDrawerForButton(button) {
+    if (!button) {
+      return null;
+    }
+
+    var drawerId = button.getAttribute("aria-controls");
+    if (!drawerId) {
+      return null;
+    }
+
+    return document.getElementById(drawerId);
+  }
+
+  function setMobileDrawerState(button, drawer, shouldOpen) {
+    var moduleCard = button ? button.closest(".mobile-module") : null;
+
+    if (!button || !drawer) {
+      return;
+    }
+
+    button.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+    drawer.hidden = !shouldOpen;
+    drawer.setAttribute("aria-hidden", shouldOpen ? "false" : "true");
+
+    if (moduleCard) {
+      moduleCard.classList.toggle("is-open", shouldOpen);
+    }
+
+    if (shouldOpen) {
+      setActivePanel(drawer.id);
+      return;
+    }
+
+    if (getActivePanel() === drawer.id) {
+      setActivePanel(null);
+    }
+  }
+
+  function closeMobileDrawers() {
+    var toggles = document.querySelectorAll(".mobile-module-toggle");
+
+    toggles.forEach(function (button) {
+      var drawer = getMobileDrawerForButton(button);
+      if (!drawer) {
+        return;
+      }
+
+      setMobileDrawerState(button, drawer, false);
+    });
+  }
+
+  function bindMobileStripModules() {
+    var toggles = document.querySelectorAll(".mobile-module-toggle");
+
+    toggles.forEach(function (button) {
+      button.addEventListener("click", function (event) {
+        var drawer = getMobileDrawerForButton(button);
+
+        event.preventDefault();
+
+        if (!drawer) {
+          return;
+        }
+
+        setMobileDrawerState(button, drawer, drawer.hidden);
+      });
+    });
+  }
+
   function bindGlobalShortcuts() {
     document.addEventListener("keydown", function (event) {
       if (event.key !== "Escape") {
@@ -108,6 +203,8 @@
       if (window.panelController) {
         window.panelController.closeAllPanels();
       }
+
+      closeMobileDrawers();
     });
   }
 
@@ -131,6 +228,7 @@
 
       if (previousMode !== nextMode && window.panelController) {
         window.panelController.applyMode();
+        closeMobileDrawers();
       }
     });
   }
@@ -144,7 +242,9 @@
       window.panelController.applyMode();
     }
 
+    closeMobileDrawers();
     bindHotspots();
+    bindMobileStripModules();
     bindGlobalShortcuts();
     bindMotionPreference();
     bindResizeModeHandling();
