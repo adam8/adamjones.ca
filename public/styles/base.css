@@ -1,10 +1,10 @@
 :root {
   color-scheme: light;
-  --paper: #f2f1ec;
+  --paper: #eceff2;
   --paper-grid: rgba(60, 60, 60, 0.08);
   --ink: #2d2d2b;
   --ink-soft: rgba(45, 45, 43, 0.65);
-  --panel-bg: rgba(250, 248, 242, 0.92);
+  --panel-bg: rgba(246, 248, 251, 0.92);
   --shadow: rgba(0, 0, 0, 0.18);
   --glow-soft: rgba(255, 255, 255, 0.45);
   --motion-fast: 180ms;
@@ -13,7 +13,7 @@
   --ease-mech: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   --line: rgba(45, 45, 43, 0.22);
-  --surface: #f9f8f4;
+  --surface: #f4f6f9;
   --focus: #222;
   --radius: 0.75rem;
 }

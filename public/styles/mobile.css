@@ -35,7 +35,7 @@
     padding: 0.75rem;
     background:
       linear-gradient(155deg, rgba(255, 255, 255, 0.4), rgba(45, 45, 43, 0.08)),
-      #f3f0e7;
+      #eaf0f6;
   }
 
   .mobile-strip-track[data-asset] > .asset-image {
