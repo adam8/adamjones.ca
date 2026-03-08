@@ -123,10 +123,20 @@
                 hidden
                 aria-hidden="true"
               >
-                <h3>Daily Sketch Panel</h3>
-                <p>Latest sketch entry appears here as live HTML content.</p>
+                <h3>Daily Sketch</h3>
+                <!-- Replace with the latest real sketch record -->
                 <figure>
-                  <figcaption>Placeholder sketch note: observational drawing in progress.</figcaption>
+                  <img
+                    src="assets/panel-sketch.png"
+                    alt="Placeholder daily sketch preview on notebook paper"
+                    width="640"
+                    height="420"
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    Ink study 2026-03-08: observational contour work in progress, focusing on
+                    gears and belt connections.
+                  </figcaption>
                 </figure>
                 <p><a href="#daily-sketch">Open full sketch archive</a></p>
               </article>
@@ -138,13 +148,32 @@
                 hidden
                 aria-hidden="true"
               >
-                <h3>Workbench Panel</h3>
-                <p>Current builds, experiments, and active notes.</p>
-                <ul>
-                  <li>Featured build placeholder</li>
-                  <li>Experiment queue placeholder</li>
-                  <li>Reference links placeholder</li>
-                </ul>
+                <h3>Workbench</h3>
+                <!-- Replace lists and card below with live project data -->
+                <section aria-label="Featured builds">
+                  <h4>Featured Builds</h4>
+                  <ul>
+                    <li>Spiral Machine UI Shell v1</li>
+                    <li>Daily Sketch Capture Pipeline</li>
+                    <li>Calendar Signal Regulator</li>
+                  </ul>
+                </section>
+                <section aria-label="Experiments">
+                  <h4>Experiments</h4>
+                  <ul>
+                    <li>Panel collision tuning for narrow desktop widths</li>
+                    <li>Reduced-motion interaction timing pass</li>
+                    <li>HN pulse scoring model placeholder</li>
+                  </ul>
+                </section>
+                <article aria-label="Highlighted project">
+                  <h4>Highlighted Project</h4>
+                  <p>
+                    <strong>Signal Bench Prototype:</strong> consolidating machine state and panel
+                    orchestration with plain JavaScript modules.
+                  </p>
+                  <p><a href="#workbench">Open project notes</a></p>
+                </article>
               </article>
               <article
                 id="panel-todos"
@@ -154,12 +183,27 @@
                 hidden
                 aria-hidden="true"
               >
-                <h3>To-Dos Panel</h3>
-                <p>Task list remains available as plain HTML.</p>
+                <h3>To-Dos</h3>
+                <!-- Replace with live task feed and filter state -->
+                <div role="group" aria-label="Quick filters placeholder">
+                  <strong>Quick filters:</strong>
+                  <button type="button">Today</button>
+                  <button type="button">This Week</button>
+                  <button type="button">Blocked</button>
+                </div>
                 <ul>
-                  <li>Draft weekly priorities</li>
-                  <li>Review active tickets</li>
-                  <li>Publish status update</li>
+                  <li>
+                    <label><input type="checkbox" /> Draft weekly priorities</label>
+                    <p>Meta: Due Mon 09:00 · Area: Planning</p>
+                  </li>
+                  <li>
+                    <label><input type="checkbox" checked /> Review active tickets</label>
+                    <p>Meta: Due Today · Area: Workbench</p>
+                  </li>
+                  <li>
+                    <label><input type="checkbox" /> Publish status update</label>
+                    <p>Meta: Due Tue 14:00 · Area: Communication</p>
+                  </li>
                 </ul>
               </article>
               <article
@@ -170,13 +214,34 @@
                 hidden
                 aria-hidden="true"
               >
-                <h3>Hacker News Pulse Panel</h3>
-                <p>Top signal stories and categories.</p>
+                <h3>Hacker News Pulse</h3>
+                <!-- Replace with live top stories feed -->
                 <ol>
-                  <li>Story placeholder one</li>
-                  <li>Story placeholder two</li>
-                  <li>Story placeholder three</li>
+                  <li>
+                    <article>
+                      <h4><a href="#hn-pulse">Story placeholder one</a></h4>
+                      <p>Source: example.com · 182 points · 54 comments</p>
+                    </article>
+                  </li>
+                  <li>
+                    <article>
+                      <h4><a href="#hn-pulse">Story placeholder two</a></h4>
+                      <p>Source: news.ycombinator.com · 146 points · 38 comments</p>
+                    </article>
+                  </li>
+                  <li>
+                    <article>
+                      <h4><a href="#hn-pulse">Story placeholder three</a></h4>
+                      <p>Source: blog.example.net · 121 points · 29 comments</p>
+                    </article>
+                  </li>
                 </ol>
+                <p>
+                  Categories:
+                  <a href="#hn-pulse">AI</a>,
+                  <a href="#hn-pulse">Programming</a>,
+                  <a href="#hn-pulse">Startups</a>
+                </p>
               </article>
               <article
                 id="panel-calendar"
@@ -186,13 +251,21 @@
                 hidden
                 aria-hidden="true"
               >
-                <h3>Calendar Panel</h3>
-                <p>Upcoming agenda entries, schedule summary, and next event details.</p>
-                <ul>
-                  <li>Today: planning block</li>
-                  <li>Tomorrow: build review</li>
-                  <li>Upcoming: publish checkpoint</li>
-                </ul>
+                <h3>Calendar</h3>
+                <!-- Replace with exported calendar summary -->
+                <p><strong>Date badge:</strong> <time datetime="2026-03-08">Sun Mar 8, 2026</time></p>
+                <section aria-label="Today summary">
+                  <h4>Today Summary</h4>
+                  <p>Focus window: machine interactions review and polish pass.</p>
+                </section>
+                <section aria-label="Upcoming events">
+                  <h4>Upcoming Events</h4>
+                  <ul>
+                    <li><time datetime="2026-03-09T09:00">Mon 09:00</time> Planning block</li>
+                    <li><time datetime="2026-03-10T14:00">Tue 14:00</time> Build review</li>
+                    <li><time datetime="2026-03-12T11:30">Thu 11:30</time> Publish checkpoint</li>
+                  </ul>
+                </section>
               </article>
               <article
                 id="panel-findme"
@@ -202,13 +275,20 @@
                 hidden
                 aria-hidden="true"
               >
-                <h3>Find Me Panel</h3>
-                <p>Contact channels and social destinations.</p>
-                <ul>
-                  <li><a href="#find-me">Email</a></li>
-                  <li><a href="#find-me">GitHub</a></li>
-                  <li><a href="#find-me">LinkedIn</a></li>
-                </ul>
+                <h3>Find Me</h3>
+                <!-- Replace with real profile URLs -->
+                <p>
+                  Short intro: building notebook-like interfaces, automation pipelines, and visual
+                  developer tools.
+                </p>
+                <nav aria-label="External destinations">
+                  <ul>
+                    <li><a href="#find-me"><span aria-hidden="true">[mail]</span> Email</a></li>
+                    <li><a href="#find-me"><span aria-hidden="true">[gh]</span> GitHub</a></li>
+                    <li><a href="#find-me"><span aria-hidden="true">[in]</span> LinkedIn</a></li>
+                    <li><a href="#find-me"><span aria-hidden="true">[x]</span> X / Twitter</a></li>
+                  </ul>
+                </nav>
               </article>
             </div>
 
