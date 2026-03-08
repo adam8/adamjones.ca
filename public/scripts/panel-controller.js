@@ -1,28 +1,187 @@
 (function () {
-  function getSectionFromButton(button) {
+  var OPEN_CLASS_PREFIX = "is-open-";
+  var HOVER_CLASS_PREFIX = "is-hovering-";
+  var MODULE_IDS = ["sketch", "workbench", "todos", "news", "calendar", "findme"];
+
+  function getScene() {
+    return document.querySelector(".machine-scene");
+  }
+
+  function getHotspots() {
+    return Array.prototype.slice.call(document.querySelectorAll(".hotspot"));
+  }
+
+  function getPanels() {
+    return Array.prototype.slice.call(document.querySelectorAll(".panel-layer .panel"));
+  }
+
+  function getPanelForButton(button) {
     if (!button) {
       return null;
     }
 
-    var sectionId = button.getAttribute("data-section-id");
-    if (!sectionId) {
+    var panelId = button.getAttribute("aria-controls");
+    if (!panelId) {
       return null;
     }
 
-    return document.getElementById(sectionId);
+    return document.getElementById(panelId);
   }
 
-  function focusModuleSection(button) {
-    var section = getSectionFromButton(button);
-    if (!section) {
+  function setButtonExpanded(button, isExpanded) {
+    if (!button) {
       return;
     }
 
-    section.focus({ preventScroll: true });
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    button.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+  }
+
+  function setPanelVisibility(panel, isOpen) {
+    if (!panel) {
+      return;
+    }
+
+    panel.hidden = !isOpen;
+    panel.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    panel.classList.toggle("is-open", isOpen);
+  }
+
+  function clearSceneModuleClasses(scene, prefix) {
+    if (!scene) {
+      return;
+    }
+
+    MODULE_IDS.forEach(function (moduleId) {
+      scene.classList.remove(prefix + moduleId);
+    });
+  }
+
+  function updateActivePanel(panelId) {
+    if (window.machineStateApi) {
+      window.machineStateApi.setActivePanel(panelId);
+      return;
+    }
+
+    if (window.machineState) {
+      window.machineState.activePanel = panelId;
+    }
+  }
+
+  function updateHoveredModule(moduleId) {
+    if (window.machineStateApi) {
+      window.machineStateApi.setHoveredModule(moduleId);
+      return;
+    }
+
+    if (window.machineState) {
+      window.machineState.hoveredModule = moduleId;
+    }
+  }
+
+  function focusPanel(panel) {
+    if (!panel || typeof panel.focus !== "function") {
+      return;
+    }
+
+    panel.focus({ preventScroll: true });
+  }
+
+  function closeAllPanels() {
+    var scene = getScene();
+
+    getPanels().forEach(function (panel) {
+      setPanelVisibility(panel, false);
+    });
+
+    getHotspots().forEach(function (button) {
+      setButtonExpanded(button, false);
+    });
+
+    clearSceneModuleClasses(scene, OPEN_CLASS_PREFIX);
+    updateActivePanel(null);
+  }
+
+  function openDesktopPanel(button) {
+    var scene = getScene();
+    var panel = getPanelForButton(button);
+    var moduleId = button ? button.getAttribute("data-target") : null;
+
+    if (!panel || !scene || !moduleId) {
+      return;
+    }
+
+    closeAllPanels();
+    setPanelVisibility(panel, true);
+    setButtonExpanded(button, true);
+    scene.classList.add(OPEN_CLASS_PREFIX + moduleId);
+    updateActivePanel(panel.id);
+    focusPanel(panel);
+  }
+
+  function toggleMobilePanel(button) {
+    var scene = getScene();
+    var panel = getPanelForButton(button);
+    var moduleId = button ? button.getAttribute("data-target") : null;
+
+    if (!panel || !scene || !moduleId) {
+      return;
+    }
+
+    var isOpening = panel.hidden;
+
+    setPanelVisibility(panel, isOpening);
+    setButtonExpanded(button, isOpening);
+    scene.classList.toggle(OPEN_CLASS_PREFIX + moduleId, isOpening);
+
+    if (isOpening) {
+      updateActivePanel(panel.id);
+      focusPanel(panel);
+    } else if (window.machineState && window.machineState.activePanel === panel.id) {
+      updateActivePanel(null);
+    }
+  }
+
+  function activateFromButton(button) {
+    var mode = window.machineState ? window.machineState.mode : "desktop";
+
+    if (mode === "mobile") {
+      toggleMobilePanel(button);
+      return;
+    }
+
+    openDesktopPanel(button);
+  }
+
+  function setHoveredModule(moduleId) {
+    var scene = getScene();
+
+    if (!scene) {
+      return;
+    }
+
+    clearSceneModuleClasses(scene, HOVER_CLASS_PREFIX);
+
+    if (moduleId) {
+      scene.classList.add(HOVER_CLASS_PREFIX + moduleId);
+    }
+
+    updateHoveredModule(moduleId || null);
+  }
+
+  function clearHoveredModule() {
+    setHoveredModule(null);
+  }
+
+  function applyMode() {
+    closeAllPanels();
+    clearHoveredModule();
   }
 
   window.panelController = {
-    focusModuleSection: focusModuleSection,
+    activateFromButton: activateFromButton,
+    closeAllPanels: closeAllPanels,
+    setHoveredModule: setHoveredModule,
+    clearHoveredModule: clearHoveredModule,
+    applyMode: applyMode,
   };
 })();

@@ -36,3 +36,7 @@
 .content-module h2 {
   margin-top: 0;
 }
+
+.js .content-module {
+  display: none;
+}

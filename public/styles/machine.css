@@ -252,12 +252,28 @@
   top: clamp(10%, var(--panel-y), 94%);
   width: min(var(--panel-w), var(--panel-max));
   max-width: calc(100% - 1.5rem);
-  transform: translate(var(--panel-shift-x, 0), var(--panel-shift-y, -100%));
+  transform: translate(var(--panel-shift-x, 0), var(--panel-shift-y, -100%)) scale(0.96);
+  opacity: 0;
+  visibility: hidden;
   pointer-events: auto;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
   padding: 0.75rem;
   background: #fff;
+  box-shadow: 0 0.9rem 2.2rem rgba(0, 0, 0, 0.18);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(var(--panel-shift-x, 0), var(--panel-shift-y, -100%)) scale(1);
 }
 
 .panel-sketch {
@@ -354,6 +370,10 @@
   letter-spacing: 0.06em;
   line-height: 1.2;
   text-align: center;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
 }
 
 .hotspot-sketch {
@@ -398,12 +418,53 @@
   --hotspot-h: var(--hotspot-findme-h);
 }
 
+.machine-scene.is-hovering-sketch .hotspot-sketch,
+.machine-scene.is-open-sketch .hotspot-sketch,
+.machine-scene.is-hovering-workbench .hotspot-workbench,
+.machine-scene.is-open-workbench .hotspot-workbench,
+.machine-scene.is-hovering-todos .hotspot-todos,
+.machine-scene.is-open-todos .hotspot-todos,
+.machine-scene.is-hovering-news .hotspot-news,
+.machine-scene.is-open-news .hotspot-news,
+.machine-scene.is-hovering-calendar .hotspot-calendar,
+.machine-scene.is-open-calendar .hotspot-calendar,
+.machine-scene.is-hovering-findme .hotspot-findme,
+.machine-scene.is-open-findme .hotspot-findme {
+  background: #fff;
+  border-color: rgba(45, 45, 43, 0.75);
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+.machine-scene.is-hovering-todos .todo-belt,
+.machine-scene.is-open-todos .todo-belt {
+  filter: contrast(1.18);
+}
+
+.machine-scene.is-hovering-news .hn-pulse-frame,
+.machine-scene.is-open-news .hn-pulse-frame {
+  filter: brightness(1.14);
+}
+
+.machine-scene.is-hovering-calendar .calendar-wheel,
+.machine-scene.is-open-calendar .calendar-wheel {
+  filter: contrast(1.2);
+}
+
+.machine-scene.is-hovering-findme .findme-terminal,
+.machine-scene.is-open-findme .findme-terminal {
+  filter: brightness(1.14);
+}
+
 @media (max-width: 75rem) {
   .panel {
     left: 50%;
     top: 56%;
     width: min(30rem, calc(100% - 1.5rem));
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  .panel.is-open {
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -413,8 +474,33 @@
     aspect-ratio: 10 / 14;
   }
 
+  .panel-layer {
+    position: static;
+    border: 0;
+    border-top: 1px dashed rgba(45, 45, 43, 0.28);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    pointer-events: auto;
+  }
+
+  .panel-layer::before {
+    position: static;
+    display: inline-block;
+    margin-bottom: 0.4rem;
+  }
+
   .panel {
-    top: 54%;
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    margin-bottom: 0.55rem;
+    transform: none;
+  }
+
+  .panel.is-open {
+    transform: none;
   }
 
   .hotspot-layer {
@@ -437,5 +523,20 @@
     text-align: left;
     padding: 0.7rem 0.75rem;
     background: #fff;
+  }
+
+  .machine-scene.is-hovering-sketch .hotspot-sketch,
+  .machine-scene.is-open-sketch .hotspot-sketch,
+  .machine-scene.is-hovering-workbench .hotspot-workbench,
+  .machine-scene.is-open-workbench .hotspot-workbench,
+  .machine-scene.is-hovering-todos .hotspot-todos,
+  .machine-scene.is-open-todos .hotspot-todos,
+  .machine-scene.is-hovering-news .hotspot-news,
+  .machine-scene.is-open-news .hotspot-news,
+  .machine-scene.is-hovering-calendar .hotspot-calendar,
+  .machine-scene.is-open-calendar .hotspot-calendar,
+  .machine-scene.is-hovering-findme .hotspot-findme,
+  .machine-scene.is-open-findme .hotspot-findme {
+    transform: none;
   }
 }
