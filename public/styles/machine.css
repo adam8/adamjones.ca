@@ -1,3 +1,69 @@
+:root {
+  --stage-max-w: 68.75rem;
+  --stage-w: min(92vw, var(--stage-max-w));
+
+  --idea-x: 50%;
+  --idea-y: 8%;
+  --idea-panel-x: 56%;
+  --idea-panel-y: 10%;
+
+  --sketch-x: 24%;
+  --sketch-y: 21%;
+  --sketch-panel-x: 16%;
+  --sketch-panel-y: 27%;
+
+  --workbench-x: 36%;
+  --workbench-y: 36%;
+  --workbench-panel-x: 19%;
+  --workbench-panel-y: 39%;
+
+  --todos-x: 49%;
+  --todos-y: 52%;
+  --todos-panel-x: 58%;
+  --todos-panel-y: 49%;
+
+  --news-x: 55%;
+  --news-y: 65%;
+  --news-panel-x: 66%;
+  --news-panel-y: 62%;
+
+  --calendar-x: 49%;
+  --calendar-y: 79%;
+  --calendar-panel-x: 60%;
+  --calendar-panel-y: 77%;
+
+  --findme-x: 49%;
+  --findme-y: 92%;
+  --findme-panel-x: 62%;
+  --findme-panel-y: 89%;
+
+  --hotspot-sketch-w: 16%;
+  --hotspot-sketch-h: 9%;
+  --hotspot-workbench-w: 18%;
+  --hotspot-workbench-h: 10%;
+  --hotspot-todos-w: 14%;
+  --hotspot-todos-h: 8%;
+  --hotspot-news-w: 18%;
+  --hotspot-news-h: 10%;
+  --hotspot-calendar-w: 14%;
+  --hotspot-calendar-h: 8%;
+  --hotspot-findme-w: 16%;
+  --hotspot-findme-h: 8%;
+
+  --panel-sketch-w: 26rem;
+  --panel-sketch-max: 34vw;
+  --panel-workbench-w: 30rem;
+  --panel-workbench-max: 38vw;
+  --panel-todos-w: 22rem;
+  --panel-todos-max: 28vw;
+  --panel-news-w: 24rem;
+  --panel-news-max: 30vw;
+  --panel-calendar-w: 20rem;
+  --panel-calendar-max: 24vw;
+  --panel-findme-w: 18rem;
+  --panel-findme-max: 22vw;
+}
+
 .machine-scene {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -7,10 +73,10 @@
 
 .machine-stage {
   position: relative;
-  width: min(100%, 70rem);
+  width: min(100%, var(--stage-w));
+  max-width: var(--stage-max-w);
   margin: 0 auto;
-  min-height: 24rem;
-  aspect-ratio: 11 / 14;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 0.85rem;
@@ -19,14 +85,16 @@
 }
 
 .machine-fallback {
-  position: relative;
-  z-index: 10;
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  z-index: 8;
   margin: 0;
-  max-width: 36rem;
-  padding: 0.55rem 0.7rem;
-  border: 1px dashed var(--line);
+  max-width: 30rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px dashed rgba(45, 45, 43, 0.35);
   border-radius: 0.5rem;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   background: rgba(249, 248, 244, 0.9);
 }
 
@@ -104,6 +172,21 @@
   background: radial-gradient(circle at 64% 54%, rgba(255, 255, 255, 0.28), transparent 20%);
 }
 
+.idea-orbit-signal {
+  z-index: 6;
+  inset: auto;
+  left: var(--idea-x);
+  top: var(--idea-y);
+  width: 12%;
+  height: 12%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(45, 45, 43, 0.35);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 0 32%, transparent 34%),
+    radial-gradient(circle, rgba(45, 45, 43, 0.16) 0 72%, transparent 74%);
+}
+
 .gear-top {
   z-index: 6;
   background:
@@ -145,7 +228,6 @@
   position: absolute;
   inset: 0;
   z-index: 8;
-  padding: 0.75rem;
   border: 1px dashed rgba(45, 45, 43, 0.28);
   pointer-events: none;
 }
@@ -164,35 +246,165 @@
   background: rgba(249, 248, 244, 0.9);
 }
 
-.hotspot {
-  border: 1px solid var(--line);
-  border-radius: 0.6rem;
-  background: #fff;
-  color: var(--ink);
-  cursor: pointer;
-  padding: 0.7rem 0.75rem;
-  min-height: 2.75rem;
-  text-align: left;
-  pointer-events: auto;
-}
-
-.hotspot-layer {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 9;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background: linear-gradient(to top, rgba(244, 242, 236, 0.96), rgba(244, 242, 236, 0.1));
-}
-
 .panel {
+  position: absolute;
+  left: clamp(8%, var(--panel-x), 92%);
+  top: clamp(10%, var(--panel-y), 94%);
+  width: min(var(--panel-w), var(--panel-max));
+  max-width: calc(100% - 1.5rem);
+  transform: translate(var(--panel-shift-x, 0), var(--panel-shift-y, -100%));
   pointer-events: auto;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
   padding: 0.75rem;
   background: #fff;
+}
+
+.panel-sketch {
+  --panel-x: var(--sketch-panel-x);
+  --panel-y: var(--sketch-panel-y);
+  --panel-w: var(--panel-sketch-w);
+  --panel-max: var(--panel-sketch-max);
+  --panel-shift-x: -100%;
+  --panel-shift-y: 0;
+}
+
+.panel-workbench {
+  --panel-x: var(--workbench-panel-x);
+  --panel-y: var(--workbench-panel-y);
+  --panel-w: var(--panel-workbench-w);
+  --panel-max: var(--panel-workbench-max);
+  --panel-shift-x: -100%;
+  --panel-shift-y: 0;
+}
+
+.panel-todos {
+  --panel-x: var(--todos-panel-x);
+  --panel-y: var(--todos-panel-y);
+  --panel-w: var(--panel-todos-w);
+  --panel-max: var(--panel-todos-max);
+  --panel-shift-x: 0;
+  --panel-shift-y: -100%;
+}
+
+.panel-news {
+  --panel-x: var(--news-panel-x);
+  --panel-y: var(--news-panel-y);
+  --panel-w: var(--panel-news-w);
+  --panel-max: var(--panel-news-max);
+  --panel-shift-x: 0;
+  --panel-shift-y: -100%;
+}
+
+.panel-calendar {
+  --panel-x: var(--calendar-panel-x);
+  --panel-y: var(--calendar-panel-y);
+  --panel-w: var(--panel-calendar-w);
+  --panel-max: var(--panel-calendar-max);
+  --panel-shift-x: 0;
+  --panel-shift-y: -100%;
+}
+
+.panel-findme {
+  --panel-x: var(--findme-panel-x);
+  --panel-y: var(--findme-panel-y);
+  --panel-w: var(--panel-findme-w);
+  --panel-max: var(--panel-findme-max);
+  --panel-shift-x: 0;
+  --panel-shift-y: -100%;
+}
+
+.hotspot-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.hotspot-layer::before {
+  content: "9. hotspot buttons";
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  border: 1px solid rgba(45, 45, 43, 0.3);
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(249, 248, 244, 0.9);
+}
+
+.hotspot {
+  position: absolute;
+  left: var(--hotspot-x);
+  top: var(--hotspot-y);
+  width: var(--hotspot-w);
+  height: var(--hotspot-h);
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  border: 1px dashed rgba(45, 45, 43, 0.42);
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0.4rem;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.hotspot-sketch {
+  --hotspot-x: var(--sketch-x);
+  --hotspot-y: var(--sketch-y);
+  --hotspot-w: var(--hotspot-sketch-w);
+  --hotspot-h: var(--hotspot-sketch-h);
+}
+
+.hotspot-workbench {
+  --hotspot-x: var(--workbench-x);
+  --hotspot-y: var(--workbench-y);
+  --hotspot-w: var(--hotspot-workbench-w);
+  --hotspot-h: var(--hotspot-workbench-h);
+}
+
+.hotspot-todos {
+  --hotspot-x: var(--todos-x);
+  --hotspot-y: var(--todos-y);
+  --hotspot-w: var(--hotspot-todos-w);
+  --hotspot-h: var(--hotspot-todos-h);
+}
+
+.hotspot-news {
+  --hotspot-x: var(--news-x);
+  --hotspot-y: var(--news-y);
+  --hotspot-w: var(--hotspot-news-w);
+  --hotspot-h: var(--hotspot-news-h);
+}
+
+.hotspot-calendar {
+  --hotspot-x: var(--calendar-x);
+  --hotspot-y: var(--calendar-y);
+  --hotspot-w: var(--hotspot-calendar-w);
+  --hotspot-h: var(--hotspot-calendar-h);
+}
+
+.hotspot-findme {
+  --hotspot-x: var(--findme-x);
+  --hotspot-y: var(--findme-y);
+  --hotspot-w: var(--hotspot-findme-w);
+  --hotspot-h: var(--hotspot-findme-h);
+}
+
+@media (max-width: 75rem) {
+  .panel {
+    left: 50%;
+    top: 56%;
+    width: min(30rem, calc(100% - 1.5rem));
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media (max-width: 62rem) {
@@ -201,7 +413,29 @@
     aspect-ratio: 10 / 14;
   }
 
+  .panel {
+    top: 54%;
+  }
+
   .hotspot-layer {
+    inset: auto 0 0;
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: linear-gradient(to top, rgba(244, 242, 236, 0.96), rgba(244, 242, 236, 0.1));
+    pointer-events: auto;
+  }
+
+  .hotspot {
+    position: static;
+    width: auto;
+    height: auto;
+    min-height: 2.75rem;
+    transform: none;
+    font-size: 0.74rem;
+    text-align: left;
+    padding: 0.7rem 0.75rem;
+    background: #fff;
   }
 }
