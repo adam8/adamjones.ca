@@ -1,0 +1,45 @@
+.machine-scene {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1rem;
+}
+
+.machine-stage {
+  display: grid;
+  gap: 1rem;
+}
+
+.machine-fallback {
+  margin: 0;
+}
+
+.hotspot-layer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.5rem;
+}
+
+.hotspot {
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0.7rem 0.75rem;
+  min-height: 2.75rem;
+  text-align: left;
+}
+
+.panel-layer {
+  border: 1px dashed var(--line);
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}

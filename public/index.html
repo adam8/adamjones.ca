@@ -3,1445 +3,224 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adam Skye Jones</title>
-    <meta name="description" content="Adam Skye Jones dashboard." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
+    <title>Adam Jones' Daily Computing Engine</title>
+    <meta
+      name="description"
+      content="Interactive inventor notebook machine with semantic module content."
     />
-    <style>
-      :root {
-        color-scheme: light;
-        --paper: #f7f3ea;
-        --ink: #141414;
-        --forest: #45574f;
-        --clay: #8f7564;
-        --sun: #b8a188;
-        --line: rgba(20, 20, 20, 0.28);
-        --panel: hsla(42, 0, 97, 0.943);
-        --pad: clamp(10px, 1.3vw, 18px);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        height: 100%;
-      }
-
-      html {
-        font-size: clamp(14px, 0.18vw + 13.2px, 16px);
-      }
-
-      body {
-        margin: 0;
-        font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(circle at 10% 0%, rgba(184, 161, 136, 0.08), transparent 35%),
-          radial-gradient(circle at 85% 16%, rgba(69, 87, 79, 0.07), transparent 38%),
-          linear-gradient(140deg, #f9f6ef 0%, #f3ecdf 100%);
-        line-height: 1.45;
-      }
-
-      .dashboard {
-        width: min(1480px, 100%);
-        height: 100dvh;
-        margin: 0 auto;
-        padding: var(--pad);
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        gap: clamp(8px, 1vw, 14px);
-      }
-
-      .topbar {
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: var(--panel);
-        box-shadow:
-          0 14px 34px rgba(20, 20, 20, 0.08),
-          inset 0 0 0 1px rgba(255, 255, 255, 0.44);
-        padding: clamp(10px, 1.4vw, 16px);
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-areas:
-          "name meta"
-          "tag meta";
-        gap: 4px 12px;
-        align-items: end;
-      }
-
-      .topbar-meta {
-        grid-area: meta;
-        display: flex;
-        align-items: center;
-        justify-self: end;
-        align-self: start;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-
-      .badge {
-        border: 1px solid rgba(20, 20, 20, 0.44);
-        border-radius: 999px;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.64rem;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
-        padding: 3px 8px;
-      }
-
-      .badge.live {
-        border-color: rgba(47, 75, 63, 0.65);
-        color: var(--forest);
-      }
-
-      .name {
-        grid-area: name;
-        margin: 0;
-        font-family: "Fraunces", "Times New Roman", serif;
-        font-weight: 900;
-        letter-spacing: 0.4px;
-        font-size: clamp(1.6rem, 3vw, 2.45rem);
-        line-height: 1.05;
-      }
-
-      .tagline {
-        grid-area: tag;
-        margin: 0;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1.1px;
-        color: var(--forest);
-        font-size: clamp(0.68rem, 0.9vw, 0.82rem);
-      }
-
-      .tagline-sub {
-        display: block;
-        margin-top: 4px;
-        color: var(--clay);
-      }
-
-      .grid {
-        min-height: 0;
-        display: grid;
-        grid-template-columns: 1fr 1.58fr 1.1fr;
-        gap: clamp(8px, 0.9vw, 12px);
-      }
-
-      .panel {
-        min-height: 0;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        background: var(--panel);
-        box-shadow:
-          0 10px 28px rgba(20, 20, 20, 0.07),
-          inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-        display: grid;
-        grid-template-rows: auto 1fr;
-      }
-
-      .panel-head {
-        border-bottom: 1px solid rgba(20, 20, 20, 0.14);
-        padding: 9px 11px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .panel-title {
-        margin: 0;
-        font-family: "Fraunces", "Times New Roman", serif;
-        font-size: 1rem;
-      }
-
-      .panel-meta {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1.1px;
-        font-size: 0.62rem;
-        color: rgba(20, 20, 20, 0.72);
-      }
-
-      .panel-body {
-        min-height: 0;
-        overflow: auto;
-        padding: 10px;
-        display: grid;
-        gap: 8px;
-      }
-
-      .panel-body::-webkit-scrollbar {
-        width: 9px;
-      }
-
-      .panel-body::-webkit-scrollbar-thumb {
-        background: rgba(20, 20, 20, 0.2);
-        border-radius: 999px;
-      }
-
-      .focus-card {
-        width: 100%;
-        padding: 0;
-        border: 0;
-        background: none;
-        font: inherit;
-        color: inherit;
-        text-align: left;
-        cursor: pointer;
-        perspective: 1200px;
-      }
-
-      .focus-card-inner {
-        display: grid;
-        min-height: 122px;
-        transform-style: preserve-3d;
-        transition: transform 520ms cubic-bezier(0.2, 0.78, 0.2, 1);
-      }
-
-      .focus-card.is-flipped .focus-card-inner {
-        transform: rotateY(180deg);
-      }
-
-      .focus-card-face {
-        grid-area: 1 / 1;
-        border: 1px solid rgba(20, 20, 20, 0.2);
-        border-radius: 11px;
-        padding: 9px;
-        background: rgba(255, 255, 255, 0.38);
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        text-wrap: balance;
-        text-align: center;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-      }
-
-      .focus-card-front {
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.3)),
-          rgba(255, 255, 255, 0.38);
-      }
-
-      .focus-card-back {
-        transform: rotateY(180deg);
-        background:
-          linear-gradient(180deg, rgba(184, 161, 136, 0.16), rgba(255, 255, 255, 0.32)),
-          rgba(255, 255, 255, 0.44);
-      }
-
-      .focus-card:hover .focus-card-face,
-      .focus-card:focus-visible .focus-card-face {
-        border-color: rgba(143, 117, 100, 0.42);
-        box-shadow:
-          0 10px 20px rgba(20, 20, 20, 0.08),
-          inset 0 0 0 1px rgba(255, 255, 255, 0.28);
-      }
-
-      .focus-card:focus-visible {
-        outline: none;
-      }
-
-      .focus-label {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        font-size: 0.62rem;
-        color: var(--clay);
-        text-align: left;
-      }
-
-      .focus-copy {
-        font-size: 0.82rem;
-        line-height: 1.34;
-        margin-block: auto;
-      }
-
-      .focus-hint {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 0.9px;
-        font-size: 0.52rem;
-        color: rgba(20, 20, 20, 0.58);
-      }
-
-      .focus-cards {
-        display: grid;
-        gap: 8px;
-      }
-
-      .focus-editor {
-        display: none;
-        gap: 8px;
-        border: 1px dashed rgba(20, 20, 20, 0.22);
-        border-radius: 11px;
-        padding: 9px;
-        background: rgba(255, 255, 255, 0.26);
-      }
-
-      .focus-cards.is-api-authenticated .focus-editor {
-        display: grid;
-      }
-
-      .focus-editor-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-      }
-
-      .focus-editor-status {
-        margin: 3px 0 0;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        color: rgba(20, 20, 20, 0.72);
-      }
-
-      .focus-editor-toggle,
-      .focus-editor-actions button {
-        border: 1px solid rgba(20, 20, 20, 0.36);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.36);
-        color: inherit;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        padding: 6px 10px;
-        cursor: pointer;
-      }
-
-      .focus-editor-toggle:hover,
-      .focus-editor-toggle:focus-visible,
-      .focus-editor-actions button:hover,
-      .focus-editor-actions button:focus-visible {
-        border-color: var(--clay);
-        color: var(--clay);
-      }
-
-      .focus-editor-toggle:disabled,
-      .focus-editor-actions button:disabled {
-        opacity: 0.48;
-        cursor: default;
-        color: rgba(20, 20, 20, 0.66);
-      }
-
-      .focus-editor-form {
-        display: grid;
-        gap: 8px;
-      }
-
-      .focus-editor-fieldset {
-        margin: 0;
-        padding: 8px;
-        border: 1px solid rgba(20, 20, 20, 0.18);
-        border-radius: 9px;
-        display: grid;
-        gap: 6px;
-      }
-
-      .focus-editor-fieldset legend {
-        padding: 0 4px;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        color: var(--clay);
-      }
-
-      .focus-editor-field {
-        display: grid;
-        gap: 4px;
-        font-size: 0.74rem;
-        color: rgba(20, 20, 20, 0.82);
-      }
-
-      .focus-editor-field input,
-      .focus-editor-field textarea {
-        width: 100%;
-        min-width: 0;
-        border-radius: 8px;
-        border: 1px solid rgba(20, 20, 20, 0.24);
-        background: rgba(255, 255, 255, 0.7);
-        padding: 7px 8px;
-        font: inherit;
-        color: inherit;
-      }
-
-      .focus-editor-field textarea {
-        min-height: 70px;
-        resize: vertical;
-      }
-
-      .focus-editor-actions {
-        display: flex;
-        justify-content: flex-end;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-
-      .focus-editor-form[hidden] {
-        display: none;
-      }
-
-      .sketch-card {
-        border: 1px solid rgba(20, 20, 20, 0.2);
-        border-radius: 11px;
-        padding: 9px;
-        background: rgba(255, 255, 255, 0.38);
-        display: grid;
-        position: relative;
-        gap: 8px;
-      }
-
-      .sketch-meta {
-        margin: 0;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        color: rgba(20, 20, 20, 0.72);
-      }
-
-      .sketch-controls {
-        display: flex;
-        justify-content: flex-end;
-        gap: 6px;
-        position: absolute;
-        bottom: 4px;
-        right: 4px;
-        z-index: 1;
-      }
-
-      .sketch-nav {
-        width: 22px;
-        height: 22px;
-        border-radius: 999px;
-        border: 1px solid rgba(20, 20, 20, 0.32);
-        background: rgba(255, 255, 255, 0.44);
-        color: rgba(20, 20, 20, 0.88);
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.68rem;
-        line-height: 1;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      }
-
-      .sketch-nav:hover,
-      .sketch-nav:focus-visible {
-        border-color: var(--clay);
-        color: var(--clay);
-      }
-
-      .sketch-nav:disabled {
-        opacity: 0.38;
-        cursor: default;
-      }
-
-      .sketch-rail {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 100%;
-        gap: 8px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        overscroll-behavior-x: contain;
-        padding-bottom: 2px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      .sketch-rail::-webkit-scrollbar {
-        display: none;
-      }
-
-      .sketch-figure {
-        margin: 0;
-        display: grid;
-        gap: 7px;
-        min-width: 0;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-      }
-
-      .sketch-image {
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-        border-radius: 8px;
-        border: 1px solid rgba(20, 20, 20, 0.2);
-        background: rgba(255, 255, 255, 0.5);
-      }
-
-      .sketch-caption {
-        display: grid;
-        gap: 3px;
-      }
-
-      .sketch-date {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        color: rgba(20, 20, 20, 0.72);
-      }
-
-      .sketch-note {
-        margin: 0;
-        font-size: 0.78rem;
-        color: rgba(20, 20, 20, 0.88);
-      }
-
-      .todo-card {
-        border: 1px solid rgba(20, 20, 20, 0.2);
-        border-radius: 11px;
-        padding: 9px;
-        background: rgba(255, 255, 255, 0.38);
-        display: grid;
-        gap: 8px;
-      }
-
-      .todo-meta {
-        margin: 0;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        color: rgba(20, 20, 20, 0.72);
-      }
-
-      .todo-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 6px;
-      }
-
-      .todo-item {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .todo-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.82rem;
-      }
-
-      .todo-item.is-done .todo-label span {
-        text-decoration: line-through;
-        opacity: 0.68;
-      }
-
-      .todo-delete {
-        border: 1px solid rgba(20, 20, 20, 0.32);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.32);
-        padding: 2px 8px;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-        cursor: pointer;
-      }
-
-      .todo-delete:hover,
-      .todo-delete:focus-visible {
-        border-color: var(--clay);
-        color: var(--clay);
-      }
-
-      .todo-form {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 6px;
-      }
-
-      .todo-form input[type="text"] {
-        width: 100%;
-        min-width: 0;
-        border-radius: 8px;
-        border: 1px solid rgba(20, 20, 20, 0.26);
-        background: rgba(255, 255, 255, 0.7);
-        padding: 7px 8px;
-        font: inherit;
-      }
-
-      .todo-form button {
-        border: 1px solid rgba(20, 20, 20, 0.4);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.26);
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-        font-size: 0.62rem;
-        padding: 6px 10px;
-        cursor: pointer;
-      }
-
-      .todo-card:not(.is-api-authenticated) .todo-form,
-      .todo-card:not(.is-api-authenticated) .todo-delete {
-        display: none;
-      }
-
-      .hn-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-        align-content: start;
-      }
-
-      .hn-card {
-        position: relative;
-        position: relative;
-        border: 1px solid rgba(20, 20, 20, 0.18);
-        border-radius: 11px;
-        padding: 8px;
-        background: rgba(255, 255, 255, 0.34);
-        display: grid;
-        align-content: start;
-        gap: 5px;
-      }
-
-      .hn-kicker {
-        margin: 0;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        font-size: 0.58rem;
-        color: var(--clay);
-      }
-
-      .hn-title {
-        margin: 0;
-        font-size: 0.84rem;
-        line-height: 1.2;
-      }
-
-      .hn-toggle {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
-
-      .hn-story {
-        margin: 0;
-        font-size: 0.76rem;
-        line-height: 1.3;
-        color: rgba(20, 20, 20, 0.82);
-        position: relative;
-        max-height: 8.4em;
-        overflow: hidden;
-      }
-
-      .hn-story::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2.3em;
-        background: linear-gradient(to bottom, rgba(247, 243, 234, 0), rgba(247, 243, 234, 0.98));
-        pointer-events: none;
-      }
-
-      .hn-toggle:checked ~ .hn-story {
-        max-height: none;
-      }
-
-      .hn-toggle:checked ~ .hn-story::after {
-        display: none;
-      }
-
-      .hn-story p {
-        margin: 0 0 6px;
-      }
-
-      .hn-story p:last-child {
-        margin-bottom: 0;
-      }
-
-      .hn-label {
-        display: inline-block;
-        margin-right: 6px;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.56rem;
-        color: rgba(20, 20, 20, 0.72);
-      }
-
-      .hn-image {
-        width: 88px;
-        height: 64px;
-        object-fit: cover;
-        border-radius: 8px;
-        border: 1px solid rgba(20, 20, 20, 0.24);
-        filter: saturate(0.72);
-        float: left;
-        margin: 2px 8px 4px 0;
-      }
-
-      .hn-more {
-        justify-self: start;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 8px;
-        border: 1px solid rgba(20, 20, 20, 0.12);
-        border-radius: 999px;
-        background: rgb(247 238 230);
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.58rem;
-        color: rgba(20, 20, 20, 0.82);
-        cursor: pointer;
-        user-select: none;
-        position: absolute;
-        bottom: 4px;
-        right: 4px;
-        position: absolute;
-        bottom: 4px;
-        right: 4px;
-      }
-
-      .hn-more:hover,
-      .hn-more:focus-visible {
-        border-color: var(--clay);
-        color: var(--clay);
-      }
-
-      .hn-more .less {
-        display: none;
-      }
-
-      .hn-toggle:checked ~ .hn-more .more {
-        display: none;
-      }
-
-      .hn-toggle:checked ~ .hn-more .less {
-        display: inline;
-      }
-
-      a {
-        color: var(--ink);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(20, 20, 20, 0.35);
-      }
-
-      a:hover,
-      a:focus-visible {
-        border-bottom-color: var(--clay);
-        color: var(--clay);
-      }
-
-      .links {
-        margin: 0;
-        padding-left: 16px;
-        display: grid;
-        gap: 4px;
-      }
-
-      .muted {
-        color: rgba(20, 20, 20, 0.74);
-      }
-
-      .holiday-mini {
-        border: 1px solid rgba(20, 20, 20, 0.22);
-        border-radius: 11px;
-        margin-bottom: 15px;
-        padding: 8px;
-        background:
-          linear-gradient(rgba(247, 243, 234, 0.56), rgba(247, 243, 234, 0.56)),
-          radial-gradient(circle at 80% 20%, rgba(143, 117, 100, 0.06), transparent 48%),
-          radial-gradient(circle at 18% 88%, rgba(69, 87, 79, 0.05), transparent 46%),
-          url("holidays/sketchy-calendar-paper.webp") center / cover no-repeat;
-      }
-
-      .holiday-mini-head {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        font-size: 0.62rem;
-        color: var(--clay);
-        margin-bottom: 7px;
-      }
-
-      .holiday-mini-grid {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 3px;
-      }
-
-      .holiday-dow {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        text-align: center;
-        opacity: 0.76;
-      }
-
-      .holiday-cell {
-        aspect-ratio: 1 / 1;
-        display: grid;
-        place-items: center;
-        border-radius: 6px;
-        border: 1px solid rgba(20, 20, 20, 0.2);
-        background: rgba(247, 243, 234, 0.46);
-        position: relative;
-      }
-
-      .holiday-cell.is-empty {
-        visibility: hidden;
-      }
-
-      .holiday-cell .day {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        font-size: 0.63rem;
-      }
-
-      .holiday-cell.is-holiday {
-        border-color: rgba(171, 93, 47, 0.65);
-        background: rgba(171, 93, 47, 0.14);
-      }
-
-      .holiday-cell.is-today {
-        border-color: rgba(47, 75, 63, 0.7);
-        box-shadow: inset 0 0 0 2px rgba(47, 75, 63, 0.22);
-      }
-
-      .holidays {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 6px;
-      }
-
-      .holiday-row {
-        display: grid;
-        grid-template-columns: 94px 1fr;
-        gap: 8px;
-        border-bottom: 1px dashed rgba(20, 20, 20, 0.22);
-        padding-bottom: 4px;
-      }
-
-      .holiday-date {
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.58rem;
-        color: var(--forest);
-        white-space: nowrap;
-      }
-
-      .holiday-title {
-        font-size: 0.74rem;
-      }
-
-      footer {
-        font-size: 0.68rem;
-        color: rgba(20, 20, 20, 0.65);
-        text-align: right;
-        font-family: "IBM Plex Mono", "Courier New", monospace;
-        letter-spacing: 1px;
-      }
-
-      .fade-up {
-        opacity: 0;
-        transform: translateY(8px);
-        animation: rise 520ms ease forwards;
-      }
-
-      .fade-up.delay-1 {
-        animation-delay: 90ms;
-      }
-
-      .fade-up.delay-2 {
-        animation-delay: 170ms;
-      }
-
-      @keyframes rise {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 1180px) {
-        .grid {
-          grid-template-columns: 1fr 1.35fr 1fr;
-        }
-
-        .hn-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hn-story {
-          max-height: 7.9em;
-        }
-      }
-
-      @media (max-width: 900px) {
-        html {
-          font-size: 16px;
-        }
-
-        body {
-          overflow-y: auto;
-        }
-
-        .dashboard {
-          height: auto;
-          min-height: 100dvh;
-          grid-template-rows: auto;
-        }
-
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .topbar {
-          grid-template-columns: 1fr;
-          grid-template-areas:
-            "meta"
-            "name"
-            "tag";
-          gap: 8px;
-        }
-
-        .topbar-meta {
-          justify-self: start;
-          gap: 8px;
-        }
-
-        .badge {
-          font-size: 0.68rem;
-        }
-
-        .panel {
-          min-height: auto;
-        }
-
-        .panel-body {
-          overflow: visible;
-        }
-
-        .hn-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hn-image {
-          width: 108px;
-          height: 78px;
-        }
-
-        .hn-title {
-          font-size: 0.95rem;
-        }
-
-        .hn-story {
-          font-size: 0.86rem;
-          max-height: 10.4em;
-        }
-
-        footer {
-          text-align: left;
-        }
-      }
-
-      @media (min-width: 901px) {
-        body {
-          overflow: hidden;
-        }
-      }
-
-      @media (min-width: 901px) and (max-height: 880px) {
-        html {
-          font-size: 14px;
-        }
-
-        .dashboard {
-          padding: 10px;
-          gap: 8px;
-        }
-
-        .topbar {
-          padding: 8px 12px;
-        }
-
-        .panel-body {
-          padding: 8px;
-          gap: 7px;
-        }
-
-        .hn-image {
-          width: 76px;
-          height: 54px;
-        }
-
-        .hn-story {
-          max-height: 7em;
-        }
-      }
-
-      @media (min-width: 901px) and (max-height: 760px) {
-        .tagline {
-          display: none;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .fade-up {
-          animation: none;
-          opacity: 1;
-          transform: none;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/machine.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/mobile.css" />
   </head>
   <body>
-    <main class="dashboard">
-      <header class="topbar fade-up">
-        <div class="topbar-meta">
-          <span class="badge live">Live Desk</span>
-          <span class="badge">Wed, Mar 4, 2026</span>
-          <span class="badge">Pacific Time</span>
-        </div>
-        <h1 class="name">Adam Skye Jones</h1>
-        <p class="tagline">
-          Head in the cloud, feet on the ground
-          <span class="tagline-sub">Upcoming: Saint Patrick’s Day (Tue Mar 17) · Lent ends (Thu Apr 2)</span>
-        </p>
+    <div class="site-shell">
+      <header class="site-header">
+        <h1>Adam Jones - Daily Computing Engine</h1>
+        <p>Campbell River Laboratory &middot; Model AJ-02</p>
       </header>
 
-      <section class="grid">
-        <article class="panel fade-up delay-1" aria-label="Current focus">
-          <div class="panel-head">
-            <h2 class="panel-title">Workbench</h2>
-            <span class="panel-meta">Today</span>
-          </div>
-          <div class="panel-body">
-            <section class="focus-cards" data-focus-cards aria-label="Focus cards">
-              <!-- FOCUS_CARDS_SNAPSHOT_START -->
-              <button class="focus-card" type="button" data-focus-card data-focus-slot="primary-focus" aria-pressed="false">
-                <span class="focus-card-inner">
-                  <span class="focus-card-face focus-card-front" data-focus-face="front">
-                    <span class="focus-label" data-focus-label>Primary focus</span>
-                    <span class="focus-copy" data-focus-copy>What is worth doing carefully today so the rest of the system stays predictable?</span>
-                    <span class="focus-hint" aria-hidden="true">Tap to reveal answer</span>
-                  </span>
-                  <span class="focus-card-face focus-card-back" data-focus-face="back" aria-hidden="true">
-                    <span class="focus-label" data-focus-label>Primary focus</span>
-                    <span class="focus-copy" data-focus-copy>Calm execution. Finish the small things that keep bigger systems predictable.</span>
-                    <span class="focus-hint" aria-hidden="true">Tap to flip back</span>
-                  </span>
-                </span>
-              </button>
-              <button class="focus-card" type="button" data-focus-card data-focus-slot="current-mode" aria-pressed="false">
-                <span class="focus-card-inner">
-                  <span class="focus-card-face focus-card-front" data-focus-face="front">
-                    <span class="focus-label" data-focus-label>Current mode</span>
-                    <span class="focus-copy" data-focus-copy>How am I shipping work right now without losing the thread between steps?</span>
-                    <span class="focus-hint" aria-hidden="true">Tap to reveal answer</span>
-                  </span>
-                  <span class="focus-card-face focus-card-back" data-focus-face="back" aria-hidden="true">
-                    <span class="focus-label" data-focus-label>Current mode</span>
-                    <span class="focus-copy" data-focus-copy>Shipping in compact steps with enough context to make each one stick.</span>
-                    <span class="focus-hint" aria-hidden="true">Tap to flip back</span>
-                  </span>
-                </span>
-              </button>
-              <!-- FOCUS_CARDS_SNAPSHOT_END -->
-              <section class="focus-editor" data-focus-editor aria-label="Edit focus cards">
-                <div class="focus-editor-head">
-                  <div>
-                    <div class="focus-label">Focus editor</div>
-                    <p class="focus-editor-status" data-focus-editor-status>Live sync ready.</p>
-                  </div>
-                  <button type="button" class="focus-editor-toggle" data-focus-editor-toggle aria-expanded="false">
-                    Edit cards
-                  </button>
-                </div>
-                <form class="focus-editor-form" data-focus-editor-form hidden>
-                  <fieldset class="focus-editor-fieldset" data-focus-editor-card="primary-focus">
-                    <legend>Primary focus card</legend>
-                    <label class="focus-editor-field">
-                      <span>Label</span>
-                      <input type="text" maxlength="80" required data-focus-input="label" />
-                    </label>
-                    <label class="focus-editor-field">
-                      <span>Front</span>
-                      <textarea maxlength="280" required data-focus-input="front"></textarea>
-                    </label>
-                    <label class="focus-editor-field">
-                      <span>Back</span>
-                      <textarea maxlength="280" required data-focus-input="back"></textarea>
-                    </label>
-                  </fieldset>
-                  <fieldset class="focus-editor-fieldset" data-focus-editor-card="current-mode">
-                    <legend>Current mode card</legend>
-                    <label class="focus-editor-field">
-                      <span>Label</span>
-                      <input type="text" maxlength="80" required data-focus-input="label" />
-                    </label>
-                    <label class="focus-editor-field">
-                      <span>Front</span>
-                      <textarea maxlength="280" required data-focus-input="front"></textarea>
-                    </label>
-                    <label class="focus-editor-field">
-                      <span>Back</span>
-                      <textarea maxlength="280" required data-focus-input="back"></textarea>
-                    </label>
-                  </fieldset>
-                  <div class="focus-editor-actions">
-                    <button type="button" data-focus-editor-cancel>Close</button>
-                    <button type="submit">Save cards</button>
-                  </div>
-                </form>
-              </section>
-            </section>
-            <section class="sketch-card" data-daily-sketch-card aria-label="Daily sketch">
-              <div class="focus-label">Daily sketch</div>
-              <p class="sketch-meta" data-sketch-status>Fallback sketch loaded.</p>
-              <div class="sketch-rail" data-sketch-rail aria-label="Sketch gallery">
-                <figure class="sketch-figure">
-                  <img
-                    class="sketch-image"
-                    src="holidays/sketchy-calendar-paper.webp"
-                    alt="Daily sketch fallback"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption class="sketch-caption">
-                    <span class="sketch-date">No sketches synced yet.</span>
-                    <p class="sketch-note" hidden></p>
-                  </figcaption>
-                </figure>
-              </div>
-              <div class="sketch-controls" aria-label="Sketch navigation">
-                <button type="button" class="sketch-nav" data-sketch-prev aria-label="Previous sketch" disabled>&lsaquo;</button>
-                <button type="button" class="sketch-nav" data-sketch-next aria-label="Next sketch" disabled>&rsaquo;</button>
-              </div>
-            </section>
+      <main class="machine-experience" data-mode="desktop">
+        <section class="machine-scene" aria-label="Interactive machine navigation">
+          <h2 class="visually-hidden">Machine Navigation</h2>
+          <div class="machine-stage" role="group" aria-label="Machine controls and panel windows">
+            <p class="machine-fallback">
+              Phase 1 fallback controls: use the hotspot buttons to jump directly to each module
+              section below.
+            </p>
 
-            <section class="todo-card" data-todo-card aria-label="To-do list">
-              <div class="focus-label">To-do list</div>
-              <p class="todo-meta" data-todo-status>Fallback list loaded.</p>
-              <ul class="todo-list" data-todo-list>
-                <!-- TODO_SNAPSHOT_START -->
-                <li class="todo-item" data-id="4be16a5d-6931-460e-898a-78dc98b7b9ac">
-                  <label class="todo-label">
-                    <input type="checkbox" checked />
-                    <span>Make work bench panels flip problem/solution</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
-                <li class="todo-item" data-id="99df2890-ff7d-418c-b95d-b1d167197496">
-                  <label class="todo-label">
-                    <input type="checkbox" />
-                    <span>Make columns resizable</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
-                <li class="todo-item" data-id="0bb4ee9a-6464-42ed-87cf-745c6f680e8b">
-                  <label class="todo-label">
-                    <input type="checkbox" checked />
-                    <span>Sketch of the day</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
-                <li class="todo-item" data-id="bb5e9437-f0fa-416e-8aff-54d26bfee6b2">
-                  <label class="todo-label">
-                    <input type="checkbox" />
-                    <span>control todo with MCP</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
-                <!-- TODO_SNAPSHOT_END -->
-              </ul>
-              <form class="todo-form" data-todo-form>
-                <input
-                  type="text"
-                  data-todo-input
-                  maxlength="280"
-                  placeholder="Add a task"
-                  aria-label="New to-do item"
-                  autocomplete="off"
-                />
-                <button type="submit">Add</button>
-              </form>
-            </section>
-          </div>
-        </article>
-
-        <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
-          <div class="panel-head">
-            <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Mar 4 front page</span>
-          </div>
-          <div class="panel-body">
-            <div class="hn-grid">
-              <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47246110" rel="noopener">HN</a></p>
-                <h3 class="hn-title">
-                  <a href="https://terriblesoftware.org/2026/03/03/nobody-gets-promoted-for-simplicity/" rel="noopener">Nobody Gets Promoted for Simplicity</a>
-                </h3>
-                <input class="hn-toggle" type="checkbox" id="hn-more-1" />
-                <div class="hn-story" id="hn-story-1">
-                  <img
-                    class="hn-image"
-                    src="images/hacker-news/01-nobody-gets-promoted-for-simplicity.webp"
-                    alt="Journal illustration of an engineer choosing a clean design over tangled complexity notes"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p><span class="hn-label">From link</span>The post is a direct argument that simplicity has weak organizational incentives even when it is the highest-leverage engineering choice. It frames the problem as a promotion economy that rewards visible complexity, urgent heroics, and systems that look impressive in planning decks, while the best work often removes knobs, deletes architecture, and leaves behind a codebase that merely feels calm. The author ties that back to incentives around performance reviews, hiring loops, and technical prestige, making the broader point that clean systems are frequently undervalued precisely because they hide the effort and judgment required to make them feel obvious.</p>
-                  <p><span class="hn-label">From comments</span>The comment thread turned into a long comparison of workplace incentives, with many readers agreeing that low-drama engineering rarely gets rewarded until the alternative breaks expensively. People traded examples of companies that celebrate intricate frameworks, large rewrites, or visibly busy staff while treating maintenance, reduction, and operational quiet as background labor, though a few argued that strong managers and high-trust teams can still recognize simplicity when they see it. The overall mood was not that simplicity is impossible to defend, but that it usually requires unusually mature leadership because the most valuable outcome often looks like less happened, not more.</p>
-                </div>
-                <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
-                  <span class="more">More</span>
-                  <span class="less">Less</span>
-                </label>
+            <div class="panel-layer" aria-live="polite">
+              <article
+                id="panel-sketch"
+                class="panel panel-sketch"
+                data-module="sketch"
+                hidden
+                aria-hidden="true"
+              >
+                <h3>Daily Sketch Panel</h3>
+                <p>Panel placeholder. Full panel visuals and reveal mechanics are planned later.</p>
               </article>
-
-              <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47244291" rel="noopener">HN</a></p>
-                <h3 class="hn-title">
-                  <a href="https://www.rfc-editor.org/rfc/rfc9849.html" rel="noopener">RFC 9849: TLS Encrypted Client Hello</a>
-                </h3>
-                <input class="hn-toggle" type="checkbox" id="hn-more-2" />
-                <div class="hn-story" id="hn-story-2">
-                  <img
-                    class="hn-image"
-                    src="images/hacker-news/02-rfc-9849-tls-encrypted-client-hello.webp"
-                    alt="Journal illustration of a TLS handshake with locks, envelopes, and privacy shields"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p><span class="hn-label">From link</span>The RFC formalizes Encrypted Client Hello as a way to hide the hostname and other sensitive handshake details that classic TLS still leaks in plaintext, even after most of the connection is encrypted. It explains the split between the public outer ClientHello used for routing and the encrypted inner ClientHello that carries the real destination, along with the key-distribution, retry, and configuration machinery needed to make that practical across CDNs and large hosting setups. Read as a standard rather than a press release, it is really about closing one of the last easy metadata leaks in HTTPS by making privacy-preserving routing a first-class part of the protocol.</p>
-                  <p><span class="hn-label">From comments</span>HN readers liked the privacy goal, but the discussion quickly moved to deployment friction and whether the web ecosystem will actually carry the operational burden ECH introduces. Several commenters focused on how much this depends on DNS records, CDN participation, and intermediaries behaving correctly, while others debated whether middleboxes, enterprise filtering, or broken networks will keep forcing compatibility fallbacks that dilute the benefit. The thread ended up sounding cautiously optimistic: people broadly want SNI leakage to go away, but they also know protocol wins only matter once browsers, resolvers, CDNs, and operators all carry the same idea into production.</p>
-                </div>
-                <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
-                  <span class="more">More</span>
-                  <span class="less">Less</span>
-                </label>
+              <article
+                id="panel-workbench"
+                class="panel panel-workbench"
+                data-module="workbench"
+                hidden
+                aria-hidden="true"
+              >
+                <h3>Workbench Panel</h3>
+                <p>Panel placeholder. Full panel visuals and reveal mechanics are planned later.</p>
               </article>
-
-              <article class="hn-card">
-                <p class="hn-kicker">No. 7 · <a href="https://news.ycombinator.com/item?id=47206647" rel="noopener">HN</a></p>
-                <h3 class="hn-title">
-                  <a href="https://iev.ee/blog/resharp-how-we-built-the-fastest-regex-in-fsharp/" rel="noopener">RE#: How We Built the Fastest Regex Engine in F#</a>
-                </h3>
-                <input class="hn-toggle" type="checkbox" id="hn-more-3" />
-                <div class="hn-story" id="hn-story-3">
-                  <img
-                    class="hn-image"
-                    src="images/hacker-news/03-re-how-we-built-the-fastest-regex-engine-in-f-sharp.webp"
-                    alt="Journal illustration of regex automata, state transitions, and a hot inner loop notebook sketch"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p><span class="hn-label">From link</span>The write-up is a technical tour of building a high-performance regex engine in F# by leaning on derivative-based automata, aggressive parsing, and execution strategies that avoid the usual catastrophic-backtracking traps. It spends real time on why existing engines leave performance on the table, how RE# represents patterns and transitions internally, and why implementation choices like scan direction, compilation, and memory layout matter as much as the matching theory itself. The result reads like a language-and-runtime case study as much as a regex article, showing how a niche engine can compete by taking both the formal model and the hot-path engineering seriously.</p>
-                  <p><span class="hn-label">From comments</span>Commenters treated the post as both a compiler discussion and a practical regex debate, with a lot of interest in derivatives, DFA-style approaches, and when theoretical elegance actually survives contact with real workloads. Some readers compared the design to Rust, .NET, and RE2-style engines, while others zoomed in on benchmark fairness, Unicode coverage, and whether the implementation is optimized for the author&#39;s favorite cases rather than the whole regex universe. The thread was enthusiastic overall, but it kept a healthy amount of skepticism about performance claims, which is usually a good sign for a deep technical launch like this.</p>
-                </div>
-                <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
-                  <span class="more">More</span>
-                  <span class="less">Less</span>
-                </label>
+              <article
+                id="panel-todos"
+                class="panel panel-todos"
+                data-module="todos"
+                hidden
+                aria-hidden="true"
+              >
+                <h3>To-Dos Panel</h3>
+                <p>Panel placeholder. Full panel visuals and reveal mechanics are planned later.</p>
               </article>
-
-              <article class="hn-card">
-                <p class="hn-kicker">No. 9 · <a href="https://news.ycombinator.com/item?id=47243272" rel="noopener">HN</a></p>
-                <h3 class="hn-title">
-                  <a href="https://simonwillison.net/guides/agentic-engineering-patterns/" rel="noopener">Agentic Engineering Patterns</a>
-                </h3>
-                <input class="hn-toggle" type="checkbox" id="hn-more-4" />
-                <div class="hn-story" id="hn-story-4">
-                  <img
-                    class="hn-image"
-                    src="images/hacker-news/04-agentic-engineering-patterns.webp"
-                    alt="Journal illustration of prompt cards, test checklists, and agent workflow notes on a workbench"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p><span class="hn-label">From link</span>Simon Willison&#39;s guide is less a single essay than a field manual for working effectively with coding agents, organized around prompt scaffolds, codebase-understanding tactics, testing loops, and human review checkpoints. The page curates concrete patterns such as asking the model to explain a subsystem before editing it, using annotated prompts to constrain scope, and treating tests and diffs as the grounding mechanism that keeps agent output from drifting into plausible nonsense. The useful part is the framing: agentic engineering is presented as a repeatable discipline of context management and verification, not as a magic workflow where models replace ordinary software practice.</p>
-                  <p><span class="hn-label">From comments</span>HN readers largely accepted the premise that useful AI-assisted coding depends more on process than on raw model intelligence, and many shared their own rituals for keeping agents bounded. The conversation kept circling back to the same themes as the guide itself: start by making the model read, ask it to show its reasoning in artifacts like plans or tests, and never confuse a fluent answer with understanding. There was some disagreement over how much ceremony is worth the overhead, but the thread mostly converged on a practical middle ground where agents are valuable when they are forced into the same feedback loops disciplined humans already rely on.</p>
-                </div>
-                <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
-                  <span class="more">More</span>
-                  <span class="less">Less</span>
-                </label>
+              <article
+                id="panel-news"
+                class="panel panel-news"
+                data-module="news"
+                hidden
+                aria-hidden="true"
+              >
+                <h3>Hacker News Pulse Panel</h3>
+                <p>Panel placeholder. Full panel visuals and reveal mechanics are planned later.</p>
               </article>
-
-              <article class="hn-card">
-                <p class="hn-kicker">No. 14 · <a href="https://news.ycombinator.com/item?id=47243069" rel="noopener">HN</a></p>
-                <h3 class="hn-title">
-                  <a href="https://github.com/robertcprice/nCPU" rel="noopener">A CPU That Runs Entirely on GPU</a>
-                </h3>
-                <input class="hn-toggle" type="checkbox" id="hn-more-5" />
-                <div class="hn-story" id="hn-story-5">
-                  <img
-                    class="hn-image"
-                    src="images/hacker-news/05-a-cpu-that-runs-entirely-on-gpu.webp"
-                    alt="Journal illustration of an ARM64 CPU mapped onto a GPU tensor grid"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p><span class="hn-label">From link</span>The nCPU project is an experimental emulator that implements an ARM64 CPU model on top of GPU compute, using machine-learning style primitives and tensor execution to mimic processor behavior rather than simply accelerate a conventional simulator. The repository positions it as a proof of concept, but the interesting part is the inversion of expectations: instead of using the GPU as a helper for isolated kernels, it treats the GPU as the substrate for the whole CPU abstraction, complete with registers, memory operations, and instruction execution. That makes the project read like a deliberately strange systems experiment about what happens when you translate architectural semantics into a medium optimized for massively parallel math.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters were amused first and analytical second, which felt appropriate for a project that is obviously exploratory rather than efficient. A few people joked about how many times slower a GPU-backed CPU ought to be than a normal CPU, but the thread also surfaced real technical questions about numerical precision, instruction semantics, Metal versus CUDA tradeoffs, and whether the value here is education, art, or a stepping stone toward some more serious research direction. The consensus was that nobody expects this to beat normal emulation, yet many readers still found it compelling precisely because it tests architectural ideas in an unusual computational medium.</p>
-                </div>
-                <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
-                  <span class="more">More</span>
-                  <span class="less">Less</span>
-                </label>
+              <article
+                id="panel-calendar"
+                class="panel panel-calendar"
+                data-module="calendar"
+                hidden
+                aria-hidden="true"
+              >
+                <h3>Calendar Panel</h3>
+                <p>Panel placeholder. Full panel visuals and reveal mechanics are planned later.</p>
               </article>
-
-              <article class="hn-card">
-                <p class="hn-kicker">No. 19 · <a href="https://news.ycombinator.com/item?id=47245211" rel="noopener">HN</a></p>
-                <h3 class="hn-title">
-                  <a href="https://bahn.bet/" rel="noopener">Bet on German Train Delays</a>
-                </h3>
-                <input class="hn-toggle" type="checkbox" id="hn-more-6" />
-                <div class="hn-story" id="hn-story-6">
-                  <img
-                    class="hn-image"
-                    src="images/hacker-news/06-bet-on-german-train-delays.webp"
-                    alt="Journal illustration of delayed German trains, clocks, and a prediction market board"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p><span class="hn-label">From link</span>bahn.bet is a compact prediction market built around a very specific joke with real product structure: users pick a German train connection, choose a delay threshold in minutes, buy yes or no shares, and let the crowd set the implied probability for whether the train misses that target. The front page explains the current pools, price ranges, and route-specific outcomes plainly enough that the idea lands immediately, while the FAQ-style flow makes clear this is about turning Deutsche Bahn unreliability into a tiny market game rather than pretending to be a generic trading venue. As a product page it works because it is narrow, legible, and fully committed to the absurdity of its premise.</p>
-                  <p><span class="hn-label">From comments</span>HN loved the concept on sight, and the thread mostly split between people laughing at how culturally precise the joke is and people seriously debating whether the market could become a useful forecasting signal. Some commenters compared it to Polymarket-style event pricing and wondered about manipulation, thin liquidity, and payout mechanics, while others just appreciated that the site picks one maddeningly familiar European transit problem and turns it into something playfully measurable. The thread never lost the comic tone, but underneath it there was real respect for how sharply scoped products can feel more alive than broad platforms with grander ambitions.</p>
-                </div>
-                <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
-                  <span class="more">More</span>
-                  <span class="less">Less</span>
-                </label>
+              <article
+                id="panel-findme"
+                class="panel panel-findme"
+                data-module="findme"
+                hidden
+                aria-hidden="true"
+              >
+                <h3>Find Me Panel</h3>
+                <p>Panel placeholder. Full panel visuals and reveal mechanics are planned later.</p>
               </article>
             </div>
-          </div>
-        </article>
 
-        <article class="panel fade-up delay-2" aria-label="Calendar and links">
-          <div class="panel-head">
-            <h2 class="panel-title">Calendar + Links</h2>
-            <span class="panel-meta">Upcoming</span>
+            <div class="hotspot-layer">
+              <button
+                type="button"
+                class="hotspot hotspot-sketch"
+                data-target="sketch"
+                data-section-id="daily-sketch"
+                aria-controls="panel-sketch"
+                aria-expanded="false"
+              >
+                Open Daily Sketch
+              </button>
+              <button
+                type="button"
+                class="hotspot hotspot-workbench"
+                data-target="workbench"
+                data-section-id="workbench"
+                aria-controls="panel-workbench"
+                aria-expanded="false"
+              >
+                Open Workbench
+              </button>
+              <button
+                type="button"
+                class="hotspot hotspot-todos"
+                data-target="todos"
+                data-section-id="todos"
+                aria-controls="panel-todos"
+                aria-expanded="false"
+              >
+                Open To-Dos
+              </button>
+              <button
+                type="button"
+                class="hotspot hotspot-news"
+                data-target="news"
+                data-section-id="hn-pulse"
+                aria-controls="panel-news"
+                aria-expanded="false"
+              >
+                Open Hacker News Pulse
+              </button>
+              <button
+                type="button"
+                class="hotspot hotspot-calendar"
+                data-target="calendar"
+                data-section-id="calendar"
+                aria-controls="panel-calendar"
+                aria-expanded="false"
+              >
+                Open Calendar
+              </button>
+              <button
+                type="button"
+                class="hotspot hotspot-findme"
+                data-target="findme"
+                data-section-id="find-me"
+                aria-controls="panel-findme"
+                aria-expanded="false"
+              >
+                Open Find Me
+              </button>
+            </div>
           </div>
-          <div class="panel-body">
-            <section data-upcoming-holidays>
-              <!-- UPCOMING_HOLIDAYS_START -->
-              <div class="holiday-mini" aria-label="Holiday calendar">
-                <div class="holiday-mini-head">March 2026</div>
-                <div class="holiday-mini-grid" role="grid" aria-label="March 2026">
-                  <div class="holiday-dow" role="columnheader">Sun</div>
-                  <div class="holiday-dow" role="columnheader">Mon</div>
-                  <div class="holiday-dow" role="columnheader">Tue</div>
-                  <div class="holiday-dow" role="columnheader">Wed</div>
-                  <div class="holiday-dow" role="columnheader">Thu</div>
-                  <div class="holiday-dow" role="columnheader">Fri</div>
-                  <div class="holiday-dow" role="columnheader">Sat</div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">1</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">2</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">3</span></div>
-                  <div class="holiday-cell is-today" role="gridcell"><span class="day">4</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">5</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">6</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">7</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">8</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">9</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">10</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">11</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">12</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">13</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">14</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">15</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">16</span></div>
-                  <div class="holiday-cell is-holiday" role="gridcell" title="Saint Patrick’s Day"><span class="day">17</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">18</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">19</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">20</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">21</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">22</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">23</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">24</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">25</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">26</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">27</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">28</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">29</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">30</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">31</span></div>
-                  <div class="holiday-cell is-empty" role="gridcell"></div>
-                  <div class="holiday-cell is-empty" role="gridcell"></div>
-                  <div class="holiday-cell is-empty" role="gridcell"></div>
-                  <div class="holiday-cell is-empty" role="gridcell"></div>
-                </div>
-              </div>
-              <ul class="holidays">
-                <li class="holiday-row">
-                  <span class="holiday-date">Tue, Mar 17</span>
-                  <span class="holiday-title">Saint Patrick’s Day</span>
-                </li>
-                <li class="holiday-row">
-                  <span class="holiday-date">Thu, Apr 2</span>
-                  <span class="holiday-title">Lent ends</span>
-                </li>
-                <li class="holiday-row">
-                  <span class="holiday-date">Fri, Apr 3</span>
-                  <span class="holiday-title">Good Friday</span>
-                </li>
-                <li class="holiday-row">
-                  <span class="holiday-date">Sun, Apr 5</span>
-                  <span class="holiday-title">Easter</span>
-                </li>
-                <li class="holiday-row">
-                  <span class="holiday-date">Mon, Apr 6</span>
-                  <span class="holiday-title">Easter Monday</span>
-                </li>
-              </ul>
-              <!-- UPCOMING_HOLIDAYS_END -->
-            </section>
+        </section>
 
-            <section>
-              <p class="focus-label">Find me</p>
-              <ul class="links">
-                <li><a href="https://github.com/adam8" rel="noopener">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/adamskyejones/" rel="noopener">LinkedIn</a></li>
-              </ul>
-            </section>
-          </div>
-        </article>
-      </section>
+        <section id="daily-sketch" class="content-module" data-module="sketch" tabindex="-1">
+          <h2>Daily Sketch</h2>
+          <p>Latest sketch entry appears here as live HTML content.</p>
+          <figure>
+            <figcaption>Placeholder sketch note: observational drawing in progress.</figcaption>
+          </figure>
+          <p><a href="#">Open full sketch archive</a></p>
+        </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Wed, Mar 4, 2026 · 8:38 AM PST.</footer>
-    </main>
-    <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
-    <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
-    <script src="js/todo-card.js" defer></script>
+        <section id="workbench" class="content-module" data-module="workbench" tabindex="-1">
+          <h2>Workbench</h2>
+          <p>Current builds, experiments, and active notes.</p>
+          <ul>
+            <li>Featured build placeholder</li>
+            <li>Experiment queue placeholder</li>
+            <li>Reference links placeholder</li>
+          </ul>
+        </section>
+
+        <section id="todos" class="content-module" data-module="todos" tabindex="-1">
+          <h2>To-Dos</h2>
+          <p>Task list remains available as plain HTML for no-script and reduced-motion use.</p>
+          <ul>
+            <li>Draft weekly priorities</li>
+            <li>Review active tickets</li>
+            <li>Publish status update</li>
+          </ul>
+        </section>
+
+        <section id="hn-pulse" class="content-module" data-module="news" tabindex="-1">
+          <h2>Hacker News Pulse</h2>
+          <p>Top signal stories and categories will render here.</p>
+          <ol>
+            <li>Story placeholder one</li>
+            <li>Story placeholder two</li>
+            <li>Story placeholder three</li>
+          </ol>
+        </section>
+
+        <section id="calendar" class="content-module" data-module="calendar" tabindex="-1">
+          <h2>Calendar</h2>
+          <p>Upcoming agenda entries, schedule summary, and next event details.</p>
+          <ul>
+            <li>Today: planning block</li>
+            <li>Tomorrow: build review</li>
+            <li>Upcoming: publish checkpoint</li>
+          </ul>
+        </section>
+
+        <section id="find-me" class="content-module" data-module="findme" tabindex="-1">
+          <h2>Find Me</h2>
+          <p>Contact channels and social destinations.</p>
+          <ul>
+            <li><a href="#">Email</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="scripts/machine-state.js" defer></script>
+    <script src="scripts/panel-controller.js" defer></script>
+    <script src="scripts/app.js" defer></script>
   </body>
 </html>

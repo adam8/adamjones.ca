@@ -1,0 +1,15 @@
+@media (max-width: 48rem) {
+  .site-shell {
+    padding: 0.75rem;
+  }
+
+  .site-header,
+  .machine-scene,
+  .content-module {
+    padding: 0.85rem;
+  }
+
+  .hotspot-layer {
+    grid-template-columns: 1fr;
+  }
+}

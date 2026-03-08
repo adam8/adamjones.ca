@@ -1,0 +1,38 @@
+.site-shell {
+  width: min(72rem, 100%);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+}
+
+.site-header p {
+  margin: 0.35rem 0 0;
+}
+
+.machine-experience {
+  display: grid;
+  gap: 1rem;
+}
+
+.content-module {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1rem;
+}
+
+.content-module h2 {
+  margin-top: 0;
+}
