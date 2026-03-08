@@ -1,6 +1,7 @@
 (function () {
   var MOBILE_MODE_QUERY = "(max-width: 62rem)";
   var REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+  var assetAvailabilityCache = {};
 
   function detectMode() {
     if (window.machineStateApi && typeof window.machineStateApi.getModeFromViewport === "function") {
@@ -97,6 +98,49 @@
     element.classList.toggle("asset-missing", !isReady);
   }
 
+  function cacheAssetAvailability(source, isAvailable) {
+    assetAvailabilityCache[source] = Boolean(isAvailable);
+    return assetAvailabilityCache[source];
+  }
+
+  function checkAssetAvailability(source) {
+    if (!source) {
+      return Promise.resolve(false);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(assetAvailabilityCache, source)) {
+      return Promise.resolve(assetAvailabilityCache[source]);
+    }
+
+    if (typeof window.fetch !== "function") {
+      return Promise.resolve(cacheAssetAvailability(source, true));
+    }
+
+    return window
+      .fetch(source, { method: "HEAD", cache: "no-store" })
+      .then(function (response) {
+        if (response && response.ok) {
+          return cacheAssetAvailability(source, true);
+        }
+
+        if (response && (response.status === 405 || response.status === 501)) {
+          return window
+            .fetch(source, { method: "GET", cache: "no-store" })
+            .then(function (fallbackResponse) {
+              return cacheAssetAvailability(source, Boolean(fallbackResponse && fallbackResponse.ok));
+            })
+            .catch(function () {
+              return cacheAssetAvailability(source, false);
+            });
+        }
+
+        return cacheAssetAvailability(source, false);
+      })
+      .catch(function () {
+        return cacheAssetAvailability(source, false);
+      });
+  }
+
   function loadDecorativeAsset(container, source) {
     var image = getExistingDecorativeAsset(container);
 
@@ -164,17 +208,36 @@
 
     assets.forEach(function (node) {
       var source = node.getAttribute("data-asset");
+      var figure = node.tagName === "IMG" ? node.closest("figure") : null;
 
       if (!source) {
         return;
       }
 
-      if (node.tagName === "IMG") {
-        loadInlineAsset(node, source);
-        return;
+      setAssetState(node, false);
+
+      if (figure) {
+        setAssetState(figure, false);
       }
 
-      loadDecorativeAsset(node, source);
+      checkAssetAvailability(source).then(function (isAvailable) {
+        if (!isAvailable) {
+          setAssetState(node, false);
+
+          if (figure) {
+            setAssetState(figure, false);
+          }
+
+          return;
+        }
+
+        if (node.tagName === "IMG") {
+          loadInlineAsset(node, source);
+          return;
+        }
+
+        loadDecorativeAsset(node, source);
+      });
     });
   }
 

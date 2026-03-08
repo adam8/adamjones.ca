@@ -274,8 +274,9 @@
   }
 }
 
-.machine-scene.is-animated .machine-stage {
+.machine-scene.is-animated .machine-base {
   animation: breathe 8.4s var(--ease-mech) infinite;
+  transform-origin: 50% 50%;
 }
 
 .machine-scene.is-animated .machine-shadow {
@@ -347,7 +348,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .machine-scene.is-animated .machine-stage,
+  .machine-scene.is-animated .machine-base,
   .machine-scene.is-animated .machine-shadow,
   .machine-scene.is-animated .gear-top,
   .machine-scene.is-animated .steam,
