@@ -14,17 +14,16 @@
     var experience = document.querySelector(".machine-experience");
     var nextMode = detectMode();
 
-    if (!experience) {
-      return nextMode;
-    }
-
     if (window.machineStateApi) {
       window.machineStateApi.setMode(nextMode);
     } else if (window.machineState) {
       window.machineState.mode = nextMode;
     }
 
-    experience.setAttribute("data-mode", nextMode);
+    if (experience) {
+      experience.setAttribute("data-mode", nextMode);
+    }
+
     return nextMode;
   }
 
@@ -80,11 +79,15 @@
         }
       });
 
-      button.addEventListener("touchstart", function () {
-        if (window.panelController) {
-          window.panelController.setHoveredModule(moduleId);
-        }
-      });
+      button.addEventListener(
+        "touchstart",
+        function () {
+          if (window.panelController) {
+            window.panelController.setHoveredModule(moduleId);
+          }
+        },
+        { passive: true }
+      );
 
       button.addEventListener("click", function (event) {
         event.preventDefault();
@@ -121,6 +124,17 @@
     }
   }
 
+  function bindResizeModeHandling() {
+    window.addEventListener("resize", function () {
+      var previousMode = window.machineState ? window.machineState.mode : null;
+      var nextMode = updateMode();
+
+      if (previousMode !== nextMode && window.panelController) {
+        window.panelController.applyMode();
+      }
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.classList.add("js");
     updateMode();
@@ -133,14 +147,6 @@
     bindHotspots();
     bindGlobalShortcuts();
     bindMotionPreference();
-
-    window.addEventListener("resize", function () {
-      var beforeMode = window.machineState ? window.machineState.mode : null;
-      var afterMode = updateMode();
-
-      if (beforeMode !== afterMode && window.panelController) {
-        window.panelController.applyMode();
-      }
-    });
+    bindResizeModeHandling();
   });
 })();

@@ -15,6 +15,22 @@
     return Array.prototype.slice.call(document.querySelectorAll(".panel-layer .panel"));
   }
 
+  function getMode() {
+    if (window.machineState) {
+      return window.machineState.mode;
+    }
+
+    return "desktop";
+  }
+
+  function getModuleIdFromButton(button) {
+    if (!button) {
+      return null;
+    }
+
+    return button.getAttribute("data-target");
+  }
+
   function getPanelForButton(button) {
     if (!button) {
       return null;
@@ -86,6 +102,10 @@
     panel.focus({ preventScroll: true });
   }
 
+  function isPanelOpen(panel) {
+    return Boolean(panel && !panel.hidden);
+  }
+
   function closeAllPanels() {
     var scene = getScene();
 
@@ -104,9 +124,9 @@
   function openDesktopPanel(button) {
     var scene = getScene();
     var panel = getPanelForButton(button);
-    var moduleId = button ? button.getAttribute("data-target") : null;
+    var moduleId = getModuleIdFromButton(button);
 
-    if (!panel || !scene || !moduleId) {
+    if (!scene || !panel || !moduleId) {
       return;
     }
 
@@ -121,30 +141,31 @@
   function toggleMobilePanel(button) {
     var scene = getScene();
     var panel = getPanelForButton(button);
-    var moduleId = button ? button.getAttribute("data-target") : null;
+    var moduleId = getModuleIdFromButton(button);
 
-    if (!panel || !scene || !moduleId) {
+    if (!scene || !panel || !moduleId) {
       return;
     }
 
-    var isOpening = panel.hidden;
+    var shouldOpen = !isPanelOpen(panel);
 
-    setPanelVisibility(panel, isOpening);
-    setButtonExpanded(button, isOpening);
-    scene.classList.toggle(OPEN_CLASS_PREFIX + moduleId, isOpening);
+    setPanelVisibility(panel, shouldOpen);
+    setButtonExpanded(button, shouldOpen);
+    scene.classList.toggle(OPEN_CLASS_PREFIX + moduleId, shouldOpen);
 
-    if (isOpening) {
+    if (shouldOpen) {
       updateActivePanel(panel.id);
       focusPanel(panel);
-    } else if (window.machineState && window.machineState.activePanel === panel.id) {
+      return;
+    }
+
+    if (window.machineState && window.machineState.activePanel === panel.id) {
       updateActivePanel(null);
     }
   }
 
   function activateFromButton(button) {
-    var mode = window.machineState ? window.machineState.mode : "desktop";
-
-    if (mode === "mobile") {
+    if (getMode() === "mobile") {
       toggleMobilePanel(button);
       return;
     }
