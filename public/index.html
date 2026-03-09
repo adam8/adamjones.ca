@@ -124,23 +124,23 @@
                 aria-hidden="true"
               >
                 <h3>Daily Sketch</h3>
-                <!-- Replace with the latest real sketch record -->
+                <!-- Synced from main branch daily sketch card -->
                 <figure>
                   <img
                     class="panel-sketch-image"
-                    data-asset="assets/panel-sketch.png"
-                    alt="Placeholder daily sketch preview on notebook paper"
+                    data-asset="holidays/sketchy-calendar-paper.webp"
+                    alt="Daily sketch fallback"
                     width="640"
                     height="420"
                     loading="lazy"
                     decoding="async"
                   />
                   <figcaption>
-                    Ink study 2026-03-08: observational contour work in progress, focusing on
-                    gears and belt connections.
+                    <strong>No sketches synced yet.</strong> Sketch rail currently shows the
+                    fallback paper image from the main dashboard snapshot.
                   </figcaption>
                 </figure>
-                <p><a href="#daily-sketch">Open full sketch archive</a></p>
+                <p><a href="#daily-sketch">Open sketch rail details</a></p>
               </article>
               <article
                 id="panel-workbench"
@@ -151,31 +151,33 @@
                 aria-hidden="true"
               >
                 <h3>Workbench</h3>
-                <!-- Replace lists and card below with live project data -->
-                <section aria-label="Featured builds">
-                  <h4>Featured Builds</h4>
-                  <ul>
-                    <li>Spiral Machine UI Shell v1</li>
-                    <li>Daily Sketch Capture Pipeline</li>
-                    <li>Calendar Signal Regulator</li>
-                  </ul>
-                </section>
-                <section aria-label="Experiments">
-                  <h4>Experiments</h4>
-                  <ul>
-                    <li>Panel collision tuning for narrow desktop widths</li>
-                    <li>Reduced-motion interaction timing pass</li>
-                    <li>HN pulse scoring model placeholder</li>
-                  </ul>
-                </section>
-                <article aria-label="Highlighted project">
-                  <h4>Highlighted Project</h4>
+                <!-- Synced from main branch focus cards -->
+                <section aria-label="Primary focus card">
+                  <h4>Primary Focus</h4>
                   <p>
-                    <strong>Signal Bench Prototype:</strong> consolidating machine state and panel
-                    orchestration with plain JavaScript modules.
+                    <strong>Prompt:</strong> What is worth doing carefully today so the rest of the
+                    system stays predictable?
                   </p>
-                  <p><a href="#workbench">Open project notes</a></p>
-                </article>
+                  <p>
+                    <strong>Answer:</strong> Calm execution. Finish the small things that keep
+                    bigger systems predictable.
+                  </p>
+                </section>
+                <section aria-label="Current mode card">
+                  <h4>Current Mode</h4>
+                  <p>
+                    <strong>Prompt:</strong> How am I shipping work right now without losing the
+                    thread between steps?
+                  </p>
+                  <p>
+                    <strong>Answer:</strong> Shipping in compact steps with enough context to make
+                    each one stick.
+                  </p>
+                </section>
+                <p>
+                  Live desk context: Upcoming holidays include Saint Patrick's Day (Tue Mar 17),
+                  Lent ends (Thu Apr 2), and Easter (Sun Apr 5).
+                </p>
               </article>
               <article
                 id="panel-todos"
@@ -186,25 +188,25 @@
                 aria-hidden="true"
               >
                 <h3>To-Dos</h3>
-                <!-- Replace with live task feed and filter state -->
-                <div role="group" aria-label="Quick filters placeholder">
-                  <strong>Quick filters:</strong>
-                  <button type="button">Today</button>
-                  <button type="button">This Week</button>
-                  <button type="button">Blocked</button>
+                <!-- Synced from main branch todo snapshot -->
+                <div role="group" aria-label="To-do source">
+                  <strong>Snapshot:</strong> Wed, Mar 4, 2026
                 </div>
                 <ul>
                   <li>
-                    <label><input type="checkbox" /> Draft weekly priorities</label>
-                    <p>Meta: Due Mon 09:00 · Area: Planning</p>
+                    <label>
+                      <input type="checkbox" checked />
+                      Make work bench panels flip problem/solution
+                    </label>
                   </li>
                   <li>
-                    <label><input type="checkbox" checked /> Review active tickets</label>
-                    <p>Meta: Due Today · Area: Workbench</p>
+                    <label><input type="checkbox" /> Make columns resizable</label>
                   </li>
                   <li>
-                    <label><input type="checkbox" /> Publish status update</label>
-                    <p>Meta: Due Tue 14:00 · Area: Communication</p>
+                    <label><input type="checkbox" checked /> Sketch of the day</label>
+                  </li>
+                  <li>
+                    <label><input type="checkbox" /> control todo with MCP</label>
                   </li>
                 </ul>
               </article>
@@ -235,29 +237,239 @@
 
                   <div class="hn-ticker-window">
                     <ul class="hn-ticker-list">
-                      <li>Story placeholder one: source · points · comments</li>
-                      <li>Story placeholder two: source · points · comments</li>
-                      <li>Story placeholder three: source · points · comments</li>
+                      <li>Nobody Gets Promoted for Simplicity</li>
+                      <li>RFC 9849: TLS Encrypted Client Hello</li>
+                      <li>RE#: Fastest Regex Engine in F#</li>
                     </ul>
                   </div>
-
                   <aside class="hn-detail-panel">
                     <h4>Top Signals</h4>
                     <ol>
                       <li>
-                        <a href="#hn-pulse">Story placeholder one</a>
-                        <p>Source: example.com · 182 points · 54 comments</p>
+                        <a href="https://terriblesoftware.org/2026/03/03/nobody-gets-promoted-for-simplicity/" rel="noopener">
+                          Nobody Gets Promoted for Simplicity
+                        </a>
+                        <p>
+                          Source: HN front page · Rank: No. 1 ·
+                          <a href="https://news.ycombinator.com/item?id=47246110" rel="noopener">discussion</a>
+                        </p>
+                        <details>
+                          <summary>Read notes</summary>
+                          <p>
+                            <strong>From link:</strong> The post is a direct argument that
+                            simplicity has weak organizational incentives even when it is the
+                            highest-leverage engineering choice. It frames the problem as a
+                            promotion economy that rewards visible complexity, urgent heroics, and
+                            systems that look impressive in planning decks, while the best work
+                            often removes knobs, deletes architecture, and leaves behind a codebase
+                            that merely feels calm. The author ties that back to incentives around
+                            performance reviews, hiring loops, and technical prestige, making the
+                            broader point that clean systems are frequently undervalued precisely
+                            because they hide the effort and judgment required to make them feel
+                            obvious.
+                          </p>
+                          <p>
+                            <strong>From comments:</strong> The comment thread turned into a long
+                            comparison of workplace incentives, with many readers agreeing that
+                            low-drama engineering rarely gets rewarded until the alternative breaks
+                            expensively. People traded examples of companies that celebrate intricate
+                            frameworks, large rewrites, or visibly busy staff while treating
+                            maintenance, reduction, and operational quiet as background labor, though
+                            a few argued that strong managers and high-trust teams can still
+                            recognize simplicity when they see it. The overall mood was not that
+                            simplicity is impossible to defend, but that it usually requires
+                            unusually mature leadership because the most valuable outcome often looks
+                            like less happened, not more.
+                          </p>
+                        </details>
                       </li>
                       <li>
-                        <a href="#hn-pulse">Story placeholder two</a>
-                        <p>Source: news.ycombinator.com · 146 points · 38 comments</p>
+                        <a href="https://www.rfc-editor.org/rfc/rfc9849.html" rel="noopener">
+                          RFC 9849: TLS Encrypted Client Hello
+                        </a>
+                        <p>
+                          Source: HN front page · Rank: No. 6 ·
+                          <a href="https://news.ycombinator.com/item?id=47244291" rel="noopener">discussion</a>
+                        </p>
+                        <details>
+                          <summary>Read notes</summary>
+                          <p>
+                            <strong>From link:</strong> The RFC formalizes Encrypted Client Hello as
+                            a way to hide the hostname and other sensitive handshake details that
+                            classic TLS still leaks in plaintext, even after most of the connection
+                            is encrypted. It explains the split between the public outer ClientHello
+                            used for routing and the encrypted inner ClientHello that carries the
+                            real destination, along with the key-distribution, retry, and
+                            configuration machinery needed to make that practical across CDNs and
+                            large hosting setups. Read as a standard rather than a press release, it
+                            is really about closing one of the last easy metadata leaks in HTTPS by
+                            making privacy-preserving routing a first-class part of the protocol.
+                          </p>
+                          <p>
+                            <strong>From comments:</strong> HN readers liked the privacy goal, but
+                            the discussion quickly moved to deployment friction and whether the web
+                            ecosystem will actually carry the operational burden ECH introduces.
+                            Several commenters focused on how much this depends on DNS records, CDN
+                            participation, and intermediaries behaving correctly, while others
+                            debated whether middleboxes, enterprise filtering, or broken networks
+                            will keep forcing compatibility fallbacks that dilute the benefit. The
+                            thread ended up sounding cautiously optimistic: people broadly want SNI
+                            leakage to go away, but they also know protocol wins only matter once
+                            browsers, resolvers, CDNs, and operators all carry the same idea into
+                            production.
+                          </p>
+                        </details>
                       </li>
                       <li>
-                        <a href="#hn-pulse">Story placeholder three</a>
-                        <p>Source: blog.example.net · 121 points · 29 comments</p>
+                        <a href="https://iev.ee/blog/resharp-how-we-built-the-fastest-regex-in-fsharp/" rel="noopener">
+                          RE#: How We Built the Fastest Regex Engine in F#
+                        </a>
+                        <p>
+                          Source: HN front page · Rank: No. 7 ·
+                          <a href="https://news.ycombinator.com/item?id=47206647" rel="noopener">discussion</a>
+                        </p>
+                        <details>
+                          <summary>Read notes</summary>
+                          <p>
+                            <strong>From link:</strong> The write-up is a technical tour of building
+                            a high-performance regex engine in F# by leaning on derivative-based
+                            automata, aggressive parsing, and execution strategies that avoid the
+                            usual catastrophic-backtracking traps. It spends real time on why
+                            existing engines leave performance on the table, how RE# represents
+                            patterns and transitions internally, and why implementation choices like
+                            scan direction, compilation, and memory layout matter as much as the
+                            matching theory itself. The result reads like a language-and-runtime case
+                            study as much as a regex article, showing how a niche engine can compete
+                            by taking both the formal model and the hot-path engineering seriously.
+                          </p>
+                          <p>
+                            <strong>From comments:</strong> Commenters treated the post as both a
+                            compiler discussion and a practical regex debate, with a lot of interest
+                            in derivatives, DFA-style approaches, and when theoretical elegance
+                            actually survives contact with real workloads. Some readers compared the
+                            design to Rust, .NET, and RE2-style engines, while others zoomed in on
+                            benchmark fairness, Unicode coverage, and whether the implementation is
+                            optimized for the author's favorite cases rather than the whole regex
+                            universe. The thread was enthusiastic overall, but it kept a healthy
+                            amount of skepticism about performance claims, which is usually a good
+                            sign for a deep technical launch like this.
+                          </p>
+                        </details>
+                      </li>
+                      <li>
+                        <a href="https://simonwillison.net/guides/agentic-engineering-patterns/" rel="noopener">
+                          Agentic Engineering Patterns
+                        </a>
+                        <p>
+                          Source: HN front page · Rank: No. 9 ·
+                          <a href="https://news.ycombinator.com/item?id=47243272" rel="noopener">discussion</a>
+                        </p>
+                        <details>
+                          <summary>Read notes</summary>
+                          <p>
+                            <strong>From link:</strong> Simon Willison's guide is less a single
+                            essay than a field manual for working effectively with coding agents,
+                            organized around prompt scaffolds, codebase-understanding tactics,
+                            testing loops, and human review checkpoints. The page curates concrete
+                            patterns such as asking the model to explain a subsystem before editing
+                            it, using annotated prompts to constrain scope, and treating tests and
+                            diffs as the grounding mechanism that keeps agent output from drifting
+                            into plausible nonsense. The useful part is the framing: agentic
+                            engineering is presented as a repeatable discipline of context management
+                            and verification, not as a magic workflow where models replace ordinary
+                            software practice.
+                          </p>
+                          <p>
+                            <strong>From comments:</strong> HN readers largely accepted the premise
+                            that useful AI-assisted coding depends more on process than on raw model
+                            intelligence, and many shared their own rituals for keeping agents
+                            bounded. The conversation kept circling back to the same themes as the
+                            guide itself: start by making the model read, ask it to show its
+                            reasoning in artifacts like plans or tests, and never confuse a fluent
+                            answer with understanding. There was some disagreement over how much
+                            ceremony is worth the overhead, but the thread mostly converged on a
+                            practical middle ground where agents are valuable when they are forced
+                            into the same feedback loops disciplined humans already rely on.
+                          </p>
+                        </details>
+                      </li>
+                      <li>
+                        <a href="https://github.com/robertcprice/nCPU" rel="noopener">
+                          A CPU That Runs Entirely on GPU
+                        </a>
+                        <p>
+                          Source: HN front page · Rank: No. 14 ·
+                          <a href="https://news.ycombinator.com/item?id=47243069" rel="noopener">discussion</a>
+                        </p>
+                        <details>
+                          <summary>Read notes</summary>
+                          <p>
+                            <strong>From link:</strong> The nCPU project is an experimental emulator
+                            that implements an ARM64 CPU model on top of GPU compute, using
+                            machine-learning style primitives and tensor execution to mimic processor
+                            behavior rather than simply accelerate a conventional simulator. The
+                            repository positions it as a proof of concept, but the interesting part
+                            is the inversion of expectations: instead of using the GPU as a helper
+                            for isolated kernels, it treats the GPU as the substrate for the whole
+                            CPU abstraction, complete with registers, memory operations, and
+                            instruction execution. That makes the project read like a deliberately
+                            strange systems experiment about what happens when you translate
+                            architectural semantics into a medium optimized for massively parallel
+                            math.
+                          </p>
+                          <p>
+                            <strong>From comments:</strong> HN commenters were amused first and
+                            analytical second, which felt appropriate for a project that is obviously
+                            exploratory rather than efficient. A few people joked about how many
+                            times slower a GPU-backed CPU ought to be than a normal CPU, but the
+                            thread also surfaced real technical questions about numerical precision,
+                            instruction semantics, Metal versus CUDA tradeoffs, and whether the value
+                            here is education, art, or a stepping stone toward some more serious
+                            research direction. The consensus was that nobody expects this to beat
+                            normal emulation, yet many readers still found it compelling precisely
+                            because it tests architectural ideas in an unusual computational medium.
+                          </p>
+                        </details>
+                      </li>
+                      <li>
+                        <a href="https://bahn.bet/" rel="noopener">
+                          Bet on German Train Delays
+                        </a>
+                        <p>
+                          Source: HN front page · Rank: No. 19 ·
+                          <a href="https://news.ycombinator.com/item?id=47245211" rel="noopener">discussion</a>
+                        </p>
+                        <details>
+                          <summary>Read notes</summary>
+                          <p>
+                            <strong>From link:</strong> bahn.bet is a compact prediction market built
+                            around a very specific joke with real product structure: users pick a
+                            German train connection, choose a delay threshold in minutes, buy yes or
+                            no shares, and let the crowd set the implied probability for whether the
+                            train misses that target. The front page explains the current pools, price
+                            ranges, and route-specific outcomes plainly enough that the idea lands
+                            immediately, while the FAQ-style flow makes clear this is about turning
+                            Deutsche Bahn unreliability into a tiny market game rather than pretending
+                            to be a generic trading venue. As a product page it works because it is
+                            narrow, legible, and fully committed to the absurdity of its premise.
+                          </p>
+                          <p>
+                            <strong>From comments:</strong> HN loved the concept on sight, and the
+                            thread mostly split between people laughing at how culturally precise the
+                            joke is and people seriously debating whether the market could become a
+                            useful forecasting signal. Some commenters compared it to Polymarket-style
+                            event pricing and wondered about manipulation, thin liquidity, and payout
+                            mechanics, while others just appreciated that the site picks one
+                            maddeningly familiar European transit problem and turns it into something
+                            playfully measurable. The thread never lost the comic tone, but
+                            underneath it there was real respect for how sharply scoped products can
+                            feel more alive than broad platforms with grander ambitions.
+                          </p>
+                        </details>
                       </li>
                     </ol>
                   </aside>
+
                 </div>
               </article>
               <article
@@ -269,18 +481,22 @@
                 aria-hidden="true"
               >
                 <h3>Calendar</h3>
-                <!-- Replace with exported calendar summary -->
-                <p><strong>Date badge:</strong> <time datetime="2026-03-08">Sun Mar 8, 2026</time></p>
-                <section aria-label="Today summary">
-                  <h4>Today Summary</h4>
-                  <p>Focus window: machine interactions review and polish pass.</p>
+                <!-- Synced from main branch holiday panel -->
+                <p>
+                  <strong>Date badge:</strong> <time datetime="2026-03">March 2026</time>
+                </p>
+                <section aria-label="Upcoming holidays summary">
+                  <h4>Upcoming</h4>
+                  <p>Saint Patrick's Day (Tue Mar 17), Lent ends (Thu Apr 2), Easter (Sun Apr 5).</p>
                 </section>
-                <section aria-label="Upcoming events">
-                  <h4>Upcoming Events</h4>
+                <section aria-label="Holiday queue">
+                  <h4>Holiday Queue</h4>
                   <ul>
-                    <li><time datetime="2026-03-09T09:00">Mon 09:00</time> Planning block</li>
-                    <li><time datetime="2026-03-10T14:00">Tue 14:00</time> Build review</li>
-                    <li><time datetime="2026-03-12T11:30">Thu 11:30</time> Publish checkpoint</li>
+                    <li><time datetime="2026-03-17">Tue, Mar 17</time> Saint Patrick's Day</li>
+                    <li><time datetime="2026-04-02">Thu, Apr 2</time> Lent ends</li>
+                    <li><time datetime="2026-04-03">Fri, Apr 3</time> Good Friday</li>
+                    <li><time datetime="2026-04-05">Sun, Apr 5</time> Easter</li>
+                    <li><time datetime="2026-04-06">Mon, Apr 6</time> Easter Monday</li>
                   </ul>
                 </section>
               </article>
@@ -293,17 +509,22 @@
                 aria-hidden="true"
               >
                 <h3>Find Me</h3>
-                <!-- Replace with real profile URLs -->
+                <!-- Synced from main branch links panel -->
                 <p>
-                  Short intro: building notebook-like interfaces, automation pipelines, and visual
-                  developer tools.
+                  Head in the cloud, feet on the ground. Live desk links from the main dashboard.
                 </p>
                 <nav aria-label="External destinations">
                   <ul>
-                    <li><a href="#find-me"><span aria-hidden="true">[mail]</span> Email</a></li>
-                    <li><a href="#find-me"><span aria-hidden="true">[gh]</span> GitHub</a></li>
-                    <li><a href="#find-me"><span aria-hidden="true">[in]</span> LinkedIn</a></li>
-                    <li><a href="#find-me"><span aria-hidden="true">[x]</span> X / Twitter</a></li>
+                    <li>
+                      <a href="https://github.com/adam8" rel="noopener">
+                        <span aria-hidden="true">[gh]</span> GitHub
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.linkedin.com/in/adamskyejones/" rel="noopener">
+                        <span aria-hidden="true">[in]</span> LinkedIn
+                      </a>
+                    </li>
                   </ul>
                 </nav>
               </article>
@@ -412,8 +633,8 @@
                 Toggle Daily Sketch
               </button>
               <div id="mobile-drawer-sketch" class="mobile-module-drawer" hidden aria-hidden="true">
-                <p>Latest sketch entry appears here as live HTML content.</p>
-                <p>Placeholder sketch note: observational drawing in progress.</p>
+                <p><strong>No sketches synced yet.</strong></p>
+                <p>Fallback sketch card uses the paper image from the live dashboard.</p>
               </div>
             </article>
 
@@ -437,9 +658,12 @@
                 aria-hidden="true"
               >
                 <ul>
-                  <li>Featured build placeholder</li>
-                  <li>Experiment queue placeholder</li>
-                  <li>Reference links placeholder</li>
+                  <li>Primary focus: calm execution on predictable systems.</li>
+                  <li>
+                    Current mode: shipping in compact steps with enough context to make each one
+                    stick.
+                  </li>
+                  <li>Upcoming: Saint Patrick's Day, Lent ends, Easter.</li>
                 </ul>
               </div>
             </article>
@@ -459,9 +683,10 @@
               </button>
               <div id="mobile-drawer-todos" class="mobile-module-drawer" hidden aria-hidden="true">
                 <ul>
-                  <li>Draft weekly priorities</li>
-                  <li>Review active tickets</li>
-                  <li>Publish status update</li>
+                  <li>Make work bench panels flip problem/solution</li>
+                  <li>Make columns resizable</li>
+                  <li>Sketch of the day</li>
+                  <li>control todo with MCP</li>
                 </ul>
               </div>
             </article>
@@ -481,9 +706,36 @@
               </button>
               <div id="mobile-drawer-news" class="mobile-module-drawer" hidden aria-hidden="true">
                 <ol>
-                  <li>Story placeholder one</li>
-                  <li>Story placeholder two</li>
-                  <li>Story placeholder three</li>
+                  <li>
+                    <a href="https://terriblesoftware.org/2026/03/03/nobody-gets-promoted-for-simplicity/" rel="noopener">
+                      No. 1: Nobody Gets Promoted for Simplicity
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.rfc-editor.org/rfc/rfc9849.html" rel="noopener">
+                      No. 6: RFC 9849: TLS Encrypted Client Hello
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://iev.ee/blog/resharp-how-we-built-the-fastest-regex-in-fsharp/" rel="noopener">
+                      No. 7: RE#: How We Built the Fastest Regex Engine in F#
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://simonwillison.net/guides/agentic-engineering-patterns/" rel="noopener">
+                      No. 9: Agentic Engineering Patterns
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/robertcprice/nCPU" rel="noopener">
+                      No. 14: A CPU That Runs Entirely on GPU
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://bahn.bet/" rel="noopener">
+                      No. 19: Bet on German Train Delays
+                    </a>
+                  </li>
                 </ol>
               </div>
             </article>
@@ -508,9 +760,10 @@
                 aria-hidden="true"
               >
                 <ul>
-                  <li>Today: planning block</li>
-                  <li>Tomorrow: build review</li>
-                  <li>Upcoming: publish checkpoint</li>
+                  <li>Tue, Mar 17: Saint Patrick's Day</li>
+                  <li>Thu, Apr 2: Lent ends</li>
+                  <li>Fri, Apr 3: Good Friday</li>
+                  <li>Sun, Apr 5: Easter</li>
                 </ul>
               </div>
             </article>
@@ -530,9 +783,10 @@
               </button>
               <div id="mobile-drawer-findme" class="mobile-module-drawer" hidden aria-hidden="true">
                 <ul>
-                  <li><a href="#find-me">Email</a></li>
-                  <li><a href="#find-me">GitHub</a></li>
-                  <li><a href="#find-me">LinkedIn</a></li>
+                  <li><a href="https://github.com/adam8" rel="noopener">GitHub</a></li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/adamskyejones/" rel="noopener">LinkedIn</a>
+                  </li>
                 </ul>
               </div>
             </article>
@@ -541,60 +795,250 @@
 
         <section id="daily-sketch" class="content-module" data-module="sketch" tabindex="-1">
           <h2>Daily Sketch</h2>
-          <p>Latest sketch entry appears here as live HTML content.</p>
+          <p>No sketches synced yet. Fallback paper sketch shown from main dashboard.</p>
           <figure>
-            <figcaption>Placeholder sketch note: observational drawing in progress.</figcaption>
+            <img
+              src="holidays/sketchy-calendar-paper.webp"
+              alt="Daily sketch fallback"
+              width="640"
+              height="420"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Sketch rail fallback card from the main branch live desk.</figcaption>
           </figure>
-          <p><a href="#">Open full sketch archive</a></p>
+          <p><a href="holidays/sketchy-calendar-paper.webp">Open fallback sketch image</a></p>
         </section>
 
         <section id="workbench" class="content-module" data-module="workbench" tabindex="-1">
           <h2>Workbench</h2>
-          <p>Current builds, experiments, and active notes.</p>
-          <ul>
-            <li>Featured build placeholder</li>
-            <li>Experiment queue placeholder</li>
-            <li>Reference links placeholder</li>
-          </ul>
+          <p>
+            Primary focus: Calm execution. Finish the small things that keep bigger systems
+            predictable.
+          </p>
+          <p>
+            Current mode: Shipping in compact steps with enough context to make each one stick.
+          </p>
+          <p>
+            Upcoming: Saint Patrick's Day (Tue Mar 17), Lent ends (Thu Apr 2), Easter (Sun Apr 5).
+          </p>
         </section>
 
         <section id="todos" class="content-module" data-module="todos" tabindex="-1">
           <h2>To-Dos</h2>
-          <p>Task list remains available as plain HTML for no-script and reduced-motion use.</p>
+          <p>Snapshot from the main dashboard todo list.</p>
           <ul>
-            <li>Draft weekly priorities</li>
-            <li>Review active tickets</li>
-            <li>Publish status update</li>
+            <li>Make work bench panels flip problem/solution</li>
+            <li>Make columns resizable</li>
+            <li>Sketch of the day</li>
+            <li>control todo with MCP</li>
           </ul>
         </section>
 
         <section id="hn-pulse" class="content-module" data-module="news" tabindex="-1">
           <h2>Hacker News Pulse</h2>
-          <p>Top signal stories and categories will render here.</p>
-          <ol>
-            <li>Story placeholder one</li>
-            <li>Story placeholder two</li>
-            <li>Story placeholder three</li>
-          </ol>
+          <p>Main branch snapshot from Mar 4 front page.</p>
+          <article>
+            <h3>
+              <a href="https://terriblesoftware.org/2026/03/03/nobody-gets-promoted-for-simplicity/" rel="noopener">
+                Nobody Gets Promoted for Simplicity
+              </a>
+            </h3>
+            <p><strong>Rank:</strong> No. 1</p>
+            <p>
+              <strong>From link:</strong> The post is a direct argument that simplicity has weak
+              organizational incentives even when it is the highest-leverage engineering choice. It
+              frames the problem as a promotion economy that rewards visible complexity, urgent
+              heroics, and systems that look impressive in planning decks, while the best work often
+              removes knobs, deletes architecture, and leaves behind a codebase that merely feels
+              calm. The author ties that back to incentives around performance reviews, hiring
+              loops, and technical prestige, making the broader point that clean systems are
+              frequently undervalued precisely because they hide the effort and judgment required to
+              make them feel obvious.
+            </p>
+            <p>
+              <strong>From comments:</strong> The comment thread turned into a long comparison of
+              workplace incentives, with many readers agreeing that low-drama engineering rarely
+              gets rewarded until the alternative breaks expensively. People traded examples of
+              companies that celebrate intricate frameworks, large rewrites, or visibly busy staff
+              while treating maintenance, reduction, and operational quiet as background labor,
+              though a few argued that strong managers and high-trust teams can still recognize
+              simplicity when they see it. The overall mood was not that simplicity is impossible
+              to defend, but that it usually requires unusually mature leadership because the most
+              valuable outcome often looks like less happened, not more.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="https://www.rfc-editor.org/rfc/rfc9849.html" rel="noopener">
+                RFC 9849: TLS Encrypted Client Hello
+              </a>
+            </h3>
+            <p><strong>Rank:</strong> No. 6</p>
+            <p>
+              <strong>From link:</strong> The RFC formalizes Encrypted Client Hello as a way to
+              hide the hostname and other sensitive handshake details that classic TLS still leaks
+              in plaintext, even after most of the connection is encrypted. It explains the split
+              between the public outer ClientHello used for routing and the encrypted inner
+              ClientHello that carries the real destination, along with the key-distribution, retry,
+              and configuration machinery needed to make that practical across CDNs and large
+              hosting setups. Read as a standard rather than a press release, it is really about
+              closing one of the last easy metadata leaks in HTTPS by making privacy-preserving
+              routing a first-class part of the protocol.
+            </p>
+            <p>
+              <strong>From comments:</strong> HN readers liked the privacy goal, but the discussion
+              quickly moved to deployment friction and whether the web ecosystem will actually carry
+              the operational burden ECH introduces. Several commenters focused on how much this
+              depends on DNS records, CDN participation, and intermediaries behaving correctly,
+              while others debated whether middleboxes, enterprise filtering, or broken networks
+              will keep forcing compatibility fallbacks that dilute the benefit. The thread ended up
+              sounding cautiously optimistic: people broadly want SNI leakage to go away, but they
+              also know protocol wins only matter once browsers, resolvers, CDNs, and operators all
+              carry the same idea into production.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="https://iev.ee/blog/resharp-how-we-built-the-fastest-regex-in-fsharp/" rel="noopener">
+                RE#: How We Built the Fastest Regex Engine in F#
+              </a>
+            </h3>
+            <p><strong>Rank:</strong> No. 7</p>
+            <p>
+              <strong>From link:</strong> The write-up is a technical tour of building a
+              high-performance regex engine in F# by leaning on derivative-based automata, aggressive
+              parsing, and execution strategies that avoid the usual catastrophic-backtracking traps.
+              It spends real time on why existing engines leave performance on the table, how RE#
+              represents patterns and transitions internally, and why implementation choices like
+              scan direction, compilation, and memory layout matter as much as the matching theory
+              itself. The result reads like a language-and-runtime case study as much as a regex
+              article, showing how a niche engine can compete by taking both the formal model and
+              the hot-path engineering seriously.
+            </p>
+            <p>
+              <strong>From comments:</strong> Commenters treated the post as both a compiler
+              discussion and a practical regex debate, with a lot of interest in derivatives,
+              DFA-style approaches, and when theoretical elegance actually survives contact with real
+              workloads. Some readers compared the design to Rust, .NET, and RE2-style engines,
+              while others zoomed in on benchmark fairness, Unicode coverage, and whether the
+              implementation is optimized for the author's favorite cases rather than the whole regex
+              universe. The thread was enthusiastic overall, but it kept a healthy amount of
+              skepticism about performance claims, which is usually a good sign for a deep technical
+              launch like this.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="https://simonwillison.net/guides/agentic-engineering-patterns/" rel="noopener">
+                Agentic Engineering Patterns
+              </a>
+            </h3>
+            <p><strong>Rank:</strong> No. 9</p>
+            <p>
+              <strong>From link:</strong> Simon Willison's guide is less a single essay than a
+              field manual for working effectively with coding agents, organized around prompt
+              scaffolds, codebase-understanding tactics, testing loops, and human review
+              checkpoints. The page curates concrete patterns such as asking the model to explain a
+              subsystem before editing it, using annotated prompts to constrain scope, and treating
+              tests and diffs as the grounding mechanism that keeps agent output from drifting into
+              plausible nonsense. The useful part is the framing: agentic engineering is presented
+              as a repeatable discipline of context management and verification, not as a magic
+              workflow where models replace ordinary software practice.
+            </p>
+            <p>
+              <strong>From comments:</strong> HN readers largely accepted the premise that useful
+              AI-assisted coding depends more on process than on raw model intelligence, and many
+              shared their own rituals for keeping agents bounded. The conversation kept circling
+              back to the same themes as the guide itself: start by making the model read, ask it to
+              show its reasoning in artifacts like plans or tests, and never confuse a fluent answer
+              with understanding. There was some disagreement over how much ceremony is worth the
+              overhead, but the thread mostly converged on a practical middle ground where agents
+              are valuable when they are forced into the same feedback loops disciplined humans
+              already rely on.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="https://github.com/robertcprice/nCPU" rel="noopener">
+                A CPU That Runs Entirely on GPU
+              </a>
+            </h3>
+            <p><strong>Rank:</strong> No. 14</p>
+            <p>
+              <strong>From link:</strong> The nCPU project is an experimental emulator that
+              implements an ARM64 CPU model on top of GPU compute, using machine-learning style
+              primitives and tensor execution to mimic processor behavior rather than simply
+              accelerate a conventional simulator. The repository positions it as a proof of concept,
+              but the interesting part is the inversion of expectations: instead of using the GPU as
+              a helper for isolated kernels, it treats the GPU as the substrate for the whole CPU
+              abstraction, complete with registers, memory operations, and instruction execution.
+              That makes the project read like a deliberately strange systems experiment about what
+              happens when you translate architectural semantics into a medium optimized for massively
+              parallel math.
+            </p>
+            <p>
+              <strong>From comments:</strong> HN commenters were amused first and analytical second,
+              which felt appropriate for a project that is obviously exploratory rather than
+              efficient. A few people joked about how many times slower a GPU-backed CPU ought to be
+              than a normal CPU, but the thread also surfaced real technical questions about
+              numerical precision, instruction semantics, Metal versus CUDA tradeoffs, and whether
+              the value here is education, art, or a stepping stone toward some more serious research
+              direction. The consensus was that nobody expects this to beat normal emulation, yet
+              many readers still found it compelling precisely because it tests architectural ideas
+              in an unusual computational medium.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="https://bahn.bet/" rel="noopener">
+                Bet on German Train Delays
+              </a>
+            </h3>
+            <p><strong>Rank:</strong> No. 19</p>
+            <p>
+              <strong>From link:</strong> bahn.bet is a compact prediction market built around a
+              very specific joke with real product structure: users pick a German train connection,
+              choose a delay threshold in minutes, buy yes or no shares, and let the crowd set the
+              implied probability for whether the train misses that target. The front page explains
+              the current pools, price ranges, and route-specific outcomes plainly enough that the
+              idea lands immediately, while the FAQ-style flow makes clear this is about turning
+              Deutsche Bahn unreliability into a tiny market game rather than pretending to be a
+              generic trading venue. As a product page it works because it is narrow, legible, and
+              fully committed to the absurdity of its premise.
+            </p>
+            <p>
+              <strong>From comments:</strong> HN loved the concept on sight, and the thread mostly
+              split between people laughing at how culturally precise the joke is and people
+              seriously debating whether the market could become a useful forecasting signal. Some
+              commenters compared it to Polymarket-style event pricing and wondered about
+              manipulation, thin liquidity, and payout mechanics, while others just appreciated that
+              the site picks one maddeningly familiar European transit problem and turns it into
+              something playfully measurable. The thread never lost the comic tone, but underneath
+              it there was real respect for how sharply scoped products can feel more alive than
+              broad platforms with grander ambitions.
+            </p>
+          </article>
         </section>
 
         <section id="calendar" class="content-module" data-module="calendar" tabindex="-1">
           <h2>Calendar</h2>
-          <p>Upcoming agenda entries, schedule summary, and next event details.</p>
+          <p>Upcoming holidays synced from the main dashboard.</p>
           <ul>
-            <li>Today: planning block</li>
-            <li>Tomorrow: build review</li>
-            <li>Upcoming: publish checkpoint</li>
+            <li>Tue, Mar 17: Saint Patrick's Day</li>
+            <li>Thu, Apr 2: Lent ends</li>
+            <li>Fri, Apr 3: Good Friday</li>
+            <li>Sun, Apr 5: Easter</li>
+            <li>Mon, Apr 6: Easter Monday</li>
           </ul>
         </section>
 
         <section id="find-me" class="content-module" data-module="findme" tabindex="-1">
           <h2>Find Me</h2>
-          <p>Contact channels and social destinations.</p>
+          <p>Live desk profile links from the main branch.</p>
           <ul>
-            <li><a href="#">Email</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            <li><a href="https://github.com/adam8" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/adamskyejones/" rel="noopener">LinkedIn</a></li>
           </ul>
         </section>
       </main>

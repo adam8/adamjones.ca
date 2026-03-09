@@ -631,6 +631,23 @@
   color: rgba(45, 45, 43, 0.72);
 }
 
+.hn-detail-panel details {
+  margin-top: 0.2rem;
+}
+
+.hn-detail-panel summary {
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(45, 45, 43, 0.82);
+}
+
+.hn-detail-panel details p {
+  margin-top: 0.28rem;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
 .panel-calendar {
   --panel-x: var(--calendar-panel-x);
   --panel-y: var(--calendar-panel-y);
