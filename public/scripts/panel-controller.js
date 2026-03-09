@@ -2,6 +2,7 @@
   var OPEN_CLASS_PREFIX = "is-open-";
   var HOVER_CLASS_PREFIX = "is-hovering-";
   var MODULE_IDS = ["sketch", "workbench", "todos", "news", "calendar", "findme"];
+  var lastDesktopTrigger = null;
 
   function getScene() {
     return document.querySelector(".machine-scene");
@@ -95,19 +96,25 @@
   }
 
   function focusPanel(panel) {
-    if (!panel || typeof panel.focus !== "function") {
+    focusElement(panel);
+  }
+
+  function focusElement(element) {
+    if (!element || typeof element.focus !== "function") {
       return;
     }
 
-    panel.focus({ preventScroll: true });
+    element.focus({ preventScroll: true });
   }
 
-  function isPanelOpen(panel) {
-    return Boolean(panel && !panel.hidden);
+  function shouldRestoreFocus(options) {
+    return Boolean(options && options.restoreFocus);
   }
 
-  function closeAllPanels() {
+  function closeAllPanels(options) {
     var scene = getScene();
+    var restoreFocus = shouldRestoreFocus(options);
+    var focusTarget = restoreFocus ? lastDesktopTrigger : null;
 
     getPanels().forEach(function (panel) {
       setPanelVisibility(panel, false);
@@ -119,6 +126,18 @@
 
     clearSceneModuleClasses(scene, OPEN_CLASS_PREFIX);
     updateActivePanel(null);
+
+    if (restoreFocus && focusTarget && document.contains(focusTarget)) {
+      focusElement(focusTarget);
+    }
+  }
+
+  function closeAllPanelsWithFocusRestore() {
+    closeAllPanels({ restoreFocus: true });
+  }
+
+  function isPanelOpen(panel) {
+    return Boolean(panel && !panel.hidden);
   }
 
   function openDesktopPanel(button) {
@@ -130,6 +149,7 @@
       return;
     }
 
+    lastDesktopTrigger = button;
     closeAllPanels();
     setPanelVisibility(panel, true);
     setButtonExpanded(button, true);
@@ -201,6 +221,7 @@
   window.panelController = {
     activateFromButton: activateFromButton,
     closeAllPanels: closeAllPanels,
+    closeAllPanelsWithFocusRestore: closeAllPanelsWithFocusRestore,
     setHoveredModule: setHoveredModule,
     clearHoveredModule: clearHoveredModule,
     applyMode: applyMode,

@@ -812,6 +812,7 @@
 
         <section id="workbench" class="content-module" data-module="workbench" tabindex="-1">
           <h2>Workbench</h2>
+          <!-- FOCUS_CARDS_SNAPSHOT_START -->
           <p>
             Primary focus: Calm execution. Finish the small things that keep bigger systems
             predictable.
@@ -819,6 +820,7 @@
           <p>
             Current mode: Shipping in compact steps with enough context to make each one stick.
           </p>
+          <!-- FOCUS_CARDS_SNAPSHOT_END -->
           <p>
             Upcoming: Saint Patrick's Day (Tue Mar 17), Lent ends (Thu Apr 2), Easter (Sun Apr 5).
           </p>
@@ -828,10 +830,36 @@
           <h2>To-Dos</h2>
           <p>Snapshot from the main dashboard todo list.</p>
           <ul>
-            <li>Make work bench panels flip problem/solution</li>
-            <li>Make columns resizable</li>
-            <li>Sketch of the day</li>
-            <li>control todo with MCP</li>
+            <!-- TODO_SNAPSHOT_START -->
+            <li class="todo-item" data-id="4be16a5d-6931-460e-898a-78dc98b7b9ac">
+              <label class="todo-label">
+                <input type="checkbox" checked />
+                <span>Make work bench panels flip problem/solution</span>
+              </label>
+              <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+            </li>
+            <li class="todo-item" data-id="99df2890-ff7d-418c-b95d-b1d167197496">
+              <label class="todo-label">
+                <input type="checkbox" />
+                <span>Make columns resizable</span>
+              </label>
+              <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+            </li>
+            <li class="todo-item" data-id="0bb4ee9a-6464-42ed-87cf-745c6f680e8b">
+              <label class="todo-label">
+                <input type="checkbox" checked />
+                <span>Sketch of the day</span>
+              </label>
+              <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+            </li>
+            <li class="todo-item" data-id="bb5e9437-f0fa-416e-8aff-54d26bfee6b2">
+              <label class="todo-label">
+                <input type="checkbox" />
+                <span>control todo with MCP</span>
+              </label>
+              <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+            </li>
+            <!-- TODO_SNAPSHOT_END -->
           </ul>
         </section>
 
@@ -1024,13 +1052,30 @@
         <section id="calendar" class="content-module" data-module="calendar" tabindex="-1">
           <h2>Calendar</h2>
           <p>Upcoming holidays synced from the main dashboard.</p>
-          <ul>
-            <li>Tue, Mar 17: Saint Patrick's Day</li>
-            <li>Thu, Apr 2: Lent ends</li>
-            <li>Fri, Apr 3: Good Friday</li>
-            <li>Sun, Apr 5: Easter</li>
-            <li>Mon, Apr 6: Easter Monday</li>
+          <!-- UPCOMING_HOLIDAYS_START -->
+          <ul class="holidays">
+            <li class="holiday-row">
+              <span class="holiday-date">Tue, Mar 17</span>
+              <span class="holiday-title">Saint Patrick’s Day</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Thu, Apr 2</span>
+              <span class="holiday-title">Lent ends</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Fri, Apr 3</span>
+              <span class="holiday-title">Good Friday</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Sun, Apr 5</span>
+              <span class="holiday-title">Easter</span>
+            </li>
+            <li class="holiday-row">
+              <span class="holiday-date">Mon, Apr 6</span>
+              <span class="holiday-title">Easter Monday</span>
+            </li>
           </ul>
+          <!-- UPCOMING_HOLIDAYS_END -->
         </section>
 
         <section id="find-me" class="content-module" data-module="findme" tabindex="-1">

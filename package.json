@@ -1,5 +1,13 @@
 {
+  "scripts": {
+    "check:js-syntax": "node scripts/check_js_syntax.mjs",
+    "check:structure": "node scripts/check_html_structure.mjs",
+    "release:check": "npm run check:js-syntax && npm run check:structure",
+    "test:smoke": "playwright test tests/smoke.spec.js",
+    "content:freeze": "python3 scripts/freeze_content.py"
+  },
   "devDependencies": {
+    "@playwright/test": "^1.56.0",
     "wrangler": "^4.65.0"
   }
 }

@@ -1,7 +1,6 @@
 (function () {
   var MOBILE_MODE_QUERY = "(max-width: 62rem)";
   var REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
-  var assetAvailabilityCache = {};
 
   function detectMode() {
     if (window.machineStateApi && typeof window.machineStateApi.getModeFromViewport === "function") {
@@ -98,49 +97,6 @@
     element.classList.toggle("asset-missing", !isReady);
   }
 
-  function cacheAssetAvailability(source, isAvailable) {
-    assetAvailabilityCache[source] = Boolean(isAvailable);
-    return assetAvailabilityCache[source];
-  }
-
-  function checkAssetAvailability(source) {
-    if (!source) {
-      return Promise.resolve(false);
-    }
-
-    if (Object.prototype.hasOwnProperty.call(assetAvailabilityCache, source)) {
-      return Promise.resolve(assetAvailabilityCache[source]);
-    }
-
-    if (typeof window.fetch !== "function") {
-      return Promise.resolve(cacheAssetAvailability(source, true));
-    }
-
-    return window
-      .fetch(source, { method: "HEAD", cache: "no-store" })
-      .then(function (response) {
-        if (response && response.ok) {
-          return cacheAssetAvailability(source, true);
-        }
-
-        if (response && (response.status === 405 || response.status === 501)) {
-          return window
-            .fetch(source, { method: "GET", cache: "no-store" })
-            .then(function (fallbackResponse) {
-              return cacheAssetAvailability(source, Boolean(fallbackResponse && fallbackResponse.ok));
-            })
-            .catch(function () {
-              return cacheAssetAvailability(source, false);
-            });
-        }
-
-        return cacheAssetAvailability(source, false);
-      })
-      .catch(function () {
-        return cacheAssetAvailability(source, false);
-      });
-  }
-
   function loadDecorativeAsset(container, source) {
     var image = getExistingDecorativeAsset(container);
 
@@ -220,24 +176,12 @@
         setAssetState(figure, false);
       }
 
-      checkAssetAvailability(source).then(function (isAvailable) {
-        if (!isAvailable) {
-          setAssetState(node, false);
+      if (node.tagName === "IMG") {
+        loadInlineAsset(node, source);
+        return;
+      }
 
-          if (figure) {
-            setAssetState(figure, false);
-          }
-
-          return;
-        }
-
-        if (node.tagName === "IMG") {
-          loadInlineAsset(node, source);
-          return;
-        }
-
-        loadDecorativeAsset(node, source);
-      });
+      loadDecorativeAsset(node, source);
     });
   }
 
@@ -329,8 +273,32 @@
     }
   }
 
-  function closeMobileDrawers() {
+  function focusElement(element) {
+    if (!element || typeof element.focus !== "function") {
+      return;
+    }
+
+    element.focus({ preventScroll: true });
+  }
+
+  function getMobileToggleForDrawerId(drawerId) {
+    if (!drawerId) {
+      return null;
+    }
+
+    return document.querySelector('.mobile-module-toggle[aria-controls="' + drawerId + '"]');
+  }
+
+  function closeMobileDrawers(options) {
+    var shouldRestoreFocus = Boolean(options && options.restoreFocus);
+    var focusTarget = null;
     var toggles = document.querySelectorAll(".mobile-module-toggle");
+
+    if (shouldRestoreFocus) {
+      focusTarget =
+        getMobileToggleForDrawerId(getActivePanel()) ||
+        document.querySelector('.mobile-module-toggle[aria-expanded="true"]');
+    }
 
     toggles.forEach(function (button) {
       var drawer = getMobileDrawerForButton(button);
@@ -340,6 +308,10 @@
 
       setMobileDrawerState(button, drawer, false);
     });
+
+    if (shouldRestoreFocus && focusTarget && document.contains(focusTarget)) {
+      focusElement(focusTarget);
+    }
   }
 
   function bindMobileStripModules() {
@@ -362,15 +334,21 @@
 
   function bindGlobalShortcuts() {
     document.addEventListener("keydown", function (event) {
+      var mode;
+
       if (event.key !== "Escape") {
         return;
       }
 
-      if (window.panelController) {
+      mode = detectMode();
+
+      if (mode === "desktop" && window.panelController) {
+        window.panelController.closeAllPanelsWithFocusRestore();
+      } else if (window.panelController) {
         window.panelController.closeAllPanels();
       }
 
-      closeMobileDrawers();
+      closeMobileDrawers({ restoreFocus: mode === "mobile" });
     });
   }
 
