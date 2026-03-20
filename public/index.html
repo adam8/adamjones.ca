@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Wed, Mar 18, 2026</span>
+          <span class="badge">Fri, Mar 20, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1228,26 +1228,26 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Mar 18 front page</span>
+            <span class="panel-meta">Mar 20 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47445599" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47452955" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://github.com/cockpit-project/cockpit" rel="noopener">Cockpit is a web-based graphical interface for servers</a>
+                  <a href="https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/" rel="noopener">Entso-E final report on Iberian 2025 blackout</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-running-session-channels.webp"
-                    alt="Worn journal spread with server dashboard sketches and terminal workflow notes"
+                    src="images/hacker-news/01-iberian-blackout-report.webp"
+                    alt="Worn journal spread with power-grid outage timeline and control-room notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The Cockpit repository README describes the project as an interactive server admin interface that runs directly from a real Linux session in the browser, with a workflow that keeps terminal and GUI operations in sync instead of forcing users into a separate management silo. The project positions itself as lightweight but practical, emphasizing everyday operations like storage, networking, logs, and container tasks, plus multi-host access over SSH so operators can hop between machines without abandoning native system tooling. Framed this way, Cockpit is less a replacement shell and more a web control plane layered on top of ordinary Linux administration.</p>
-                  <p><span class="hn-label">From comments</span>The thread focused on operational fit and scope boundaries, with users praising Cockpit for fast system visibility while debating where it falls short for container ecosystems such as Incus and more complex VM orchestration stacks. Several comments compared LXD and Incus divergence, then moved to a broader question of what “simple” means in infrastructure UIs, where one team’s minimal interface becomes another team’s missing feature list. Sentiment was positive but grounded, with a recurring theme that GUI convenience remains useful for inspection and triage, while serious scale still pushes teams toward automation and command-line workflows.</p>
+                  <p><span class="hn-label">From link</span>ENTSO-E’s final incident package on the April 28, 2025 Iberian blackout describes a multi-factor failure pattern rather than a single trigger, citing oscillations, reactive-power and voltage-control gaps, generator behavior under stress, and uneven stabilization capacity across the region. The report frames the event as a system-level coordination challenge and pairs the root-cause analysis with concrete recommendations on operational practice, monitoring, and cross-actor data exchange. It also emphasizes that the mitigations are deployable with current technology and that regulation and market mechanisms need to stay aligned with physical grid limits as Europe’s power mix evolves.</p>
+                  <p><span class="hn-label">From comments</span>HN discussion reflected that “many small weaknesses aligned” framing: people with lived blackout experience described chaos and rumor dynamics, while others argued the absence of a single culprit actually increases trust in the report’s technical honesty. Several comments compared the outage to other complex-system failures and focused on accountability tradeoffs, noting that multifactor explanations can be either a useful systems diagnosis or a way to diffuse responsibility. Overall sentiment was thoughtful and less partisan than usual, with most commenters treating resilience engineering as the core takeaway.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -1256,21 +1256,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 9 · <a href="https://news.ycombinator.com/item?id=47441546" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47407293" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://github.com/KittenML/KittenTTS" rel="noopener">Show HN: Three new Kitten TTS models</a>
+                  <a href="https://www.khronos.org/blog/video-encoding-and-decoding-with-vulkan-compute-shaders-in-ffmpeg" rel="noopener">Video Encoding and Decoding with Vulkan Compute Shaders in FFmpeg</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-cockpit-server-interface.webp"
-                    alt="Worn journal spread with tiny speech model and waveform sketches"
+                    src="images/hacker-news/02-vulkan-ffmpeg-compute.webp"
+                    alt="Worn journal spread with GPU video pipeline and codec diagrams"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The Show HN launch post introduces three new open-source KittenTTS models at 80M, 40M, and 14M parameters, with the smallest variant highlighted as under 25MB while still targeting strong expressive quality for its size class. The authors position the release as on-device-first TTS: quantized runtimes, ONNX support, and practical deployment on low-power hardware such as Raspberry Pi, phones, browsers, and wearables without requiring a GPU. The larger claim is strategic rather than cosmetic, arguing that tiny production-ready voice models are the missing piece for local voice agents and that this release narrows the quality gap between cloud and edge inference.</p>
-                  <p><span class="hn-label">From comments</span>Discussion centered on implementation friction rather than model hype, with early users sharing wrappers, install scripts, and dependency pitfalls such as unexpectedly large CUDA pulls and missing local audio libraries. Commenters compared packaging paths, documented quick fixes, and treated the thread like a deployment troubleshooting board for real machines rather than a benchmark debate. The tone was constructive and hands-on, with strongest interest in whether the project can sustain a genuinely lightweight install experience across heterogeneous devices while preserving the headline expressivity gains.</p>
+                  <p><span class="hn-label">From link</span>The Khronos guest post explains how FFmpeg is now using Vulkan compute shaders to accelerate codec workloads that sit outside fixed-function hardware video paths, especially in professional pipelines where 8K/high-bit-depth media, archival formats, and large intermediate frames still hit performance ceilings. The author outlines why earlier CPU/GPU hybrid approaches often failed due to transfer latency, then argues for fully GPU-resident compute pipelines that avoid repeated handoffs and can exploit modern parallelism at frame, slice, and block levels. The piece positions this as a practical extension to Vulkan Video: fixed-function blocks where available, compute paths where flexibility or format coverage matters more.</p>
+                  <p><span class="hn-label">From comments</span>The comment thread was small but practical, centered on reliability rather than raw throughput: the main concern was corrupted streams and hardware decoder edge cases that can fail badly or require hard resets in real-world players. The commenter argued for conservative shader design, easy fallback-to-software controls, and explicit UX pathways so users can recover when hardware decode paths misbehave. That feedback complements the post by highlighting operational robustness as the gating factor for adoption, not just benchmark wins.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -1279,21 +1279,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 13 · <a href="https://news.ycombinator.com/item?id=47437655" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47409055" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://daringfireball.net/2026/03/your_frustration_is_the_product" rel="noopener">Your frustration is the product</a>
+                  <a href="https://arxiv.org/abs/2603.09229" rel="noopener">Flash-KMeans: Fast and Memory-Efficient Exact K-Means</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-kitten-tts-models.webp"
-                    alt="Worn journal spread with ad-cluttered webpage wireframes and frustrated notes"
+                    src="images/hacker-news/03-flash-kmeans-paper.webp"
+                    alt="Worn journal spread with clustering diagrams and GPU kernel notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>John Gruber’s post amplifies Shubham Bose’s analysis of ad-heavy news pages by framing the modern web experience as deliberately optimized for extraction, not readability, where latency, pop-ups, and tracking density become the business model rather than incidental defects. The piece cites concrete symptoms such as extremely high request counts and massive payload sizes for basic article pages, then argues that even quality publishers now ship layouts that would be unacceptable in any print-equivalent editorial context. Its key argument is that user frustration is not a temporary implementation bug but an economically reinforced product outcome.</p>
-                  <p><span class="hn-label">From comments</span>Commenters responded with direct industry anecdotes, including teams that had effectively lost control of their own ad stacks and resorted to server-side ad blocking just to stabilize publisher experiences. The thread also covered failed and partial alternatives to ad-funded media, with debate around bundle models like Apple News+ and whether those systems improve economics while still degrading UX through low-quality placements and cluttered interfaces. Overall sentiment mixed resignation with clarity: participants largely agreed the problem is systemic incentive design, not a simple matter of frontend craftsmanship.</p>
+                  <p><span class="hn-label">From link</span>The paper reframes exact k-means as a real-time systems primitive and focuses on low-level GPU bottlenecks that dominate production usage, especially HBM pressure from materializing the full N×K distance matrix and update-stage contention from irregular atomics. Flash-KMeans proposes two kernel-level ideas, FlashAssign and sort-inverse update, to avoid distance-matrix materialization and convert scattered writes into localized reductions, then layers in overlap and cache-aware heuristics for deployment. Reported H200 results claim large speedups versus existing baselines and substantial gains over cuML and FAISS, making this less about algorithm novelty and more about implementation architecture for modern accelerators.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters focused on transferability: they asked whether the gains apply to CPU-centric workflows and discussed how the targeted bottlenecks differ between CPU and GPU implementations. Replies noted that CPU approaches often exploit search-tree or pruning strategies at larger K, while this work attacks GPU-specific IO and contention limits, so direct CPU benefit is not obvious. The thread stayed technical and concise, with most reactions framing the paper as “flash-attention-style systems thinking” applied to clustering.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1302,21 +1302,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 20 · <a href="https://news.ycombinator.com/item?id=47445246" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 8 · <a href="https://news.ycombinator.com/item?id=47413879" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://waymo.com/safety/impact/" rel="noopener">Waymo Safety Impact</a>
+                  <a href="https://ayosec.github.io/ffmpeg-drawvg/" rel="noopener">Drawvg Filter for FFmpeg</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-cpu-branch-prediction.webp"
-                    alt="Worn journal spread with autonomous vehicle safety charts and route annotations"
+                    src="images/hacker-news/04-drawvg-ffmpeg-overlay.webp"
+                    alt="Worn journal spread with vector paths and video frame overlays"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Waymo’s safety hub presents a metrics-heavy case that its autonomous fleet shows substantially lower severe-outcome crash rates than human-driver benchmarks in its operating domains, with highlighted reductions for serious injuries, airbag deployments, and injury-causing incidents including vulnerable road users. The page also spends significant space on methodology and comparability limits, discussing underreporting in human crash datasets, mandatory ADS reporting thresholds, and why vehicle-level rates may be preferable to person-level rates for mixed-traffic analysis. As published, the report is both a performance claim and a framing document for how AV safety evidence should be interpreted.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread blended anecdotal confidence with critique: supporters described near-miss scenarios where robot response appeared faster or more consistent than human driving, while skeptics questioned generalization, edge-case handling, and whether operational design domains are broad enough for headline conclusions. Side discussions moved into practical rider experience and platform behavior, but the core debate stayed on statistical trust, asking how much confidence to place in vendor-curated datasets versus independent longitudinal evidence. The conversation was engaged and polarized but not dismissive, with many commenters accepting partial safety gains while still demanding stronger external validation.</p>
+                  <p><span class="hn-label">From link</span>The DrawVG documentation presents a new FFmpeg filter that renders 2D vector graphics directly over frames using a compact VGS scripting language and Cairo rasterization, with syntax influenced by SVG paths, PostScript, and shell-like command ergonomics. It emphasizes practical compositing workflows: scripts can be dynamic through FFmpeg expressions, can react to frame metadata, and are designed for concise overlays rather than general-purpose graphics programming. In practice, this adds an in-pipeline vector layer that is easier to automate and version than external editing steps when producing technical or annotation-heavy video assets.</p>
+                  <p><span class="hn-label">From comments</span>The comment thread was highly usage-driven, with people sharing concrete commands and describing why they rebuilt FFmpeg early just to use DrawVG for real editing annoyances like masking talking-head overlays in tutorial videos. Discussion compared DrawVG to older filters like `drawbox`, with consensus that vector primitives matter when overlays are circular or irregular instead of rectangular. The tone was enthusiastic and hands-on, with most value coming from operational tips rather than abstract debate.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1325,21 +1325,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 23 · <a href="https://news.ycombinator.com/item?id=47444460" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 11 · <a href="https://news.ycombinator.com/item?id=47448994" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.mattkeeter.com/blog/2022-08-11-udp/" rel="noopener">From Oscilloscope to Wireshark: A UDP Story</a>
+                  <a href="https://trustedsec.com/blog/full-disclosure-a-third-and-fourth-azure-sign-in-log-bypass-found" rel="noopener">Full Disclosure: A Third (and Fourth) Azure Sign-In Log Bypass Found</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-frustration-product-web.webp"
-                    alt="Worn journal spread with oscilloscope traces decoded into UDP packet diagrams"
+                    src="images/hacker-news/05-azure-signin-bypass.webp"
+                    alt="Worn journal spread with identity tokens, alert logs, and incident notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Matt Keeter’s write-up walks from raw analog captures on high-speed PCB links to decoded UDP packets, showing each translation layer from sampled waveforms through protocol reconstruction to Wireshark-level interpretation. The post emphasizes practical measurement choices, including sample windows sized to expected packet frequency, and demonstrates how binary waveform exports can be parsed and analyzed programmatically with lightweight tooling. Rather than a generic networking tutorial, it reads as an end-to-end reverse-engineering narrative that connects hardware instrumentation discipline to software protocol visibility.</p>
-                  <p><span class="hn-label">From comments</span>The comment thread concentrated on instrumentation details, especially whether the cited sampling rates were realistic and how equivalent-time sampling can produce effective temporal resolution beyond per-channel real-time limits. Multiple replies supplied concrete oscilloscope model comparisons and references to vendor documentation to reconcile seemingly extreme numbers in the article. With only a small number of comments, the discussion stayed tightly technical and collaborative, focusing on measurement semantics instead of broader debate.</p>
+                  <p><span class="hn-label">From link</span>The TrustedSec write-up details two newly found Azure Entra ID sign-in log bypass paths that reportedly allowed acquisition of valid tokens while skipping the sign-in telemetry defenders typically rely on, extending earlier “password validation without logs” findings into higher-impact territory. Beyond exploit narrative, the post provides detection guidance by correlating Graph activity session IDs against sign-in logs to spot sessions with activity but no matching authentication trail. The author frames this as a recurring class of control-plane observability failure and argues defenders should assume logging blind spots can recur even after point fixes.</p>
+                  <p><span class="hn-label">From comments</span>HN comments quickly widened from the specific bypass details to broader institutional trust in cloud security operations, with people citing prior government and regulator reports and debating whether vendor self-reporting and oversight are keeping up with systemic dependency. The discussion mixed frustration and pragmatism: while many treated the findings as another warning sign about central identity infrastructure fragility, others focused on practical mitigations and incident-detection hygiene. Overall mood was sharp and skeptical, with high concern about operational blast radius when identity logging fails silently.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1348,21 +1348,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 30 · <a href="https://news.ycombinator.com/item?id=47442834" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 12 · <a href="https://news.ycombinator.com/item?id=47420950" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.openttd.org/news/2026/03/19/steam-changes-update" rel="noopener">An update on Steam / GOG changes for OpenTTD</a>
+                  <a href="https://www.keithcirkel.co.uk/too-much-color/" rel="noopener">Too Much Color</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-waymo-safety-impact.webp"
-                    alt="Worn journal spread with retro game preservation and platform access diagrams"
+                    src="images/hacker-news/06-css-color-precision.webp"
+                    alt="Worn journal spread with color swatches and CSS notation sketches"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The OpenTTD team’s update explains that Atari’s Transport Tycoon Deluxe re-release prompted a negotiated platform compromise on Steam and GOG: new users may face store conditions tied to TTD purchase, while OpenTTD remains freely downloadable from the project website and the project itself remains independent. The post rejects rumors of coercion, describes the decision as balancing rights-holder commercial interests with long-term project availability, and notes that Atari also agreed to contribute to infrastructure costs. The article’s framing is continuity and coexistence, not retreat, emphasizing preservation lineage while trying to reduce community friction.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters treated this as a rare case of constructive IP coordination, though discussion quickly expanded into copyright scope, reverse-engineering legality, platform dependency, and the cultural difference between respecting original creators and distrusting rent-seeking IP ownership models. Many praised the compromise as pragmatic compared to typical takedown-heavy outcomes, while others argued that long copyright terms and store centralization still distort what “access” means for open-source game communities. The thread was energetic and mostly substantive, with legal citations, historical framing, and practical distribution concerns all in play.</p>
+                  <p><span class="hn-label">From link</span>This essay argues that most CSS color values are over-specified in day-to-day code and that three decimal places are usually enough even for modern spaces like OKLCH/OKLab, with little or no perceptual loss for human observers. It grounds the claim in just-noticeable-difference thinking and practical minifier behavior, then extends the recommendation into broader authoring advice: let tooling normalize precision where possible, and reserve extra digits for exceptional edge cases. The core point is not aesthetic minimalism but better signal-to-noise in front-end code and output size without harming visible fidelity.</p>
+                  <p><span class="hn-label">From comments</span>Comment discussion centered on perception boundaries and hardware realities, especially around tetrachromacy edge cases, monitor quality variance, and people sharing their own JND game scores from the linked test. Several replies challenged or refined assumptions about what displays can represent versus what eyes can discriminate, turning the thread into a blend of color science, accessibility, and practical calibration advice. The overall tone was curious and empirical, with little ideological pushback against the article’s “round aggressively” default.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1468,7 +1468,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Wed, Mar 18, 2026 · 7:39 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Fri, Mar 20, 2026 · 7:06 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
