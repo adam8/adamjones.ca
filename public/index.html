@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Fri, Mar 20, 2026</span>
+          <span class="badge">Sat, Mar 21, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1228,26 +1228,26 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Mar 20 front page</span>
+            <span class="panel-meta">Mar 21 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47452955" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47460525" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/" rel="noopener">Entso-E final report on Iberian 2025 blackout</a>
+                  <a href="https://opencode.ai/" rel="noopener">OpenCode - Open source AI coding agent</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-iberian-blackout-report.webp"
-                    alt="Worn journal spread with power-grid outage timeline and control-room notes"
+                    src="images/hacker-news/01-opencode-ai-agent.webp"
+                    alt="Worn journal spread with terminal UI sketches and AI agent architecture notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>ENTSO-E’s final incident package on the April 28, 2025 Iberian blackout describes a multi-factor failure pattern rather than a single trigger, citing oscillations, reactive-power and voltage-control gaps, generator behavior under stress, and uneven stabilization capacity across the region. The report frames the event as a system-level coordination challenge and pairs the root-cause analysis with concrete recommendations on operational practice, monitoring, and cross-actor data exchange. It also emphasizes that the mitigations are deployable with current technology and that regulation and market mechanisms need to stay aligned with physical grid limits as Europe’s power mix evolves.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion reflected that “many small weaknesses aligned” framing: people with lived blackout experience described chaos and rumor dynamics, while others argued the absence of a single culprit actually increases trust in the report’s technical honesty. Several comments compared the outage to other complex-system failures and focused on accountability tradeoffs, noting that multifactor explanations can be either a useful systems diagnosis or a way to diffuse responsibility. Overall sentiment was thoughtful and less partisan than usual, with most commenters treating resilience engineering as the core takeaway.</p>
+                  <p><span class="hn-label">From link</span>OpenCode positions itself as a multi-surface, open source coding agent available in terminal, desktop, and editor integrations, with a strong emphasis on model portability and practical workflows rather than a single locked-in provider path. The landing page highlights broad provider compatibility, built-in LSP integration, multi-session support, and sharing/debug tools, while also leaning heavily on adoption metrics and privacy-first framing for teams that need tighter control over code context. In effect, the product pitch is less about one killer feature and more about consolidating daily agentic coding operations into a coherent, developer-native interface stack.</p>
+                  <p><span class="hn-label">From comments</span>The HN thread is large and opinionated, but the dominant themes are implementation quality and operational trust: commenters debated performance and memory usage versus competing coding agents, called out rapid release cadence and UX churn, and dug into security/privacy defaults for model selection and remote behaviors. Several subthreads moved from tool taste into engineering tradeoffs, including alternate-screen behavior, language/runtime choices, and whether "fast feel" is more important than feature breadth. Overall sentiment was engaged but skeptical, with many people interested in the project while still pushing for stronger reliability and safer defaults.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -1256,21 +1256,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47407293" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47419391" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.khronos.org/blog/video-encoding-and-decoding-with-vulkan-compute-shaders-in-ffmpeg" rel="noopener">Video Encoding and Decoding with Vulkan Compute Shaders in FFmpeg</a>
+                  <a href="https://www.together.ai/blog/mamba-3" rel="noopener">Mamba-3</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-vulkan-ffmpeg-compute.webp"
-                    alt="Worn journal spread with GPU video pipeline and codec diagrams"
+                    src="images/hacker-news/02-mamba-3-ssm.webp"
+                    alt="Worn journal spread with state-space model diagrams and latency benchmark notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The Khronos guest post explains how FFmpeg is now using Vulkan compute shaders to accelerate codec workloads that sit outside fixed-function hardware video paths, especially in professional pipelines where 8K/high-bit-depth media, archival formats, and large intermediate frames still hit performance ceilings. The author outlines why earlier CPU/GPU hybrid approaches often failed due to transfer latency, then argues for fully GPU-resident compute pipelines that avoid repeated handoffs and can exploit modern parallelism at frame, slice, and block levels. The piece positions this as a practical extension to Vulkan Video: fixed-function blocks where available, compute paths where flexibility or format coverage matters more.</p>
-                  <p><span class="hn-label">From comments</span>The comment thread was small but practical, centered on reliability rather than raw throughput: the main concern was corrupted streams and hardware decoder edge cases that can fail badly or require hard resets in real-world players. The commenter argued for conservative shader design, easy fallback-to-software controls, and explicit UX pathways so users can recover when hardware decode paths misbehave. That feedback complements the post by highlighting operational robustness as the gating factor for adoption, not just benchmark wins.</p>
+                  <p><span class="hn-label">From link</span>Together AI's write-up presents Mamba-3 as an inference-efficiency-focused state-space model update that changes both recurrence behavior and architecture details while keeping practical deployment constraints in view. The post claims stronger prefill+decode latency at the 1.5B scale than prior Mamba variants and selected baselines, adds a MIMO variant intended to improve accuracy without materially hurting decode speed, and open-sources kernel implementations across Triton, TileLang, and CuTe-based paths. The broader argument is that careful systems design around memory and runtime bottlenecks can shift real-world serving performance even when model-family comparisons remain nuanced.</p>
+                  <p><span class="hn-label">From comments</span>Commenters split between excitement and skepticism, with active debate about whether the blog's inference claims hold under production batching conditions and how compute-vs-bandwidth tradeoffs change once providers multiplex many requests per GPU. Another recurring thread clarified terminology, where people distinguished architecture choices from training objectives and pushed back on jargon-heavy framing in the tl;dr. The overall discussion stayed technical and implementation-oriented, with most feedback focused on serving economics and benchmark interpretation rather than model hype.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -1279,21 +1279,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47409055" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 17 · <a href="https://news.ycombinator.com/item?id=47416543" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://arxiv.org/abs/2603.09229" rel="noopener">Flash-KMeans: Fast and Memory-Efficient Exact K-Means</a>
+                  <a href="https://practical.engineering/blog/2026/3/17/the-los-angeles-aqueduct-is-wild" rel="noopener">The Los Angeles Aqueduct Is Wild</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-flash-kmeans-paper.webp"
-                    alt="Worn journal spread with clustering diagrams and GPU kernel notes"
+                    src="images/hacker-news/03-los-angeles-aqueduct.webp"
+                    alt="Worn journal spread with aqueduct cross-sections and water-routing maps"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The paper reframes exact k-means as a real-time systems primitive and focuses on low-level GPU bottlenecks that dominate production usage, especially HBM pressure from materializing the full N×K distance matrix and update-stage contention from irregular atomics. Flash-KMeans proposes two kernel-level ideas, FlashAssign and sort-inverse update, to avoid distance-matrix materialization and convert scattered writes into localized reductions, then layers in overlap and cache-aware heuristics for deployment. Reported H200 results claim large speedups versus existing baselines and substantial gains over cuML and FAISS, making this less about algorithm novelty and more about implementation architecture for modern accelerators.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters focused on transferability: they asked whether the gains apply to CPU-centric workflows and discussed how the targeted bottlenecks differ between CPU and GPU implementations. Replies noted that CPU approaches often exploit search-tree or pruning strategies at larger K, while this work attacks GPU-specific IO and contention limits, so direct CPU benefit is not obvious. The thread stayed technical and concise, with most reactions framing the paper as “flash-attention-style systems thinking” applied to clustering.</p>
+                  <p><span class="hn-label">From link</span>The Practical Engineering article traces the Los Angeles Aqueduct as both an exceptional gravity-fed infrastructure system and a century-long case study in political and ecological externalities. It walks through the full route and hardware choices, from diversion structures and lined versus unlined channels to inverted siphons, tunnels, reservoirs, and hydropower integration, while explaining why each segment reflects tradeoffs in terrain, reliability, and cost. At the same time, it foregrounds Owens Valley, Mono Basin, dust impacts, and water-rights conflict, framing the aqueduct as technically brilliant but socially and environmentally expensive.</p>
+                  <p><span class="hn-label">From comments</span>HN discussion focused on California water politics more than the mechanics, with people debating NorCal vs SoCal narratives, agricultural consumption, and how much urban conservation actually matters relative to farming demand. Commenters also revisited the Owens Valley and Mono Lake legacy, including claims about long-tail environmental harm and recurring legal intervention to constrain diversions. The tone was historically aware and contentious, with consensus mostly limited to one point: water governance in the western U.S. remains a systems-level policy problem, not just an engineering one.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1302,23 +1302,46 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 8 · <a href="https://news.ycombinator.com/item?id=47413879" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 25 · <a href="https://news.ycombinator.com/item?id=47410871" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://ayosec.github.io/ffmpeg-drawvg/" rel="noopener">Drawvg Filter for FFmpeg</a>
+                  <a href="https://zserge.com/posts/visicalc/" rel="noopener">VisiCalc Reconstructed</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-drawvg-ffmpeg-overlay.webp"
-                    alt="Worn journal spread with vector paths and video frame overlays"
+                    src="images/hacker-news/04-visicalc-reconstructed.webp"
+                    alt="Worn journal spread with spreadsheet grids, parser notes, and memory sketches"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The DrawVG documentation presents a new FFmpeg filter that renders 2D vector graphics directly over frames using a compact VGS scripting language and Cairo rasterization, with syntax influenced by SVG paths, PostScript, and shell-like command ergonomics. It emphasizes practical compositing workflows: scripts can be dynamic through FFmpeg expressions, can react to frame metadata, and are designed for concise overlays rather than general-purpose graphics programming. In practice, this adds an in-pipeline vector layer that is easier to automate and version than external editing steps when producing technical or annotation-heavy video assets.</p>
-                  <p><span class="hn-label">From comments</span>The comment thread was highly usage-driven, with people sharing concrete commands and describing why they rebuilt FFmpeg early just to use DrawVG for real editing annoyances like masking talking-head overlays in tutorial videos. Discussion compared DrawVG to older filters like `drawbox`, with consensus that vector primitives matter when overlays are circular or irregular instead of rectangular. The tone was enthusiastic and hands-on, with most value coming from operational tips rather than abstract debate.</p>
+                  <p><span class="hn-label">From link</span>The VisiCalc reconstruction piece rebuilds core spreadsheet behavior in C while intentionally preserving tight constraints and implementation simplicity, using it to explain why early spreadsheet design had to balance parser expressiveness, recomputation strategy, and memory layout discipline. Rather than chasing a full modern clone, the post uses compact code to expose the shape of formula parsing, cell storage, evaluation order, and error handling under limited resources. That makes the article effective as both a historical reverse-engineering exercise and a contemporary reminder that seemingly basic interaction models often hide large state-machine complexity.</p>
+                  <p><span class="hn-label">From comments</span>Comments quickly became a practical deep dive into spreadsheet engine architecture, including dependency graphs, recalculation correctness, cycle handling, and comparisons to build-system semantics. A notable branch discussed bidirectional or backward-solving spreadsheets and whether those approaches are tractable outside constrained use cases, with references to constraint solving and operations research. Another thread dug into Apple II memory management details and historical implementation notes, so the overall feedback was more about engineering mechanics than nostalgia.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
+                  <span class="more">More</span>
+                  <span class="less">Less</span>
+                </label>
+              </article>
+
+              <article class="hn-card">
+                <p class="hn-kicker">No. 29 · <a href="https://news.ycombinator.com/item?id=47452955" rel="noopener">HN</a></p>
+                <h3 class="hn-title">
+                  <a href="https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/" rel="noopener">Entso-E final report on Iberian 2025 blackout</a>
+                </h3>
+                <input class="hn-toggle" type="checkbox" id="hn-more-5" />
+                <div class="hn-story" id="hn-story-5">
+                  <img
+                    class="hn-image"
+                    src="images/hacker-news/05-entsoe-iberian-blackout.webp"
+                    alt="Worn journal spread with power-grid outage timeline and control-room notes"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p><span class="hn-label">From link</span>ENTSO-E’s final incident package on the April 28, 2025 Iberian blackout describes a multi-factor failure pattern rather than a single trigger, citing oscillations, reactive-power and voltage-control gaps, generator behavior under stress, and uneven stabilization capacity across the region. The report frames the event as a system-level coordination challenge and pairs the root-cause analysis with concrete recommendations on operational practice, monitoring, and cross-actor data exchange. It also emphasizes that the mitigations are deployable with current technology and that regulation and market mechanisms need to stay aligned with physical grid limits as Europe’s power mix evolves.</p>
+                  <p><span class="hn-label">From comments</span>HN discussion reflected that "many small weaknesses aligned" framing: people with lived blackout experience described chaos and rumor dynamics, while others argued the absence of a single culprit actually increases trust in the report’s technical honesty. Several comments compared the outage to other complex-system failures and focused on accountability tradeoffs, noting that multifactor explanations can be either a useful systems diagnosis or a way to diffuse responsibility. Overall sentiment was thoughtful and less partisan than usual, with most commenters treating resilience engineering as the core takeaway.</p>
+                </div>
+                <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
                   <span class="less">Less</span>
                 </label>
@@ -1329,40 +1352,17 @@
                 <h3 class="hn-title">
                   <a href="https://trustedsec.com/blog/full-disclosure-a-third-and-fourth-azure-sign-in-log-bypass-found" rel="noopener">Full Disclosure: A Third (and Fourth) Azure Sign-In Log Bypass Found</a>
                 </h3>
-                <input class="hn-toggle" type="checkbox" id="hn-more-5" />
-                <div class="hn-story" id="hn-story-5">
-                  <img
-                    class="hn-image"
-                    src="images/hacker-news/05-azure-signin-bypass.webp"
-                    alt="Worn journal spread with identity tokens, alert logs, and incident notes"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p><span class="hn-label">From link</span>The TrustedSec write-up details two newly found Azure Entra ID sign-in log bypass paths that reportedly allowed acquisition of valid tokens while skipping the sign-in telemetry defenders typically rely on, extending earlier “password validation without logs” findings into higher-impact territory. Beyond exploit narrative, the post provides detection guidance by correlating Graph activity session IDs against sign-in logs to spot sessions with activity but no matching authentication trail. The author frames this as a recurring class of control-plane observability failure and argues defenders should assume logging blind spots can recur even after point fixes.</p>
-                  <p><span class="hn-label">From comments</span>HN comments quickly widened from the specific bypass details to broader institutional trust in cloud security operations, with people citing prior government and regulator reports and debating whether vendor self-reporting and oversight are keeping up with systemic dependency. The discussion mixed frustration and pragmatism: while many treated the findings as another warning sign about central identity infrastructure fragility, others focused on practical mitigations and incident-detection hygiene. Overall mood was sharp and skeptical, with high concern about operational blast radius when identity logging fails silently.</p>
-                </div>
-                <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
-                  <span class="more">More</span>
-                  <span class="less">Less</span>
-                </label>
-              </article>
-
-              <article class="hn-card">
-                <p class="hn-kicker">No. 12 · <a href="https://news.ycombinator.com/item?id=47420950" rel="noopener">HN</a></p>
-                <h3 class="hn-title">
-                  <a href="https://www.keithcirkel.co.uk/too-much-color/" rel="noopener">Too Much Color</a>
-                </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-css-color-precision.webp"
-                    alt="Worn journal spread with color swatches and CSS notation sketches"
+                    src="images/hacker-news/06-azure-signin-bypass.webp"
+                    alt="Worn journal spread with identity tokens, alert logs, and incident notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>This essay argues that most CSS color values are over-specified in day-to-day code and that three decimal places are usually enough even for modern spaces like OKLCH/OKLab, with little or no perceptual loss for human observers. It grounds the claim in just-noticeable-difference thinking and practical minifier behavior, then extends the recommendation into broader authoring advice: let tooling normalize precision where possible, and reserve extra digits for exceptional edge cases. The core point is not aesthetic minimalism but better signal-to-noise in front-end code and output size without harming visible fidelity.</p>
-                  <p><span class="hn-label">From comments</span>Comment discussion centered on perception boundaries and hardware realities, especially around tetrachromacy edge cases, monitor quality variance, and people sharing their own JND game scores from the linked test. Several replies challenged or refined assumptions about what displays can represent versus what eyes can discriminate, turning the thread into a blend of color science, accessibility, and practical calibration advice. The overall tone was curious and empirical, with little ideological pushback against the article’s “round aggressively” default.</p>
+                  <p><span class="hn-label">From link</span>The TrustedSec write-up details two newly found Azure Entra ID sign-in log bypass paths that reportedly allowed acquisition of valid tokens while skipping the sign-in telemetry defenders typically rely on, extending earlier "password validation without logs" findings into higher-impact territory. Beyond exploit narrative, the post provides detection guidance by correlating Graph activity session IDs against sign-in logs to spot sessions with activity but no matching authentication trail. The author frames this as a recurring class of control-plane observability failure and argues defenders should assume logging blind spots can recur even after point fixes.</p>
+                  <p><span class="hn-label">From comments</span>HN comments quickly widened from the specific bypass details to broader institutional trust in cloud security operations, with people citing prior government and regulator reports and debating whether vendor self-reporting and oversight are keeping up with systemic dependency. The discussion mixed frustration and pragmatism: while many treated the findings as another warning sign about central identity infrastructure fragility, others focused on practical mitigations and incident-detection hygiene. Overall mood was sharp and skeptical, with high concern about operational blast radius when identity logging fails silently.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1468,7 +1468,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Fri, Mar 20, 2026 · 7:06 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Mar 21, 2026 · 7:06 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
