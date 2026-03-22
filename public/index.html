@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Sat, Mar 21, 2026</span>
+          <span class="badge">Sun, Mar 22, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1228,26 +1228,26 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Mar 21 front page</span>
+            <span class="panel-meta">Mar 22 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47460525" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47476422" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://opencode.ai/" rel="noopener">OpenCode - Open source AI coding agent</a>
+                  <a href="https://github.com/danveloper/flash-moe" rel="noopener">Flash-Moe: Running a 397B Parameter Model on a Mac with 48GB RAM</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-opencode-ai-agent.webp"
-                    alt="Worn journal spread with terminal UI sketches and AI agent architecture notes"
+                    src="images/hacker-news/01-flash-moe-mac-397b.webp"
+                    alt="Worn journal spread with Metal kernels, SSD stream notes, and MoE routing diagrams"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>OpenCode positions itself as a multi-surface, open source coding agent available in terminal, desktop, and editor integrations, with a strong emphasis on model portability and practical workflows rather than a single locked-in provider path. The landing page highlights broad provider compatibility, built-in LSP integration, multi-session support, and sharing/debug tools, while also leaning heavily on adoption metrics and privacy-first framing for teams that need tighter control over code context. In effect, the product pitch is less about one killer feature and more about consolidating daily agentic coding operations into a coherent, developer-native interface stack.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread is large and opinionated, but the dominant themes are implementation quality and operational trust: commenters debated performance and memory usage versus competing coding agents, called out rapid release cadence and UX churn, and dug into security/privacy defaults for model selection and remote behaviors. Several subthreads moved from tool taste into engineering tradeoffs, including alternate-screen behavior, language/runtime choices, and whether "fast feel" is more important than feature breadth. Overall sentiment was engaged but skeptical, with many people interested in the project while still pushing for stronger reliability and safer defaults.</p>
+                  <p><span class="hn-label">From link</span>The repository describes a C and Objective-C Metal inference engine that runs a 397B-parameter Qwen MoE model on a MacBook Pro by streaming 209GB of expert weights from SSD, reporting around 4.4 tokens per second in a 4-bit configuration while preserving tool-calling quality. The write-up emphasizes systems choices more than model novelty: fused FMA dequant kernels, deferred GPU command scheduling, Accelerate BLAS for linear-attention recurrence, and a deliberate "trust the OS" strategy that relies on page-cache behavior instead of a custom expert cache. It frames the result as a bandwidth orchestration problem on unified memory hardware, with SSD I/O and GPU kernels tuned as one pipeline rather than as isolated optimizations.</p>
+                  <p><span class="hn-label">From comments</span>HN discussion centered on whether the headline throughput and SSD figures hold under realistic workloads, with commenters debating burst bandwidth versus sustained averages, expert-switch behavior, and the practical ceiling for long interactive sessions. The most active threads split between admiration for the engineering and caution about user expectations, especially around 4-bit quality tradeoffs and how useful 4-6 tokens per second feels in day-to-day use. There was also recurring back-and-forth on storage durability and architecture assumptions, but the dominant tone stayed technical and respectful, with people digging into implementation details rather than dismissing the project.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -1256,21 +1256,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47419391" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47427224" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.together.ai/blog/mamba-3" rel="noopener">Mamba-3</a>
+                  <a href="https://www.john-rush.com/posts/eggs-25-years-20260219.html" rel="noopener">25 Years of Eggs</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-mamba-3-ssm.webp"
-                    alt="Worn journal spread with state-space model diagrams and latency benchmark notes"
+                    src="images/hacker-news/02-25-years-eggs.webp"
+                    alt="Worn journal spread with receipt clippings, OCR boxes, and a long-run egg-price timeline"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Together AI's write-up presents Mamba-3 as an inference-efficiency-focused state-space model update that changes both recurrence behavior and architecture details while keeping practical deployment constraints in view. The post claims stronger prefill+decode latency at the 1.5B scale than prior Mamba variants and selected baselines, adds a MIMO variant intended to improve accuracy without materially hurting decode speed, and open-sources kernel implementations across Triton, TileLang, and CuTe-based paths. The broader argument is that careful systems design around memory and runtime bottlenecks can shift real-world serving performance even when model-family comparisons remain nuanced.</p>
-                  <p><span class="hn-label">From comments</span>Commenters split between excitement and skepticism, with active debate about whether the blog's inference claims hold under production batching conditions and how compute-vs-bandwidth tradeoffs change once providers multiplex many requests per GPU. Another recurring thread clarified terminology, where people distinguished architecture choices from training objectives and pushed back on jargon-heavy framing in the tl;dr. The overall discussion stayed technical and implementation-oriented, with most feedback focused on serving economics and benchmark interpretation rather than model hype.</p>
+                  <p><span class="hn-label">From link</span>The article documents a 14-day effort to extract and normalize egg purchases from 11,345 scanned receipts dating back to 2001, combining segmentation, OCR, and LLM-based structured extraction into an iterative production pipeline. Instead of relying on one model, the author details a stacked approach: segmentation for messy flatbed scans, OCR tuned for degraded thermal prints, and agent-driven parsing and QA tools for difficult edge cases like abbreviations, malformed text, and missing fields. The result is positioned less as a novelty chart and more as a case study in practical data engineering with agents, where repeated feedback loops and tooling quality mattered as much as raw model capability.</p>
+                  <p><span class="hn-label">From comments</span>Commenters focused heavily on economics and operational tradeoffs, questioning whether the token-cost estimate justifies the approach compared with human labeling or narrower local pipelines for this specific task. Multiple replies pushed back that subscription pricing, automation reuse, and quality gains shift the cost calculus, while others argued that true industrial maturity would look far cheaper for receipt-scale extraction. The thread mixed humor with substance, but overall sentiment was that the write-up was unusually transparent about failure modes, and that transparency made it a useful benchmark for where agentic OCR workflows are today.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -1279,21 +1279,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 17 · <a href="https://news.ycombinator.com/item?id=47416543" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 7 · <a href="https://news.ycombinator.com/item?id=47444909" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://practical.engineering/blog/2026/3/17/the-los-angeles-aqueduct-is-wild" rel="noopener">The Los Angeles Aqueduct Is Wild</a>
+                  <a href="https://pooladkhay.com/posts/first-kernel-patch/" rel="noopener">My first patch to the Linux kernel</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-los-angeles-aqueduct.webp"
-                    alt="Worn journal spread with aqueduct cross-sections and water-routing maps"
+                    src="images/hacker-news/03-first-linux-kernel-patch.webp"
+                    alt="Worn journal spread with hypervisor state diagrams, TSS notes, and C bit-level debugging sketches"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The Practical Engineering article traces the Los Angeles Aqueduct as both an exceptional gravity-fed infrastructure system and a century-long case study in political and ecological externalities. It walks through the full route and hardware choices, from diversion structures and lined versus unlined channels to inverted siphons, tunnels, reservoirs, and hydropower integration, while explaining why each segment reflects tradeoffs in terrain, reliability, and cost. At the same time, it foregrounds Owens Valley, Mono Basin, dust impacts, and water-rights conflict, framing the aqueduct as technically brilliant but socially and environmentally expensive.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion focused on California water politics more than the mechanics, with people debating NorCal vs SoCal narratives, agricultural consumption, and how much urban conservation actually matters relative to farming demand. Commenters also revisited the Owens Valley and Mono Lake legacy, including claims about long-tail environmental harm and recurring legal intervention to constrain diversions. The tone was historically aware and contentious, with consensus mostly limited to one point: water governance in the western U.S. remains a systems-level policy problem, not just an engineering one.</p>
+                  <p><span class="hn-label">From link</span>This post walks through debugging a virtualization crash that appeared during cross-core scheduling and eventually traced back to C integer-promotion and sign-extension behavior when constructing a task-state descriptor base address. The author uses the incident to explain VMCS host-state fields, TSS handling on modern x86, and why the wrong `HOST_TR_BASE` can cascade into severe failures under load, then shows the alternate Linux approach that resolved the issue in practice. It reads like a grounded engineering narrative: detailed enough for systems readers, but structured as a reproducible bug hunt from symptom to patch.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback split between technical appreciation and project-process critique, with many people agreeing that first kernel contributions often involve social and procedural discovery as much as code changes. A strong subthread discussed "unwritten rules" in large open source projects, where commenters debated whether tribal workflow knowledge protects quality or acts as avoidable gatekeeping for newcomers. The technical comments still stayed active, especially around sign-extension gotchas and why these bugs can sit latent for long periods, but community-maintenance dynamics became the broader theme of the thread.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1302,21 +1302,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 25 · <a href="https://news.ycombinator.com/item?id=47410871" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 13 · <a href="https://news.ycombinator.com/item?id=47473718" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://zserge.com/posts/visicalc/" rel="noopener">VisiCalc Reconstructed</a>
+                  <a href="https://43081j.com/2026/03/three-pillars-of-javascript-bloat" rel="noopener">The Three Pillars of JavaScript Bloat</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-visicalc-reconstructed.webp"
-                    alt="Worn journal spread with spreadsheet grids, parser notes, and memory sketches"
+                    src="images/hacker-news/04-javascript-bloat-pillars.webp"
+                    alt="Worn journal spread with npm dependency graphs, package nodes, and supply-chain risk annotations"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The VisiCalc reconstruction piece rebuilds core spreadsheet behavior in C while intentionally preserving tight constraints and implementation simplicity, using it to explain why early spreadsheet design had to balance parser expressiveness, recomputation strategy, and memory layout discipline. Rather than chasing a full modern clone, the post uses compact code to expose the shape of formula parsing, cell storage, evaluation order, and error handling under limited resources. That makes the article effective as both a historical reverse-engineering exercise and a contemporary reminder that seemingly basic interaction models often hide large state-machine complexity.</p>
-                  <p><span class="hn-label">From comments</span>Comments quickly became a practical deep dive into spreadsheet engine architecture, including dependency graphs, recalculation correctness, cycle handling, and comparisons to build-system semantics. A notable branch discussed bidirectional or backward-solving spreadsheets and whether those approaches are tractable outside constrained use cases, with references to constraint solving and operations research. Another thread dug into Apple II memory management details and historical implementation notes, so the overall feedback was more about engineering mechanics than nostalgia.</p>
+                  <p><span class="hn-label">From link</span>The essay argues that modern JavaScript dependency growth is driven by three repeat patterns: legacy-runtime compatibility layers that no longer match most deployment targets, ultra-atomic package decomposition that increases acquisition and maintenance overhead, and ponyfills that remained in dependency trees long after platform support matured. It pairs that diagnosis with practical cleanup paths, including dependency-audit tooling and replacement catalogs, while emphasizing that bloat is often a default inheritance problem rather than deliberate design. The main takeaway is that many teams can reclaim performance and reliability by treating dependency decisions as an active architectural surface, not just package-manager output.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters broadly agreed with the diagnosis but debated root causes, especially whether JavaScript truly lacks a sufficient standard library or whether teams underuse what browsers and runtimes already provide. Several high-voted replies pushed the conversation past install-time complaints toward runtime and bundle-size costs, arguing that tiny single-purpose packages can impose hidden production penalties when multiplied across large trees. Another recurring thread compared dependency-minimal workflows with framework-heavy defaults, with people reporting lower CVE churn and easier maintenance in leaner stacks while acknowledging that this tradeoff is context dependent.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1325,21 +1325,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 29 · <a href="https://news.ycombinator.com/item?id=47452955" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 15 · <a href="https://news.ycombinator.com/item?id=47467537" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/" rel="noopener">Entso-E final report on Iberian 2025 blackout</a>
+                  <a href="https://lucumr.pocoo.org/2026/3/20/some-things-just-take-time/" rel="noopener">Some Things Just Take Time</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-entsoe-iberian-blackout.webp"
-                    alt="Worn journal spread with power-grid outage timeline and control-room notes"
+                    src="images/hacker-news/05-some-things-take-time.webp"
+                    alt="Worn journal spread with tree-ring motifs, long-horizon project notes, and trust-building timelines"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>ENTSO-E’s final incident package on the April 28, 2025 Iberian blackout describes a multi-factor failure pattern rather than a single trigger, citing oscillations, reactive-power and voltage-control gaps, generator behavior under stress, and uneven stabilization capacity across the region. The report frames the event as a system-level coordination challenge and pairs the root-cause analysis with concrete recommendations on operational practice, monitoring, and cross-actor data exchange. It also emphasizes that the mitigations are deployable with current technology and that regulation and market mechanisms need to stay aligned with physical grid limits as Europe’s power mix evolves.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion reflected that "many small weaknesses aligned" framing: people with lived blackout experience described chaos and rumor dynamics, while others argued the absence of a single culprit actually increases trust in the report’s technical honesty. Several comments compared the outage to other complex-system failures and focused on accountability tradeoffs, noting that multifactor explanations can be either a useful systems diagnosis or a way to diffuse responsibility. Overall sentiment was thoughtful and less partisan than usual, with most commenters treating resilience engineering as the core takeaway.</p>
+                  <p><span class="hn-label">From link</span>Armin Ronacher’s essay argues that software quality, trust, and durable communities are time-bound outcomes that cannot be compressed indefinitely by faster tooling, even when coding throughput rises. It contrasts short-cycle optimization culture with domains where friction is intentional and protective, then extends that argument to open source and startup behavior where rapid iteration can erode stewardship and customer trust if continuity is treated as optional. The piece frames AI acceleration as useful but incomplete: speed matters, yet long-lived systems still depend on sustained commitment, governance, and repeated care over years.</p>
+                  <p><span class="hn-label">From comments</span>Discussion on HN converged on the speed-versus-direction framing, with multiple commenters noting that AI-assisted velocity helps only when feedback loops and product direction are strong enough to prevent compounding error. Product and engineering leaders in the thread highlighted that customer validation remains a time-delayed signal, so faster output can actually magnify waste when teams ship before they understand what should be built. The overall tone was reflective rather than dismissive, with most replies treating the essay as a useful counterweight to pure throughput narratives in current AI tooling debates.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1348,21 +1348,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 11 · <a href="https://news.ycombinator.com/item?id=47448994" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 16 · <a href="https://news.ycombinator.com/item?id=47471601" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://trustedsec.com/blog/full-disclosure-a-third-and-fourth-azure-sign-in-log-bypass-found" rel="noopener">Full Disclosure: A Third (and Fourth) Azure Sign-In Log Bypass Found</a>
+                  <a href="https://tooscut.app/" rel="noopener">Professional video editing, right in the browser with WebGPU and WASM</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-azure-signin-bypass.webp"
-                    alt="Worn journal spread with identity tokens, alert logs, and incident notes"
+                    src="images/hacker-news/06-webgpu-browser-video-editor.webp"
+                    alt="Worn journal spread with timeline tracks, keyframe curves, and browser video-rendering architecture notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The TrustedSec write-up details two newly found Azure Entra ID sign-in log bypass paths that reportedly allowed acquisition of valid tokens while skipping the sign-in telemetry defenders typically rely on, extending earlier "password validation without logs" findings into higher-impact territory. Beyond exploit narrative, the post provides detection guidance by correlating Graph activity session IDs against sign-in logs to spot sessions with activity but no matching authentication trail. The author frames this as a recurring class of control-plane observability failure and argues defenders should assume logging blind spots can recur even after point fixes.</p>
-                  <p><span class="hn-label">From comments</span>HN comments quickly widened from the specific bypass details to broader institutional trust in cloud security operations, with people citing prior government and regulator reports and debating whether vendor self-reporting and oversight are keeping up with systemic dependency. The discussion mixed frustration and pragmatism: while many treated the findings as another warning sign about central identity infrastructure fragility, others focused on practical mitigations and incident-detection hygiene. Overall mood was sharp and skeptical, with high concern about operational blast radius when identity logging fails silently.</p>
+                  <p><span class="hn-label">From link</span>Tooscut presents a browser-native non-linear editor built around WebGPU plus Rust/WASM, positioning itself as a local-first workflow with real-time compositing, keyframe animation, multi-track timelines, and effect processing without install-time friction. The product page emphasizes that media remains on-device through browser file APIs while still offering interaction patterns associated with desktop editors, including timeline editing, layered tracks, and GPU-accelerated previews. The core claim is that modern browser compute and graphics primitives have crossed a threshold where serious creative tooling can ship as a web app without immediately collapsing into toy performance.</p>
+                  <p><span class="hn-label">From comments</span>HN comments mixed practical QA reports with architectural discussion, where early users described concrete editing friction around audio-track workflows while others shared successful quick edits and praised the approachability of running everything in-browser. Technical subthreads discussed Rust-to-WASM plus WebGPU split decisions, with interest in where compute overhead lands and whether the architecture scales for broader workloads beyond short-form edits. Sentiment was cautiously optimistic: people liked the direction and local-first model, but many stressed that feature-completeness for common editing tasks will determine whether it can graduate from impressive demo to daily tool.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1468,7 +1468,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Mar 21, 2026 · 7:06 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sun, Mar 22, 2026 · 7:05 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
