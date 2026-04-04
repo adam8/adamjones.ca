@@ -1029,13 +1029,13 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Thu, Apr 2, 2026</span>
+          <span class="badge">Sat, Apr 4, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
         <p class="tagline">
           Head in the cloud, feet on the ground
-          <span class="tagline-sub">Upcoming: Lent ends (Thu Apr 2) · Good Friday (Fri Apr 3)</span>
+          <span class="tagline-sub">Upcoming: Easter (Sun Apr 5) · Easter Monday (Mon Apr 6)</span>
         </p>
       </header>
 
@@ -1228,26 +1228,26 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Apr 2 front page</span>
+            <span class="panel-meta">Apr 4 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47700340" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47637757" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://browsergate.eu/" rel="noopener">LinkedIn Is Illegally Searching Your Computer</a>
+                  <a href="https://arxiv.org/abs/2604.01193" rel="noopener">Simple self-distillation improves code generation</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-linkedin-browsergate.webp"
-                    alt="Worn privacy journal with browser tabs and annotated file paths"
+                    src="images/hacker-news/01-self-distillation-codegen.webp"
+                    alt="Worn journal page with code tokens, branching arrows, and annotation marks"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The Browsergate write-up argues that LinkedIn’s script can enumerate localhost ports in Chromium-based browsers, detect local development tools, and transmit this fingerprinting data back to LinkedIn domains. The author frames it as a broad privacy and legal issue because scanning local services can expose sensitive hints about user workflows, and the post includes a reproducible test matrix across browsers and operating systems. The piece emphasizes that the behavior appears to come from web code rather than a browser extension, which makes it relevant to any signed-in user session that loads LinkedIn pages.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread focused on both severity and precedent: some commenters treated localhost probing as a long-known browser side-channel, while others argued this deployment crosses a line because it is tied to an identity platform and ad stack. People debated practical mitigations such as stricter browser partitioning, hardened profiles, and blocking suspicious endpoint probes, alongside questions about consent and jurisdictional legality. The discussion converged on the view that even if the technique is not novel, the scale and context make it worth regulatory and browser-vendor scrutiny.</p>
+                  <p><span class="hn-label">From link</span>The arXiv paper presents an intentionally simple self-distillation method for code generation: sample candidate outputs, keep stronger traces, and feed those traces back into training so the model improves without requiring a heavy new architecture. The authors frame it as a practical way to reduce the precision-versus-exploration tradeoff in code decoding, where models need to be strict in syntax-heavy spans but still explore multiple viable solution branches. The result is positioned as a lightweight recipe teams can layer onto existing code-model pipelines to get measurable gains with less engineering complexity than larger end-to-end redesigns.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback was mostly enthusiastic about the technique’s simplicity, with commenters highlighting that it maps well to how developers reason through “fork” and “lock” moments while writing code. Multiple threads debated transferability: some readers expected near-term gains for open coding models, while others questioned how reliably the approach generalizes across tasks and whether it competes with other sampling and fine-tuning tricks. There was also side discussion about Apple’s AI research cadence and broader model interpretability, but the dominant sentiment was that this is a useful, actionable increment rather than hype-only novelty.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -1256,21 +1256,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47697375" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47637287" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://lemonade-server.ai/" rel="noopener">Lemonade by AMD: Open source software stack to optimize AMD Instinct AI accelerators</a>
+                  <a href="https://thoughts.wyounas.com/p/some-unusual-trees" rel="noopener">Some Unusual Trees</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-amd-lemonade.webp"
-                    alt="Aged engineering notebook with accelerator chips and server sketches"
+                    src="images/hacker-news/02-unusual-trees.webp"
+                    alt="Vintage field journal with hand-drawn unusual tree silhouettes and specimen notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>AMD positions Lemonade as an open software stack for Instinct accelerators that bundles serving, routing, and optimization layers intended to improve real-world throughput and deployment ergonomics. The project page highlights use with vLLM-style serving patterns and promises simpler scaling from single-node tests to larger inference clusters without relying on closed control planes. Instead of introducing a single new model runtime, Lemonade is presented as an integration layer that targets latency, memory efficiency, and operational consistency for AMD GPU inference workloads.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters were split between interest and skepticism, with many asking whether Lemonade is meaningfully distinct from existing open-source serving stacks or mostly branding around curated defaults. Several operators discussed integration friction on non-NVIDIA paths and said they want benchmark evidence across varied model sizes, not just headline throughput claims. The thread was constructive overall, with people noting that even incremental work on tooling, observability, and scheduling could lower adoption barriers for AMD inference fleets.</p>
+                  <p><span class="hn-label">From link</span>This illustrated post is a natural-history style tour through tree species and forms that look structurally or evolutionarily surprising compared with the textbook “single trunk, round canopy” mental model. It emphasizes visual oddities and habitat adaptation, using short narrative snapshots to show how growth strategy, climate pressure, and reproductive behavior can produce dramatically different shapes. The piece reads like a compact curiosity catalog meant to push readers from generic tree familiarity toward closer botanical observation.</p>
+                  <p><span class="hn-label">From comments</span>Commenters responded with their own favorite edge-case trees and related links, turning the thread into a crowdsourced extension of the article rather than a binary agree-disagree debate. Several replies leaned into taxonomy nuance, including reminders that “tree” is often a growth form rather than a single clean phylogenetic category, while others shared encyclopedia-style resources and examples from local ecosystems. The tone stayed exploratory and playful, with most participants treating the post as a prompt for field anecdotes and further reading.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -1279,21 +1279,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47699688" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47631118" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://kathmandupost.com/money/2026/03/27/inside-nepal-s-fake-rescue-racket" rel="noopener">Inside Nepal’s fake rescue racket</a>
+                  <a href="https://www.bbc.com/news/articles/ce8jzr423p9o" rel="noopener">Artemis II crew take “spectacular” image of Earth</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-nepal-rescue-racket.webp"
-                    alt="Worn travel journal with mountain rescue notes and warning stamps"
+                    src="images/hacker-news/03-artemis-earth-image.webp"
+                    alt="Aged mission logbook with Earth-from-space photograph and camera settings scribbled in pen"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The Kathmandu Post investigation describes a long-running scheme in which trekkers are allegedly manipulated into unnecessary helicopter evacuations, with forged medical narratives and inflated insurance claims feeding a profitable fraud loop. The report traces how intermediaries, operators, and complicit providers can coordinate to trigger rescues that look legitimate on paper while imposing costs on travelers and insurers. It also details regulatory responses and industry pressure to tighten oversight, blacklists, and verification around high-altitude emergency logistics.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters connected the article to broader mountaineering incentive failures, noting how remote risk, weak enforcement, and insurance complexity can create space for abuse in adventure tourism ecosystems. Several participants shared related reporting and firsthand anecdotes from Nepal trekking circuits, while others cautioned that anti-fraud measures must avoid delaying genuinely urgent evacuations. The dominant sentiment supported stronger auditing and transparent rescue criteria, with attention to protecting both trekkers and honest local operators.</p>
+                  <p><span class="hn-label">From link</span>BBC’s report covers the Artemis II crew releasing a high-impact Earth image from Orion while en route to the Moon, framing the shot as both symbolic outreach and a technical milestone in mission progress. The story centers on commander Reid Wiseman’s capture of the image and the public-facing communication value of showing Earth at this mission stage. It also situates the photo in the broader Artemis narrative: sustained crewed lunar operations depend not only on propulsion and navigation but also on keeping public attention and trust high across long timelines.</p>
+                  <p><span class="hn-label">From comments</span>The HN thread focused on image interpretation and provenance, with users digging into EXIF metadata, camera gear, and higher-resolution NASA archives to validate how the shot was produced. Many commenters discussed lighting perception, especially why a moonlit nightside Earth can look “daylit” to casual viewers when exposure and contrast are handled well. The feedback skewed positive and technical, with smaller side threads about headline wording and geography identification, but the main conversation celebrated the image quality and shared tooling for deeper inspection.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1302,21 +1302,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47699454" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47638075" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://newsroom.ibm.com/2026-04-01-IBM-Announces-Strategic-Collaboration-with-Arm-to-Accelerate-AI-Inference-at-the-Edge" rel="noopener">IBM Announces Strategic Collaboration with Arm to Accelerate AI Inference at the Edge</a>
+                  <a href="https://next.jazzsequence.com/posts/the-cms-is-dead-long-live-the-cms" rel="noopener">The CMS is dead. Long live the CMS</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-ibm-arm-edge-ai.webp"
-                    alt="Vintage lab notebook with edge AI chip diagrams and benchmark arrows"
+                    src="images/hacker-news/04-cms-is-dead.webp"
+                    alt="Worn product notebook with CMS boxes, static-site arrows, and editorial workflow notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>IBM’s announcement says the company is collaborating with Arm to improve AI inference performance and deployment options for edge environments where power, latency, and footprint constraints are strict. The release frames the effort around integrating IBM software and models with Arm-based silicon paths so customers can run inference closer to data sources rather than routing everything to centralized infrastructure. Positioning is heavily enterprise-oriented, emphasizing operational efficiency and practical adoption for hybrid environments that already blend cloud, datacenter, and edge systems.</p>
-                  <p><span class="hn-label">From comments</span>The HN discussion centered on how much substance sits behind vendor partnership language, with engineers asking for concrete tooling details, benchmark methodology, and hardware support timelines. Commenters debated where edge inference genuinely wins versus when centralized inference remains simpler and cheaper, especially once maintenance and update cadence are considered. Even skeptical replies acknowledged the strategic direction, suggesting the real differentiator will be developer experience and measurable performance-per-watt rather than headline collaboration claims.</p>
+                  <p><span class="hn-label">From link</span>The essay argues that modern “CMS” work is being redefined rather than eliminated, as AI-assisted content workflows and static-first deployment reduce the need for monolithic, always-on publishing stacks in many projects. It critiques all-or-nothing platform rhetoric and instead frames the market as a spectrum where editing experience, hosting model, and operational risk can be decoupled. The core claim is that teams should optimize for the publishing constraints they actually have, not default to legacy architecture because it was historically the easiest editorial tool.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters were split between builders betting on AI-plus-static pipelines and practitioners defending mature CMS platforms for client editing, permissions, and long-term maintenance. A recurring theme was that most brochure and marketing sites can run cheaper and safer as static artifacts, while custom business workflows still justify dynamic backends with robust admin surfaces. The thread stayed pragmatic: fewer ideological arguments, more tradeoff mapping around content governance, lock-in, and whether AI meaningfully lowers the barrier for non-technical teams.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1325,21 +1325,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47698605" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47601194" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://undark.org/2026/04/01/sweden-schools-books/" rel="noopener">Sweden goes back to basics by bringing more books and paper into classrooms</a>
+                  <a href="https://www.dbreunig.com/2026/03/26/winchester-mystery-house.html" rel="noopener">The Cathedral, the Bazaar, and the Winchester Mystery House</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-sweden-books.webp"
-                    alt="Aged classroom journal with books, pencils, and crossed-out tablet sketches"
+                    src="images/hacker-news/05-cathedral-bazaar-winchester.webp"
+                    alt="Aged architecture sketchbook showing cathedral and bazaar diagrams with tangled software paths"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The Undark piece reports on Sweden’s policy shift toward printed textbooks and handwritten work after years of aggressive classroom digitization, citing concerns about reading outcomes and attention. It describes government funding directed at bringing physical materials back into daily instruction while still keeping selective digital tools where they serve clear pedagogical value. Rather than a full rejection of technology, the article presents the change as a recalibration that prioritizes literacy fundamentals, classroom focus, and evidence-based instructional tradeoffs.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters used the thread to compare school tech rollouts across countries, with many arguing that device-first strategies were adopted faster than their learning impacts were measured. Some participants defended digital tools for accessibility and individualized pacing, while others stressed that deep reading and memory retention often improve with paper-based workflows. The consensus leaned toward blended models: use screens intentionally, but keep core literacy instruction anchored in books, writing, and low-distraction routines.</p>
+                  <p><span class="hn-label">From link</span>This article extends the classic cathedral-versus-bazaar metaphor by introducing a third model: sprawling tool ecosystems that accrete unevenly but still deliver value, like a software “mystery house.” It argues that contemporary AI and developer tooling behavior increasingly resembles this third pattern, where rapid additions outpace coherent system design yet remain economically and socially sticky. Rather than nostalgically insisting on cleaner eras, the post suggests teams need strategies for operating safely inside messy, layered stacks that may never fully converge.</p>
+                  <p><span class="hn-label">From comments</span>Commenters used the thread to challenge historical framing and policy implications, including clarifications about open-source funding pressures and debates over how ESR’s original cathedral metaphor is often misremembered. Several replies focused on the Winchester reference itself, linking background material and questioning which parts are myth versus documented history. The feedback was thoughtful but mixed, with readers generally agreeing that maintainer burden is real even when they disagreed on the essay’s metaphors and proposed remedies.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1348,21 +1348,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 7 · <a href="https://news.ycombinator.com/item?id=47697386" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47629433" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://lwn.net/Articles/1065620/" rel="noopener">A significant raise in reports</a>
+                  <a href="https://www.inaturalist.org/" rel="noopener">iNaturalist</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-lwn-bug-reports.webp"
-                    alt="Worn engineering journal with bug triage queues and signal-versus-noise charts"
+                    src="images/hacker-news/06-inaturalist.webp"
+                    alt="Worn field journal with bird sketches, map pins, and citizen science observation notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The LWN article examines a notable surge in bug reports and maintainer workload, with attention to how report volume and quality are changing under newer tooling and community behavior shifts. It highlights the practical burden of triage when many submissions are incomplete, duplicated, or hard to reproduce, which can slow progress on critical fixes even when report counts look healthy. The piece ultimately treats reporting as essential infrastructure, arguing that process improvements and better submitter guidance are now necessary to preserve maintainer bandwidth.</p>
-                  <p><span class="hn-label">From comments</span>HN replies discussed the widening gap between report quantity and actionable signal, including concerns that AI-assisted bug filing could further increase low-quality noise without stronger templates and verification. Maintainers in the thread emphasized the real cost of context switching and asked for higher standards around logs, repro steps, and environment details before submitting issues. The comments broadly agreed that better automation can help, but only if it is paired with social norms and tooling that reward precise, reproducible reports.</p>
+                  <p><span class="hn-label">From link</span>iNaturalist presents itself as a community observation platform where individuals log plant and animal sightings that can be discussed, identified, and routed into broader biodiversity datasets. The homepage emphasizes a bridge between casual nature tracking and research utility, with onboarding paths for projects, taxonomy exploration, and mobile-first recording in the field. The product positioning is explicitly civic-science oriented: personal curiosity and collective data quality are treated as mutually reinforcing goals.</p>
+                  <p><span class="hn-label">From comments</span>HN reactions were strongly positive about utility and API friendliness, especially for lightweight educational apps and hobby projects that benefit from open read access. At the same time, commenters surfaced concrete privacy concerns around geolocation precision, noting that non-technical users may unintentionally reveal sensitive home-location patterns through repeated backyard observations. The discussion balanced appreciation with caution, converging on the idea that iNaturalist is powerful public infrastructure but needs careful defaults and user education around location-sharing risk.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1395,9 +1395,9 @@
                   <div class="holiday-cell is-empty" role="gridcell"></div>
                   <div class="holiday-cell is-empty" role="gridcell"></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">1</span></div>
-                  <div class="holiday-cell is-holiday is-today" role="gridcell" title="Lent ends"><span class="day">2</span></div>
-                  <div class="holiday-cell is-holiday" role="gridcell" title="Good Friday"><span class="day">3</span></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">4</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">2</span></div>
+                  <div class="holiday-cell" role="gridcell"><span class="day">3</span></div>
+                  <div class="holiday-cell is-today" role="gridcell"><span class="day">4</span></div>
                   <div class="holiday-cell is-holiday" role="gridcell" title="Easter"><span class="day">5</span></div>
                   <div class="holiday-cell is-holiday" role="gridcell" title="Easter Monday"><span class="day">6</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">7</span></div>
@@ -1430,14 +1430,6 @@
               </div>
               <ul class="holidays">
                 <li class="holiday-row">
-                  <span class="holiday-date">Thu, Apr 2</span>
-                  <span class="holiday-title">Lent ends</span>
-                </li>
-                <li class="holiday-row">
-                  <span class="holiday-date">Fri, Apr 3</span>
-                  <span class="holiday-title">Good Friday</span>
-                </li>
-                <li class="holiday-row">
                   <span class="holiday-date">Sun, Apr 5</span>
                   <span class="holiday-title">Easter</span>
                 </li>
@@ -1468,7 +1460,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Thu, Apr 2, 2026 · 8:37 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, Apr 4, 2026 · 7:32 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
