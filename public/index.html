@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Wed, Apr 8, 2026</span>
+          <span class="badge">Fri, Apr 10, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1228,26 +1228,26 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Apr 8 front page</span>
+            <span class="panel-meta">Apr 10 front page</span>
           </div>
           <div class="panel-body">
-                        <div class="hn-grid">
+            <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47687273" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47719602" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://piechowski.io/post/git-commands-before-reading-code/" rel="noopener">Git commands I run before reading any code</a>
+                  <a href="https://eclecticlight.co/2026/04/10/why-you-cant-trust-privacy-security/" rel="noopener">You can&#8217;t trust macOS Privacy and Security settings</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-git-commands-before-reading.webp"
-                    alt="Worn journal collage with Git command notes, terminal snippets, and desk ephemera"
+                    src="images/hacker-news/01-macos-privacy-security.webp"
+                    alt="Worn journal collage of macOS privacy controls, folder icons, and terminal permission notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The post lays out a fast reconnaissance workflow for unfamiliar repositories: run a handful of Git queries to spot churn-heavy files, bug-fix hotspots, ownership concentration, and historical incident patterns before opening source files. Its argument is that commit history gives higher-level signals about risk and architecture that help engineers ask better questions when they do begin reading implementation details. Rather than replacing close code reading, the author frames this as a prep pass that reduces blind exploration and speeds onboarding and debugging.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion was mostly supportive and quickly expanded into tooling nuances, with readers sharing parallel command sets in Jujutsu and debating where history analysis is strongest versus where it can mislead. Several commenters called out practical caveats such as squash-merge workflows, poor commit hygiene, and automated commits that can distort hotspot signals if taken at face value. The thread converged on a pragmatic middle ground: history-first triage is valuable context, but it works best when paired with tests, blame context, and direct code inspection.</p>
+                  <p><span class="hn-label">From link</span>The Eclectic Light write-up documents a mismatch between what macOS Privacy and Security panels display and what app-level permissions can still do in practice, using concrete tests around folder access and permission resets. The article argues that the UI creates a false sense of control because toggles can imply restrictions that are not consistently enforced until deeper system state is reset. Its core point is not that platform permissions are useless, but that users and admins need verification workflows beyond Settings alone when handling sensitive file access.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback mixed skepticism and concern, with some readers questioning expected behavior while others shared reproducible cases where revoking access in UI did not immediately revoke effective access. The thread broadened into a wider discussion about permission-fatigue and desktop sandbox ergonomics, especially for power users who already rely on Terminal and automation tools. Overall sentiment landed on trust-model friction: commenters want clearer guarantees, more transparent state transitions, and fewer hidden recovery steps for a security surface that appears simple but behaves inconsistently.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -1256,21 +1256,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47689174" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47719942" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://arxiv.org/abs/2604.05091" rel="noopener">MegaTrain: Full precision training of 100B+ parameter LLMs on a single GPU</a>
+                  <a href="https://lists.zx2c4.com/pipermail/wireguard/2026-April/009561.html" rel="noopener">WireGuard makes new Windows release following Microsoft signing resolution</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-megatrain-single-gpu.webp"
-                    alt="Aged engineering notebook with single-GPU training diagrams and streamed model-weight sketches"
+                    src="images/hacker-news/02-wireguard-windows-release.webp"
+                    alt="Weathered networking notebook with WireGuard tunnel sketches and Windows signing checklist stamps"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The paper proposes a training system that keeps model parameters and optimizer state in host memory while treating the GPU as a transient compute device, streaming layer data in and gradients out to reduce persistent device-memory pressure. By combining memory scheduling and transfer-aware execution, the work claims full-precision training feasibility for very large models on constrained accelerator setups that would typically fail on VRAM limits alone. The core contribution is not raw speed leadership, but a systems design that broadens what is trainable under tight hardware budgets.</p>
-                  <p><span class="hn-label">From comments</span>Commenters reacted with cautious excitement, especially developers working on limited consumer hardware who saw the approach as a potentially useful path around immediate OOM constraints. At the same time, many replies stressed throughput realities, noting that transfer overhead and activation memory still impose hard limits and may keep this approach better suited for specialized fine-tuning than large-scale pretraining. Discussion largely centered on practical applicability: promising architecture for accessibility, but with clear tradeoffs in wall-clock efficiency and context-size ambitions.</p>
+                  <p><span class="hn-label">From link</span>Jason Donenfeld announced updated releases of WireGuardNT and WireGuard for Windows after a prolonged signing and tooling disruption, framing the update as both catch-up maintenance and platform modernization. The post highlights accumulated bug fixes, performance work, and simplification made possible by raising the minimum supported Windows baseline and refreshing core build infrastructure. Rather than a feature-heavy launch, the release emphasizes restoring update cadence and rebuilding a cleaner, more maintainable foundation for Windows users.</p>
+                  <p><span class="hn-label">From comments</span>Comment discussion split between relief that releases resumed and concern over how dependent open-source maintainers remain on centralized code-signing processes and opaque vendor workflows. Several replies debated whether the incident was bureaucracy or platform leverage, but most agreed the practical lesson was that public attention can accelerate resolution even when root causes are mundane. The thread repeatedly returned to ecosystem fragility: developers want predictable, fair signing pathways that do not force smaller projects to rely on visibility spikes to ship security-critical updates.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -1279,21 +1279,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47688678" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47719274" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="http://www.terrybisson.com/theyre-made-out-of-meat-2/" rel="noopener">They&#8217;re Made Out of Meat (1991)</a>
+                  <a href="https://www.construction-physics.com/p/helium-is-hard-to-replace" rel="noopener">Helium Is Hard to Replace</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-made-out-of-meat.webp"
-                    alt="Worn retro sci-fi journal collage with abstract organic textures and cosmic sketch notes"
+                    src="images/hacker-news/03-helium-supply-constraints.webp"
+                    alt="Aged lab notebook collage with helium tanks, geology diagrams, and industrial supply arrows"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Terry Bisson’s short piece is a compact science-fiction dialogue that uses absurd literalism to reframe humanity as strange biological machinery, extracting humor and unease from a minimalist conversational format. Its staying power comes from how little exposition it needs: the text lets perspective inversion do the work, making familiar human behavior feel alien in just a few pages. The result is a classic example of short-form speculative writing where idea, voice, and structure are tightly fused.</p>
-                  <p><span class="hn-label">From comments</span>HN comments leaned nostalgic and playful, with readers sharing adaptations, related media references, and personal memories of first encountering the story in anthologies, classrooms, or early web culture. A recurring side discussion debated filmed interpretations and whether visualizing the dialogue weakens the original perspective trick by making the speakers too concrete. Overall sentiment was affectionate and literary: people treated the post as a durable internet-era sci-fi artifact that still sparks craft discussion decades later.</p>
+                  <p><span class="hn-label">From link</span>Construction Physics explores why helium remains strategically difficult to substitute despite recurring expectations that markets will quickly adapt, focusing on extraction constraints, storage/transport realities, and specialized use cases like imaging and industrial processes. The piece frames helium as a systems problem where physics, geology, and logistics all matter more than simple commodity pricing narratives. Its takeaway is that replacement pathways exist in pockets, but many high-value applications still depend on stable helium supply chains rather than easy drop-in alternatives.</p>
+                  <p><span class="hn-label">From comments</span>HN comments expanded the article with practical context from energy, science, and diving communities, including debate over whether supply pressure is mainly geological scarcity or delayed investment signals. Readers surfaced policy history around strategic reserves and discussed how misunderstood production timelines can distort public expectations about shortages. The discussion settled on nuance instead of panic: commenters saw no immediate cliff, but agreed helium remains one of those materials where substitution is partial, demand can be sticky, and resilience depends on long-horizon planning.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1302,21 +1302,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47686549" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47717847" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://sourceforge.net/p/veracrypt/discussion/general/thread/9620d7a4b3/" rel="noopener">VeraCrypt project update</a>
+                  <a href="https://www.theregister.com/2026/04/10/cpuid_site_hijacked/" rel="noopener">CPU-Z and HWMonitor compromised</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-veracrypt-project-update.webp"
-                    alt="Weathered security notebook with certificate warnings and open-source maintenance notes"
+                    src="images/hacker-news/04-cpuid-site-compromise.webp"
+                    alt="Distressed incident-response collage with malware warnings, installer links, and audit checklist marks"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The VeraCrypt update thread explains that a key blocker for current Windows driver releases is certificate-related disruption, with maintainers outlining status and recovery direction for the project’s signing and distribution pipeline. While the post is operational in tone, it highlights how deeply third-party platform controls can affect even mature, widely used security software. The update therefore reads as both a project status note and a reminder that software supply paths are as critical as code quality for user trust.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion focused on platform power asymmetry and release risk, with many developers describing how certificate revocation or signing-policy shifts can halt distribution even when maintainers are acting in good faith. Commenters compared Windows kernel-driver constraints to other ecosystem gatekeeping models and debated what practical mitigations open-source teams can realistically afford. The thread was concerned but constructive, centering on resilience strategies, fallback channels, and the operational fragility of trust chains in desktop security tooling.</p>
+                  <p><span class="hn-label">From link</span>The Register reports that CPUID download pages were hijacked to redirect users toward malicious binaries, turning trusted utility distribution channels into an attack surface during a narrow but consequential window. The incident underscores how software integrity can fail even when upstream tools and reputations are strong, because website link paths and hosting indirection become part of the trust chain. The story reads as a reminder that release security is operational end-to-end, not just about signing binaries once they are built.</p>
+                  <p><span class="hn-label">From comments</span>HN responses focused on defensive distribution habits, with users recommending package-manager flows and signature checks to reduce exposure when project websites are compromised. Commenters also discussed how frequent antivirus false positives train people to ignore warnings, creating exactly the behavior attackers need during short-lived link hijacks. The thread was strongly pragmatic: less blame theater, more concrete mitigation, especially around reproducible install paths, transparent postmortems, and minimizing single points of trust in download infrastructure.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1325,21 +1325,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47687248" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47716490" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.skoda-storyboard.com/en/skoda-world/skoda-duobell-a-bicycle-bell-that-outsmarts-even-smart-headphones/" rel="noopener">Skoda DuoBell: A bicycle bell that outsmarts smart headphones</a>
+                  <a href="https://9to5mac.com/2026/04/09/fbi-used-iphone-notification-data-to-retrieve-deleted-signal-messages/" rel="noopener">FBI used iPhone notification data to retrieve deleted Signal messages</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-skoda-duobell.webp"
-                    alt="Aged urban cycling journal collage with bell design sketches and sound-wave diagrams"
+                    src="images/hacker-news/05-signal-notification-forensics.webp"
+                    alt="Worn privacy journal collage with phone notifications, encrypted chat glyphs, and forensic evidence arrows"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Skoda presents DuoBell as a safety-oriented bicycle bell tuned to better cut through modern listening contexts, including active noise-cancellation behavior that can reduce pedestrian awareness in dense urban streets. The article frames the concept around reducing cyclist-pedestrian collisions by adapting warning signals to current headphone usage patterns instead of relying on legacy bell acoustics. It is positioned as applied acoustic design: small hardware change, targeted behavioral effect, and measurable safety intent.</p>
-                  <p><span class="hn-label">From comments</span>Comments were high-volume and skeptical-but-engaged, with many riders noting that loud music masking is often a bigger issue than ANC itself and asking whether the bell meaningfully outperforms existing options in real traffic noise. Readers debated product claims, trial methodology, and edge cases like isolating earbuds, while others still welcomed any incremental visibility gains in shared street environments. The thread landed on conditional optimism: interesting idea with clear practical motivation, but proof depends on transparent testing and broad real-world usage.</p>
+                  <p><span class="hn-label">From link</span>The 9to5Mac report describes court testimony indicating investigators recovered message content from iOS notification storage, even where users expected encrypted-chat deletion to fully erase practical traces. The piece highlights a recurring security usability gap: app-level guarantees can be undermined by operating-system defaults that duplicate or cache sensitive content in adjacent subsystems. Its main implication is that end-to-end encryption expectations only hold in practice when notification and preview settings are configured with the same threat model.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters quickly shifted from outrage to configuration detail, sharing exact iOS and Signal settings that reduce lock-screen and notification-history leakage while noting many of those controls are off by default. Discussion also emphasized that courtroom disclosures, not marketing claims, are often where real operational security behavior gets clarified for mainstream users. The broad consensus was uncomfortable but clear: secure messaging is a stack property, and weak defaults at any layer can quietly collapse user assumptions about what &#8220;deleted&#8221; really means.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1348,21 +1348,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47689237" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47719486" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.cnet.com/home/security/when-flock-comes-to-town-why-cities-are-axing-the-controversial-surveillance-technology/" rel="noopener">US cities are axing Flock Safety surveillance technology</a>
+                  <a href="https://techcrunch.com/2026/04/10/france-to-ditch-windows-for-linux-to-reduce-reliance-on-us-tech/" rel="noopener">France to ditch Windows for Linux to reduce reliance on US tech</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-flock-surveillance-cities.webp"
-                    alt="Worn policy notebook collage with camera-network maps and civic privacy clippings"
+                    src="images/hacker-news/06-france-linux-migration.webp"
+                    alt="Aged policy notebook collage with public-sector desktops, Linux migration charts, and sovereignty notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The CNET report surveys backlash to automated license-plate-reader deployments, describing how some municipalities are reconsidering or removing Flock Safety systems due to privacy concerns, governance gaps, and civil-liberty pushback. It situates the dispute at the intersection of public-safety claims, procurement incentives, and local oversight capacity, where technical capability often outpaces policy clarity. The article’s throughline is institutional tension: data-rich surveillance tools can expand quickly, but legitimacy depends on transparent rules, limits, and accountability.</p>
-                  <p><span class="hn-label">From comments</span>HN reaction was strongly critical of ubiquitous surveillance expansion, with many commenters framing these systems as normalizing broad behavioral tracking under weak democratic controls. Discussion also drifted into operational critique, including ad-heavy article UX and comparisons with consumer-security ecosystems like Ring that similarly blend convenience with privacy erosion. Overall sentiment favored stricter constraints and public scrutiny, with readers emphasizing that deployment decisions should be governed by clear evidence, sunset policies, and enforceable oversight mechanisms.</p>
+                  <p><span class="hn-label">From link</span>TechCrunch reports on a French public-sector push to replace parts of its Windows estate with Linux and open alternatives, framing the initiative around digital sovereignty, procurement leverage, and long-term dependency reduction. The coverage suggests this is less a single technical migration and more an institutional strategy combining policy, standards, and domestic capability-building. The practical challenge is execution at scale: migration success depends on tooling compatibility, support models, and governance discipline over multiple budget cycles.</p>
+                  <p><span class="hn-label">From comments</span>HN reaction was broadly supportive but realistic, with readers viewing the move as symbolically important while warning that desktop migrations fail when rollout, training, and interoperability planning are underfunded. Several comments connected the story to prior government migration attempts and argued that publishing operational playbooks would do more for adoption than headline announcements alone. The thread&rsquo;s center of gravity was cautiously optimistic: strong strategic rationale, but outcomes will hinge on patient implementation details rather than ideological preference for any single OS.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1459,7 +1459,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Wed, Apr 8, 2026 · 9:17 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Fri, Apr 10, 2026 · 10:25 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
