@@ -17,6 +17,10 @@
   }
 
   function getMode() {
+    if (window.machineStateApi && typeof window.machineStateApi.getModeFromViewport === "function") {
+      return window.machineStateApi.getModeFromViewport();
+    }
+
     if (window.machineState) {
       return window.machineState.mode;
     }

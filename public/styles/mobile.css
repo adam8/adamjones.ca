@@ -15,36 +15,94 @@
     display: block;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    background: var(--surface);
-    padding: 0.75rem;
+    background:
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.52), transparent 34%),
+      linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(230, 236, 242, 0.92));
+    padding: 0.8rem;
   }
 
   .mobile-strip-track {
+    --vine-stem-w: 1rem;
+    --vine-stem-offset: 0.5rem;
+    --vine-branch-w: 2.25rem;
+    --vine-node-size: 0.82rem;
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
+    gap: 0.95rem;
     overflow: visible;
-    padding: 0;
+    isolation: isolate;
+    padding: 1.15rem 0.35rem 1.9rem;
   }
 
   .mobile-strip-track[data-asset] {
-    position: relative;
-    isolation: isolate;
-    border: 1px dashed rgba(45, 45, 43, 0.24);
-    border-radius: 0.8rem;
-    padding: 0.75rem;
+    border: 1px dashed rgba(45, 45, 43, 0.22);
+    border-radius: 1.2rem;
     background:
-      linear-gradient(155deg, rgba(255, 255, 255, 0.4), rgba(45, 45, 43, 0.08)),
-      #eaf0f6;
+      linear-gradient(165deg, rgba(255, 255, 255, 0.46), rgba(45, 45, 43, 0.08)),
+      #e9eef4;
   }
 
   .mobile-strip-track[data-asset] > .asset-image {
     z-index: 0;
     border-radius: inherit;
+    object-fit: cover;
+    object-position: 52% 50%;
   }
 
   .mobile-strip-track[data-asset].asset-ready > .asset-image {
-    opacity: 0.34;
+    opacity: 0.18;
+    filter: saturate(0.14) brightness(1.08) contrast(0.9) blur(0.65px);
+  }
+
+  .mobile-strip-track::before,
+  .mobile-strip-track::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .mobile-strip-track::before {
+    top: 1.05rem;
+    bottom: 1.55rem;
+    left: calc(50% - var(--vine-stem-offset));
+    width: var(--vine-stem-w);
+    z-index: 0;
+    border-radius: 999px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.58),
+        rgba(45, 45, 43, 0.08) 18%,
+        rgba(255, 255, 255, 0.4) 34%,
+        rgba(45, 45, 43, 0.07) 52%,
+        rgba(255, 255, 255, 0.42) 72%,
+        rgba(45, 45, 43, 0.06)
+      ),
+      rgba(255, 255, 255, 0.16);
+    box-shadow:
+      inset 0 0 0 1px rgba(45, 45, 43, 0.14),
+      0 0 0 0.28rem rgba(255, 255, 255, 0.16);
+  }
+
+  .mobile-strip-track::after {
+    top: 1.15rem;
+    bottom: 1.7rem;
+    left: 50%;
+    width: min(74%, 19rem);
+    z-index: 0;
+    transform: translateX(-50%);
+    background:
+      radial-gradient(circle at 50% 5%, rgba(255, 255, 255, 0.52) 0 0.5rem, transparent 0.58rem),
+      radial-gradient(circle at 50% 19%, rgba(255, 255, 255, 0.44) 0 0.46rem, transparent 0.54rem),
+      radial-gradient(circle at 50% 33%, rgba(255, 255, 255, 0.4) 0 0.44rem, transparent 0.52rem),
+      radial-gradient(circle at 50% 47%, rgba(255, 255, 255, 0.36) 0 0.44rem, transparent 0.52rem),
+      radial-gradient(circle at 50% 61%, rgba(255, 255, 255, 0.4) 0 0.44rem, transparent 0.52rem),
+      radial-gradient(circle at 50% 75%, rgba(255, 255, 255, 0.44) 0 0.46rem, transparent 0.54rem),
+      radial-gradient(circle at 50% 89%, rgba(255, 255, 255, 0.5) 0 0.5rem, transparent 0.58rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(45, 45, 43, 0.05), rgba(255, 255, 255, 0.18));
+    opacity: 0.78;
+    filter: blur(0.2px);
   }
 
   .mobile-strip-track[data-asset] > .mobile-module {
@@ -53,51 +111,190 @@
   }
 
   .mobile-module {
-    border: 1px solid rgba(45, 45, 43, 0.28);
-    border-radius: 0.85rem;
-    background: var(--panel-bg);
-    padding: 0.75rem;
-    box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.08);
+    position: relative;
+    width: min(calc(100% - 4.25rem), 24rem);
+    max-width: 24rem;
+    border: 1px solid rgba(45, 45, 43, 0.26);
+    border-radius: 1.08rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(242, 246, 250, 0.95)),
+      var(--panel-bg);
+    padding: 0.9rem;
+    box-shadow:
+      0 0.85rem 1.9rem rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.78);
+    transform: translateX(var(--branch-shift, 0));
+    transition:
+      border-color var(--motion-fast) var(--ease-mech),
+      box-shadow var(--motion-fast) var(--ease-mech),
+      transform var(--motion-fast) var(--ease-mech);
+  }
+
+  .mobile-module::before,
+  .mobile-module::after {
+    content: "";
+    position: absolute;
+    top: 1.55rem;
+  }
+
+  .mobile-module::before {
+    width: var(--vine-branch-w);
+    height: 0.95rem;
+    border: 1px solid rgba(45, 45, 43, 0.22);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.52), rgba(45, 45, 43, 0.08));
+  }
+
+  .mobile-module::after {
+    width: var(--vine-node-size);
+    height: var(--vine-node-size);
+    border-radius: 50%;
+    background: rgba(45, 45, 43, 0.18);
+    box-shadow: 0 0 0 0.24rem rgba(255, 255, 255, 0.44);
+  }
+
+  .module-idea {
+    justify-self: center;
+    width: min(calc(100% - 1.2rem), 21rem);
+    max-width: 21rem;
+    --branch-shift: 0;
+  }
+
+  .module-idea::before {
+    left: 50%;
+    top: -1.05rem;
+    width: 0.9rem;
+    height: 1.25rem;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(45, 45, 43, 0.08));
+  }
+
+  .module-idea::after {
+    left: 50%;
+    top: -0.38rem;
+    transform: translateX(-50%);
+  }
+
+  .module-sketch,
+  .module-news,
+  .module-calendar {
+    justify-self: start;
+  }
+
+  .module-sketch::before,
+  .module-news::before,
+  .module-calendar::before {
+    right: calc(-1 * var(--vine-branch-w));
+    border-left: 0;
+    border-radius: 0 999px 999px 0;
+  }
+
+  .module-sketch::after,
+  .module-news::after,
+  .module-calendar::after {
+    right: calc(-1 * var(--vine-branch-w) - 0.42rem);
+  }
+
+  .module-workbench,
+  .module-todos,
+  .module-findme {
+    justify-self: end;
+  }
+
+  .module-workbench::before,
+  .module-todos::before,
+  .module-findme::before {
+    left: calc(-1 * var(--vine-branch-w));
+    border-right: 0;
+    border-radius: 999px 0 0 999px;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.52), rgba(45, 45, 43, 0.08));
+  }
+
+  .module-workbench::after,
+  .module-todos::after,
+  .module-findme::after {
+    left: calc(-1 * var(--vine-branch-w) - 0.42rem);
+  }
+
+  .module-sketch {
+    --branch-shift: -0.92rem;
+  }
+
+  .module-workbench {
+    width: min(calc(100% - 4.6rem), 23rem);
+    max-width: 23rem;
+    --branch-shift: 0.92rem;
+  }
+
+  .module-todos {
+    width: min(calc(100% - 5.3rem), 21rem);
+    max-width: 21rem;
+    --branch-shift: 1.18rem;
+  }
+
+  .module-news {
+    width: min(calc(100% - 4.2rem), 23rem);
+    max-width: 23rem;
+    --branch-shift: -0.78rem;
+  }
+
+  .module-calendar {
+    width: min(calc(100% - 5rem), 20.5rem);
+    max-width: 20.5rem;
+    --branch-shift: -1.06rem;
+  }
+
+  .module-findme {
+    width: min(calc(100% - 4.75rem), 21rem);
+    max-width: 21rem;
+    --branch-shift: 1rem;
   }
 
   .mobile-module h3 {
-    margin: 0.65rem 0 0.35rem;
+    margin: 0.68rem 0 0.35rem;
     font-size: 1.03rem;
   }
 
   .mobile-module p {
-    margin: 0 0 0.7rem;
+    margin: 0 0 0.72rem;
     color: var(--ink-soft);
     font-size: 0.92rem;
   }
 
   .mobile-module-art {
     position: relative;
-    height: 10rem;
-    border: 1px dashed rgba(45, 45, 43, 0.34);
-    border-radius: 0.7rem;
+    height: 10.35rem;
+    border: 1px dashed rgba(45, 45, 43, 0.3);
+    border-radius: 1.9rem 1.9rem 1rem 1rem;
     background:
-      radial-gradient(circle at 20% 22%, rgba(255, 255, 255, 0.45), transparent 40%),
-      linear-gradient(140deg, rgba(45, 45, 43, 0.14), rgba(45, 45, 43, 0.04));
+      radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.46), transparent 34%),
+      linear-gradient(145deg, rgba(45, 45, 43, 0.12), rgba(45, 45, 43, 0.03));
     overflow: hidden;
   }
 
   .mobile-module-art::before {
     content: "";
     position: absolute;
-    inset: 14% 12%;
-    border: 1px solid rgba(45, 45, 43, 0.26);
+    inset: 12% 14%;
+    border: 1px solid rgba(45, 45, 43, 0.24);
     border-radius: 999px;
   }
 
   .mobile-module-art::after {
     content: "";
     position: absolute;
-    inset: auto 16% 18% 16%;
+    inset: auto 15% 16% 15%;
     height: 18%;
-    border: 1px dashed rgba(45, 45, 43, 0.32);
+    border: 1px dashed rgba(45, 45, 43, 0.28);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .module-idea .mobile-module-art {
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0 15%, transparent 16%),
+      linear-gradient(150deg, rgba(255, 255, 255, 0.34), rgba(45, 45, 43, 0.06));
   }
 
   .module-sketch .mobile-module-art {
@@ -113,17 +310,17 @@
   }
 
   .module-workbench .mobile-module-art::before {
-    border-radius: 0.65rem;
+    border-radius: 0.85rem;
   }
 
   .module-todos .mobile-module-art::after {
-    inset: auto 10% 22% 10%;
+    inset: auto 10% 20% 10%;
     border-style: solid;
   }
 
   .module-news .mobile-module-art::before {
+    inset: 17% 20%;
     border-radius: 50%;
-    inset: 18% 20%;
   }
 
   .module-calendar .mobile-module-art::after {
@@ -131,28 +328,29 @@
   }
 
   .module-findme .mobile-module-art::before {
-    inset: 20% 26%;
-    border-radius: 0.55rem;
+    inset: 20% 25%;
+    border-radius: 0.65rem;
   }
 
   .mobile-module-toggle {
     width: 100%;
     min-height: 44px;
-    border: 1px solid rgba(45, 45, 43, 0.42);
-    border-radius: 0.65rem;
-    background: #fff;
+    border: 1px solid rgba(45, 45, 43, 0.38);
+    border-radius: 0.7rem;
+    background: rgba(255, 255, 255, 0.94);
     color: var(--ink);
     font: inherit;
     font-size: 0.9rem;
     text-align: left;
-    padding: 0.6rem 0.75rem;
+    padding: 0.64rem 0.78rem;
     cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74);
   }
 
   .mobile-module-drawer {
-    margin-top: 0.65rem;
-    padding-top: 0.65rem;
-    border-top: 1px dashed rgba(45, 45, 43, 0.28);
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+    border-top: 1px dashed rgba(45, 45, 43, 0.26);
   }
 
   .mobile-module-drawer[hidden] {
@@ -166,7 +364,22 @@
   }
 
   .mobile-module.is-open {
-    border-color: rgba(45, 45, 43, 0.52);
+    border-color: rgba(45, 45, 43, 0.5);
+    box-shadow:
+      0 1rem 2rem rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .mobile-module.is-open.module-sketch,
+  .mobile-module.is-open.module-news,
+  .mobile-module.is-open.module-calendar {
+    transform: translateX(calc(var(--branch-shift, 0) - 0.08rem));
+  }
+
+  .mobile-module.is-open.module-workbench,
+  .mobile-module.is-open.module-todos,
+  .mobile-module.is-open.module-findme {
+    transform: translateX(calc(var(--branch-shift, 0) + 0.08rem));
   }
 }
 
@@ -184,15 +397,68 @@
   }
 
   .mobile-strip-track {
-    gap: 0.85rem;
-    padding: 0.6rem;
+    --vine-stem-w: 0.86rem;
+    --vine-stem-offset: 0.43rem;
+    --vine-branch-w: 1.72rem;
+    --vine-node-size: 0.72rem;
+    gap: 0.8rem;
+    padding: 1rem 0.2rem 1.55rem;
   }
 
   .mobile-module {
-    padding: 0.65rem;
+    width: calc(100% - 4rem);
+    padding: 0.72rem;
+  }
+
+  .module-idea {
+    width: calc(100% - 1rem);
+  }
+
+  .module-workbench {
+    width: calc(100% - 4.3rem);
+  }
+
+  .module-todos {
+    width: calc(100% - 5rem);
+  }
+
+  .module-news {
+    width: calc(100% - 4.1rem);
+  }
+
+  .module-calendar {
+    width: calc(100% - 5.25rem);
+  }
+
+  .module-findme {
+    width: calc(100% - 4.7rem);
+  }
+
+  .module-sketch {
+    --branch-shift: -0.72rem;
+  }
+
+  .module-workbench {
+    --branch-shift: 0.72rem;
+  }
+
+  .module-todos {
+    --branch-shift: 0.82rem;
+  }
+
+  .module-news {
+    --branch-shift: -0.68rem;
+  }
+
+  .module-calendar {
+    --branch-shift: -0.84rem;
+  }
+
+  .module-findme {
+    --branch-shift: 0.76rem;
   }
 
   .mobile-module-art {
-    height: 8.8rem;
+    height: 8.9rem;
   }
 }

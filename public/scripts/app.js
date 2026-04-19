@@ -366,15 +366,43 @@
   }
 
   function bindResizeModeHandling() {
-    window.addEventListener("resize", function () {
+    function synchronizeMode() {
       var previousMode = window.machineState ? window.machineState.mode : null;
       var nextMode = updateMode();
+
+      if (nextMode === "mobile" && window.panelController) {
+        window.panelController.applyMode();
+        closeMobileDrawers();
+        return;
+      }
 
       if (previousMode !== nextMode && window.panelController) {
         window.panelController.applyMode();
         closeMobileDrawers();
       }
-    });
+    }
+
+    var mediaQuery = window.matchMedia(MOBILE_MODE_QUERY);
+
+    function queueModeSynchronization() {
+      synchronizeMode();
+      window.requestAnimationFrame(synchronizeMode);
+    }
+
+    window.addEventListener("resize", queueModeSynchronization);
+
+    if (window.visualViewport && typeof window.visualViewport.addEventListener === "function") {
+      window.visualViewport.addEventListener("resize", queueModeSynchronization);
+    }
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", synchronizeMode);
+      return;
+    }
+
+    if (typeof mediaQuery.addListener === "function") {
+      mediaQuery.addListener(synchronizeMode);
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {

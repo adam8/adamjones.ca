@@ -8,11 +8,11 @@
       name="description"
       content="Interactive inventor notebook machine with semantic module content."
     />
-    <link rel="stylesheet" href="styles/base.css" />
-    <link rel="stylesheet" href="styles/layout.css" />
-    <link rel="stylesheet" href="styles/machine.css" />
-    <link rel="stylesheet" href="styles/animations.css" />
-    <link rel="stylesheet" href="styles/mobile.css" />
+    <link rel="stylesheet" href="styles/base.css?v=20260418-circle-vine" />
+    <link rel="stylesheet" href="styles/layout.css?v=20260418-circle-vine" />
+    <link rel="stylesheet" href="styles/machine.css?v=20260418-circle-vine" />
+    <link rel="stylesheet" href="styles/animations.css?v=20260418-circle-vine" />
+    <link rel="stylesheet" href="styles/mobile.css?v=20260418-circle-vine" />
   </head>
   <body>
     <div class="site-shell">
@@ -55,6 +55,13 @@
               <span class="layer-label">4. spiral machine base</span>
             </div>
             <div
+              class="layer ring-reference layer-placeholder"
+              data-asset="assets/reference-machine-source.png"
+              aria-hidden="true"
+            >
+              <span class="layer-label">4b. washed reference underlay</span>
+            </div>
+            <div
               class="layer steam steam-top layer-placeholder"
               data-asset="assets/steam-top.png"
               aria-hidden="true"
@@ -78,6 +85,12 @@
             <div class="layer idea-orbit-signal layer-placeholder" aria-hidden="true">
               <span class="layer-label">idea orbit signal</span>
             </div>
+            <section class="identity-core" aria-label="Site identity">
+              <p class="identity-core-kicker">Campbell River Laboratory</p>
+              <h3>Adam Jones</h3>
+              <p class="identity-core-subtitle">Daily Computing Engine</p>
+              <p class="identity-core-motto">Think. Build. Explore. Share.</p>
+            </section>
             <div
               class="layer overlay gear-top layer-placeholder"
               data-asset="assets/gear-cluster-top.png"
@@ -595,13 +608,13 @@
           </div>
         </section>
 
-        <section class="mobile-machine-strip" aria-label="Mobile machine strip">
-          <h2 class="visually-hidden">Mobile Machine Strip</h2>
-          <div class="mobile-strip-track" data-asset="assets/mobile-strip-base.png">
+        <section class="mobile-machine-strip mobile-machine-vine" aria-label="Mobile machine vine">
+          <h2 class="visually-hidden">Mobile Machine Vine</h2>
+          <div class="mobile-strip-track mobile-vine-track" data-asset="assets/reference-machine-source.png">
             <article class="mobile-module module-idea" data-module="idea">
               <div class="mobile-module-art" aria-hidden="true"></div>
               <h3>Idea Orbit</h3>
-              <p>The spiral engine unwound into a touch-first strip.</p>
+              <p>The circular engine stretches into a tall touch-first vine.</p>
               <button
                 type="button"
                 class="mobile-module-toggle"
@@ -613,8 +626,8 @@
               </button>
               <div id="mobile-drawer-idea" class="mobile-module-drawer" hidden aria-hidden="true">
                 <p>
-                  This station introduces the mobile machine and keeps navigation compact for
-                  smaller screens.
+                  This station introduces the mobile vine and keeps the rest of the machine flowing
+                  in one long reachable column.
                 </p>
               </div>
             </article>
@@ -1089,8 +1102,8 @@
       </main>
     </div>
 
-    <script src="scripts/machine-state.js" defer></script>
-    <script src="scripts/panel-controller.js" defer></script>
-    <script src="scripts/app.js" defer></script>
+    <script src="scripts/machine-state.js?v=20260418-circle-vine" defer></script>
+    <script src="scripts/panel-controller.js?v=20260418-circle-vine" defer></script>
+    <script src="scripts/app.js?v=20260418-circle-vine" defer></script>
   </body>
 </html>

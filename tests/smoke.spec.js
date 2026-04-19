@@ -68,8 +68,55 @@ test.describe("desktop smoke", () => {
 test.describe("mid-size smoke", () => {
   test.use({ viewport: { width: 1040, height: 900 } });
 
-  test("desktop panels stay anchored near their trigger hotspots", async ({ page }) => {
+  test("desktop hotspots form a ring and panels stay outside the center hub", async ({ page }) => {
     await page.goto("/");
+
+    const hotspotGeometry = await page.evaluate((moduleIds) => {
+      const stage = document.querySelector(".machine-stage");
+      if (!stage) {
+        return null;
+      }
+
+      const stageRect = stage.getBoundingClientRect();
+      const centerX = stageRect.left + stageRect.width / 2;
+      const centerY = stageRect.top + stageRect.height / 2;
+
+      return {
+        stageWidth: stageRect.width,
+        hotspots: moduleIds.map((id) => {
+          const button = document.querySelector(`.hotspot-${id}`);
+          if (!button) {
+            return null;
+          }
+
+          const rect = button.getBoundingClientRect();
+          const buttonCenterX = rect.left + rect.width / 2;
+          const buttonCenterY = rect.top + rect.height / 2;
+
+          return {
+            id,
+            distance: Math.hypot(buttonCenterX - centerX, buttonCenterY - centerY),
+            angle: Math.atan2(buttonCenterY - centerY, buttonCenterX - centerX),
+          };
+        }),
+      };
+    }, MODULES);
+
+    expect(hotspotGeometry).not.toBeNull();
+    expect(hotspotGeometry.hotspots).toHaveLength(MODULES.length);
+
+    for (const hotspot of hotspotGeometry.hotspots) {
+      expect(hotspot).not.toBeNull();
+      expect(hotspot.distance).toBeGreaterThan(hotspotGeometry.stageWidth * 0.18);
+      expect(hotspot.distance).toBeLessThan(hotspotGeometry.stageWidth * 0.42);
+    }
+
+    const sortedAngles = hotspotGeometry.hotspots.map((hotspot) => hotspot.angle).sort((a, b) => a - b);
+    const wrappedAngles = [...sortedAngles, sortedAngles[0] + Math.PI * 2];
+
+    for (let index = 1; index < wrappedAngles.length; index += 1) {
+      expect(wrappedAngles[index] - wrappedAngles[index - 1]).toBeGreaterThan(0.3);
+    }
 
     for (const moduleId of MODULES) {
       await page.click(`.hotspot-${moduleId}`);
@@ -84,6 +131,8 @@ test.describe("mid-size smoke", () => {
         }
 
         const stageRect = stage.getBoundingClientRect();
+        const centerX = stageRect.left + stageRect.width / 2;
+        const centerY = stageRect.top + stageRect.height / 2;
         const buttonRect = button.getBoundingClientRect();
         const panelRect = panel.getBoundingClientRect();
 
@@ -92,12 +141,11 @@ test.describe("mid-size smoke", () => {
         const panelCenterX = panelRect.left + panelRect.width / 2;
         const panelCenterY = panelRect.top + panelRect.height / 2;
 
-        const dx = panelCenterX - buttonCenterX;
-        const dy = panelCenterY - buttonCenterY;
-
         return {
           stageWidth: stageRect.width,
-          distance: Math.hypot(dx, dy),
+          innerHubRadius: stageRect.width * 0.22,
+          buttonToPanelDistance: Math.hypot(panelCenterX - buttonCenterX, panelCenterY - buttonCenterY),
+          panelDistanceFromCenter: Math.hypot(panelCenterX - centerX, panelCenterY - centerY),
           panelHidden: panel.hidden,
           panelAriaHidden: panel.getAttribute("aria-hidden"),
         };
@@ -106,7 +154,8 @@ test.describe("mid-size smoke", () => {
       expect(anchor).not.toBeNull();
       expect(anchor.panelHidden).toBe(false);
       expect(anchor.panelAriaHidden).toBe("false");
-      expect(anchor.distance).toBeLessThan(anchor.stageWidth * 0.6);
+      expect(anchor.panelDistanceFromCenter).toBeGreaterThan(anchor.innerHubRadius);
+      expect(anchor.buttonToPanelDistance).toBeLessThan(anchor.stageWidth * 0.55);
       expect(await openDesktopPanelCount(page)).toBe(1);
     }
   });
@@ -115,36 +164,69 @@ test.describe("mid-size smoke", () => {
 test.describe("mobile smoke", () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
-  test("mobile layout is vertical and drawers toggle with synchronized ARIA", async ({ page }) => {
+  test("mobile layout follows a vertical spiral rhythm and drawers toggle with synchronized ARIA", async ({ page }) => {
     await page.goto("/");
 
     const layout = await page.evaluate(() => {
       const scene = document.querySelector(".machine-scene");
       const strip = document.querySelector(".mobile-machine-strip");
-      const modules = Array.from(document.querySelectorAll(".mobile-module"));
+      const modules = Array.from(document.querySelectorAll(".mobile-module")).map((module) => {
+        const rect = module.getBoundingClientRect();
+
+        return {
+          top: rect.top,
+          bottom: rect.bottom,
+          centerX: rect.left + rect.width / 2,
+        };
+      });
       const sceneDisplay = scene ? window.getComputedStyle(scene).display : "";
       const stripDisplay = strip ? window.getComputedStyle(strip).display : "";
+      const viewportMid = window.innerWidth / 2;
+      const bands = modules.map((module) => {
+        if (module.centerX < viewportMid - 24) {
+          return "left";
+        }
 
-      let stacked = true;
+        if (module.centerX > viewportMid + 24) {
+          return "right";
+        }
+
+        return "center";
+      });
+
+      let topIncreasing = true;
       for (let index = 1; index < modules.length; index += 1) {
-        const previousRect = modules[index - 1].getBoundingClientRect();
-        const currentRect = modules[index].getBoundingClientRect();
-        if (currentRect.top < previousRect.bottom - 1) {
-          stacked = false;
+        if (modules[index].top < modules[index - 1].bottom - 1) {
+          topIncreasing = false;
           break;
+        }
+      }
+
+      let directionChanges = 0;
+      for (let index = 1; index < bands.length; index += 1) {
+        if (bands[index] !== bands[index - 1]) {
+          directionChanges += 1;
         }
       }
 
       return {
         sceneDisplay,
         stripDisplay,
-        stacked,
+        bands,
+        centerRange: Math.max(...modules.map((module) => module.centerX)) - Math.min(...modules.map((module) => module.centerX)),
+        directionChanges,
+        topIncreasing,
       };
     });
 
     expect(layout.sceneDisplay).toBe("none");
     expect(layout.stripDisplay).not.toBe("none");
-    expect(layout.stacked).toBe(true);
+    expect(layout.topIncreasing).toBe(true);
+    expect(layout.bands).toContain("left");
+    expect(layout.bands).toContain("center");
+    expect(layout.bands).toContain("right");
+    expect(layout.centerRange).toBeGreaterThan(60);
+    expect(layout.directionChanges).toBeGreaterThanOrEqual(3);
 
     const newsButton = page.locator(".module-news .mobile-module-toggle");
     const newsDrawer = page.locator("#mobile-drawer-news");

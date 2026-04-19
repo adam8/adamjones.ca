@@ -36,7 +36,7 @@
 .machine-scene.is-open-findme .hotspot-findme {
   background: #fff;
   border-color: rgba(45, 45, 43, 0.75);
-  transform: translate(-50%, -50%) scale(1.03);
+  transform: translate(-50%, -50%) scale(1.04);
 }
 
 .machine-scene.is-hovering-todos .todo-belt,
@@ -83,38 +83,13 @@
   filter: brightness(1.14);
 }
 
-@media (max-width: 62rem) {
-  .panel {
-    transform: scale(0.99);
-  }
-
-  .panel.is-open {
-    transform: scale(1);
-  }
-
-  .machine-scene.is-hovering-sketch .hotspot-sketch,
-  .machine-scene.is-open-sketch .hotspot-sketch,
-  .machine-scene.is-hovering-workbench .hotspot-workbench,
-  .machine-scene.is-open-workbench .hotspot-workbench,
-  .machine-scene.is-hovering-todos .hotspot-todos,
-  .machine-scene.is-open-todos .hotspot-todos,
-  .machine-scene.is-hovering-news .hotspot-news,
-  .machine-scene.is-open-news .hotspot-news,
-  .machine-scene.is-hovering-calendar .hotspot-calendar,
-  .machine-scene.is-open-calendar .hotspot-calendar,
-  .machine-scene.is-hovering-findme .hotspot-findme,
-  .machine-scene.is-open-findme .hotspot-findme {
-    transform: none;
-  }
-}
-
 @keyframes breathe {
   0%,
   100% {
     transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-4px) scale(1.002);
+    transform: translateY(-6px) scale(1.004);
   }
 }
 
@@ -130,14 +105,14 @@
 @keyframes steamDrift {
   0% {
     transform: translate3d(0, 0, 0);
-    opacity: 0.1;
+    opacity: 0.12;
   }
   50% {
-    opacity: 0.18;
+    opacity: 0.2;
   }
   100% {
-    transform: translate3d(14px, -10px, 0);
-    opacity: 0.08;
+    transform: translate3d(10px, -8px, 0);
+    opacity: 0.1;
   }
 }
 
@@ -163,6 +138,18 @@
   }
   52% {
     filter: brightness(1.12);
+  }
+}
+
+@keyframes orbitGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.62;
+    transform: scale(1.012);
   }
 }
 
@@ -274,9 +261,35 @@
   }
 }
 
+@keyframes spiralTrackDrift {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+    opacity: 0.56;
+  }
+}
+
+@keyframes mobileModuleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 .machine-scene.is-animated .machine-base {
   animation: breathe 8.4s var(--ease-mech) infinite;
   transform-origin: 50% 50%;
+}
+
+.machine-scene.is-animated .machine-stage::after {
+  animation: orbitGlow 15s ease-in-out infinite;
 }
 
 .machine-scene.is-animated .machine-shadow {
@@ -284,8 +297,8 @@
 }
 
 .machine-scene.is-animated .gear-top {
-  animation: slowSpin 44s linear infinite;
-  transform-origin: 50% 18%;
+  animation: slowSpin 56s linear infinite;
+  transform-origin: 50% 50%;
 }
 
 .machine-scene.is-animated .steam-top {
@@ -325,17 +338,40 @@
 }
 
 @media (max-width: 62rem) and (prefers-reduced-motion: no-preference) {
-  .mobile-module-art::before {
-    animation: steamDrift 14s ease-in-out infinite alternate;
-    opacity: 0.45;
+  .mobile-strip-track::before {
+    animation: orbitGlow 18s ease-in-out infinite;
   }
 
-  .mobile-module-art::after {
-    animation: shadowPulse 12s ease-in-out infinite;
+  .mobile-strip-track::after {
+    animation: spiralTrackDrift 18s ease-in-out infinite;
   }
 
-  .module-idea .mobile-module-art {
-    animation: breathe 10.5s var(--ease-mech) infinite;
+  .mobile-module-art {
+    animation: mobileModuleFloat 14s var(--ease-mech) infinite;
+  }
+
+  .mobile-module:nth-child(2) .mobile-module-art {
+    animation-delay: 0.4s;
+  }
+
+  .mobile-module:nth-child(3) .mobile-module-art {
+    animation-delay: 0.9s;
+  }
+
+  .mobile-module:nth-child(4) .mobile-module-art {
+    animation-delay: 1.4s;
+  }
+
+  .mobile-module:nth-child(5) .mobile-module-art {
+    animation-delay: 0.7s;
+  }
+
+  .mobile-module:nth-child(6) .mobile-module-art {
+    animation-delay: 1.1s;
+  }
+
+  .mobile-module:nth-child(7) .mobile-module-art {
+    animation-delay: 1.6s;
   }
 
   .module-news .mobile-module-art::before {
@@ -349,6 +385,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .machine-scene.is-animated .machine-base,
+  .machine-scene.is-animated .machine-stage::after,
   .machine-scene.is-animated .machine-shadow,
   .machine-scene.is-animated .gear-top,
   .machine-scene.is-animated .steam,
@@ -359,6 +396,14 @@
   .machine-scene.is-open-news .panel-news .hn-ticker-list,
   .machine-scene.is-animated .idea-orbit-signal,
   .machine-scene.is-animated .todo-belt {
+    animation: none !important;
+  }
+
+  .mobile-strip-track::before,
+  .mobile-strip-track::after,
+  .mobile-module-art,
+  .module-news .mobile-module-art::before,
+  .module-todos .mobile-module-art::after {
     animation: none !important;
   }
 
@@ -407,27 +452,5 @@
   .machine-scene.is-hovering-findme .hotspot-findme,
   .machine-scene.is-open-findme .hotspot-findme {
     transform: translate(-50%, -50%) !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) and (max-width: 62rem) {
-  .panel,
-  .panel.is-open {
-    transform: none !important;
-  }
-
-  .machine-scene.is-hovering-sketch .hotspot-sketch,
-  .machine-scene.is-open-sketch .hotspot-sketch,
-  .machine-scene.is-hovering-workbench .hotspot-workbench,
-  .machine-scene.is-open-workbench .hotspot-workbench,
-  .machine-scene.is-hovering-todos .hotspot-todos,
-  .machine-scene.is-open-todos .hotspot-todos,
-  .machine-scene.is-hovering-news .hotspot-news,
-  .machine-scene.is-open-news .hotspot-news,
-  .machine-scene.is-hovering-calendar .hotspot-calendar,
-  .machine-scene.is-open-calendar .hotspot-calendar,
-  .machine-scene.is-hovering-findme .hotspot-findme,
-  .machine-scene.is-open-findme .hotspot-findme {
-    transform: none !important;
   }
 }
