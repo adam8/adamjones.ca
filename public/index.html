@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Sun, Apr 19, 2026</span>
+          <span class="badge">Thu, Apr 23, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1195,17 +1195,31 @@
               <p class="todo-meta" data-todo-status>Fallback list loaded.</p>
               <ul class="todo-list" data-todo-list>
                 <!-- TODO_SNAPSHOT_START -->
+                <li class="todo-item" data-id="2239e030-4c6c-4034-9e90-c00128dfe24d">
+                  <label class="todo-label">
+                    <input type="checkbox" />
+                    <span>adamjones.ca revamp</span>
+                  </label>
+                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+                </li>
+                <li class="todo-item" data-id="3490123f-fb1e-453c-8442-4a665f347847">
+                  <label class="todo-label">
+                    <input type="checkbox" />
+                    <span>wash blinds</span>
+                  </label>
+                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+                </li>
+                <li class="todo-item" data-id="bd714e2e-75ca-42bb-8f14-5bde5804fcbd">
+                  <label class="todo-label">
+                    <input type="checkbox" />
+                    <span>get cat food</span>
+                  </label>
+                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
+                </li>
                 <li class="todo-item" data-id="0bb4ee9a-6464-42ed-87cf-745c6f680e8b">
                   <label class="todo-label">
                     <input type="checkbox" checked />
                     <span>Sketch of the day</span>
-                  </label>
-                  <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
-                </li>
-                <li class="todo-item" data-id="bb5e9437-f0fa-416e-8aff-54d26bfee6b2">
-                  <label class="todo-label">
-                    <input type="checkbox" />
-                    <span>control todo with MCP</span>
                   </label>
                   <button type="button" class="todo-delete" data-todo-delete="true">Delete</button>
                 </li>
@@ -1228,26 +1242,26 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Apr 19 front page</span>
+            <span class="panel-meta">Apr 23 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47822486" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=47872324" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://madhadron.com/programming/seven_ur_languages.html" rel="noopener">The seven programming ur-languages</a>
+                  <a href="https://crawshaw.io/blog/building-a-cloud" rel="noopener">I am building a cloud</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
                 <div class="hn-story" id="hn-story-1">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/01-seven-programming-ur-languages.webp"
-                    alt="Worn journal spread showing a hand-drawn family tree of programming languages and compiler notes"
+                    src="images/hacker-news/01-building-a-cloud.webp"
+                    alt="Worn notebook sketch of cloud servers and networking arrows"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>This essay argues that modern languages can be explained as recombinations of a small set of foundational ideas, then walks through seven "ur" lineages: ALGOL, Lisp, ML, Self, APL, Forth, and Prolog. Each lineage is treated as a durable design center that contributed key abstractions such as block structure, homoiconicity, type inference, prototype dispatch, array semantics, stack factoring, and logic programming. The post’s practical takeaway is that learning these roots makes new language features less mysterious, because most "new" ideas are historical patterns re-surfacing in new syntax and tooling contexts.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters largely engaged the taxonomy itself: several agreed the framing is useful for teaching language history, while others argued that SQL, Smalltalk, and Scheme deserve stronger treatment as first-class roots rather than side branches. A recurring thread challenged whether "ur-language" classification over-compresses social and tooling influences, especially where ecosystems evolved independently of core language semantics. Overall sentiment was constructive and nerdy, with readers trading alternative trees, edge cases, and examples from production systems rather than rejecting the premise outright.</p>
+                  <p><span class="hn-label">From link</span>Crawshaw lays out a first-principles attempt to build a personal cloud stack with a narrow surface area, where identity, storage, and compute are treated as composable primitives instead of product features spread across vendor dashboards. The post argues that most managed cloud complexity comes from inherited abstractions and organizational sprawl, so the design goal is a smaller control plane that remains understandable by one engineer while still supporting real workloads. It reads like an implementation diary and a manifesto at once, with concrete architecture notes tied directly to operational ergonomics.</p>
+                  <p><span class="hn-label">From comments</span>HN discussion centered on whether custom cloud layers are empowering or self-imposed toil, with supporters praising the clarity and ownership benefits while skeptics warned that mature providers encode years of hard reliability lessons. Commenters compared this approach to Kubernetes distros, PaaS systems, and homelab tooling, often converging on the idea that the project is most compelling as a way to compress and relearn core infrastructure concepts. The thread tone was constructive, with practical questions around IAM, networking boundaries, and what minimum viable "cloud" should include.</p>
                 </div>
                 <label class="hn-more" for="hn-more-1" aria-controls="hn-story-1">
                   <span class="more">More</span>
@@ -1256,21 +1270,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47806021" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=47846688" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://antithesis.com/blog/2026/skiptrees/" rel="noopener">What are skiplists good for?</a>
+                  <a href="https://simonomi.dev/blog/color-code-your-bytes/" rel="noopener">Your hex editor should color-code bytes</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
                 <div class="hn-story" id="hn-story-2">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/02-skiptrees.webp"
-                    alt="Aged engineering notebook with sketched skip-list towers, tree nodes, and benchmark arrows"
+                    src="images/hacker-news/02-color-code-bytes.webp"
+                    alt="Aged journal drawing of colorful byte blocks and bit patterns"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Antithesis revisits skip lists from a systems angle and argues they remain attractive when you care about implementation simplicity, predictable balancing behavior, and memory layouts that play well with modern caches. The post compares skip-structure tradeoffs against classic balanced trees, then introduces "skiptree" hybrids to show how probabilistic layering can coexist with practical indexing constraints. Rather than claiming universal superiority, it frames skip-based structures as a compelling engineering choice when developer complexity and real-world performance matter more than asymptotic elegance alone.</p>
-                  <p><span class="hn-label">From comments</span>Commenters on HN focused on where skip lists actually win in production, especially for concurrent writes, lock strategies, and ease of implementation versus red-black or B-tree variants. Several practitioners shared that the operational value often comes from debuggability and lower code complexity rather than headline benchmarks, while skeptics pointed out workload-sensitive regressions for disk-heavy or range-scan scenarios. The thread converged on a pragmatic view: skip lists are not a silver bullet, but they are frequently the right default when a team values maintainability and robust performance envelopes.</p>
+                  <p><span class="hn-label">From link</span>The article proposes semantic coloring for raw bytes so repeated structures become visually obvious before formal parsing, turning a hex editor into an exploratory reverse-engineering tool instead of a plain dump viewer. It explains a practical palette strategy tied to byte classes and shows how gradients and grouping cues help people spot boundaries, counters, headers, and anomalies faster than monochrome output. Rather than replacing disassemblers or protocol tools, the pitch is that visual pre-attentive cues meaningfully reduce the cost of first-pass inspection.</p>
+                  <p><span class="hn-label">From comments</span>Commenters mostly debated where color helps versus distracts, with many agreeing the approach is useful for binary forensics and file-format discovery but warning that poor palettes can hide important detail or introduce false confidence. Several HN users shared analogous workflows from Wireshark, packet analyzers, and IDE semantic highlighting, suggesting that configurable themes and toggles are critical for long sessions. The thread landed on a pragmatic consensus: color-coded bytes are valuable when they remain optional, interpretable, and grounded in explicit byte semantics.</p>
                 </div>
                 <label class="hn-more" for="hn-more-2" aria-controls="hn-story-2">
                   <span class="more">More</span>
@@ -1279,21 +1293,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47819453" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=47871519" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.nist.gov/news-events/news/2026/04/any-color-you-nist-scientists-create-any-wavelength-lasers-tiny-circuits" rel="noopener">NIST scientists create "any wavelength" lasers</a>
+                  <a href="https://antiz.fr/blog/archlinux-now-has-a-reproducible-docker-image/" rel="noopener">Arch Linux now has a reproducible Docker image</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
                 <div class="hn-story" id="hn-story-3">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/03-nist-xray-frequency-combs.webp"
-                    alt="Worn lab journal with hand-drawn beamline optics, comb-wave diagrams, and calibration notes"
+                    src="images/hacker-news/03-arch-reproducible-docker.webp"
+                    alt="Worn paper sketch of container layers with reproducible hash checks"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>NIST reports integrated photonic lasers that can generate effectively any target wavelength on tiny circuits, a step toward compact, customizable light sources for sensing, communications, and precision measurement. The article explains how the team engineered broad tunability without relying on bulky lab optics, which could make advanced laser capabilities easier to deploy outside specialized setups. The practical significance is platform flexibility: one chip-scale architecture can be tuned for many use cases that previously required separate, fixed-wavelength devices.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion split between excitement about precision instrumentation and requests for clearer explanation of what improved calibration unlocks in day-to-day experimental practice. Some commenters pushed back on media framing that can overstate immediate product impact, while others with lab experience emphasized that incremental metrology gains quietly enable major downstream breakthroughs. The overall tone was positive but technical: readers wanted concrete context on resolution limits, reproducibility, and where this approach outperforms existing beamline methods.</p>
+                  <p><span class="hn-label">From link</span>This write-up documents how Arch Linux container images are now reproducible, so independent builds can converge on matching artifacts rather than opaque, one-off snapshots. The author frames reproducibility as a supply-chain integrity upgrade, not just a packaging nicety, because deterministic builds make provenance verification and drift detection materially easier in CI and production pipelines. It also highlights that achieving this required process discipline across mirrors, tooling, and build inputs, underscoring that reproducibility is an ecosystem property.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback was enthusiastic but detail-oriented, with readers asking how reproducibility claims are verified in practice and what threat models are actually improved by deterministic container roots. Some commenters contrasted Arch’s progress with reproducible efforts in Debian, Nix, and other ecosystems, noting the operational challenge of keeping bit-for-bit guarantees as upstream dependencies shift. The general sentiment was positive: this is meaningful infrastructure work, provided teams pair reproducible artifacts with transparent attestation and signature workflows.</p>
                 </div>
                 <label class="hn-more" for="hn-more-3" aria-controls="hn-story-3">
                   <span class="more">More</span>
@@ -1302,21 +1316,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47817132" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=47837698" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://www.righto.com/2026/04/B-52-star-tracker-angle-computer.html" rel="noopener">The B-52 star tracker’s electromechanical angle computer</a>
+                  <a href="https://github.blog/open-source/git/highlights-from-git-2-54/" rel="noopener">Highlights from Git 2.54</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
                 <div class="hn-story" id="hn-story-4">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/04-b52-angle-computer.webp"
-                    alt="Distressed avionics notebook with analog computer mechanisms and bombing-trajectory sketches"
+                    src="images/hacker-news/04-git-2-54-highlights.webp"
+                    alt="Vintage notebook illustration of git commits, branches, and release notes"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>Ken Shirriff’s teardown explores the B-52 angle-rate-bombing computer as an example of dense mid-century aerospace engineering, where analog and early digital techniques were combined to solve real-time targeting constraints. The article traces mechanical and electronic subsystems in detail, showing how sensor inputs were transformed into bombing solutions under severe reliability and timing requirements. Beyond historical curiosity, it highlights how system-level design discipline and physical computing tradeoffs shaped mission-critical hardware long before modern software stacks existed.</p>
-                  <p><span class="hn-label">From comments</span>HN readers responded with a mix of admiration and technical comparison, contrasting the elegance of tightly integrated analog avionics with today’s software-heavy control systems. Several comments centered on maintainability and manufacturing realities, noting that older systems were ingenious but also demanded specialized calibration and operator expertise that do not scale easily now. The thread’s center of gravity was respectful and educational, with people using the post to discuss what modern engineers can still learn from constraint-driven hardware architecture.</p>
+                  <p><span class="hn-label">From link</span>GitHub’s release summary for Git 2.54 walks through incremental but high-impact quality-of-life improvements, including command behavior refinements and new ergonomics around recurring repository workflows. The post positions this release as part of Git’s steady cadence of practical polish, where each version trims rough edges for daily users rather than chasing dramatic paradigm shifts. It is especially useful for teams that want to keep tooling current without scanning raw release notes line by line.</p>
+                  <p><span class="hn-label">From comments</span>The HN thread was smaller but focused on release-management habits, with commenters discussing when to upgrade Git in enterprise environments and which features justify synchronized team rollouts. A few replies emphasized that "minor" CLI changes can still alter scripts, aliases, and onboarding docs, so testing against representative repos remains important. Overall feedback treated 2.54 as a welcome maintenance release that rewards teams who regularly adopt upstream improvements.</p>
                 </div>
                 <label class="hn-more" for="hn-more-4" aria-controls="hn-story-4">
                   <span class="more">More</span>
@@ -1325,21 +1339,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47815395" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=47865661" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://worksinprogress.co/issue/why-japan-has-such-good-railways/" rel="noopener">Why Japan has good railways</a>
+                  <a href="https://martinfowler.com/articles/technical-debt.html" rel="noopener">Technical Debt as a spectrum</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
                 <div class="hn-story" id="hn-story-5">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/05-japan-good-railways.webp"
-                    alt="Worn transit journal with rail maps, station nodes, and timetable annotations"
+                    src="images/hacker-news/05-technical-debt-spectrum.webp"
+                    alt="Weathered engineering journal with debt spectrum chart and tangled wires"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>This Works in Progress essay attributes Japan’s rail quality to institutional and economic structure more than cultural myth, especially private operators that coordinate transport with land development and service planning. It argues that dense demand, integrated station-area business models, and long-horizon operations create incentives for reliability and frequent service that many public systems struggle to reproduce. The piece treats performance as a system outcome: governance, financing, and urban form reinforce each other, making "good railways" an emergent property rather than a single policy win.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters debated transferability, with many agreeing the analysis is strong but warning that legal, land-use, and political constraints make straightforward replication difficult in North American cities. Some replies highlighted survivorship bias in cross-country comparisons, while others pointed to concrete lessons around zoning near stations, fare integration, and reducing institutional fragmentation. The thread sentiment was cautiously practical: admiration for the Japanese model paired with realism that improvements elsewhere require coordinated reforms, not just better train technology.</p>
+                  <p><span class="hn-label">From link</span>Martin Fowler reframes technical debt as a multi-axis concept spanning structural debt, cognitive debt, and intent debt, arguing that teams get better results when they diagnose debt type before prescribing fixes. The article expands beyond code smells to include system understanding costs and strategic misalignment, showing how debt can accumulate even in codebases that look clean at the file level. Its practical value is a clearer vocabulary for prioritization: different debt classes demand different repayment strategies, ownership models, and timelines.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters engaged heavily with the taxonomy, especially the distinction between debt taken deliberately for speed and debt created accidentally through weak design feedback loops. Several practitioners shared examples where cognitive debt, not raw code quality, became the dominant delivery bottleneck, prompting discussion about documentation, architecture constraints, and team topology. The thread generally supported the spectrum framing because it helps avoid one-size-fits-all cleanup efforts and makes tradeoffs with product timelines more explicit.</p>
                 </div>
                 <label class="hn-more" for="hn-more-5" aria-controls="hn-story-5">
                   <span class="more">More</span>
@@ -1348,21 +1362,21 @@
               </article>
 
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47815774" rel="noopener">HN</a></p>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=47874647" rel="noopener">HN</a></p>
                 <h3 class="hn-title">
-                  <a href="https://isayeter.com/posts/digitalocean-to-hetzner-migration/" rel="noopener">Moving off DigitalOcean to Hetzner</a>
+                  <a href="https://github.com/russellromney/honker" rel="noopener">Show HN: Honker</a>
                 </h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
                 <div class="hn-story" id="hn-story-6">
                   <img
                     class="hn-image"
-                    src="images/hacker-news/06-moving-off-digitalocean-hetzner.webp"
-                    alt="Weathered operations notebook with cloud migration arrows, server racks, and cost checklist"
+                    src="images/hacker-news/06-honker-social-feed.webp"
+                    alt="Worn notebook sketch of playful social feed cards and doodled avatars"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p><span class="hn-label">From link</span>The migration write-up documents a personal production move from DigitalOcean to Hetzner and emphasizes the concrete mechanics: cost analysis, service mapping, migration sequencing, and operational validation after cutover. The post frames provider switching as less about ideology and more about matching workload economics and control requirements, while acknowledging the extra operational ownership that comes with self-managed choices. Its strongest value is procedural transparency, outlining an approach others can adapt when re-evaluating cloud spend versus reliability needs.</p>
-                  <p><span class="hn-label">From comments</span>HN feedback focused on decision context, with readers comparing regional pricing, support expectations, and hidden migration costs rather than declaring one vendor universally better. Several commenters stressed that benchmarks can be misleading unless workloads and SLOs are comparable, while others shared outage and billing experiences that influenced their own provider choices. Discussion settled on a nuanced takeaway: cloud moves can pay off, but only when teams account for operational complexity, data transfer realities, and long-term maintenance burden.</p>
+                  <p><span class="hn-label">From link</span>Honker is presented as a lightweight social/news feed app with a playful tone, shipping a small, understandable codebase and a clear setup path in the README for local experimentation. The repository emphasizes quick iteration and direct feature visibility over framework maximalism, making it easy to inspect how timeline rendering, user interactions, and app wiring fit together. As a Show HN entry, the project’s strength is approachability: readers can clone it, run it, and evaluate design choices without heavy onboarding overhead.</p>
+                  <p><span class="hn-label">From comments</span>Commenters focused on product ergonomics and implementation tradeoffs, asking about moderation, spam resistance, scaling assumptions, and how the UX might evolve under real usage. A common thread praised the project’s clarity and hackable scope while noting that social features become hard when edge cases and trust-and-safety concerns appear. Sentiment was supportive overall, with feedback framed as practical next steps rather than criticism of the prototype’s current limits.</p>
                 </div>
                 <label class="hn-more" for="hn-more-6" aria-controls="hn-story-6">
                   <span class="more">More</span>
@@ -1372,7 +1386,6 @@
             </div>
           </div>
         </article>
-
         <article class="panel fade-up delay-2" aria-label="Calendar and links">
           <div class="panel-head">
             <h2 class="panel-title">Calendar + Links</h2>
@@ -1444,6 +1457,14 @@
                   <span class="holiday-date">Mon, May 18</span>
                   <span class="holiday-title">Victoria Day</span>
                 </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Sun, Jun 21</span>
+                  <span class="holiday-title">Father’s Day</span>
+                </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Sun, Jun 21</span>
+                  <span class="holiday-title">National Indigenous Peoples Day</span>
+                </li>
               </ul>
               <!-- UPCOMING_HOLIDAYS_END -->
             </section>
@@ -1459,7 +1480,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sun, Apr 19, 2026 · 7:12 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Thu, Apr 23, 2026 · 9:45 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
