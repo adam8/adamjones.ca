@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Wed, May 6, 2026</span>
+          <span class="badge">Sat, May 9, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1235,62 +1235,62 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">May 6 front page</span>
+            <span class="panel-meta">May 9 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=48034587" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://red-squares.cian.lol/" rel="noopener">Show HN: Red Squares – GitHub outages as contributions</a></h3>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=48051951" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://moq.dev/blog/webrtc-is-the-problem/" rel="noopener">OpenAI says it uses WebRTC for real-time API because WebSockets don't cut it</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
-                <div class="hn-story" id="hn-story-1"><img class="hn-image" src="images/hacker-news/01-red-squares-github-outages.webp" alt="Worn journal chart of GitHub outage squares" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>The project turns GitHub status incidents into a contribution-style heatmap, reframing reliability history as a familiar developer visual and making outage patterns legible at a glance. Instead of long incident logs, the page emphasizes cadence and clustering over time, which makes it easy to spot noisy periods and compare calmer stretches without leaving a single minimalist dashboard view.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion mixed appreciation for the clever format with recurring debate about what GitHub uptime data means in practice, especially the difference between public incidents and enterprise experience. Commenters also pointed out that recent incidents tied to Copilot model integrations are visible in the timeline and used that to argue about scaling pressure, infrastructure quality, and whether status-page abstractions hide the operational details teams actually care about.</p>
+                <div class="hn-story" id="hn-story-1"><img class="hn-image" src="images/hacker-news/01-openai-webrtc-problem.webp" alt="Worn journal sketch of real-time network paths and latency tradeoffs" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The post argues that OpenAI’s use of WebRTC for real-time audio interactions is about transport behavior under strict latency pressure, not trend-chasing, because features like jitter buffering, congestion control, and media-optimized packet handling are more suitable than a plain WebSocket channel for live conversation quality. It frames WebRTC as operationally heavier but justified when user experience depends on preserving continuity under fluctuating network conditions.</p>
+                  <p><span class="hn-label">From comments</span>Commenters largely agreed that transport choice should follow workload shape, and the thread focused on where WebRTC’s complexity pays off versus when simpler sockets are enough. Several posts debated practical deployment pain points, browser interoperability, and whether organizations over-adopt advanced stacks too early, with a recurring view that voice-first products can justify that complexity while many text-first apps cannot.</p>
                 </div><label class="hn-more" for="hn-more-1" aria-controls="hn-story-1"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=48006967" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://www.thetypicalset.com/blog/thoughts-on-coding-agents" rel="noopener">The bottleneck was never the code</a></h3>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=48067119" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://reclaimthenet.org/google-broke-recaptcha-for-de-googled-android-users" rel="noopener">Google broke reCAPTCHA for de-googled Android users</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
-                <div class="hn-story" id="hn-story-2"><img class="hn-image" src="images/hacker-news/02-bottleneck-never-code.webp" alt="Worn notebook page about coding agent workflow" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>The essay argues that software delivery has long been constrained more by product ambiguity, communication overhead, and decision quality than by typing speed, and that coding agents mainly expose this old truth. It frames AI-assisted development as a force multiplier for teams that can already specify intent crisply, while warning that weak planning and fragmented ownership still dominate outcomes even when implementation throughput accelerates.</p>
-                  <p><span class="hn-label">From comments</span>Commenters strongly agreed that coordination and prioritization are usually the real limiting factors, but many also called out a tone shift from engineers who once defended uninterrupted coding time as sacred. The thread centered on that tension: people accepted the diagnosis while debating whether agent-era workflows genuinely improve collaboration, or simply move effort into review, orchestration, and responsibility boundaries that remain just as hard as before.</p>
+                <div class="hn-story" id="hn-story-2"><img class="hn-image" src="images/hacker-news/02-google-recaptcha-degoogled-android.webp" alt="Worn notebook sketch of captcha checks failing on privacy-focused Android" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The report describes breakage that affected de-googled Android users attempting to pass reCAPTCHA checks, framing it as another example of how anti-abuse controls can become de facto platform gatekeepers. It highlights practical consequences for people using privacy-focused mobile setups, where legitimate users can lose access when verification infrastructure assumes Google-integrated device signals.</p>
+                  <p><span class="hn-label">From comments</span>Commenters debated whether this was an intentional exclusion or a brittle side effect of fraud defense tuning, but most agreed the incident exposes fragility in critical web access paths. The thread also revisited broader concerns about concentration risk when core verification systems are controlled by a small number of providers and can silently fail for edge-case clients.</p>
                 </div><label class="hn-more" for="hn-more-2" aria-controls="hn-story-2"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=48034762" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://catstret.ch/202605/srss-hipster202510/" rel="noopener">Setting up a Sun Ray server on OpenIndiana Hipster 2025.10</a></h3>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=48046436" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://martinfowler.com/bliki/MythicalManMonth.html" rel="noopener">Mythical Man-Month</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
-                <div class="hn-story" id="hn-story-3"><img class="hn-image" src="images/hacker-news/03-sun-ray-openindiana.webp" alt="Worn technical sketch of thin-client terminals" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>This walkthrough documents a clean OpenIndiana setup for reviving Sun Ray thin clients, including the practical quirks of modern package state, legacy components, and service configuration needed to make the stack useful again. Beyond nostalgia, it reads as a careful field guide for preserving specialized hardware workflows with contemporary tooling, showing that old network-compute ideas still work when the operational glue is updated methodically.</p>
-                  <p><span class="hn-label">From comments</span>The comment thread was largely enthusiastic and memory-rich, with former admins praising Sun Ray reliability and security while lamenting how many units were discarded after Oracle-era transitions. People compared Sun Ray with later VDI rollouts, often arguing that newer stacks increased maintenance burden, and several posts shared surviving hardware links and demo references for anyone trying to reconstruct similar thin-client environments today.</p>
+                <div class="hn-story" id="hn-story-3"><img class="hn-image" src="images/hacker-news/03-mythical-man-month.webp" alt="Worn journal timeline sketch of software staffing and schedule slip" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The excerpt revisits Brook’s law and related lessons on software estimation, arguing that communication overhead and onboarding cost can erase the expected benefit of adding people to a late project. Its enduring point is managerial rather than purely technical: delivery outcomes depend on architecture boundaries, team interfaces, and planning discipline more than raw staffing volume.</p>
+                  <p><span class="hn-label">From comments</span>Discussion split between readers who see the essay as timeless and others who believe modern tooling and modular systems can soften its constraints in specific contexts. Many commenters still converged on the same practical takeaway: adding engineers late can help only when task decomposition is genuinely parallel and leadership absorbs the coordination burden instead of pushing it onto the team.</p>
                 </div><label class="hn-more" for="hn-more-3" aria-controls="hn-story-3"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=48031684" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://blog.cloudflare.com/agents-stripe-projects/" rel="noopener">Agents can now create Cloudflare accounts, buy domains, and deploy</a></h3>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=48037760" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://www.wiisfi.com/" rel="noopener">Wi Is Fi: understanding Wi-Fi generations</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
-                <div class="hn-story" id="hn-story-4"><img class="hn-image" src="images/hacker-news/04-cloudflare-agent-domains.webp" alt="Worn journal collage of domains and deployment flow" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Cloudflare’s post introduces an agent workflow that can provision key internet setup steps, including account creation, domain purchase, and deployment, as part of a single automated path. The positioning is less about replacing core engineering judgment and more about removing repetitive bootstrap friction, so teams can move from idea to a live project with fewer manual handoffs across billing, DNS, and runtime configuration screens.</p>
-                  <p><span class="hn-label">From comments</span>HN reactions were skeptical-to-curious, with many readers asking for stronger concrete examples that justify automating tasks usually performed only once per project. A common theme was that while the capability is technically impressive, trust and control concerns remain, and several commenters argued that foundational setup is still best done deliberately by humans unless agents can prove reliability, auditability, and clear productivity gains in real production workflows.</p>
+                <div class="hn-story" id="hn-story-4"><img class="hn-image" src="images/hacker-news/04-understanding-wifi-generations.webp" alt="Worn paper infographic of Wi-Fi generation and spectrum evolution" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The site explains Wi-Fi naming and generation changes with a consumer-friendly map of capabilities, bands, and expected experience differences across standards from older releases through Wi-Fi 7 and early Wi-Fi 8 framing. It translates protocol evolution into practical buying and deployment guidance, helping readers connect abstract version labels to concrete tradeoffs around throughput, latency, range, and client mix.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters appreciated the accessible visual framing while debating where simplification can mislead advanced users, especially around real-world interference and AP placement effects. The thread repeatedly highlighted that user experience is often constrained less by headline standard support and more by environment, device quality, and local network design decisions.</p>
                 </div><label class="hn-more" for="hn-more-4" aria-controls="hn-story-4"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=48031261" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://us.starlabs.systems/pages/starfighter" rel="noopener">StarFighter 16-Inch</a></h3>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=48048679" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://learn.sparkfun.com/tutorials/how-leds-are-made/all" rel="noopener">How LEDs are made (2014)</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
-                <div class="hn-story" id="hn-story-5"><img class="hn-image" src="images/hacker-news/05-starfighter-16-inch.webp" alt="Worn notebook rendering of a Linux laptop launch" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>The StarFighter 16-inch page presents a Linux-first laptop pitch focused on enthusiast hardware expectations, larger form factor tradeoffs, and a direct-buy configuration path aimed at users who prioritize open ecosystems. The listing emphasizes product identity and specs framing over deep third-party benchmarking, positioning it as a premium niche machine for buyers already comfortable evaluating component choices and distro-centric workflows.</p>
-                  <p><span class="hn-label">From comments</span>Commenters urged caution and repeatedly asked for independent real-world reviews before purchase, pointing to the product’s long timeline and earlier shipping-delay discussions. The thread’s practical consensus was to wait for verification on thermals, battery life, build quality, and sustained support, with experienced buyers noting that transparent production updates matter as much as raw specs when trust has to be rebuilt over a multi-year launch cycle.</p>
+                <div class="hn-story" id="hn-story-5"><img class="hn-image" src="images/hacker-news/05-how-leds-are-made.webp" alt="Worn notebook drawing of LED wafer and packaging steps" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The tutorial walks through LED manufacturing from semiconductor wafer processes through packaging and binning, translating photonics and fabrication concepts into a practical maker-oriented explanation. It connects material choices and production steps to real performance outcomes like brightness consistency, color characteristics, and thermal behavior, making component-level tradeoffs easier to understand for electronics builders.</p>
+                  <p><span class="hn-label">From comments</span>HN readers appreciated the depth and clarity of an older but still useful technical explainer, with discussion branching into modern efficiency gains and quality differences across suppliers. Several commenters shared personal experience with LED selection in products and projects, emphasizing that bin quality and heat management remain critical even when headline specs look similar.</p>
                 </div><label class="hn-more" for="hn-more-5" aria-controls="hn-story-5"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=48005432" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://www.aaedmusa.com/projects/cara2" rel="noopener">CARA 2.0 – “I Built a Better Robot Dog”</a></h3>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=48074265" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://internetarchive.ch/" rel="noopener">Internet Archive Switzerland</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
-                <div class="hn-story" id="hn-story-6"><img class="hn-image" src="images/hacker-news/06-cara-robot-dog.webp" alt="Worn journal drawing of a low-cost quadruped robot" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>The CARA 2.0 build showcases a lower-cost quadruped architecture with attention to parts sourcing, mechanical iteration, and practical controller constraints needed to make a robot dog project more replicable. Rather than treating it as a polished product reveal, the writeup highlights tradeoffs in motor selection, power budget, and stability tuning, giving readers a transparent engineering narrative focused on what it takes to improve capability without exploding cost.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion got highly technical around actuator pricing, motor rewinding choices, and thermal limits for systems that hold static loads for long periods. Contributors generally praised the cost-performance ambition but stressed that reliability hinges on heat management, sensing feedback, and long-run testing, with several commenters connecting the project to broader trends in cheaper hobby robotics hardware that now enables much more serious home-built prototypes.</p>
+                <div class="hn-story" id="hn-story-6"><img class="hn-image" src="images/hacker-news/06-internet-archive-switzerland.webp" alt="Worn journal map sketch of archival infrastructure in Switzerland" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The announcement introduces Internet Archive Switzerland as a jurisdictionally distinct archival initiative intended to strengthen long-term preservation resilience and institutional continuity. By diversifying legal and operational footing, the project positions itself as a hedge against single-country policy risk while continuing the mission of broad access to preserved digital cultural and technical records.</p>
+                  <p><span class="hn-label">From comments</span>Discussion was broadly supportive but practical, with commenters asking about governance, funding durability, and how mirrored collections will be prioritized over time. A recurring theme was that geographic and legal redundancy is increasingly necessary infrastructure for public memory projects, especially as content takedown pressure and platform volatility continue to rise.</p>
                 </div><label class="hn-more" for="hn-more-6" aria-controls="hn-story-6"><span class="more">More</span><span class="less">Less</span></label>
               </article>
             </div>            </div>
@@ -1394,7 +1394,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Wed, May 6, 2026 · 8:12 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Sat, May 9, 2026 · 7:03 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
