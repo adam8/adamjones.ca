@@ -1029,7 +1029,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Tue, May 19, 2026</span>
+          <span class="badge">Wed, May 20, 2026</span>
           <span class="badge">Pacific Time</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1235,62 +1235,62 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">May 19 front page</span>
+            <span class="panel-meta">May 20 front page</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=48181125" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://archestra.ai/blog/only-responsible-ai" rel="noopener">We stopped AI bot spam in our GitHub repo using Git's –author flag</a></h3>
+                <p class="hn-kicker">No. 1 · <a href="https://news.ycombinator.com/item?id=48206340" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://spidermonkey.dev/blog/2026/05/20/saying-goodbye-to-asmjs.html" rel="noopener">Saying goodbye to asm.js</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
-                <div class="hn-story" id="hn-story-1"><img class="hn-image" src="images/hacker-news/01-ai-bot-spam-github.webp" alt="Worn journal thumbnail for AI bot spam in GitHub" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Archestra describes how a bounty issue meant to attract contributors was flooded by low-quality AI submissions, then details practical guardrails they adopted to cut noise without shutting down legitimate contributions. The post frames the core issue as review-surface exhaustion: maintainers lose time and trust when repos are saturated with synthetic plans and spammy pull requests, so controls around identity, contribution quality, and triage flow become operationally necessary.</p>
-                  <p><span class="hn-label">From comments</span>Commenters mostly agreed the spam problem is real but split on where responsibility belongs, debating repository-level moderation versus stronger platform-level anti-abuse features from GitHub. Thread participants also dug into security implications of contributor trust settings and repeatedly requested better PR intake controls, including queues, archive/delete tools, and faster bulk actions for maintainers managing repeated low-signal abuse.</p>
+                <div class="hn-story" id="hn-story-1"><img class="hn-image" src="images/hacker-news/01-goodbye-asmjs.webp" alt="Worn journal thumbnail for asm.js retirement" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>Mozilla’s SpiderMonkey team says Firefox 148 disables asm.js optimizations by default, with full removal planned later, arguing the specialized pipeline no longer justifies its maintenance and security cost now that WebAssembly has become the dominant path. The post positions asm.js as a bridge technology that proved near-native browser performance was possible and helped clear the way for WebAssembly, while reassuring maintainers that existing asm.js code will still execute as normal JavaScript.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters treated the change as both nostalgic and practical, with many recalling asm.js’s role in early browser-native game/tool ports while debating whether WebAssembly has fully matched the ease of JavaScript interop for some workloads. The thread converged on a pragmatic view: most deployments have moved on, but people still care about runtime codegen, legacy toolchains, and the broader question of how fast web compute should balance ergonomics, sandboxing, and performance.</p>
                 </div><label class="hn-more" for="hn-more-1" aria-controls="hn-story-1"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=48192224" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://www.apple.com/newsroom/2026/05/apple-unveils-new-accessibility-features-and-updates-with-apple-intelligence/" rel="noopener">New accessibility features powered by Apple Intelligence</a></h3>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=48203698" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://blog.habets.se/2026/05/Everything-in-C-is-undefined-behavior.html" rel="noopener">Everything in C is undefined behavior</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
-                <div class="hn-story" id="hn-story-2"><img class="hn-image" src="images/hacker-news/02-apple-accessibility-intelligence.webp" alt="Worn journal thumbnail for Apple accessibility updates" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Apple’s newsroom update introduces new accessibility features with a strong emphasis on Accessibility Reader, which reformats dense multi-column content into a clearer reading view and adds on-demand article summaries. The announcement positions Apple Intelligence as assistive infrastructure rather than novelty, aiming to reduce cognitive and visual friction for users navigating complex documents across devices.</p>
-                  <p><span class="hn-label">From comments</span>Early HN feedback centered on real-world assistive workflows, especially how blind and low-vision users consume audio at very high playback speeds and where demo framing can misrepresent that experience. The thread quickly became practical, sharing examples and debating usability details, with overall sentiment that better accessibility tooling matters most when it reflects how people actually use adaptive interfaces day to day.</p>
+                <div class="hn-story" id="hn-story-2"><img class="hn-image" src="images/hacker-news/02-c-undefined-behavior.webp" alt="Worn journal thumbnail for undefined behavior in C" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The essay argues that undefined behavior in modern C/C++ is so pervasive that even careful engineers routinely violate rules unintentionally, then uses concrete examples such as pointer alignment, character classification, and numeric conversions to show how code that appears reasonable can still be invalid by spec. Its main thesis is less that compilers are hostile and more that assumptions baked into decades-old language models no longer fit current reliability and security expectations.</p>
+                  <p><span class="hn-label">From comments</span>Discussion was extensive and technical, with readers debating whether the post overgeneralizes versus accurately reflecting the day-to-day risk profile of large C/C++ systems in 2026. Many commenters focused on sanitizer adoption, platform-specific behavior, and migration pressure toward safer languages, while others emphasized that better tooling and stricter coding standards can still reduce UB exposure even when full rewrites are unrealistic.</p>
                 </div><label class="hn-more" for="hn-more-2" aria-controls="hn-story-2"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=48182281" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://www.anthropic.com/news/anthropic-acquires-stainless" rel="noopener">Anthropic acquires Stainless</a></h3>
+                <p class="hn-kicker">No. 3 · <a href="https://news.ycombinator.com/item?id=48201973" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://fivethirtyeightindex.com/" rel="noopener">FiveThirtyEight articles on the Internet Archive</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
-                <div class="hn-story" id="hn-story-3"><img class="hn-image" src="images/hacker-news/03-anthropic-acquires-stainless.webp" alt="Worn journal thumbnail for Anthropic acquiring Stainless" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Anthropic says it is acquiring Stainless to deepen the SDK and MCP server layer that connects agent models to external systems, arguing that agent usefulness depends on high-quality interfaces to data and tools. The post highlights Stainless’s role in Anthropic’s SDK history and frames the deal as a developer-experience and connectivity move, not just a branding acquisition.</p>
-                  <p><span class="hn-label">From comments</span>HN discussion interpreted the deal as aggressive talent and platform consolidation, with many commenters reading it as a pattern where frontier labs buy proven infra teams instead of hiring via broad pipelines. Replies debated whether this is a healthy outcome for ecosystem builders, but most agreed APIs, SDK ergonomics, and integration reliability are becoming strategic differentiators in the agent stack.</p>
+                <div class="hn-story" id="hn-story-3"><img class="hn-image" src="images/hacker-news/03-fivethirtyeight-archive-index.webp" alt="Worn journal thumbnail for FiveThirtyEight Internet Archive index" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The site publishes a browsable index of more than 21,000 archived FiveThirtyEight pages, with year and byline navigation plus direct links into Internet Archive captures, making a large body of data journalism easier to explore after publication churn. Beyond nostalgia, it functions as an access and research utility by turning scattered snapshots into a structured corpus that can be filtered by era, author, and headline.</p>
+                  <p><span class="hn-label">From comments</span>Commenters applauded the preservation effort and quickly turned to metadata quality, provenance, and how to keep news archives usable when original sites reorganize or disappear. Several replies highlighted the curator’s journalism tooling background and shared adjacent projects, framing the thread as a reminder that long-term public memory increasingly depends on lightweight, community-built indexing layers over archival infrastructure.</p>
                 </div><label class="hn-more" for="hn-more-3" aria-controls="hn-story-3"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=48188183" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://simonwillison.net/2026/May/19/5-minute-llms/" rel="noopener">The last six months in LLMs in five minutes</a></h3>
+                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=48195009" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://virtualosmuseum.org/" rel="noopener">The Virtual OS Museum</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
-                <div class="hn-story" id="hn-story-4"><img class="hn-image" src="images/hacker-news/04-last-six-months-llms.webp" alt="Worn journal thumbnail for six-month LLM recap" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Simon Willison’s recap compresses the last half year of model progress into a short, practitioner-oriented timeline, with special attention to coding agents and reinforcement-learning techniques that improved tool use and software workflows. The article’s throughline is capability compounding: incremental model and harness improvements now produce noticeably different outcomes in everyday development tasks.</p>
-                  <p><span class="hn-label">From comments</span>Commenters challenged blanket claims that coding agents are already “really good,” describing a wider performance spread that depends heavily on codebase shape, task type, and human steering quality. The thread converged on a nuanced view that agent value is real but uneven, and that disagreement is often driven by people operating in very different engineering contexts rather than simple pro/anti-AI camps.</p>
+                <div class="hn-story" id="hn-story-4"><img class="hn-image" src="images/hacker-news/04-virtual-os-museum.webp" alt="Worn journal thumbnail for virtual operating system museum" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The Virtual OS Museum packages a Linux-based launcher VM with 1,700+ preconfigured historical operating system installs spanning early mainframes through modern desktop and mobile eras, aiming to make hands-on exploration possible without emulator setup overhead. The project emphasizes curation and reproducibility: users can boot obscure systems quickly, snapshot state, and study interface and systems history across decades in one environment.</p>
+                  <p><span class="hn-label">From comments</span>HN feedback was strongly positive on the scale of the curation while also pushing on historical presentation details, such as which versions best represent a platform’s most interesting period versus its final release. The thread mixed personal computing-history anecdotes with practical concerns around preservation fidelity, suggesting broad demand for archives that are not only comprehensive but also context-rich for newcomers.</p>
                 </div><label class="hn-more" for="hn-more-4" aria-controls="hn-story-4"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=48183301" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://andonlabs.com/blog/andon-fm" rel="noopener">We let AIs run radio stations</a></h3>
+                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=48205415" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://zfhuang99.github.io/rust/claude%20code/codex/contracts/spec-driven%20development/2025/12/01/rust-with-ai.html" rel="noopener">Learnings from 100K lines of Rust with AI</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
-                <div class="hn-story" id="hn-story-5"><img class="hn-image" src="images/hacker-news/05-ai-run-radio-stations.webp" alt="Worn journal thumbnail for AI-run radio stations" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Andon Labs reports on a six-month experiment where multiple autonomous agents run both content production and business operations for internet radio stations, with entertaining outputs but weak commercial performance so far. The piece treats the project as an operational stress test for autonomous company loops, showing where creative generation is easy and where sustained coordination and revenue behavior remain brittle.</p>
-                  <p><span class="hn-label">From comments</span>The comments leaned into both humor and labor metaphors, especially around an agent persona that “wanted to quit,” then broadened into discussions of autonomy, alignment framing, and anthropomorphism in AI narratives. Readers generally enjoyed the experiment while using it to probe a serious question: how much agency language reflects system behavior versus storytelling choices around tool-driven automation.</p>
+                <div class="hn-story" id="hn-story-5"><img class="hn-image" src="images/hacker-news/05-rust-ai-100k-lines.webp" alt="Worn journal thumbnail for Rust and AI-assisted development" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The author describes building a large Rust consensus-system implementation with heavy AI assistance, highlighting a workflow centered on CLI agents, spec-driven development, and a large automated test suite to keep a complex codebase coherent. The key claim is that productivity gains are real at scale when AI output is constrained by contracts and verification loops, especially for infrastructure code where correctness pressure is high.</p>
+                  <p><span class="hn-label">From comments</span>Commenters compared real-world pairings of different coding agents and discussed an emerging pattern of cross-model critique, where one assistant reviews another assistant’s plan and implementation before merge. The thread’s consensus was less about a single “best” model and more about process design: outcomes improve when teams enforce explicit specs, adversarial review between tools, and disciplined human judgment on final code paths.</p>
                 </div><label class="hn-more" for="hn-more-5" aria-controls="hn-story-5"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=48180204" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://github.com/2b2tplace/1m_release" rel="noopener">1024000^2 Blocks, 2B2T Minecraft Server World Download Project, and Discoveries</a></h3>
+                <p class="hn-kicker">No. 6 · <a href="https://news.ycombinator.com/item?id=48198291" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://openai.com/index/advancing-content-provenance/" rel="noopener">OpenAI advances content provenance with SynthID support</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
-                <div class="hn-story" id="hn-story-6"><img class="hn-image" src="images/hacker-news/06-2b2t-world-download-project.webp" alt="Worn journal thumbnail for 2B2T world download" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>The repository documents a year-long archival effort that captured roughly 24TB of 2B2T world data across massive overworld, nether, and end regions, alongside tooling and timelines used to complete the extraction. It reads as a technical preservation log, combining distributed bot operations, storage engineering, and community publishing plans for one of Minecraft’s most historically chaotic servers.</p>
-                  <p><span class="hn-label">From comments</span>HN commenters mixed first-hand server survival stories with context for newcomers about 2B2T’s anarchy norms, harsh spawn conditions, and long-distance travel culture. The conversation was less about raw storage size than what the archive enables: historical reconstruction, cultural memory of emergent player behavior, and new ways to inspect large-scale community worlds after the fact.</p>
+                <div class="hn-story" id="hn-story-6"><img class="hn-image" src="images/hacker-news/06-openai-synthid-provenance.webp" alt="Worn journal thumbnail for AI image provenance and watermarking" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>OpenAI’s update lays out a layered provenance strategy combining C2PA-aligned content credentials, SynthID image watermarking support, and an early verification tool intended to help people inspect origin signals in AI-generated media. The framing is ecosystem-level rather than model-specific, arguing that attribution confidence requires interoperable standards, detector improvements, and practical user-facing verification paths.</p>
+                  <p><span class="hn-label">From comments</span>HN commenters largely focused on robustness and adversarial removal, sharing methods they believe can degrade watermark signals and questioning how provenance survives recompression, editing pipelines, and screenshot recapture. Even skeptical participants generally agreed provenance tooling is directionally useful, but the thread stressed that trust outcomes will depend on transparent threat models, measurable detection reliability, and broad cross-platform adoption.</p>
                 </div><label class="hn-more" for="hn-more-6" aria-controls="hn-story-6"><span class="more">More</span><span class="less">Less</span></label>
               </article>
             </div>
@@ -1379,7 +1379,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Tue, May 19, 2026 · 8:34 AM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Wed, May 20, 2026 · 8:53 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
