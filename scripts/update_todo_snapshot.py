@@ -8,6 +8,7 @@ import html
 import json
 import os
 import re
+import socket
 import ssl
 import sys
 import urllib.error
@@ -178,7 +179,7 @@ def main() -> int:
             return 1
         print(message)
         return 0
-    except (urllib.error.URLError, json.JSONDecodeError, ValueError) as exc:
+    except (TimeoutError, socket.timeout, urllib.error.URLError, json.JSONDecodeError, ValueError) as exc:
         message = f"Todo snapshot refresh skipped: {exc}"
         if args.strict:
             print(message, file=sys.stderr)
