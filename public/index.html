@@ -652,7 +652,7 @@
         line-height: 1.3;
         color: rgba(20, 20, 20, 0.82);
         position: relative;
-        max-height: 8.4em;
+        max-height: 16.2em;
         overflow: hidden;
       }
 
@@ -694,14 +694,14 @@
       }
 
       .hn-image {
-        width: 88px;
-        height: 64px;
+        width: 100%;
+        aspect-ratio: 16 / 7;
         object-fit: cover;
         border-radius: 8px;
         border: 1px solid rgba(20, 20, 20, 0.24);
-        filter: saturate(0.72);
-        float: left;
-        margin: 2px 8px 4px 0;
+        filter: saturate(0.78);
+        display: block;
+        margin: 0 0 8px;
       }
 
       .hn-more {
@@ -902,7 +902,7 @@
         }
 
         .hn-story {
-          max-height: 7.9em;
+          max-height: 13.6em;
         }
       }
 
@@ -955,18 +955,13 @@
           grid-template-columns: 1fr;
         }
 
-        .hn-image {
-          width: 108px;
-          height: 78px;
-        }
-
         .hn-title {
           font-size: 0.95rem;
         }
 
         .hn-story {
           font-size: 0.86rem;
-          max-height: 10.4em;
+          max-height: 15.4em;
         }
 
         footer {
@@ -999,13 +994,8 @@
           gap: 7px;
         }
 
-        .hn-image {
-          width: 76px;
-          height: 54px;
-        }
-
         .hn-story {
-          max-height: 7em;
+          max-height: 12.2em;
         }
       }
 
@@ -1029,7 +1019,7 @@
       <header class="topbar fade-up">
         <div class="topbar-meta">
           <span class="badge live">Live Desk</span>
-          <span class="badge">Mon, Aug 31, 2026</span>
+          <span class="badge">Tue, Sep 1, 2026</span>
           <span class="badge">PDT</span>
         </div>
         <h1 class="name">Adam Skye Jones</h1>
@@ -1235,62 +1225,62 @@
         <article class="panel fade-up delay-1" aria-label="Hacker News highlights">
           <div class="panel-head">
             <h2 class="panel-title">Hacker News Pulse</h2>
-            <span class="panel-meta">Aug 31 refresh</span>
+            <span class="panel-meta">Sep 1 refresh</span>
           </div>
           <div class="panel-body">
             <div class="hn-grid">
               <article class="hn-card">
-                <p class="hn-kicker">No. 5 · <a href="https://news.ycombinator.com/item?id=49479837" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html" rel="noopener">GUIs should be fully keyboard-driven</a></h3>
+                <p class="hn-kicker">No. 2 · <a href="https://news.ycombinator.com/item?id=49520022" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://github.com/ankidroid/Anki-Android/issues/21656" rel="noopener">AnkiDroid: Google Play no longer allowing Open Collective donation link</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-1" />
-                <div class="hn-story" id="hn-story-1"><img class="hn-image" src="images/hacker-news/01-keyboard-driven-guis.webp" alt="Worn journal thumbnail for the keyboard-driven GUIs story" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Christos Kardaris argues that modern desktop GUIs have regressed by making the mouse the primary control surface instead of a convenience layered on top of a commandable interface. The essay pushes for a design baseline where every meaningful action is reachable through keyboard navigation, command palettes, and predictable focus movement, not merely a scattering of shortcuts added after the layout is finished. Its case is partly about speed and partly about dignity: if GUI software is serious productivity software, it should support expert flow and accessibility without forcing users to hunt visually for tiny targets.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread was broadly sympathetic to the goal but divided on how universal the prescription should be. Many commenters described keyboard-driven navigation as the only way large applications remain pleasant once complexity grows, then traded examples from editors, tiling tools, launchers, and file managers that get this mostly right. The pushback was practical rather than hostile: people noted that some interfaces are inherently spatial or pointer-first, so the real consensus was not that every GUI should behave like Vim, but that too many mainstream apps never even try to make keyboard control a first-class path.</p>
+                <div class="hn-story" id="hn-story-1"><img class="hn-image" src="images/hacker-news/01-ankidroid-google-play-donation-link.webp" alt="Worn journal thumbnail for the AnkiDroid donation-link story" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>AnkiDroid&apos;s maintainers say Google Play has rejected app updates over the project&apos;s Open Collective donation link, even after the team supplied documentation showing its fiscal host is tax-exempt. The issue explains that Google appears to be conflating a donor&apos;s tax deductibility with an organization&apos;s tax-exempt status, leaving the volunteer-run project stuck between removing its only visible funding link and risking delisting outside India and Russia on September 11. The write-up is useful because it is not a vague policy complaint: it lays out the exact timeline, the quoted policy language, and the narrow place where platform bureaucracy can destabilize routine open-source maintenance.</p>
+                  <p><span class="hn-label">From comments</span>The HN discussion centered on the ambiguity of Google&apos;s wording and the larger fragility of app-store distribution. Commenters kept returning to the same point: if the policy says tax-exempt donations are allowed, then AnkiDroid&apos;s host status should matter more than whether donors get a deduction, and Google&apos;s support responses read like multiple incompatible interpretations stitched together. The thread also widened into a platform critique, with people arguing that Android&apos;s nominal openness still leaves important volunteer software dependent on one repository owner&apos;s inconsistent enforcement.</p>
                 </div><label class="hn-more" for="hn-more-1" aria-controls="hn-story-1"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 4 · <a href="https://news.ycombinator.com/item?id=49495372" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://www.tomshardware.com/software/linux/california-lawmakers-unanimously-pass-linux-exemption-from-age-verification-law-software-distributed-under-the-gpl-mit-bsd-and-apache-licenses-are-exempt" rel="noopener">California lawmakers unanimously pass Linux exemption from age-verification law</a></h3>
+                <p class="hn-kicker">No. 8 · <a href="https://news.ycombinator.com/item?id=49519939" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://mvakde.github.io/blog/44-on-arc-1/" rel="noopener">I trained a small transformer in 1.5hrs and it beats many LLMs</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-2" />
-                <div class="hn-story" id="hn-story-2"><img class="hn-image" src="images/hacker-news/02-linux-exemption-law.webp" alt="Worn journal thumbnail for the Linux exemption law story" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Tom&apos;s Hardware reports that California lawmakers passed AB 1856 to carve open-source operating systems out of the state&apos;s Digital Age Assurance Act before the broader rules take effect on January 1, 2027. The amendment exempts systems distributed under licenses such as GPL, MIT, BSD, and Apache, clarifies definitions that had swept too broadly, and adds language meant to stop unnecessary age-signal requests. The practical effect is that Linux distributions avoid becoming accidental compliance targets, while proprietary operating systems and app ecosystems remain responsible for the age-gating machinery the law still expects.</p>
-                  <p><span class="hn-label">From comments</span>The HN discussion was much less celebratory than the headline. A few commenters saw the carve-out as proof that technical pushback from the Linux community and groups like EFF landed, but the dominant reaction was that the exemption only narrows the blast radius of a bad law instead of fixing the privacy problem underneath it. The thread kept circling around the same hard questions: whether this is really age verification at all, whether Linux users will just be locked out by large platforms, and whether a special exception merely exposes how incoherent the original policy was.</p>
+                <div class="hn-story" id="hn-story-2"><img class="hn-image" src="images/hacker-news/02-small-transformer-arc-agi.webp" alt="Worn journal thumbnail for the ARC-AGI small-transformer story" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>Mithil Vakde frames ARC as a sample-efficiency problem and shows a small transformer pipeline aimed at learning puzzle structure with very little data instead of leaning on giant pretrained models or synthetic corpora. The post&apos;s pitch is not just the 44 percent score on ARC-AGI-1, but the fact that the experiment was cheap and fast enough to encourage repeated iteration, which the author treats as a path toward more accessible and scientifically legible AI progress. The result reads like a case for smaller, more controlled research loops: ARC remains unsaturated, humans still find it easy, and a focused model can sometimes outperform the sprawling systems that dominate current discourse.</p>
+                  <p><span class="hn-label">From comments</span>The comments were impressed by the creativity of the result but careful about the headline claim. Some readers were excited to see non-LLM work and liked the emphasis on puzzle-specific abstraction, while others argued that saying it “beats many LLMs” blurs an important distinction because ARC is neither a language task nor a measure of general-purpose assistant quality. The thread settled into a productive tension between admiration for the research direction and skepticism about benchmark framing, with several people treating that tension itself as evidence that efficient, interpretable experiments deserve more attention.</p>
                 </div><label class="hn-more" for="hn-more-2" aria-controls="hn-story-2"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 7 · <a href="https://news.ycombinator.com/item?id=49490870" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://science.nasa.gov/mission/roman-space-telescope/" rel="noopener">Nancy Grace Roman Space Telescope</a></h3>
+                <p class="hn-kicker">No. 13 · <a href="https://news.ycombinator.com/item?id=49509655" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://www.monicahq.com/en/blog/we-are-rebuilding-monica/" rel="noopener">We Are Rebuilding Monica</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-3" />
-                <div class="hn-story" id="hn-story-3"><img class="hn-image" src="images/hacker-news/03-roman-space-telescope.webp" alt="Worn journal thumbnail for the Nancy Grace Roman Space Telescope story" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>NASA&apos;s Roman mission page positions the observatory as a wide-field infrared survey machine built to answer questions about dark energy, dark matter, and exoplanets rather than a direct Hubble replacement. The headline capability is scale: Roman can image a field far larger than Hubble&apos;s while still producing science-grade detail, which lets it measure light from vast numbers of galaxies and run broad statistical surveys that narrower telescopes cannot do efficiently. NASA also emphasizes the mission design choice that matters beyond astronomy headlines, namely that Roman&apos;s observations will feed a large public scientific archive around a telescope launched on August 30, 2026 toward Sun-Earth L2.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread focused less on launch hype and more on access patterns and scientific workflow. Commenters were enthusiastic about Roman&apos;s unusually open data stance, then immediately started debating the practical consequences of moving terabyte-scale survey data through cloud-hosted pipelines instead of assuming every researcher can download everything locally. The tone stayed optimistic, but it was the optimism of infrastructure-minded people: the interesting part was not just that Roman should see a lot, but that its data model could change who gets to work with frontier astronomy and how quickly they can do it.</p>
+                <div class="hn-story" id="hn-story-3"><img class="hn-image" src="images/hacker-news/03-rebuilding-monica.webp" alt="Worn journal thumbnail for the Monica rebuild story" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>Monica&apos;s founder says the open-source personal CRM is being rebuilt from scratch because nearly a decade of accumulated product decisions no longer matches the tool he would design now. Rather than presenting the rewrite as a purely technical modernization, the post goes back to the original motivation of remembering what matters about people and asks foundational modeling questions about relationships, reminders, activities, and what a “person” should even mean in the system. That makes the announcement more substantial than a framework migration: it is a product reset driven by a changed understanding of the domain as much as by the weight of old code.</p>
+                  <p><span class="hn-label">From comments</span>The HN thread immediately became a rewrite debate. Some commenters argued that LLMs and modern tooling have meaningfully lowered the cost of a clean restart, especially for a product of Monica&apos;s scale, while others pushed back that rewrites are still expensive unless the test suite is strong enough to keep regressions from leaking everywhere. A second line of discussion focused on the “personal CRM” idea itself, with people intrigued by the use case but uneasy about the ethics or social tone of systematizing relationships, which is exactly the kind of product ambiguity the post seems to be revisiting.</p>
                 </div><label class="hn-more" for="hn-more-3" aria-controls="hn-story-3"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 8 · <a href="https://news.ycombinator.com/item?id=49496782" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://arxiv.org/abs/1804.07389" rel="noopener">Longest Straight Line Paths on Water or Land on the Earth</a></h3>
+                <p class="hn-kicker">No. 15 · <a href="https://news.ycombinator.com/item?id=49517448" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://fastpotify.rocks/" rel="noopener">Fastpotify</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-4" />
-                <div class="hn-story" id="hn-story-4"><img class="hn-image" src="images/hacker-news/04-longest-straight-line-paths.webp" alt="Worn journal thumbnail for the longest straight line paths story" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>The 2018 arXiv paper treats an internet puzzle as a real optimization problem: what is the longest great-circle segment you can travel on Earth without hitting land, and what is the analogous path on land without crossing major water. The authors use a branch-and-bound method against coastline-heavy global data to show that the famous sea route conjecture was essentially right, then compute a land answer as well. What makes the paper appealing is that it takes a toy question seriously enough to expose the messy geometry underneath it, including the fact that coastlines, islands, lakes, and map projections make “straight line” intuition much less reliable than it looks on a flat screen.</p>
-                  <p><span class="hn-label">From comments</span>The HN conversation had the energy of a globe on a table with too many fingers pointing at it. People enjoyed that the authors effectively validated a Reddit claim, shared visualization links, and then immediately began arguing over edge cases like canals, rivers, bridges, Antarctic ice, and whether below-sea-level terrain should count as water for the land route. The broad reaction was appreciative rather than adversarial: commenters liked that a mathematically respectable answer still left enough ambiguity around definitions to keep the map-nerd debate alive.</p>
+                <div class="hn-story" id="hn-story-4"><img class="hn-image" src="images/hacker-news/04-fastpotify.webp" alt="Worn journal thumbnail for the Fastpotify story" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>Fastpotify positions itself as a native, MIT-licensed Spotify client built in Rust with librespot, aimed at people who want the streaming service without the weight of a browser-engine desktop shell. The project foregrounds fast startup, lower memory use, local gapless playback, Spotify Connect controls, desktop media integration, and extra touches like a Winamp-style mini player and MilkDrop-compatible visualization. In practice the page is selling a specific philosophy as much as a feature list: music software should feel like a responsive desktop app again, not a sluggish web product that happens to play audio.</p>
+                  <p><span class="hn-label">From comments</span>The HN comments turned into a long-running indictment of the official Spotify client. People compared memory footprints, recounted years of keyboard-shortcut regressions and playback bugs, and treated Fastpotify as proof that the service does not inherently require a bloated interface layer to work well. The nostalgia in the thread was not just for old skins or Winamp references; it was for a time when desktop media players were expected to be fast, focused, and trustworthy, and many commenters saw this project as a small corrective to that lost baseline.</p>
                 </div><label class="hn-more" for="hn-more-4" aria-controls="hn-story-4"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 10 · <a href="https://news.ycombinator.com/item?id=49494520" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://danluu.com/bug-blind/" rel="noopener">Bug Blindness</a></h3>
+                <p class="hn-kicker">No. 18 · <a href="https://news.ycombinator.com/item?id=49521973" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://blog.mozilla.org/en/firefox/ad-blocker-on-ios/" rel="noopener">Introducing Ad Blocker for Firefox on iOS</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-5" />
-                <div class="hn-story" id="hn-story-5"><img class="hn-image" src="images/hacker-news/05-bug-blindness.webp" alt="Worn journal thumbnail for the bug blindness story" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>Dan Luu argues that many software teams are not merely shipping with known tradeoffs, but are systematically unable to see how broken their products feel to ordinary users. His examples range from search quality and course software to the personal habits people build around long-lived bugs, and his main claim is that quality blindness is part perceptual training problem and part organizational failure. The essay lands because it refuses the comfortable excuse that users are doing strange edge-case things; instead it suggests that much of “computer literacy” is really an accumulated library of workarounds for software that should have worked the first time.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread immediately re-enacted the essay in miniature. Some commenters embraced the post as a useful name for the gap between builder mental models and user reality, while others pushed back on where to draw the boundary between a true bug and a broader product-quality problem like mediocre search results or bad typography. Even that disagreement was productive: the discussion kept returning to the same underlying issue that users judge software by outcomes, not by whether an engineer can classify the failure mode precisely.</p>
+                <div class="hn-story" id="hn-story-5"><img class="hn-image" src="images/hacker-news/05-firefox-ios-ad-blocker.webp" alt="Worn journal thumbnail for the Firefox iOS ad-blocker story" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>Mozilla is adding an optional built-in ad blocker to Firefox on iOS that uses Apple&apos;s WebKit content-blocker APIs plus EasyList to suppress many third-party ads and related trackers before they load. The post is careful about constraints: the feature is off by default, it will not block every ad, and it exists precisely because iOS does not let Firefox offer the same extension ecosystem it has on desktop and Android. The announcement matters less as a dramatic technical leap than as a pragmatic concession to platform rules, showing Mozilla embedding a privacy feature directly into the browser where user-installed tooling is structurally limited.</p>
+                  <p><span class="hn-label">From comments</span>The comments were supportive of the direction but immediately ran into rollout frustration and platform comparison. Several people said the feature was being described as launched even though it still had not appeared for them, while others compared it with Safari, Brave, Orion, and iOS content-blocker apps to argue that Mozilla is catching up rather than opening entirely new ground. Even so, the thread&apos;s underlying mood was that any built-in ad relief on iOS matters, because the mobile web has become noisy enough that users will tolerate only so much purity from browsers that cannot practically filter it.</p>
                 </div><label class="hn-more" for="hn-more-5" aria-controls="hn-story-5"><span class="more">More</span><span class="less">Less</span></label>
               </article>
               <article class="hn-card">
-                <p class="hn-kicker">No. 11 · <a href="https://news.ycombinator.com/item?id=49494182" rel="noopener">HN</a></p>
-                <h3 class="hn-title"><a href="https://www.texastribune.org/2026/08/28/texas-flock-cameras-auto-insurance-fee-mvcpa-grants/" rel="noopener">Lawmakers added $1 to car insurance policies. That money paid for Flock cameras</a></h3>
+                <p class="hn-kicker">No. 22 · <a href="https://news.ycombinator.com/item?id=49517624" rel="noopener">HN</a></p>
+                <h3 class="hn-title"><a href="https://restroomarchive.com/" rel="noopener">Restroom Archive</a></h3>
                 <input class="hn-toggle" type="checkbox" id="hn-more-6" />
-                <div class="hn-story" id="hn-story-6"><img class="hn-image" src="images/hacker-news/06-flock-cameras.webp" alt="Worn journal thumbnail for the Flock cameras story" loading="lazy" decoding="async" />
-                  <p><span class="hn-label">From link</span>The Texas Tribune reports that a statewide $1 increase on auto insurance policies, sold in 2023 as a response to catalytic-converter theft, ended up funding a rapid expansion of Texas&apos;s Flock surveillance camera network. The paper traced at least tens of millions of dollars from the fee into grants and state purchases that helped deploy thousands of license-plate-reading cameras across cities, highways, and toll roads, often without the legislators who backed the fee realizing that this was where the money would flow. The reporting matters because it ties an ordinary household charge to a concrete surveillance buildout, not as an abstract privacy fear but as a documented public-finance pipeline.</p>
-                  <p><span class="hn-label">From comments</span>The HN thread was openly hostile to the policy tradeoff and only partly interested in catalytic-converter theft itself. Commenters argued that this looked less like a narrowly tailored anti-crime response and more like a durable way to subsidize mass surveillance infrastructure, with side debates about geofence warrants, corruption risks, and how little democratic consent people really gave to being continuously recorded in public. Even when people disagreed on the constitutional line, the core mood was the same: if a surveillance network has to be smuggled in through an insurance fee, that says something unflattering about the policy on its face.</p>
+                <div class="hn-story" id="hn-story-6"><img class="hn-image" src="images/hacker-news/06-restroom-archive.webp" alt="Worn journal thumbnail for the Restroom Archive story" loading="lazy" decoding="async" />
+                  <p><span class="hn-label">From link</span>The Restroom Archive is a catalog of public and semi-public restrooms documented with a level of architectural care usually reserved for galleries, menus, or transit maps. Each entry logs place, date, spatial details, materials, accessibility hints, and small observations about maintenance, light, or decoration, which turns an overlooked utilitarian space into a design object and an urban record. What makes the site stick is its seriousness: it does not present the bathroom as a joke prop, but as a recurring civic experience worthy of photography, notation, and comparative taste.</p>
+                  <p><span class="hn-label">From comments</span>The HN thread oscillated between earnest appreciation and bathroom-nerd comedy, but the appreciation carried it. People swapped stories about hunting for the best hotel or museum restroom while traveling, suggested integrations with mapping tools, and used the project as an excuse to complain about splashy sinks, hostile doors, and other universal restroom design failures. Beneath the jokes was a real consensus that the archive works because it notices something most people rely on constantly and almost never document well, which made the obsessive specificity feel charming rather than absurd.</p>
                 </div><label class="hn-more" for="hn-more-6" aria-controls="hn-story-6"><span class="more">More</span><span class="less">Less</span></label>
               </article>
             </div>
@@ -1316,7 +1306,7 @@
                   <div class="holiday-dow" role="columnheader">Sat</div>
                   <div class="holiday-cell is-empty" role="gridcell"></div>
                   <div class="holiday-cell is-empty" role="gridcell"></div>
-                  <div class="holiday-cell" role="gridcell"><span class="day">1</span></div>
+                  <div class="holiday-cell is-today" role="gridcell"><span class="day">1</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">2</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">3</span></div>
                   <div class="holiday-cell" role="gridcell"><span class="day">4</span></div>
@@ -1364,6 +1354,10 @@
                   <span class="holiday-date">Mon, Oct 12</span>
                   <span class="holiday-title">Thanksgiving</span>
                 </li>
+                <li class="holiday-row">
+                  <span class="holiday-date">Sat, Oct 31</span>
+                  <span class="holiday-title">Halloween</span>
+                </li>
               </ul>
               <!-- UPCOMING_HOLIDAYS_END -->
             </section>
@@ -1379,7 +1373,7 @@
         </article>
       </section>
 
-      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Mon, Aug 31, 2026 · 2:24 PM PDT.</footer>
+      <footer class="fade-up delay-2" id="footer-updated-at">Built to not last. Updated Tue, Sep 1, 2026 · 10:34 AM PDT.</footer>
     </main>
     <script src="js/focus-cards.js?v=2026-03-02-1" defer></script>
     <script src="js/daily-sketch-card.js?v=2026-02-27-2" defer></script>
